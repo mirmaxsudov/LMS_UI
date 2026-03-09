@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.tanstack
+.idea
+.vite
+tsconfig.tsbuildinfo
+
+# Ignore TanStack generated routes
+src/routeTree.gen.ts

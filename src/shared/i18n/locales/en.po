@@ -1,0 +1,540 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-01-13 18:12+0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+msgid "{activeCount} active, {queuedCount} queued, {completedCount} done"
+msgstr "{activeCount} active, {queuedCount} queued, {completedCount} done"
+
+msgid "{selectedCount} of {pageCount} row(s) selected."
+msgstr "{selectedCount} of {pageCount} row(s) selected."
+
+msgid "{selectedItemsLength} selected"
+msgstr "{selectedItemsLength} selected"
+
+msgid "{selectedSize} selected"
+msgstr "{selectedSize} selected"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "All files"
+msgstr "All files"
+
+msgid "Appearance"
+msgstr "Appearance"
+
+msgid "April"
+msgstr "April"
+
+msgid "Are you sure to logout?"
+msgstr "Are you sure to logout?"
+
+msgid "Are you sure you want to delete {selectedItemsLength} items? This action cannot be undone."
+msgstr "Are you sure you want to delete {selectedItemsLength} items? This action cannot be undone."
+
+msgid "Are you sure you want to delete {selectedItemsLength} selected items? This action cannot be undone."
+msgstr "Are you sure you want to delete {selectedItemsLength} selected items? This action cannot be undone."
+
+msgid "Are you sure you want to delete this {itemName}? This action cannot be undone."
+msgstr "Are you sure you want to delete this {itemName}? This action cannot be undone."
+
+msgid "August"
+msgstr "August"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Clear filter"
+msgstr "Clear filter"
+
+msgid "Clear filters"
+msgstr "Clear filters"
+
+msgid "Click to upload a new photo"
+msgstr "Click to upload a new photo"
+
+msgid "Code resent successfully"
+msgstr "Code resent successfully"
+
+msgid "Code sent to"
+msgstr "Code sent to"
+
+msgid "Completed"
+msgstr "Completed"
+
+msgid "Confirm password"
+msgstr "Confirm password"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Confirm password is required"
+msgstr "Confirm password is required"
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Copy link"
+msgstr "Copy link"
+
+msgid "Create folder"
+msgstr "Create folder"
+
+msgid "Create new folder"
+msgstr "Create new folder"
+
+msgid "Create or upload files"
+msgstr "Create or upload files"
+
+msgid "Create your account"
+msgstr "Create your account"
+
+msgid "Created at"
+msgstr "Created at"
+
+msgid "Created At"
+msgstr "Created At"
+
+msgid "Customize how MyCloude looks and feels."
+msgstr "Customize how MyCloude looks and feels."
+
+msgid "Dark"
+msgstr "Dark"
+
+msgid "December"
+msgstr "December"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete {itemName}"
+msgstr "Delete {itemName}"
+
+msgid "Delete {selectedItemsLength} items"
+msgstr "Delete {selectedItemsLength} items"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Edit folder"
+msgstr "Edit folder"
+
+msgid "Enter the 6-digit verification code"
+msgstr "Enter the 6-digit verification code"
+
+#. placeholder {0}: verificationPhoneNumber || t`your phone number`
+msgid "Enter the code sent to {0}"
+msgstr "Enter the code sent to {0}"
+
+msgid "Enter your phone number below to login to your account"
+msgstr "Enter your phone number below to login to your account"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error updating profile"
+msgstr "Error updating profile"
+
+msgid "Failed to create folder."
+msgstr "Failed to create folder."
+
+msgid "Failed to register. Please try again."
+msgstr "Failed to register. Please try again."
+
+msgid "Failed to resend code"
+msgstr "Failed to resend code"
+
+msgid "Failed to resolve upload ID from tus upload URL"
+msgstr "Failed to resolve upload ID from tus upload URL"
+
+msgid "Favourite files"
+msgstr "Favourite files"
+
+msgid "February"
+msgstr "February"
+
+msgid "File"
+msgstr "File"
+
+msgid "File size must be less than 5MB"
+msgstr "File size must be less than 5MB"
+
+msgid "Fill in your details to create a new account"
+msgstr "Fill in your details to create a new account"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Finalizing"
+msgstr "Finalizing"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "Folder Information"
+msgstr "Folder Information"
+
+msgid "Folder name"
+msgstr "Folder name"
+
+msgid "Full name"
+msgstr "Full name"
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Full name is required"
+msgstr "Full name is required"
+
+msgid "Glad to have you back! Let's get started."
+msgstr "Glad to have you back! Let's get started."
+
+msgid "Grid view"
+msgstr "Grid view"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Incorrect old password"
+msgstr "Incorrect old password"
+
+msgid "Invalid verification code"
+msgstr "Invalid verification code"
+
+msgid "Invite members"
+msgstr "Invite members"
+
+msgid "January"
+msgstr "January"
+
+msgid "John Doe"
+msgstr "John Doe"
+
+msgid "July"
+msgstr "July"
+
+msgid "June"
+msgstr "June"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Light"
+msgstr "Light"
+
+msgid "Loading more..."
+msgstr "Loading more..."
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Login to your account"
+msgstr "Login to your account"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Make a favorite"
+msgstr "Make a favorite"
+
+msgid "Manage your personal information and account settings."
+msgstr "Manage your personal information and account settings."
+
+msgid "March"
+msgstr "March"
+
+msgid "May"
+msgstr "May"
+
+msgid "Monitor your storage usage and manage your plan."
+msgstr "Monitor your storage usage and manage your plan."
+
+msgid "My Storage"
+msgstr "My Storage"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "New password is required"
+msgstr "New password is required"
+
+msgid "No files or folders"
+msgstr "No files or folders"
+
+msgid "No preview available"
+msgstr "No preview available"
+
+msgid "No results found."
+msgstr "No results found."
+
+msgid "No results."
+msgstr "No results."
+
+msgid "No uploads yet."
+msgstr "No uploads yet."
+
+msgid "November"
+msgstr "November"
+
+msgid "October"
+msgstr "October"
+
+msgid "Old Password"
+msgstr "Old Password"
+
+msgid "Old password is required"
+msgstr "Old password is required"
+
+msgid "Open actions"
+msgstr "Open actions"
+
+msgid "Open folder"
+msgstr "Open folder"
+
+msgid "Open panel"
+msgstr "Open panel"
+
+msgid "Organize"
+msgstr "Organize"
+
+msgid "Owner"
+msgstr "Owner"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Password must be at least 4 characters long"
+msgstr "Password must be at least 4 characters long"
+
+msgid "Password Save Changes"
+msgstr "Password Save Changes"
+
+msgid "Password successfully updated"
+msgstr "Password successfully updated"
+
+msgid "Password updated successfully."
+msgstr "Password updated successfully."
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "Phone number"
+msgstr "Phone number"
+
+msgid "Phone number already registered"
+msgstr "Phone number already registered"
+
+msgid "Phone number verified successfully. Welcome!"
+msgstr "Phone number verified successfully. Welcome!"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Profile & Account"
+msgstr "Profile & Account"
+
+msgid "Profile Info Save Changes"
+msgstr "Profile Info Save Changes"
+
+msgid "Profile Picture"
+msgstr "Profile Picture"
+
+msgid "Profile updated successfully"
+msgstr "Profile updated successfully"
+
+msgid "Queued"
+msgstr "Queued"
+
+msgid "Quick actions"
+msgstr "Quick actions"
+
+msgid "Recent files"
+msgstr "Recent files"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Rename"
+msgstr "Rename"
+
+msgid "Resend code"
+msgstr "Resend code"
+
+msgid "Resending..."
+msgstr "Resending..."
+
+msgid "Rows per page"
+msgstr "Rows per page"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Search columns..."
+msgstr "Search columns..."
+
+msgid "Search files"
+msgstr "Search files"
+
+msgid "Search files and folders..."
+msgstr "Search files and folders..."
+
+msgid "Search..."
+msgstr "Search..."
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Select"
+msgstr "Select"
+
+msgid "Select all"
+msgstr "Select all"
+
+msgid "Select date"
+msgstr "Select date"
+
+msgid "Select row"
+msgstr "Select row"
+
+msgid "September"
+msgstr "September"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Share"
+msgstr "Share"
+
+msgid "Share with people"
+msgstr "Share with people"
+
+msgid "Something went wrong!"
+msgstr "Something went wrong!"
+
+msgid "Starting"
+msgstr "Starting"
+
+msgid "Storage"
+msgstr "Storage"
+
+msgid "Storage used"
+msgstr "Storage used"
+
+msgid "Successfully created."
+msgstr "Successfully created."
+
+msgid "Successfully updated."
+msgstr "Successfully updated."
+
+msgid "Table view"
+msgstr "Table view"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "This field is required."
+msgstr "This field is required."
+
+msgid "Tozalash"
+msgstr "Tozalash"
+
+msgid "Transfers"
+msgstr "Transfers"
+
+msgid "Try again in {resendCooldown}s"
+msgstr "Try again in {resendCooldown}s"
+
+msgid "Tus uploads are not supported in this browser."
+msgstr "Tus uploads are not supported in this browser."
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Updated at"
+msgstr "Updated at"
+
+msgid "Updated At"
+msgstr "Updated At"
+
+msgid "Upgrade Plan"
+msgstr "Upgrade Plan"
+
+msgid "Upload failed"
+msgstr "Upload failed"
+
+msgid "Upload failed."
+msgstr "Upload failed."
+
+msgid "Upload files"
+msgstr "Upload files"
+
+msgid "Uploading"
+msgstr "Uploading"
+
+msgid "Uploads completed successfully."
+msgstr "Uploads completed successfully."
+
+msgid "used of"
+msgstr "used of"
+
+msgid "Verification"
+msgstr "Verification"
+
+msgid "Verification code"
+msgstr "Verification code"
+
+msgid "Verification code sent"
+msgstr "Verification code sent"
+
+msgid "Verify and finish"
+msgstr "Verify and finish"
+
+msgid "Verify your phone number"
+msgstr "Verify your phone number"
+
+msgid "View"
+msgstr "View"
+
+msgid "View details"
+msgstr "View details"
+
+msgid "Welcome back, {displayName}"
+msgstr "Welcome back, {displayName}"
+
+msgid "You can resend now"
+msgstr "You can resend now"
+
+msgid "You have reached the maximum number of OTP requests. Please try again later."
+msgstr "You have reached the maximum number of OTP requests. Please try again later."
+
+msgid "your phone number"
+msgstr "your phone number"

@@ -1,0 +1,540 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-01-13 18:12+0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ru\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+msgid "{activeCount} active, {queuedCount} queued, {completedCount} done"
+msgstr ""
+
+msgid "{selectedCount} of {pageCount} row(s) selected."
+msgstr "Выбрано строк: {selectedCount} из {pageCount}."
+
+msgid "{selectedItemsLength} selected"
+msgstr ""
+
+msgid "{selectedSize} selected"
+msgstr "Выбрано: {selectedSize}"
+
+msgid "Actions"
+msgstr ""
+
+msgid "All files"
+msgstr ""
+
+msgid "Appearance"
+msgstr "Внешний вид"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "Are you sure to logout?"
+msgstr "Вы уверены, что хотите выйти?"
+
+msgid "Are you sure you want to delete {selectedItemsLength} items? This action cannot be undone."
+msgstr ""
+
+msgid "Are you sure you want to delete {selectedItemsLength} selected items? This action cannot be undone."
+msgstr ""
+
+msgid "Are you sure you want to delete this {itemName}? This action cannot be undone."
+msgstr "Вы уверены, что хотите удалить {itemName}? Это действие нельзя отменить."
+
+msgid "August"
+msgstr "Август"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Clear filter"
+msgstr "Очистить фильтр"
+
+msgid "Clear filters"
+msgstr "Очистить фильтры"
+
+msgid "Click to upload a new photo"
+msgstr ""
+
+msgid "Code resent successfully"
+msgstr ""
+
+msgid "Code sent to"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Confirm password"
+msgstr "Подтвердить пароль"
+
+msgid "Confirm Password"
+msgstr ""
+
+msgid "Confirm password is required"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Copy link"
+msgstr ""
+
+msgid "Create folder"
+msgstr ""
+
+msgid "Create new folder"
+msgstr ""
+
+msgid "Create or upload files"
+msgstr ""
+
+msgid "Create your account"
+msgstr ""
+
+msgid "Created at"
+msgstr ""
+
+msgid "Created At"
+msgstr ""
+
+msgid "Customize how MyCloude looks and feels."
+msgstr ""
+
+msgid "Dark"
+msgstr "Темный"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete {itemName}"
+msgstr "Удалить {itemName}"
+
+msgid "Delete {selectedItemsLength} items"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Edit folder"
+msgstr ""
+
+msgid "Enter the 6-digit verification code"
+msgstr ""
+
+#. placeholder {0}: verificationPhoneNumber || t`your phone number`
+msgid "Enter the code sent to {0}"
+msgstr ""
+
+msgid "Enter your phone number below to login to your account"
+msgstr "Введите номер телефона ниже, чтобы войти в аккаунт"
+
+msgid "Error"
+msgstr ""
+
+msgid "Error updating profile"
+msgstr ""
+
+msgid "Failed to create folder."
+msgstr ""
+
+msgid "Failed to register. Please try again."
+msgstr ""
+
+msgid "Failed to resend code"
+msgstr ""
+
+msgid "Failed to resolve upload ID from tus upload URL"
+msgstr ""
+
+msgid "Favourite files"
+msgstr ""
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "File"
+msgstr ""
+
+msgid "File size must be less than 5MB"
+msgstr ""
+
+msgid "Fill in your details to create a new account"
+msgstr ""
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Finalizing"
+msgstr ""
+
+msgid "Folder"
+msgstr ""
+
+msgid "Folder Information"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "Full Name"
+msgstr ""
+
+msgid "Full name is required"
+msgstr ""
+
+msgid "Glad to have you back! Let's get started."
+msgstr ""
+
+msgid "Grid view"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Incorrect old password"
+msgstr ""
+
+msgid "Invalid verification code"
+msgstr ""
+
+msgid "Invite members"
+msgstr ""
+
+msgid "January"
+msgstr "Январь"
+
+msgid "John Doe"
+msgstr ""
+
+msgid "July"
+msgstr "Июль"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Light"
+msgstr "Светлый"
+
+msgid "Loading more..."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Login to your account"
+msgstr "Войдите в свой аккаунт"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Make a favorite"
+msgstr ""
+
+msgid "Manage your personal information and account settings."
+msgstr ""
+
+msgid "March"
+msgstr "Март"
+
+msgid "May"
+msgstr "Май"
+
+msgid "Monitor your storage usage and manage your plan."
+msgstr ""
+
+msgid "My Storage"
+msgstr ""
+
+msgid "Name"
+msgstr "Название"
+
+msgid "New Password"
+msgstr ""
+
+msgid "New password is required"
+msgstr ""
+
+msgid "No files or folders"
+msgstr ""
+
+msgid "No preview available"
+msgstr ""
+
+msgid "No results found."
+msgstr "Результаты не найдены."
+
+msgid "No results."
+msgstr "Нет результатов."
+
+msgid "No uploads yet."
+msgstr ""
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "Old Password"
+msgstr ""
+
+msgid "Old password is required"
+msgstr ""
+
+msgid "Open actions"
+msgstr ""
+
+msgid "Open folder"
+msgstr ""
+
+msgid "Open panel"
+msgstr ""
+
+msgid "Organize"
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password must be at least 4 characters long"
+msgstr "Пароль должен содержать не менее 4 символов"
+
+msgid "Password Save Changes"
+msgstr ""
+
+msgid "Password successfully updated"
+msgstr ""
+
+msgid "Password updated successfully."
+msgstr "Пароль успешно обновлён."
+
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+msgid "Phone number"
+msgstr "Номер телефона"
+
+msgid "Phone number already registered"
+msgstr ""
+
+msgid "Phone number verified successfully. Welcome!"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Profile & Account"
+msgstr ""
+
+msgid "Profile Info Save Changes"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Profile updated successfully"
+msgstr ""
+
+msgid "Queued"
+msgstr ""
+
+msgid "Quick actions"
+msgstr ""
+
+msgid "Recent files"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Resend code"
+msgstr ""
+
+msgid "Resending..."
+msgstr ""
+
+msgid "Rows per page"
+msgstr "Строк на странице"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Search columns..."
+msgstr ""
+
+msgid "Search files"
+msgstr ""
+
+msgid "Search files and folders..."
+msgstr ""
+
+msgid "Search..."
+msgstr "Поиск..."
+
+msgid "Security"
+msgstr "Безопасность"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Select all"
+msgstr ""
+
+msgid "Select date"
+msgstr "Выберите дату"
+
+msgid "Select row"
+msgstr ""
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Share"
+msgstr ""
+
+msgid "Share with people"
+msgstr ""
+
+msgid "Something went wrong!"
+msgstr "Что-то пошло не так!"
+
+msgid "Starting"
+msgstr ""
+
+msgid "Storage"
+msgstr ""
+
+msgid "Storage used"
+msgstr ""
+
+msgid "Successfully created."
+msgstr "Успешно создано."
+
+msgid "Successfully updated."
+msgstr ""
+
+msgid "Table view"
+msgstr ""
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "This field is required."
+msgstr "Это поле обязательно для заполнения."
+
+msgid "Tozalash"
+msgstr "Очистить"
+
+msgid "Transfers"
+msgstr ""
+
+msgid "Try again in {resendCooldown}s"
+msgstr ""
+
+msgid "Tus uploads are not supported in this browser."
+msgstr ""
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Updated at"
+msgstr ""
+
+msgid "Updated At"
+msgstr ""
+
+msgid "Upgrade Plan"
+msgstr ""
+
+msgid "Upload failed"
+msgstr ""
+
+msgid "Upload failed."
+msgstr ""
+
+msgid "Upload files"
+msgstr ""
+
+msgid "Uploading"
+msgstr ""
+
+msgid "Uploads completed successfully."
+msgstr ""
+
+msgid "used of"
+msgstr ""
+
+msgid "Verification"
+msgstr ""
+
+msgid "Verification code"
+msgstr ""
+
+msgid "Verification code sent"
+msgstr ""
+
+msgid "Verify and finish"
+msgstr ""
+
+msgid "Verify your phone number"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "View details"
+msgstr ""
+
+msgid "Welcome back, {displayName}"
+msgstr ""
+
+msgid "You can resend now"
+msgstr ""
+
+msgid "You have reached the maximum number of OTP requests. Please try again later."
+msgstr ""
+
+msgid "your phone number"
+msgstr ""
