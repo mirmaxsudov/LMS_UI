@@ -9,7 +9,8 @@ export const Route = createFileRoute('/_authenticated/')({
     const key = AUTH_QUERY_KEYS.me;
     const res = queryClient.getQueryData<AxiosResponse<User>>([key]);
     const user = res?.data;
+
     if (!user) throw redirect({ to: '/login' });
-    else throw redirect({ to: '/' });
+    throw redirect({ to: '/dashboard' });
   }
 });

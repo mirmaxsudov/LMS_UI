@@ -38,7 +38,7 @@ export const ThemeProvider = ({
       root.classList.add(theme); // Add the new theme class
     };
 
-    applyTheme(theme);
+    applyTheme('light'); // theme
   }, [theme]);
 
   const setTheme = (theme: Theme) => {

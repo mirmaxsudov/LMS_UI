@@ -25,7 +25,9 @@ const AuthenticatedLayout = () => {
           </Link>
           <ThemeSwitch />
         </div>
-        <Outlet />
+        <div className='my-auto w-full max-w-md self-center'>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

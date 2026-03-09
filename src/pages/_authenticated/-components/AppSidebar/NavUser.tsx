@@ -39,7 +39,7 @@ export const NavUser = () => {
               size='lg'
             >
               <Avatar className='text-foreground size-11 rounded-lg uppercase'>
-                <AvatarFallback>{user.firstName.slice(0, 2)}</AvatarFallback>
+                <AvatarFallback>{user.firstName?.slice(0, 2)}</AvatarFallback>
               </Avatar>
               <div className='grid flex-1 text-left text-sm leading-tight'>
                 <span className='truncate font-medium'>{user.firstName}</span>

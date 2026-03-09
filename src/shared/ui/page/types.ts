@@ -5,6 +5,7 @@ import type React from 'react';
 interface BaseNavItem {
   allowedRoles?: UserRole | UserRole[];
   badge?: number | string | null | undefined;
+  disabled?: boolean;
   icon?: React.ElementType;
   params?: LinkProps['params'] | undefined;
   title: MessageDescriptor;

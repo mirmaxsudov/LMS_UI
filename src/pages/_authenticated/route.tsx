@@ -10,9 +10,9 @@ import { AppSidebar } from './-components/AppSidebar';
 const AuthenticatedLayout = () => {
   return (
     <SearchProvider>
-      <SidebarProvider defaultOpen={Cookies.get('sidebar_state') === 'true'}>
+      <SidebarProvider defaultOpen={Cookies.get('sidebar_state') !== 'false'}>
         <AppSidebar />
-        <SidebarInset>
+        <SidebarInset className='bg-background'>
           <Outlet />
         </SidebarInset>
       </SidebarProvider>
@@ -28,3 +28,4 @@ export const Route = createFileRoute('/_authenticated')({
   ),
   component: AuthenticatedLayout
 });
+

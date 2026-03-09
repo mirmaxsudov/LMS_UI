@@ -67,6 +67,19 @@ const NavBadge = ({ children }: { children: ReactNode }) => (
 const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
   const { t } = useLingui();
   const { setOpenMobile } = useSidebar();
+
+  if (item.disabled) {
+    return (
+      <SidebarMenuItem>
+        <SidebarMenuButton className='cursor-default opacity-70' disabled tooltip={t(item.title)}>
+          {item.icon && <item.icon />}
+          <span>{t(item.title)}</span>
+          {item.badge && <NavBadge>{item.badge}</NavBadge>}
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  }
+
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild isActive={checkIsActive(href, item)} tooltip={t(item.title)}>
@@ -183,6 +196,8 @@ const firstSeg = (s?: string) => s?.split('/')[1] ?? '';
 const stripQuery = (url: string) => url.split(/[?#]/)[0];
 
 export function checkIsActive(href: string, item: Omit<NavItem, 'title'>, mainNav = false) {
+  if (item.disabled) return false;
+
   const cleanHref = stripQuery(href);
   const url = stripQuery(resolve(item.url, item.params) ?? '');
 

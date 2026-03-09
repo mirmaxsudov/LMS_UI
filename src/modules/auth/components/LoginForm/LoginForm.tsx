@@ -35,7 +35,7 @@ export const LoginForm = () => {
       }
     }) => {
       Cookies.set(COOKIES.ACCESS_TOKEN, accessToken, { expires: 7 });
-      router.navigate({ to: '/' });
+      router.navigate({ to: '/dashboard' });
     }
   });
 
