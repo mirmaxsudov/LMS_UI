@@ -1,15 +1,27 @@
 import React from 'react';
 
+import type { FilterMap } from '@/shared/ui/filter/FilterToolbar';
+
 import { cn } from '@/shared/lib/utils.ts';
+import { FilterToolbar } from '@/shared/ui/filter';
 
-interface MainProps extends React.ComponentProps<'main'> {}
+type FilterConfig = FilterMap[keyof FilterMap];
 
-export const PageContent = ({ ref, className, ...props }: MainProps) => {
+interface MainProps extends React.ComponentProps<'main'> {
+  filtersConfig?: FilterConfig[];
+}
+
+export const PageContent = ({ ref, className, filtersConfig, children, ...props }: MainProps) => {
   return (
     <main
       ref={ref}
       className={cn('bg-background flex-1 overflow-y-auto px-6 py-4', className)}
       {...props}
-    />
+    >
+      {filtersConfig?.length ? (
+        <FilterToolbar className='mb-4 flex-wrap' filters={filtersConfig} />
+      ) : null}
+      {children}
+    </main>
   );
 };
