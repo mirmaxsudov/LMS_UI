@@ -1,8 +1,11 @@
 interface Pagination<T> {
-  count: number;
-  next: string | null;
-  previous: string | null;
+  hasNext: boolean;
+  message: string;
+  page: number;
   results: T[];
+  size: number;
+  success: boolean;
+  total: number;
 }
 
 interface ApiResponse<T> {
@@ -10,3 +13,12 @@ interface ApiResponse<T> {
   message: string;
   success: boolean;
 }
+
+type Nullable<T> = T | null;
+
+// Apis
+
+type PaginationRequest = Partial<{
+  page: number;
+  size: number;
+}>;

@@ -43,7 +43,9 @@ export const NavUser = () => {
               </Avatar>
               <div className='grid flex-1 text-left text-sm leading-tight'>
                 <span className='truncate font-medium'>{user.firstName}</span>
-                <span className='truncate text-xs'>{formatPhoneNumber(user.phoneNumber)}</span>
+                <span className='truncate text-xs'>
+                  {user.phoneNumber ? formatPhoneNumber(user.phoneNumber) : '-'}
+                </span>
               </div>
               <ChevronsUpDown className='ml-auto size-5' />
             </SidebarMenuButton>
@@ -56,7 +58,7 @@ export const NavUser = () => {
               <div className='flex flex-col space-y-1'>
                 <p className='text-sm leading-none font-medium'>{user.firstName}</p>
                 <p className='text-muted-foreground text-xs leading-none'>
-                  {formatPhoneNumber(user.phoneNumber)}
+                  {user.phoneNumber ? formatPhoneNumber(user.phoneNumber) : '-'}
                 </p>
               </div>
             </DropdownMenuLabel>

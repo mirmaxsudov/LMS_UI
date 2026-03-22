@@ -33,7 +33,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
             asChild
             className='w-fit justify-start rounded-xl px-2.5 py-2 group-data-[collapsible=icon]:p-1.5!'
           >
-            <Link to='/dashboard'>
+            <Link to='/settings'>
               <span className='bg-primary text-primary-foreground inline-flex size-11 items-center justify-center rounded-2xl'>
                 <GraduationCapIcon className='size-5' />
               </span>

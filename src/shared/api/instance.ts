@@ -34,12 +34,12 @@ const redirectToLogin = () => {
 };
 
 const isRefreshRequest = (url?: string) =>
-  url?.includes('authentication/users/token-refresh/') ?? false;
+  url?.includes('authentication/user/token-refresh/') ?? false;
 
 const isAuthEndpointRequest = (url?: string) =>
-  url?.includes('authentication/users/login/') ||
-  url?.includes('authentication/users/register/') ||
-  url?.includes('authentication/users/otp/') ||
+  url?.includes('authentication/user/login/') ||
+  url?.includes('authentication/user/register/') ||
+  url?.includes('authentication/user/otp/') ||
   isRefreshRequest(url) ||
   false;
 
@@ -50,7 +50,7 @@ const isAuthEndpointRequest = (url?: string) =>
 //   if (!refreshPromise) {
 //     refreshPromise = axios
 //       .post<ApiResponse<TokenResponse>>(
-//         'authentication/users/token-refresh/',
+//         'authentication/user/token-refresh/',
 //         { refresh_token: refreshToken },
 //         {
 //           baseURL: import.meta.env.VITE_API_URL,

@@ -14,8 +14,9 @@ import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
-import { Route as AuthenticatedSettingsSecurityIndexRouteImport } from './pages/_authenticated/settings/security/index'
-import { Route as AuthenticatedSettingsAccountIndexRouteImport } from './pages/_authenticated/settings/account/index'
+import { Route as AuthenticatedUserTeachersIndexRouteImport } from './pages/_authenticated/user/teachers/index'
+import { Route as AuthenticatedUserStudentsIndexRouteImport } from './pages/_authenticated/user/students/index'
+import { Route as AuthenticatedUserParentsIndexRouteImport } from './pages/_authenticated/user/parents/index'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -41,16 +42,22 @@ const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   path: '/login/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthenticatedSettingsSecurityIndexRoute =
-  AuthenticatedSettingsSecurityIndexRouteImport.update({
-    id: '/settings/security/',
-    path: '/settings/security/',
+const AuthenticatedUserTeachersIndexRoute =
+  AuthenticatedUserTeachersIndexRouteImport.update({
+    id: '/user/teachers/',
+    path: '/user/teachers/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedSettingsAccountIndexRoute =
-  AuthenticatedSettingsAccountIndexRouteImport.update({
-    id: '/settings/account/',
-    path: '/settings/account/',
+const AuthenticatedUserStudentsIndexRoute =
+  AuthenticatedUserStudentsIndexRouteImport.update({
+    id: '/user/students/',
+    path: '/user/students/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedUserParentsIndexRoute =
+  AuthenticatedUserParentsIndexRouteImport.update({
+    id: '/user/parents/',
+    path: '/user/parents/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
@@ -58,15 +65,17 @@ export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/settings/account': typeof AuthenticatedSettingsAccountIndexRoute
-  '/settings/security': typeof AuthenticatedSettingsSecurityIndexRoute
+  '/user/parents': typeof AuthenticatedUserParentsIndexRoute
+  '/user/students': typeof AuthenticatedUserStudentsIndexRoute
+  '/user/teachers': typeof AuthenticatedUserTeachersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/settings/account': typeof AuthenticatedSettingsAccountIndexRoute
-  '/settings/security': typeof AuthenticatedSettingsSecurityIndexRoute
+  '/user/parents': typeof AuthenticatedUserParentsIndexRoute
+  '/user/students': typeof AuthenticatedUserStudentsIndexRoute
+  '/user/teachers': typeof AuthenticatedUserTeachersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -75,8 +84,9 @@ export interface FileRoutesById {
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/_authenticated/settings/account/': typeof AuthenticatedSettingsAccountIndexRoute
-  '/_authenticated/settings/security/': typeof AuthenticatedSettingsSecurityIndexRoute
+  '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
+  '/_authenticated/user/students/': typeof AuthenticatedUserStudentsIndexRoute
+  '/_authenticated/user/teachers/': typeof AuthenticatedUserTeachersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -84,10 +94,17 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/settings'
-    | '/settings/account'
-    | '/settings/security'
+    | '/user/parents'
+    | '/user/students'
+    | '/user/teachers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/settings' | '/settings/account' | '/settings/security'
+  to:
+    | '/'
+    | '/login'
+    | '/settings'
+    | '/user/parents'
+    | '/user/students'
+    | '/user/teachers'
   id:
     | '__root__'
     | '/_auth'
@@ -95,8 +112,9 @@ export interface FileRouteTypes {
     | '/_authenticated/'
     | '/_auth/login/'
     | '/_authenticated/settings/'
-    | '/_authenticated/settings/account/'
-    | '/_authenticated/settings/security/'
+    | '/_authenticated/user/parents/'
+    | '/_authenticated/user/students/'
+    | '/_authenticated/user/teachers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -141,18 +159,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginIndexRouteImport
       parentRoute: typeof AuthRouteRoute
     }
-    '/_authenticated/settings/security/': {
-      id: '/_authenticated/settings/security/'
-      path: '/settings/security'
-      fullPath: '/settings/security'
-      preLoaderRoute: typeof AuthenticatedSettingsSecurityIndexRouteImport
+    '/_authenticated/user/teachers/': {
+      id: '/_authenticated/user/teachers/'
+      path: '/user/teachers'
+      fullPath: '/user/teachers'
+      preLoaderRoute: typeof AuthenticatedUserTeachersIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/settings/account/': {
-      id: '/_authenticated/settings/account/'
-      path: '/settings/account'
-      fullPath: '/settings/account'
-      preLoaderRoute: typeof AuthenticatedSettingsAccountIndexRouteImport
+    '/_authenticated/user/students/': {
+      id: '/_authenticated/user/students/'
+      path: '/user/students'
+      fullPath: '/user/students'
+      preLoaderRoute: typeof AuthenticatedUserStudentsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/user/parents/': {
+      id: '/_authenticated/user/parents/'
+      path: '/user/parents'
+      fullPath: '/user/parents'
+      preLoaderRoute: typeof AuthenticatedUserParentsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
   }
@@ -173,17 +198,17 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
-  AuthenticatedSettingsAccountIndexRoute: typeof AuthenticatedSettingsAccountIndexRoute
-  AuthenticatedSettingsSecurityIndexRoute: typeof AuthenticatedSettingsSecurityIndexRoute
+  AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
+  AuthenticatedUserStudentsIndexRoute: typeof AuthenticatedUserStudentsIndexRoute
+  AuthenticatedUserTeachersIndexRoute: typeof AuthenticatedUserTeachersIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
-  AuthenticatedSettingsAccountIndexRoute:
-    AuthenticatedSettingsAccountIndexRoute,
-  AuthenticatedSettingsSecurityIndexRoute:
-    AuthenticatedSettingsSecurityIndexRoute,
+  AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,
+  AuthenticatedUserStudentsIndexRoute: AuthenticatedUserStudentsIndexRoute,
+  AuthenticatedUserTeachersIndexRoute: AuthenticatedUserTeachersIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

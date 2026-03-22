@@ -11,6 +11,6 @@ export const Route = createFileRoute('/_authenticated/')({
     const user = res?.data;
 
     if (!user) throw redirect({ to: '/login' });
-    throw redirect({ to: '/dashboard' });
+    throw redirect({ to: '/settings' });
   }
 });
