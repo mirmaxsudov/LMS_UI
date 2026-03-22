@@ -13,30 +13,9 @@ import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/r
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
-import { Route as AuthenticatedProgressIndexRouteImport } from './pages/_authenticated/progress/index'
-import { Route as AuthenticatedProfileIndexRouteImport } from './pages/_authenticated/profile/index'
-import { Route as AuthenticatedNotificationsIndexRouteImport } from './pages/_authenticated/notifications/index'
-import { Route as AuthenticatedDiscussionsIndexRouteImport } from './pages/_authenticated/discussions/index'
-import { Route as AuthenticatedDashboardIndexRouteImport } from './pages/_authenticated/dashboard/index'
-import { Route as AuthenticatedCoursesIndexRouteImport } from './pages/_authenticated/courses/index'
-import { Route as AuthenticatedChildrenIndexRouteImport } from './pages/_authenticated/children/index'
-import { Route as AuthenticatedCertificatesIndexRouteImport } from './pages/_authenticated/certificates/index'
-import { Route as AuthenticatedCalendarIndexRouteImport } from './pages/_authenticated/calendar/index'
-import { Route as AuthenticatedAssignmentsIndexRouteImport } from './pages/_authenticated/assignments/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
-import { Route as AuthenticatedTeachingProgressIndexRouteImport } from './pages/_authenticated/teaching/progress/index'
-import { Route as AuthenticatedTeachingMessagesIndexRouteImport } from './pages/_authenticated/teaching/messages/index'
-import { Route as AuthenticatedTeachingLessonsIndexRouteImport } from './pages/_authenticated/teaching/lessons/index'
-import { Route as AuthenticatedTeachingCoursesIndexRouteImport } from './pages/_authenticated/teaching/courses/index'
-import { Route as AuthenticatedTeachingAssignmentsIndexRouteImport } from './pages/_authenticated/teaching/assignments/index'
 import { Route as AuthenticatedSettingsSecurityIndexRouteImport } from './pages/_authenticated/settings/security/index'
 import { Route as AuthenticatedSettingsAccountIndexRouteImport } from './pages/_authenticated/settings/account/index'
-import { Route as AuthenticatedDiscussionsThreadIndexRouteImport } from './pages/_authenticated/discussions/thread/index'
-import { Route as AuthenticatedCoursesPlayerIndexRouteImport } from './pages/_authenticated/courses/player/index'
-import { Route as AuthenticatedChildrenProgressIndexRouteImport } from './pages/_authenticated/children/progress/index'
-import { Route as AuthenticatedAssignmentsSubmissionIndexRouteImport } from './pages/_authenticated/assignments/submission/index'
-import { Route as AuthenticatedTeachingDiscussionsModerationIndexRouteImport } from './pages/_authenticated/teaching/discussions/moderation/index'
-import { Route as AuthenticatedTeachingCoursesCreateIndexRouteImport } from './pages/_authenticated/teaching/courses/create/index'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -57,101 +36,11 @@ const AuthenticatedSettingsIndexRoute =
     path: '/settings/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedProgressIndexRoute =
-  AuthenticatedProgressIndexRouteImport.update({
-    id: '/progress/',
-    path: '/progress/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedProfileIndexRoute =
-  AuthenticatedProfileIndexRouteImport.update({
-    id: '/profile/',
-    path: '/profile/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedNotificationsIndexRoute =
-  AuthenticatedNotificationsIndexRouteImport.update({
-    id: '/notifications/',
-    path: '/notifications/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedDiscussionsIndexRoute =
-  AuthenticatedDiscussionsIndexRouteImport.update({
-    id: '/discussions/',
-    path: '/discussions/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedDashboardIndexRoute =
-  AuthenticatedDashboardIndexRouteImport.update({
-    id: '/dashboard/',
-    path: '/dashboard/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedCoursesIndexRoute =
-  AuthenticatedCoursesIndexRouteImport.update({
-    id: '/courses/',
-    path: '/courses/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedChildrenIndexRoute =
-  AuthenticatedChildrenIndexRouteImport.update({
-    id: '/children/',
-    path: '/children/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedCertificatesIndexRoute =
-  AuthenticatedCertificatesIndexRouteImport.update({
-    id: '/certificates/',
-    path: '/certificates/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedCalendarIndexRoute =
-  AuthenticatedCalendarIndexRouteImport.update({
-    id: '/calendar/',
-    path: '/calendar/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAssignmentsIndexRoute =
-  AuthenticatedAssignmentsIndexRouteImport.update({
-    id: '/assignments/',
-    path: '/assignments/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   id: '/login/',
   path: '/login/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
-const AuthenticatedTeachingProgressIndexRoute =
-  AuthenticatedTeachingProgressIndexRouteImport.update({
-    id: '/teaching/progress/',
-    path: '/teaching/progress/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingMessagesIndexRoute =
-  AuthenticatedTeachingMessagesIndexRouteImport.update({
-    id: '/teaching/messages/',
-    path: '/teaching/messages/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingLessonsIndexRoute =
-  AuthenticatedTeachingLessonsIndexRouteImport.update({
-    id: '/teaching/lessons/',
-    path: '/teaching/lessons/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingCoursesIndexRoute =
-  AuthenticatedTeachingCoursesIndexRouteImport.update({
-    id: '/teaching/courses/',
-    path: '/teaching/courses/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingAssignmentsIndexRoute =
-  AuthenticatedTeachingAssignmentsIndexRouteImport.update({
-    id: '/teaching/assignments/',
-    path: '/teaching/assignments/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthenticatedSettingsSecurityIndexRoute =
   AuthenticatedSettingsSecurityIndexRouteImport.update({
     id: '/settings/security/',
@@ -164,98 +53,20 @@ const AuthenticatedSettingsAccountIndexRoute =
     path: '/settings/account/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedDiscussionsThreadIndexRoute =
-  AuthenticatedDiscussionsThreadIndexRouteImport.update({
-    id: '/discussions/thread/',
-    path: '/discussions/thread/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedCoursesPlayerIndexRoute =
-  AuthenticatedCoursesPlayerIndexRouteImport.update({
-    id: '/courses/player/',
-    path: '/courses/player/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedChildrenProgressIndexRoute =
-  AuthenticatedChildrenProgressIndexRouteImport.update({
-    id: '/children/progress/',
-    path: '/children/progress/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAssignmentsSubmissionIndexRoute =
-  AuthenticatedAssignmentsSubmissionIndexRouteImport.update({
-    id: '/assignments/submission/',
-    path: '/assignments/submission/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingDiscussionsModerationIndexRoute =
-  AuthenticatedTeachingDiscussionsModerationIndexRouteImport.update({
-    id: '/teaching/discussions/moderation/',
-    path: '/teaching/discussions/moderation/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedTeachingCoursesCreateIndexRoute =
-  AuthenticatedTeachingCoursesCreateIndexRouteImport.update({
-    id: '/teaching/courses/create/',
-    path: '/teaching/courses/create/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
-  '/assignments': typeof AuthenticatedAssignmentsIndexRoute
-  '/calendar': typeof AuthenticatedCalendarIndexRoute
-  '/certificates': typeof AuthenticatedCertificatesIndexRoute
-  '/children': typeof AuthenticatedChildrenIndexRoute
-  '/courses': typeof AuthenticatedCoursesIndexRoute
-  '/dashboard': typeof AuthenticatedDashboardIndexRoute
-  '/discussions': typeof AuthenticatedDiscussionsIndexRoute
-  '/notifications': typeof AuthenticatedNotificationsIndexRoute
-  '/profile': typeof AuthenticatedProfileIndexRoute
-  '/progress': typeof AuthenticatedProgressIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/assignments/submission': typeof AuthenticatedAssignmentsSubmissionIndexRoute
-  '/children/progress': typeof AuthenticatedChildrenProgressIndexRoute
-  '/courses/player': typeof AuthenticatedCoursesPlayerIndexRoute
-  '/discussions/thread': typeof AuthenticatedDiscussionsThreadIndexRoute
   '/settings/account': typeof AuthenticatedSettingsAccountIndexRoute
   '/settings/security': typeof AuthenticatedSettingsSecurityIndexRoute
-  '/teaching/assignments': typeof AuthenticatedTeachingAssignmentsIndexRoute
-  '/teaching/courses': typeof AuthenticatedTeachingCoursesIndexRoute
-  '/teaching/lessons': typeof AuthenticatedTeachingLessonsIndexRoute
-  '/teaching/messages': typeof AuthenticatedTeachingMessagesIndexRoute
-  '/teaching/progress': typeof AuthenticatedTeachingProgressIndexRoute
-  '/teaching/courses/create': typeof AuthenticatedTeachingCoursesCreateIndexRoute
-  '/teaching/discussions/moderation': typeof AuthenticatedTeachingDiscussionsModerationIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
-  '/assignments': typeof AuthenticatedAssignmentsIndexRoute
-  '/calendar': typeof AuthenticatedCalendarIndexRoute
-  '/certificates': typeof AuthenticatedCertificatesIndexRoute
-  '/children': typeof AuthenticatedChildrenIndexRoute
-  '/courses': typeof AuthenticatedCoursesIndexRoute
-  '/dashboard': typeof AuthenticatedDashboardIndexRoute
-  '/discussions': typeof AuthenticatedDiscussionsIndexRoute
-  '/notifications': typeof AuthenticatedNotificationsIndexRoute
-  '/profile': typeof AuthenticatedProfileIndexRoute
-  '/progress': typeof AuthenticatedProgressIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/assignments/submission': typeof AuthenticatedAssignmentsSubmissionIndexRoute
-  '/children/progress': typeof AuthenticatedChildrenProgressIndexRoute
-  '/courses/player': typeof AuthenticatedCoursesPlayerIndexRoute
-  '/discussions/thread': typeof AuthenticatedDiscussionsThreadIndexRoute
   '/settings/account': typeof AuthenticatedSettingsAccountIndexRoute
   '/settings/security': typeof AuthenticatedSettingsSecurityIndexRoute
-  '/teaching/assignments': typeof AuthenticatedTeachingAssignmentsIndexRoute
-  '/teaching/courses': typeof AuthenticatedTeachingCoursesIndexRoute
-  '/teaching/lessons': typeof AuthenticatedTeachingLessonsIndexRoute
-  '/teaching/messages': typeof AuthenticatedTeachingMessagesIndexRoute
-  '/teaching/progress': typeof AuthenticatedTeachingProgressIndexRoute
-  '/teaching/courses/create': typeof AuthenticatedTeachingCoursesCreateIndexRoute
-  '/teaching/discussions/moderation': typeof AuthenticatedTeachingDiscussionsModerationIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -263,118 +74,29 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
-  '/_authenticated/assignments/': typeof AuthenticatedAssignmentsIndexRoute
-  '/_authenticated/calendar/': typeof AuthenticatedCalendarIndexRoute
-  '/_authenticated/certificates/': typeof AuthenticatedCertificatesIndexRoute
-  '/_authenticated/children/': typeof AuthenticatedChildrenIndexRoute
-  '/_authenticated/courses/': typeof AuthenticatedCoursesIndexRoute
-  '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
-  '/_authenticated/discussions/': typeof AuthenticatedDiscussionsIndexRoute
-  '/_authenticated/notifications/': typeof AuthenticatedNotificationsIndexRoute
-  '/_authenticated/profile/': typeof AuthenticatedProfileIndexRoute
-  '/_authenticated/progress/': typeof AuthenticatedProgressIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/_authenticated/assignments/submission/': typeof AuthenticatedAssignmentsSubmissionIndexRoute
-  '/_authenticated/children/progress/': typeof AuthenticatedChildrenProgressIndexRoute
-  '/_authenticated/courses/player/': typeof AuthenticatedCoursesPlayerIndexRoute
-  '/_authenticated/discussions/thread/': typeof AuthenticatedDiscussionsThreadIndexRoute
   '/_authenticated/settings/account/': typeof AuthenticatedSettingsAccountIndexRoute
   '/_authenticated/settings/security/': typeof AuthenticatedSettingsSecurityIndexRoute
-  '/_authenticated/teaching/assignments/': typeof AuthenticatedTeachingAssignmentsIndexRoute
-  '/_authenticated/teaching/courses/': typeof AuthenticatedTeachingCoursesIndexRoute
-  '/_authenticated/teaching/lessons/': typeof AuthenticatedTeachingLessonsIndexRoute
-  '/_authenticated/teaching/messages/': typeof AuthenticatedTeachingMessagesIndexRoute
-  '/_authenticated/teaching/progress/': typeof AuthenticatedTeachingProgressIndexRoute
-  '/_authenticated/teaching/courses/create/': typeof AuthenticatedTeachingCoursesCreateIndexRoute
-  '/_authenticated/teaching/discussions/moderation/': typeof AuthenticatedTeachingDiscussionsModerationIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/login'
-    | '/assignments'
-    | '/calendar'
-    | '/certificates'
-    | '/children'
-    | '/courses'
-    | '/dashboard'
-    | '/discussions'
-    | '/notifications'
-    | '/profile'
-    | '/progress'
     | '/settings'
-    | '/assignments/submission'
-    | '/children/progress'
-    | '/courses/player'
-    | '/discussions/thread'
     | '/settings/account'
     | '/settings/security'
-    | '/teaching/assignments'
-    | '/teaching/courses'
-    | '/teaching/lessons'
-    | '/teaching/messages'
-    | '/teaching/progress'
-    | '/teaching/courses/create'
-    | '/teaching/discussions/moderation'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/login'
-    | '/assignments'
-    | '/calendar'
-    | '/certificates'
-    | '/children'
-    | '/courses'
-    | '/dashboard'
-    | '/discussions'
-    | '/notifications'
-    | '/profile'
-    | '/progress'
-    | '/settings'
-    | '/assignments/submission'
-    | '/children/progress'
-    | '/courses/player'
-    | '/discussions/thread'
-    | '/settings/account'
-    | '/settings/security'
-    | '/teaching/assignments'
-    | '/teaching/courses'
-    | '/teaching/lessons'
-    | '/teaching/messages'
-    | '/teaching/progress'
-    | '/teaching/courses/create'
-    | '/teaching/discussions/moderation'
+  to: '/' | '/login' | '/settings' | '/settings/account' | '/settings/security'
   id:
     | '__root__'
     | '/_auth'
     | '/_authenticated'
     | '/_authenticated/'
     | '/_auth/login/'
-    | '/_authenticated/assignments/'
-    | '/_authenticated/calendar/'
-    | '/_authenticated/certificates/'
-    | '/_authenticated/children/'
-    | '/_authenticated/courses/'
-    | '/_authenticated/dashboard/'
-    | '/_authenticated/discussions/'
-    | '/_authenticated/notifications/'
-    | '/_authenticated/profile/'
-    | '/_authenticated/progress/'
     | '/_authenticated/settings/'
-    | '/_authenticated/assignments/submission/'
-    | '/_authenticated/children/progress/'
-    | '/_authenticated/courses/player/'
-    | '/_authenticated/discussions/thread/'
     | '/_authenticated/settings/account/'
     | '/_authenticated/settings/security/'
-    | '/_authenticated/teaching/assignments/'
-    | '/_authenticated/teaching/courses/'
-    | '/_authenticated/teaching/lessons/'
-    | '/_authenticated/teaching/messages/'
-    | '/_authenticated/teaching/progress/'
-    | '/_authenticated/teaching/courses/create/'
-    | '/_authenticated/teaching/discussions/moderation/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -412,117 +134,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/progress/': {
-      id: '/_authenticated/progress/'
-      path: '/progress'
-      fullPath: '/progress'
-      preLoaderRoute: typeof AuthenticatedProgressIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/profile/': {
-      id: '/_authenticated/profile/'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AuthenticatedProfileIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/notifications/': {
-      id: '/_authenticated/notifications/'
-      path: '/notifications'
-      fullPath: '/notifications'
-      preLoaderRoute: typeof AuthenticatedNotificationsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/discussions/': {
-      id: '/_authenticated/discussions/'
-      path: '/discussions'
-      fullPath: '/discussions'
-      preLoaderRoute: typeof AuthenticatedDiscussionsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/dashboard/': {
-      id: '/_authenticated/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/courses/': {
-      id: '/_authenticated/courses/'
-      path: '/courses'
-      fullPath: '/courses'
-      preLoaderRoute: typeof AuthenticatedCoursesIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/children/': {
-      id: '/_authenticated/children/'
-      path: '/children'
-      fullPath: '/children'
-      preLoaderRoute: typeof AuthenticatedChildrenIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/certificates/': {
-      id: '/_authenticated/certificates/'
-      path: '/certificates'
-      fullPath: '/certificates'
-      preLoaderRoute: typeof AuthenticatedCertificatesIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/calendar/': {
-      id: '/_authenticated/calendar/'
-      path: '/calendar'
-      fullPath: '/calendar'
-      preLoaderRoute: typeof AuthenticatedCalendarIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/assignments/': {
-      id: '/_authenticated/assignments/'
-      path: '/assignments'
-      fullPath: '/assignments'
-      preLoaderRoute: typeof AuthenticatedAssignmentsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_auth/login/': {
       id: '/_auth/login/'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof AuthLoginIndexRouteImport
       parentRoute: typeof AuthRouteRoute
-    }
-    '/_authenticated/teaching/progress/': {
-      id: '/_authenticated/teaching/progress/'
-      path: '/teaching/progress'
-      fullPath: '/teaching/progress'
-      preLoaderRoute: typeof AuthenticatedTeachingProgressIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/messages/': {
-      id: '/_authenticated/teaching/messages/'
-      path: '/teaching/messages'
-      fullPath: '/teaching/messages'
-      preLoaderRoute: typeof AuthenticatedTeachingMessagesIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/lessons/': {
-      id: '/_authenticated/teaching/lessons/'
-      path: '/teaching/lessons'
-      fullPath: '/teaching/lessons'
-      preLoaderRoute: typeof AuthenticatedTeachingLessonsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/courses/': {
-      id: '/_authenticated/teaching/courses/'
-      path: '/teaching/courses'
-      fullPath: '/teaching/courses'
-      preLoaderRoute: typeof AuthenticatedTeachingCoursesIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/assignments/': {
-      id: '/_authenticated/teaching/assignments/'
-      path: '/teaching/assignments'
-      fullPath: '/teaching/assignments'
-      preLoaderRoute: typeof AuthenticatedTeachingAssignmentsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/settings/security/': {
       id: '/_authenticated/settings/security/'
@@ -536,48 +153,6 @@ declare module '@tanstack/react-router' {
       path: '/settings/account'
       fullPath: '/settings/account'
       preLoaderRoute: typeof AuthenticatedSettingsAccountIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/discussions/thread/': {
-      id: '/_authenticated/discussions/thread/'
-      path: '/discussions/thread'
-      fullPath: '/discussions/thread'
-      preLoaderRoute: typeof AuthenticatedDiscussionsThreadIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/courses/player/': {
-      id: '/_authenticated/courses/player/'
-      path: '/courses/player'
-      fullPath: '/courses/player'
-      preLoaderRoute: typeof AuthenticatedCoursesPlayerIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/children/progress/': {
-      id: '/_authenticated/children/progress/'
-      path: '/children/progress'
-      fullPath: '/children/progress'
-      preLoaderRoute: typeof AuthenticatedChildrenProgressIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/assignments/submission/': {
-      id: '/_authenticated/assignments/submission/'
-      path: '/assignments/submission'
-      fullPath: '/assignments/submission'
-      preLoaderRoute: typeof AuthenticatedAssignmentsSubmissionIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/discussions/moderation/': {
-      id: '/_authenticated/teaching/discussions/moderation/'
-      path: '/teaching/discussions/moderation'
-      fullPath: '/teaching/discussions/moderation'
-      preLoaderRoute: typeof AuthenticatedTeachingDiscussionsModerationIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/teaching/courses/create/': {
-      id: '/_authenticated/teaching/courses/create/'
-      path: '/teaching/courses/create'
-      fullPath: '/teaching/courses/create'
-      preLoaderRoute: typeof AuthenticatedTeachingCoursesCreateIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
   }
@@ -597,70 +172,18 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
-  AuthenticatedAssignmentsIndexRoute: typeof AuthenticatedAssignmentsIndexRoute
-  AuthenticatedCalendarIndexRoute: typeof AuthenticatedCalendarIndexRoute
-  AuthenticatedCertificatesIndexRoute: typeof AuthenticatedCertificatesIndexRoute
-  AuthenticatedChildrenIndexRoute: typeof AuthenticatedChildrenIndexRoute
-  AuthenticatedCoursesIndexRoute: typeof AuthenticatedCoursesIndexRoute
-  AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
-  AuthenticatedDiscussionsIndexRoute: typeof AuthenticatedDiscussionsIndexRoute
-  AuthenticatedNotificationsIndexRoute: typeof AuthenticatedNotificationsIndexRoute
-  AuthenticatedProfileIndexRoute: typeof AuthenticatedProfileIndexRoute
-  AuthenticatedProgressIndexRoute: typeof AuthenticatedProgressIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
-  AuthenticatedAssignmentsSubmissionIndexRoute: typeof AuthenticatedAssignmentsSubmissionIndexRoute
-  AuthenticatedChildrenProgressIndexRoute: typeof AuthenticatedChildrenProgressIndexRoute
-  AuthenticatedCoursesPlayerIndexRoute: typeof AuthenticatedCoursesPlayerIndexRoute
-  AuthenticatedDiscussionsThreadIndexRoute: typeof AuthenticatedDiscussionsThreadIndexRoute
   AuthenticatedSettingsAccountIndexRoute: typeof AuthenticatedSettingsAccountIndexRoute
   AuthenticatedSettingsSecurityIndexRoute: typeof AuthenticatedSettingsSecurityIndexRoute
-  AuthenticatedTeachingAssignmentsIndexRoute: typeof AuthenticatedTeachingAssignmentsIndexRoute
-  AuthenticatedTeachingCoursesIndexRoute: typeof AuthenticatedTeachingCoursesIndexRoute
-  AuthenticatedTeachingLessonsIndexRoute: typeof AuthenticatedTeachingLessonsIndexRoute
-  AuthenticatedTeachingMessagesIndexRoute: typeof AuthenticatedTeachingMessagesIndexRoute
-  AuthenticatedTeachingProgressIndexRoute: typeof AuthenticatedTeachingProgressIndexRoute
-  AuthenticatedTeachingCoursesCreateIndexRoute: typeof AuthenticatedTeachingCoursesCreateIndexRoute
-  AuthenticatedTeachingDiscussionsModerationIndexRoute: typeof AuthenticatedTeachingDiscussionsModerationIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
-  AuthenticatedAssignmentsIndexRoute: AuthenticatedAssignmentsIndexRoute,
-  AuthenticatedCalendarIndexRoute: AuthenticatedCalendarIndexRoute,
-  AuthenticatedCertificatesIndexRoute: AuthenticatedCertificatesIndexRoute,
-  AuthenticatedChildrenIndexRoute: AuthenticatedChildrenIndexRoute,
-  AuthenticatedCoursesIndexRoute: AuthenticatedCoursesIndexRoute,
-  AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
-  AuthenticatedDiscussionsIndexRoute: AuthenticatedDiscussionsIndexRoute,
-  AuthenticatedNotificationsIndexRoute: AuthenticatedNotificationsIndexRoute,
-  AuthenticatedProfileIndexRoute: AuthenticatedProfileIndexRoute,
-  AuthenticatedProgressIndexRoute: AuthenticatedProgressIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
-  AuthenticatedAssignmentsSubmissionIndexRoute:
-    AuthenticatedAssignmentsSubmissionIndexRoute,
-  AuthenticatedChildrenProgressIndexRoute:
-    AuthenticatedChildrenProgressIndexRoute,
-  AuthenticatedCoursesPlayerIndexRoute: AuthenticatedCoursesPlayerIndexRoute,
-  AuthenticatedDiscussionsThreadIndexRoute:
-    AuthenticatedDiscussionsThreadIndexRoute,
   AuthenticatedSettingsAccountIndexRoute:
     AuthenticatedSettingsAccountIndexRoute,
   AuthenticatedSettingsSecurityIndexRoute:
     AuthenticatedSettingsSecurityIndexRoute,
-  AuthenticatedTeachingAssignmentsIndexRoute:
-    AuthenticatedTeachingAssignmentsIndexRoute,
-  AuthenticatedTeachingCoursesIndexRoute:
-    AuthenticatedTeachingCoursesIndexRoute,
-  AuthenticatedTeachingLessonsIndexRoute:
-    AuthenticatedTeachingLessonsIndexRoute,
-  AuthenticatedTeachingMessagesIndexRoute:
-    AuthenticatedTeachingMessagesIndexRoute,
-  AuthenticatedTeachingProgressIndexRoute:
-    AuthenticatedTeachingProgressIndexRoute,
-  AuthenticatedTeachingCoursesCreateIndexRoute:
-    AuthenticatedTeachingCoursesCreateIndexRoute,
-  AuthenticatedTeachingDiscussionsModerationIndexRoute:
-    AuthenticatedTeachingDiscussionsModerationIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
