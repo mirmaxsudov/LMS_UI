@@ -1,4 +1,4 @@
-import type { FilterConfig, ParentFiltersParams, UrlFilterValues } from '@/features/user/types.ts';
+import type { FilterConfig, ParentFiltersParams, UrlFilterValues } from '@/features/user';
 
 const asString = (value?: string) => (value && value.trim().length > 0 ? value : undefined);
 

@@ -1,9 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { TeachersPage } from '@/modules/users';
 import { GeneralError, NotFoundError } from '@/shared/ui/errors';
 import { PageHeader, PageLoading } from '@/shared/ui/page';
-
-import { TeachersPage } from '../../../../modules/users/teacher/components/TeachersPage.tsx';
 
 const TeachersRoutePage = () => (
   <>

@@ -1,5 +1,5 @@
 import { msg } from '@lingui/core/macro';
-import { UsersIcon } from 'lucide-react';
+import { User2Icon, UsersIcon, UsersRoundIcon } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
 
@@ -19,21 +19,23 @@ export const useSidebarData = () => {
         items: [
           {
             title: msg`Users`,
-            icon: UsersIcon,
             items: [
               {
                 title: msg`Teachers`,
                 allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                icon: UsersIcon,
                 url: '/user/teachers'
               },
               {
                 title: msg`Students`,
                 allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                icon: User2Icon,
                 url: '/user/students'
               },
               {
                 title: msg`Parents`,
                 allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                icon: UsersRoundIcon,
                 url: '/user/parents'
               }
             ]

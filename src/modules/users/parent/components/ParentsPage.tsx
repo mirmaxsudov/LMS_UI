@@ -25,7 +25,7 @@ export const ParentsPage = () => {
       <UserListingTable
         data={parents}
         fetchNextPage={query.fetchNextPage}
-        hasNextPage={Boolean(query.hasNextPage)}
+        hasNextPage={query.hasNextPage}
         isFetchingNextPage={query.isFetchingNextPage}
         columns={parentColumns}
         isLoading={query.isLoading}

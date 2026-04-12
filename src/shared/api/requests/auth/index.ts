@@ -9,4 +9,18 @@ export const postLogin = ({ data }: LoginRequest) =>
 
 export const getAuthMe = () => api.get<User>('auth/me');
 
+export interface PatchAuthMeRequest {
+  data: {
+    brithDate: string;
+    email: string;
+    firstName: string;
+    gender: Gender;
+    lastName: string;
+    middleName: string;
+    phoneNumber: string;
+  };
+}
+
+export const patchAuthMe = ({ data }: PatchAuthMeRequest) => api.patch('auth/me', data);
+
 export * from './users';

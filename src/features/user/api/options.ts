@@ -8,7 +8,7 @@ import type {
   StudentFiltersParams,
   TeacherFiltersParams,
   UserEntityType
-} from '@/features/user/types';
+} from '@/features/user';
 
 import { getParents, getStudents, getTeachers } from '@/shared/api';
 
@@ -53,10 +53,12 @@ const teachersInfiniteFactory = createInfiniteQueryOptionsFactory<
   TeacherFiltersParams,
   TeachersResponse
 >('teachers', getTeachers);
+
 const studentsInfiniteFactory = createInfiniteQueryOptionsFactory<
   StudentFiltersParams,
   StudentsResponse
 >('students', getStudents);
+
 const parentsInfiniteFactory = createInfiniteQueryOptionsFactory<
   ParentFiltersParams,
   ParentsResponse

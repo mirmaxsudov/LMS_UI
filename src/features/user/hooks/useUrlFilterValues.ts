@@ -26,4 +26,3 @@ export const useUrlFilterValues = (filtersConfig: FilterConfig[]): UrlFilterValu
     [values]
   );
 };
-
