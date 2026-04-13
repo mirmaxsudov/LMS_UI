@@ -13,6 +13,7 @@ import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/r
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
+import { Route as AuthenticatedCoursesIndexRouteImport } from './pages/_authenticated/courses/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
 import { Route as AuthenticatedUserTeachersIndexRouteImport } from './pages/_authenticated/user/teachers/index'
 import { Route as AuthenticatedUserStudentsIndexRouteImport } from './pages/_authenticated/user/students/index'
@@ -36,6 +37,12 @@ const AuthenticatedSettingsIndexRoute =
   AuthenticatedSettingsIndexRouteImport.update({
     id: '/settings/',
     path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedCoursesIndexRoute =
+  AuthenticatedCoursesIndexRouteImport.update({
+    id: '/courses/',
+    path: '/courses/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
@@ -71,6 +78,7 @@ const AuthenticatedUserAllIndexRoute =
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/courses': typeof AuthenticatedCoursesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -80,6 +88,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/courses': typeof AuthenticatedCoursesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -92,6 +101,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
+  '/_authenticated/courses/': typeof AuthenticatedCoursesIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/user/all/': typeof AuthenticatedUserAllIndexRoute
   '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
@@ -103,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login'
+    | '/courses'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -112,6 +123,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login'
+    | '/courses'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -123,6 +135,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/_authenticated/'
     | '/_auth/login/'
+    | '/_authenticated/courses/'
     | '/_authenticated/settings/'
     | '/_authenticated/user/all/'
     | '/_authenticated/user/parents/'
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/courses/': {
+      id: '/_authenticated/courses/'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof AuthenticatedCoursesIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_auth/login/': {
@@ -217,6 +237,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedCoursesIndexRoute: typeof AuthenticatedCoursesIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
   AuthenticatedUserAllIndexRoute: typeof AuthenticatedUserAllIndexRoute
   AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
@@ -226,6 +247,7 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedCoursesIndexRoute: AuthenticatedCoursesIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
   AuthenticatedUserAllIndexRoute: AuthenticatedUserAllIndexRoute,
   AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,

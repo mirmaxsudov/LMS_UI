@@ -1,5 +1,5 @@
 import { msg } from '@lingui/core/macro';
-import { User2Icon, UsersIcon, UsersRoundIcon } from 'lucide-react';
+import { BookOpenTextIcon, User2Icon, UsersIcon, UsersRoundIcon } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
 
@@ -7,15 +7,17 @@ export const useSidebarData = () => {
   const sidebarData: SidebarData = {
     navGroups: [
       {
-        title: msg`Learning`,
-        items: []
+        title: msg`LMS`,
+        items: [
+          {
+            title: msg`Courses`,
+            url: '/courses',
+            icon: BookOpenTextIcon
+          }
+        ]
       },
       {
-        title: msg`Teaching`,
-        items: []
-      },
-      {
-        title: msg`System`,
+        title: msg`Management`,
         items: [
           {
             title: msg`Users`,
