@@ -1,25 +1,21 @@
-import type { ColumnDef, PaginationState } from '@tanstack/react-table';
+import type { ColumnDef, OnChangeFn, PaginationState } from '@tanstack/react-table';
 
 import { useLingui } from '@lingui/react/macro';
 import {
   getCoreRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table';
-import { useState } from 'react';
 
-import { Button } from '@/shared/ui/button';
 import { DataTable } from '@/shared/ui/data-table';
 
 interface UserListingTableProps<TData> {
   columns: ColumnDef<TData>[];
   data: TData[];
-  hasNextPage: boolean;
-  isFetchingNextPage: boolean;
   isLoading: boolean;
+  pagination: PaginationState;
+  onPaginationChange: OnChangeFn<PaginationState>;
   total: number;
-  fetchNextPage: () => Promise<unknown>;
 }
 
 export const UserListingTable = <TData,>({
@@ -27,26 +23,22 @@ export const UserListingTable = <TData,>({
   data,
   total,
   isLoading,
-  hasNextPage,
-  fetchNextPage,
-  isFetchingNextPage
+  pagination,
+  onPaginationChange
 }: UserListingTableProps<TData>) => {
-  const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 10
-  });
-
   const { t } = useLingui();
+  const pageCount = Math.max(1, Math.ceil(total / pagination.pageSize));
 
   const table = useReactTable({
     data,
     columns,
+    manualPagination: true,
+    pageCount,
     state: {
       pagination
     },
-    onPaginationChange: setPagination,
+    onPaginationChange,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel()
   });
 
@@ -58,19 +50,6 @@ export const UserListingTable = <TData,>({
         isLoading={isLoading}
         loadingOptions={{ columnCount: columns.length }}
       />
-      {hasNextPage ? (
-        <Button
-          className='w-full md:w-auto'
-          disabled={isFetchingNextPage}
-          type='button'
-          variant='outline'
-          onClick={() => {
-            void fetchNextPage();
-          }}
-        >
-          {isFetchingNextPage ? t`Loading more...` : t`Load more`}
-        </Button>
-      ) : null}
     </div>
   );
 };

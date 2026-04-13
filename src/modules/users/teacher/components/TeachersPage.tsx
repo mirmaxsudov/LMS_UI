@@ -1,33 +1,33 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import type { PaginationState } from '@tanstack/react-table';
 
-import { getTeachersInfiniteQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
+import { getTeachersQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
 import { mapTeachersFiltersToParams, teacherColumns, teachersFiltersConfig } from '@/modules/users';
 import { PageContent } from '@/shared/ui/page';
 
 export const TeachersPage = () => {
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
   const filterValues = useUrlFilterValues(teachersFiltersConfig);
-  const query = useInfiniteQuery(
-    getTeachersInfiniteQueryOptions({
-      filters: mapTeachersFiltersToParams(filterValues)
+  const query = useQuery(
+    getTeachersQueryOptions({
+      filters: mapTeachersFiltersToParams(filterValues),
+      page: pagination.pageIndex + 1,
+      size: pagination.pageSize
     })
   );
 
-  const teachers = useMemo(
-    () => query.data?.pages.flatMap((page) => page.data.results) ?? [],
-    [query.data?.pages]
-  );
-
-  const total = query.data?.pages.at(-1)?.data.total ?? 0;
+  const teachers = query.data?.data.results ?? [];
+  const total = query.data?.data.total ?? 0;
 
   return (
     <PageContent filtersConfig={teachersFiltersConfig}>
       <UserListingTable
         data={teachers}
-        fetchNextPage={query.fetchNextPage}
-        hasNextPage={Boolean(query.hasNextPage)}
-        isFetchingNextPage={query.isFetchingNextPage}
         columns={teacherColumns}
+        pagination={pagination}
+        onPaginationChange={setPagination}
         isLoading={query.isLoading}
         total={total}
       />

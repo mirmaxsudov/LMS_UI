@@ -1,14 +1,15 @@
 ﻿import type { FilterMap } from '@/shared/ui/filter/FilterToolbar';
 
-export type UserEntityType = 'parents' | 'students' | 'teachers';
+export type UserEntityType = 'all' | 'parents' | 'students' | 'teachers';
 
 export type FilterConfig = FilterMap[keyof FilterMap];
 
 export type UrlFilterValues = Record<string, string | undefined>;
 
-export interface InfiniteQueryFactoryParams<TFilters extends object> {
+export interface QueryFactoryParams<TFilters extends object> {
   filters?: Partial<TFilters>;
-  pageSize?: number;
+  page?: number;
+  size?: number;
 }
 
 export interface TeacherFiltersParams {
@@ -26,4 +27,11 @@ export interface StudentFiltersParams {
 export interface ParentFiltersParams {
   childName?: string;
   name?: string;
+}
+
+export interface UserPreviewFiltersParams {
+  search?: string;
+  role?: UserRole;
+  status?: UserStatus;
+  permission?: string;
 }

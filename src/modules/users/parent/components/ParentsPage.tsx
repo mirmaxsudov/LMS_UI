@@ -1,34 +1,34 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import type { PaginationState } from '@tanstack/react-table';
 
-import { getParentsInfiniteQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
+import { getParentsQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
 import { mapParentsFiltersToParams, parentColumns, parentsFiltersConfig } from '@/modules/users';
 import { PageContent } from '@/shared/ui/page';
 
 export const ParentsPage = () => {
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
   const filterValues = useUrlFilterValues(parentsFiltersConfig);
-  const query = useInfiniteQuery(
-    getParentsInfiniteQueryOptions({
-      filters: mapParentsFiltersToParams(filterValues)
+  const query = useQuery(
+    getParentsQueryOptions({
+      filters: mapParentsFiltersToParams(filterValues),
+      page: pagination.pageIndex + 1,
+      size: pagination.pageSize
     })
   );
 
-  const parents = useMemo(
-    () => query.data?.pages.flatMap((page) => page.data.results) ?? [],
-    [query.data?.pages]
-  );
-
-  const total = query.data?.pages.at(-1)?.data.total ?? 0;
+  const parents = query.data?.data.results ?? [];
+  const total = query.data?.data.total ?? 0;
 
   return (
     <PageContent filtersConfig={parentsFiltersConfig}>
       <UserListingTable
         data={parents}
-        fetchNextPage={query.fetchNextPage}
-        hasNextPage={query.hasNextPage}
-        isFetchingNextPage={query.isFetchingNextPage}
         columns={parentColumns}
         isLoading={query.isLoading}
+        onPaginationChange={setPagination}
+        pagination={pagination}
         total={total}
       />
     </PageContent>

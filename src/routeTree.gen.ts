@@ -17,6 +17,7 @@ import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
 import { Route as AuthenticatedUserTeachersIndexRouteImport } from './pages/_authenticated/user/teachers/index'
 import { Route as AuthenticatedUserStudentsIndexRouteImport } from './pages/_authenticated/user/students/index'
 import { Route as AuthenticatedUserParentsIndexRouteImport } from './pages/_authenticated/user/parents/index'
+import { Route as AuthenticatedUserAllIndexRouteImport } from './pages/_authenticated/user/all/index'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -60,11 +61,18 @@ const AuthenticatedUserParentsIndexRoute =
     path: '/user/parents/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedUserAllIndexRoute =
+  AuthenticatedUserAllIndexRouteImport.update({
+    id: '/user/all/',
+    path: '/user/all/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
+  '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
   '/user/students': typeof AuthenticatedUserStudentsIndexRoute
   '/user/teachers': typeof AuthenticatedUserTeachersIndexRoute
@@ -73,6 +81,7 @@ export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
+  '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
   '/user/students': typeof AuthenticatedUserStudentsIndexRoute
   '/user/teachers': typeof AuthenticatedUserTeachersIndexRoute
@@ -84,6 +93,7 @@ export interface FileRoutesById {
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
+  '/_authenticated/user/all/': typeof AuthenticatedUserAllIndexRoute
   '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
   '/_authenticated/user/students/': typeof AuthenticatedUserStudentsIndexRoute
   '/_authenticated/user/teachers/': typeof AuthenticatedUserTeachersIndexRoute
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/settings'
+    | '/user/all'
     | '/user/parents'
     | '/user/students'
     | '/user/teachers'
@@ -102,6 +113,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/settings'
+    | '/user/all'
     | '/user/parents'
     | '/user/students'
     | '/user/teachers'
@@ -112,6 +124,7 @@ export interface FileRouteTypes {
     | '/_authenticated/'
     | '/_auth/login/'
     | '/_authenticated/settings/'
+    | '/_authenticated/user/all/'
     | '/_authenticated/user/parents/'
     | '/_authenticated/user/students/'
     | '/_authenticated/user/teachers/'
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedUserParentsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/user/all/': {
+      id: '/_authenticated/user/all/'
+      path: '/user/all'
+      fullPath: '/user/all'
+      preLoaderRoute: typeof AuthenticatedUserAllIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -198,6 +218,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
+  AuthenticatedUserAllIndexRoute: typeof AuthenticatedUserAllIndexRoute
   AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
   AuthenticatedUserStudentsIndexRoute: typeof AuthenticatedUserStudentsIndexRoute
   AuthenticatedUserTeachersIndexRoute: typeof AuthenticatedUserTeachersIndexRoute
@@ -206,6 +227,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
+  AuthenticatedUserAllIndexRoute: AuthenticatedUserAllIndexRoute,
   AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,
   AuthenticatedUserStudentsIndexRoute: AuthenticatedUserStudentsIndexRoute,
   AuthenticatedUserTeachersIndexRoute: AuthenticatedUserTeachersIndexRoute,

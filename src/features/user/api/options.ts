@@ -1,77 +1,77 @@
-﻿import type { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
-import { infiniteQueryOptions } from '@tanstack/react-query';
+import { queryOptions } from '@tanstack/react-query';
 
 import type {
-  InfiniteQueryFactoryParams,
   ParentFiltersParams,
+  QueryFactoryParams,
   StudentFiltersParams,
   TeacherFiltersParams,
-  UserEntityType
+  UserEntityType,
+  UserPreviewFiltersParams
 } from '@/features/user';
 
-import { getParents, getStudents, getTeachers } from '@/shared/api';
+import { getAllUserPreviews, getParents, getStudents, getTeachers } from '@/shared/api';
 
 const DEFAULT_PAGE_SIZE = 10;
+const DEFAULT_PAGE = 1;
 
 const USER_QUERY_KEYS = {
-  infinite: <TFilters extends object>(
-    entity: UserEntityType,
-    params?: InfiniteQueryFactoryParams<TFilters>
-  ) => ['users', entity, 'infinite', params] as const
+  list: <TFilters extends object>(entity: UserEntityType, params?: QueryFactoryParams<TFilters>) =>
+    ['users', entity, 'list', params] as const
 };
 
-const createInfiniteQueryOptionsFactory = <
-  TFilters extends object,
-  TResponse extends Pagination<unknown>
->(
+const createQueryOptionsFactory = <TFilters extends object, TResponse extends Pagination<unknown>>(
   entity: UserEntityType,
   queryFn: (request?: {
     params?: Partial<TFilters> & PaginationRequest;
   }) => Promise<AxiosResponse<TResponse>>
 ) => {
-  return (params?: InfiniteQueryFactoryParams<TFilters>) =>
-    infiniteQueryOptions({
-      queryKey: USER_QUERY_KEYS.infinite(entity, params),
-      initialPageParam: 1,
-      queryFn: ({ pageParam }) => {
+  return (params?: QueryFactoryParams<TFilters>) =>
+    queryOptions({
+      queryKey: USER_QUERY_KEYS.list(entity, params),
+      queryFn: () => {
         const requestParams = {
           ...(params?.filters ?? {}),
-          page: pageParam,
-          size: params?.pageSize ?? DEFAULT_PAGE_SIZE
+          page: params?.page ?? DEFAULT_PAGE,
+          size: params?.size ?? DEFAULT_PAGE_SIZE
         } as Partial<TFilters> & PaginationRequest;
 
         return queryFn({
           params: requestParams
         });
-      },
-      getNextPageParam: (lastPage) => (lastPage.data.hasNext ? lastPage.data.page + 1 : undefined)
+      }
     });
 };
 
-const teachersInfiniteFactory = createInfiniteQueryOptionsFactory<
-  TeacherFiltersParams,
-  TeachersResponse
->('teachers', getTeachers);
+const teachersQueryFactory = createQueryOptionsFactory<TeacherFiltersParams, TeachersResponse>(
+  'teachers',
+  getTeachers
+);
 
-const studentsInfiniteFactory = createInfiniteQueryOptionsFactory<
-  StudentFiltersParams,
-  StudentsResponse
->('students', getStudents);
+const studentsQueryFactory = createQueryOptionsFactory<StudentFiltersParams, StudentsResponse>(
+  'students',
+  getStudents
+);
 
-const parentsInfiniteFactory = createInfiniteQueryOptionsFactory<
-  ParentFiltersParams,
-  ParentsResponse
->('parents', getParents);
+const parentsQueryFactory = createQueryOptionsFactory<ParentFiltersParams, ParentsResponse>(
+  'parents',
+  getParents
+);
 
-export const getTeachersInfiniteQueryOptions = (
-  params?: InfiniteQueryFactoryParams<TeacherFiltersParams>
-) => teachersInfiniteFactory(params);
+const allUsersQueryFactory = createQueryOptionsFactory<UserPreviewFiltersParams, UserPreviewsResponse>(
+  'all',
+  getAllUserPreviews
+);
 
-export const getStudentsInfiniteQueryOptions = (
-  params?: InfiniteQueryFactoryParams<StudentFiltersParams>
-) => studentsInfiniteFactory(params);
+export const getTeachersQueryOptions = (params?: QueryFactoryParams<TeacherFiltersParams>) =>
+  teachersQueryFactory(params);
 
-export const getParentsInfiniteQueryOptions = (
-  params?: InfiniteQueryFactoryParams<ParentFiltersParams>
-) => parentsInfiniteFactory(params);
+export const getStudentsQueryOptions = (params?: QueryFactoryParams<StudentFiltersParams>) =>
+  studentsQueryFactory(params);
+
+export const getParentsQueryOptions = (params?: QueryFactoryParams<ParentFiltersParams>) =>
+  parentsQueryFactory(params);
+
+export const getAllUsersQueryOptions = (params?: QueryFactoryParams<UserPreviewFiltersParams>) =>
+  allUsersQueryFactory(params);

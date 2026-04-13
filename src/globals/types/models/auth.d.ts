@@ -19,22 +19,6 @@ interface TokenResponse {
   accessToken: string;
 }
 
-interface User {
-  birthDate: Nullable<string>;
-  email: string;
-  firstName: string;
-  gender: Gender;
-  lastName: string;
-  middleName: string;
-  phoneNumber: Nullable<string>;
-  profileBackgroundAttachmentId: Nullable<string>;
-  profileBackgroundUrl: Nullable<string>;
-  profileImageAttachmentId: Nullable<string>;
-  profileImageUrl: Nullable<string>;
-  roles: Role[];
-  status: UserStatus;
-}
-
 interface Role {
   createdAt: string;
   deleted: boolean;

@@ -3,29 +3,36 @@ import type { PaginationState } from '@tanstack/react-table';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import { getStudentsQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
-import { mapStudentsFiltersToParams, studentColumns, studentsFiltersConfig } from '@/modules/users';
+import { getAllUsersQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
+import {
+  mapAllUsersFiltersToParams,
+  useAllUsersColumns,
+  useAllUsersFiltersConfig
+} from '@/modules/users';
 import { PageContent } from '@/shared/ui/page';
 
-export const StudentsPage = () => {
+export const AllUsersPage = () => {
   const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
-  const filterValues = useUrlFilterValues(studentsFiltersConfig);
+  const columns = useAllUsersColumns();
+  const filtersConfig = useAllUsersFiltersConfig();
+  const filterValues = useUrlFilterValues(filtersConfig);
+
   const query = useQuery(
-    getStudentsQueryOptions({
-      filters: mapStudentsFiltersToParams(filterValues),
+    getAllUsersQueryOptions({
+      filters: mapAllUsersFiltersToParams(filterValues),
       page: pagination.pageIndex + 1,
       size: pagination.pageSize
     })
   );
 
-  const students = query.data?.data.results ?? [];
+  const users = query.data?.data.results ?? [];
   const total = query.data?.data.total ?? 0;
 
   return (
-    <PageContent filtersConfig={studentsFiltersConfig}>
+    <PageContent filtersConfig={filtersConfig}>
       <UserListingTable
-        data={students}
-        columns={studentColumns}
+        data={users}
+        columns={columns}
         pagination={pagination}
         onPaginationChange={setPagination}
         isLoading={query.isLoading}

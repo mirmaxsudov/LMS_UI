@@ -21,6 +21,12 @@ export const useSidebarData = () => {
             title: msg`Users`,
             items: [
               {
+                title: msg`All users`,
+                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                url: '/user/all',
+                icon: UsersRoundIcon
+              },
+              {
                 title: msg`Teachers`,
                 allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
                 icon: UsersIcon,

@@ -1,7 +1,7 @@
 import { api } from '@/shared/api';
 
 export interface UserPreviewsRequest {
-  params: Partial<{
+  params?: Partial<{
     search: string;
     role: UserRole;
     status: UserStatus;
