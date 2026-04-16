@@ -1,6 +1,8 @@
 import type { GetAllCoursesRequest } from '@/shared/api';
 
 export const COURSE_QUERY_KEYS = {
-  all: (request?: GetAllCoursesRequest) => ['courses', 'list', request] as const,
-  byId: (id?: string) => ['courses', 'by-id', id] as const
+  all: () => ['courses'] as const,
+  allList: (request?: GetAllCoursesRequest) =>
+    [...COURSE_QUERY_KEYS.all(), 'list', request] as const,
+  byId: (id?: string) => [...COURSE_QUERY_KEYS.all(), 'by-id', id] as const
 };

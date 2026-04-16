@@ -11,7 +11,7 @@ import { DeleteAlertDialog } from '@/shared/ui/delete-alert-dialog';
 interface UseCourseColumnsProps {
   deletingId?: string;
   onDelete: (id: string) => void;
-  onEdit: (id: string) => void;
+  onEdit: (course: Course) => void;
 }
 
 interface CourseActionsCellProps extends UseCourseColumnsProps {
@@ -29,7 +29,7 @@ const CourseActionsCell = ({
 
   return (
     <div className='flex items-center justify-end gap-2'>
-      <Button size='icon' type='button' variant='outline' onClick={() => onEdit(course.id)}>
+      <Button size='icon' type='button' variant='outline' onClick={() => onEdit(course)}>
         <PencilIcon className='size-4' />
       </Button>
       <Button size='icon' type='button' variant='destructive' onClick={() => setIsDeleteOpen(true)}>
@@ -38,9 +38,9 @@ const CourseActionsCell = ({
       <DeleteAlertDialog
         itemName={t`course`}
         isLoading={deletingId === course.id}
-        open={isDeleteOpen}
         onDelete={() => onDelete(course.id)}
         onOpenChange={setIsDeleteOpen}
+        open={isDeleteOpen}
       />
     </div>
   );
@@ -80,8 +80,8 @@ export const useCourseColumns = ({
         header: t`Actions`,
         cell: ({ row }) => (
           <CourseActionsCell
-            course={row.original}
             deletingId={deletingId}
+            course={row.original}
             onDelete={onDelete}
             onEdit={onEdit}
           />

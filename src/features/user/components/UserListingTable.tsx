@@ -1,11 +1,7 @@
 import type { ColumnDef, OnChangeFn, PaginationState } from '@tanstack/react-table';
 
 import { useLingui } from '@lingui/react/macro';
-import {
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable
-} from '@tanstack/react-table';
+import { getCoreRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table';
 
 import { DataTable } from '@/shared/ui/data-table';
 
@@ -13,8 +9,8 @@ interface UserListingTableProps<TData> {
   columns: ColumnDef<TData>[];
   data: TData[];
   isLoading: boolean;
-  pagination: PaginationState;
   onPaginationChange: OnChangeFn<PaginationState>;
+  pagination: PaginationState;
   total: number;
 }
 
