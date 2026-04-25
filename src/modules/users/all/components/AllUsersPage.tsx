@@ -33,9 +33,9 @@ export const AllUsersPage = () => {
       <UserListingTable
         data={users}
         columns={columns}
-        pagination={pagination}
-        onPaginationChange={setPagination}
         isLoading={query.isLoading}
+        onPaginationChange={setPagination}
+        pagination={pagination}
         total={total}
       />
     </PageContent>
