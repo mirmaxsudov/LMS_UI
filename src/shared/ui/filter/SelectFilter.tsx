@@ -126,7 +126,7 @@ export const SelectFilter: React.FC<SelectFilterProps> = ({ filter, multiple, se
                         className='rounded-sm px-1 font-normal'
                         variant='secondary'
                       >
-                        {option.label}
+                        {t(option.label)}
                       </Badge>
                     ))
                 )}
@@ -149,9 +149,9 @@ export const SelectFilter: React.FC<SelectFilterProps> = ({ filter, multiple, se
 
                 return (
                   <CommandItem key={key} onSelect={() => onItemSelect(option, isSelected)}>
-                    <Checkbox checked={isSelected} className='[&_svg]:!text-white' />
+                    <Checkbox checked={isSelected} className='[&_svg]:text-white!' />
                     {'icon' in option && option.icon && <option.icon />}
-                    <span className='truncate'>{option.label}</span>
+                    <span className='truncate'>{t(option.label)}</span>
                     {'count' in option && option.count && (
                       <span className='ml-auto font-mono text-xs'>{option.count}</span>
                     )}

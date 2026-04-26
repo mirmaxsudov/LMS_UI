@@ -1,10 +1,9 @@
 type TeacherPositon = 'ASSISTANT' | 'LECTURER' | 'PROFESSOR';
 
 interface Teacher {
-  baseData: User;
   position: TeacherPositon;
+  teacherId: string;
+  user: User;
 }
-
-// apis
 
 type TeachersResponse = Pagination<Teacher>;

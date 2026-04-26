@@ -1,19 +1,87 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { useLingui } from '@lingui/react/macro';
-import { useMemo } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { PencilIcon, TrashIcon } from 'lucide-react';
+import { useMemo, useState } from 'react';
 
-import { groupStatusLabelMap } from '@/modules/group/constants';
+import {
+  getGroupStudentsCountStatus,
+  GROUP_QUERY_KEYS,
+  groupActivityColorMap,
+  groupActivityLabelMap,
+  GroupFormDialog,
+  groupStatusColorMap,
+  groupStatusLabelMap,
+  groupStudentsCountStatusColorMap,
+  groupStudentsCountStatusLabelMap
+} from '@/modules/group';
+import { deleteGroup } from '@/shared/api';
 import { Badge } from '@/shared/ui/badge';
+import { Button } from '@/shared/ui/button';
+import { DeleteAlertDialog } from '@/shared/ui/delete-alert-dialog';
+
+interface GroupActionsCellProps {
+  group: Group;
+}
+
+interface GroupBadgeProps {
+  color: string;
+  label: string;
+}
 
 const getTeacherName = (teacher?: GroupTeacher) =>
   [teacher?.firstName, teacher?.middleName, teacher?.lastName].filter(Boolean).join(' ') || '-';
 
-const getStatusBadgeVariant = (status?: GroupStatus) => {
-  if (status === 'ACTIVE' || status === 'FORMING') return 'success';
-  if (status === 'CANCELLED') return 'destructive';
+const GroupBadge = ({ color, label }: GroupBadgeProps) => (
+  <Badge
+    style={{
+      backgroundColor: `${color}33`,
+      color
+    }}
+    className='border-transparent'
+  >
+    {label}
+  </Badge>
+);
 
-  return 'secondary';
+const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
+  const { t } = useLingui();
+  const queryClient = useQueryClient();
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const deleteMutation = useMutation({
+    mutationFn: deleteGroup,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.all() });
+      setIsDeleteOpen(false);
+    }
+  });
+
+  return (
+    <div className='flex items-center justify-end gap-2'>
+      <Button size='icon-sm' type='button' variant='outline' onClick={() => setIsFormOpen(true)}>
+        <PencilIcon className='size-4' />
+      </Button>
+      <Button
+        size='icon-sm'
+        type='button'
+        variant='destructive'
+        onClick={() => setIsDeleteOpen(true)}
+      >
+        <TrashIcon className='size-4' />
+      </Button>
+      <DeleteAlertDialog
+        itemName={t`group`}
+        isLoading={deleteMutation.isPending}
+        onDelete={() => deleteMutation.mutate({ id: group.id })}
+        onOpenChange={setIsDeleteOpen}
+        open={isDeleteOpen}
+      />
+      <GroupFormDialog editValues={group} onOpenChange={setIsFormOpen} open={isFormOpen} />
+    </div>
+  );
 };
 
 export const useGroupColumns = (): ColumnDef<Group>[] => {
@@ -39,7 +107,22 @@ export const useGroupColumns = (): ColumnDef<Group>[] => {
       {
         id: 'students',
         header: t`Students`,
-        accessorFn: (row) => `${row.currentStudents}/${row.capacity}`
+        cell: ({ row }) => {
+          const { currentStudents, capacity } = row.original;
+          const status = getGroupStudentsCountStatus(currentStudents, capacity);
+
+          return (
+            <div className='flex items-center gap-2'>
+              <span>
+                {currentStudents}/{capacity}
+              </span>
+              <GroupBadge
+                label={t(groupStudentsCountStatusLabelMap[status])}
+                color={groupStudentsCountStatusColorMap[status]}
+              />
+            </div>
+          );
+        }
       },
       {
         id: 'status',
@@ -48,7 +131,7 @@ export const useGroupColumns = (): ColumnDef<Group>[] => {
           const status = row.original.status;
 
           return status ? (
-            <Badge variant={getStatusBadgeVariant(status)}>{groupStatusLabelMap[status]}</Badge>
+            <GroupBadge label={t(groupStatusLabelMap[status])} color={groupStatusColorMap[status]} />
           ) : (
             '-'
           );
@@ -57,11 +140,21 @@ export const useGroupColumns = (): ColumnDef<Group>[] => {
       {
         id: 'active',
         header: t`Activity`,
-        cell: ({ row }) => (
-          <Badge variant={row.original.active ? 'success' : 'secondary'}>
-            {row.original.active ? t`Active` : t`Inactive`}
-          </Badge>
-        )
+        cell: ({ row }) => {
+          const activity = row.original.active ? 'active' : 'inactive';
+
+          return (
+            <GroupBadge
+              label={t(groupActivityLabelMap[activity])}
+              color={groupActivityColorMap[activity]}
+            />
+          );
+        }
+      },
+      {
+        id: 'actions',
+        size: 32,
+        cell: ({ row }) => <GroupActionsCell group={row.original} />
       }
     ],
     [t]

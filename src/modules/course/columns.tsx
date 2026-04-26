@@ -63,7 +63,7 @@ export const useCourseColumns = ({
       {
         id: 'level',
         header: t`Level`,
-        accessorFn: (row) => courseLevelLabelMap[row.level] ?? row.level
+        accessorFn: (row) => t(courseLevelLabelMap[row.level])
       },
       {
         id: 'durationInMinutes',

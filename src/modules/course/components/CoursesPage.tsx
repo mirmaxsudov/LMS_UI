@@ -8,8 +8,8 @@ import { UserListingTable, useUrlFilterValues } from '@/features';
 import { useCourseColumns } from '@/modules/course/columns';
 import { CourseFomDialog } from '@/modules/course/components/CourseFomDialog';
 import { coursesFiltersConfig, mapCoursesFiltersToParams } from '@/modules/course/filters';
-import { COURSE_QUERY_KEYS } from '@/modules/course/options';
-import { deleteCourse, getAllCourses } from '@/shared/api';
+import { getCoursesQueryOptions } from '@/modules/course/options';
+import { deleteCourse } from '@/shared/api';
 import { Button } from '@/shared/ui/button.tsx';
 import { PageContent } from '@/shared/ui/page';
 
@@ -22,19 +22,15 @@ export const CoursesPage = () => {
 
   const filterValues = useUrlFilterValues(coursesFiltersConfig);
 
-  const requestParams = useMemo(
-    () => ({
-      ...mapCoursesFiltersToParams(filterValues),
+  const courseFilters = useMemo(() => mapCoursesFiltersToParams(filterValues), [filterValues]);
+
+  const coursesQuery = useQuery(
+    getCoursesQueryOptions({
+      filters: courseFilters,
       page: pagination.pageIndex + 1,
       size: pagination.pageSize
-    }),
-    [filterValues, pagination.pageIndex, pagination.pageSize]
+    })
   );
-
-  const coursesQuery = useQuery({
-    queryKey: COURSE_QUERY_KEYS.allList({ params: requestParams }),
-    queryFn: () => getAllCourses({ params: requestParams })
-  });
 
   const deleteMutation = useMutation({
     mutationFn: deleteCourse,

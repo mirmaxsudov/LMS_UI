@@ -15,7 +15,7 @@ export const useAllUsersFiltersConfig = (): FilterConfig[] => {
     () =>
       Object.entries(roleLabelMap).map(([value, label]) => ({
         value,
-        label: t(label)
+        label
       })),
     [t]
   );
@@ -24,7 +24,7 @@ export const useAllUsersFiltersConfig = (): FilterConfig[] => {
     () =>
       Object.entries(statusLabelMap).map(([value, label]) => ({
         value,
-        label: t(label)
+        label
       })),
     [t]
   );

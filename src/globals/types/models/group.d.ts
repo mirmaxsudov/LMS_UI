@@ -8,9 +8,8 @@ interface Group {
   currentStudents: number;
   id: string;
   name: string;
-  status?: GroupStatus;
+  status: GroupStatus;
   teacher: GroupTeacher;
-  teacherId: string;
 }
 
 interface GroupTeacher {
@@ -24,7 +23,23 @@ interface GroupTeacher {
   profileBackgroundUrl: string;
   profileImageUrl: string;
   status: UserStatus;
+  teacherId: string;
+  userId: string;
 }
+
+// APIs responses
 
 type GroupsResponse = Pagination<Group>;
 type GroupResponse = ApiResponse<Group>;
+
+interface GroupDto {
+  active: boolean;
+  capacity: number;
+  courseId: string;
+  name: string;
+  status: GroupStatus;
+  teacherId: string;
+}
+
+type PostGroupDto = GroupDto;
+type PutGroupDto = GroupDto;

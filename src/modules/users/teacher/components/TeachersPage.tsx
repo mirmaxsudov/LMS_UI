@@ -3,8 +3,9 @@ import type { PaginationState } from '@tanstack/react-table';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import { getTeachersQueryOptions, UserListingTable, useUrlFilterValues } from '@/features';
+import { UserListingTable, useUrlFilterValues } from '@/features';
 import { mapTeachersFiltersToParams, teacherColumns, teachersFiltersConfig } from '@/modules/users';
+import { getTeachersQueryOptions } from '@/modules/users/teacher/options';
 import { PageContent } from '@/shared/ui/page';
 
 export const TeachersPage = () => {
@@ -26,9 +27,9 @@ export const TeachersPage = () => {
       <UserListingTable
         data={teachers}
         columns={teacherColumns}
-        pagination={pagination}
-        onPaginationChange={setPagination}
         isLoading={query.isLoading}
+        onPaginationChange={setPagination}
+        pagination={pagination}
         total={total}
       />
     </PageContent>
