@@ -18,21 +18,21 @@ interface CourseActionsCellProps extends UseCourseColumnsProps {
   course: Course;
 }
 
-const CourseActionsCell = ({
-  course,
-  onEdit,
-  onDelete,
-  deletingId
-}: CourseActionsCellProps) => {
+const CourseActionsCell = ({ course, onEdit, onDelete, deletingId }: CourseActionsCellProps) => {
   const { t } = useLingui();
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   return (
     <div className='flex items-center justify-end gap-2'>
-      <Button size='icon' type='button' variant='outline' onClick={() => onEdit(course)}>
+      <Button size='icon-sm' type='button' variant='outline' onClick={() => onEdit(course)}>
         <PencilIcon className='size-4' />
       </Button>
-      <Button size='icon' type='button' variant='destructive' onClick={() => setIsDeleteOpen(true)}>
+      <Button
+        size='icon-sm'
+        type='button'
+        variant='destructive'
+        onClick={() => setIsDeleteOpen(true)}
+      >
         <TrashIcon className='size-4' />
       </Button>
       <DeleteAlertDialog
@@ -63,7 +63,7 @@ export const useCourseColumns = ({
       {
         id: 'level',
         header: t`Level`,
-        accessorFn: (row) => courseLevelLabelMap[row.level] ?? row.level
+        accessorFn: (row) => t(courseLevelLabelMap[row.level])
       },
       {
         id: 'durationInMinutes',
@@ -77,7 +77,7 @@ export const useCourseColumns = ({
       },
       {
         id: 'actions',
-        header: t`Actions`,
+        size: 32,
         cell: ({ row }) => (
           <CourseActionsCell
             deletingId={deletingId}

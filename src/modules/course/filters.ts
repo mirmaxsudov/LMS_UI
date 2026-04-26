@@ -1,7 +1,7 @@
+import type { GetAllCoursesRequest } from '@/shared/api';
 import type { FilterMap } from '@/shared/ui/filter/FilterToolbar';
 
 import { courseLevelOptions } from '@/modules/course/constants';
-import type { GetAllCoursesRequest } from '@/shared/api';
 
 type FilterConfig = FilterMap[keyof FilterMap];
 

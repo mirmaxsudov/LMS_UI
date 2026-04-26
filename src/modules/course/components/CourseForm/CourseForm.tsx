@@ -69,7 +69,7 @@ export const CourseForm = ({
             <field.Select isRequired label={t`Level`} placeholder={t`Select level`}>
               {courseLevelOptions.map((option) => (
                 <SelectItem key={option.value} value={option.value.toString()}>
-                  {option.label}
+                  {t(option.label)}
                 </SelectItem>
               ))}
             </field.Select>
@@ -77,15 +77,10 @@ export const CourseForm = ({
         </form.AppField>
         <form.AppField name='durationInMinutes'>
           {(field) => (
-            <field.Input
-              isRequired
-              label={t`Duration (minutes)`}
-              placeholder='90'
-              type='number'
-            />
+            <field.Input isRequired label={t`Duration (minutes)`} type='number' placeholder='90' />
           )}
         </form.AppField>
-        <Button loading={isSubmitting} type='submit'>
+        <Button type='submit' loading={isSubmitting}>
           {submitLabel ?? t`Save`}
         </Button>
       </form>

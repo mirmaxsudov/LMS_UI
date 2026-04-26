@@ -1,3 +1,5 @@
+import { msg } from '@lingui/core/macro';
+
 import type { FilterConfig, StudentFiltersParams, UrlFilterValues } from '@/features/user/types';
 
 const asString = (value?: string) => (value && value.trim().length > 0 ? value : undefined);
@@ -18,9 +20,9 @@ export const studentsFiltersConfig: FilterConfig[] = [
     key: 'status',
     placeholder: 'Status',
     options: [
-      { label: 'Active', value: 'ACTIVE' },
-      { label: 'Graduated', value: 'GRADUATED' },
-      { label: 'Suspended', value: 'SUSPENDED' }
+      { label: msg`Active`, value: 'ACTIVE' },
+      { label: msg`Graduated`, value: 'GRADUATED' },
+      { label: msg`Suspended`, value: 'SUSPENDED' }
     ]
   }
 ];

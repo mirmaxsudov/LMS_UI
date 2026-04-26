@@ -1,7 +1,7 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
 const getFullName = (teacher: Teacher) =>
-  [teacher.baseData.firstName, teacher.baseData.middleName, teacher.baseData.lastName]
+  [teacher.user.firstName, teacher.user.middleName, teacher.user.lastName]
     .filter(Boolean)
     .join(' ');
 
@@ -14,7 +14,7 @@ export const teacherColumns: ColumnDef<Teacher>[] = [
   {
     id: 'phone',
     header: 'Phone',
-    accessorFn: (row) => row.baseData.phoneNumber ?? '-'
+    accessorFn: (row) => row.user.phoneNumber ?? '-'
   },
   {
     id: 'subject',
@@ -29,7 +29,6 @@ export const teacherColumns: ColumnDef<Teacher>[] = [
   {
     id: 'status',
     header: 'Status',
-    accessorFn: (row) => row.baseData.status
+    accessorFn: (row) => row.user.status
   }
 ];
-

@@ -1,3 +1,5 @@
+import { msg } from '@lingui/core/macro';
+
 import type { FilterConfig, TeacherFiltersParams, UrlFilterValues } from '@/features/user/types';
 
 const asString = (value?: string) => (value && value.trim().length > 0 ? value : undefined);
@@ -18,9 +20,9 @@ export const teachersFiltersConfig: FilterConfig[] = [
     key: 'subject',
     placeholder: 'Subject',
     options: [
-      { label: 'Mathematics', value: 'MATH' },
-      { label: 'Physics', value: 'PHYSICS' },
-      { label: 'Literature', value: 'LITERATURE' }
+      { label: msg`Mathematics`, value: 'MATH' },
+      { label: msg`Physics`, value: 'PHYSICS' },
+      { label: msg`Literature`, value: 'LITERATURE' }
     ]
   }
 ];

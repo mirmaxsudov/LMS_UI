@@ -1,3 +1,4 @@
+import type { MessageDescriptor } from '@lingui/core';
 import type { InfiniteData, QueryKey } from '@tanstack/react-query';
 import type { ComponentType, Dispatch, ReactNode, SetStateAction } from 'react';
 
@@ -25,7 +26,7 @@ type FilterVariant =
 export interface Option {
   count?: number;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  label: string;
+  label: MessageDescriptor;
   value: number | string;
 }
 
