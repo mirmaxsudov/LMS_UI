@@ -5,10 +5,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 
 import { UserListingTable, useUrlFilterValues } from '@/features';
-import { useGroupColumns } from '@/modules/group/columns';
-import { GroupFormDialog } from '@/modules/group/components/GroupFormDialog';
-import { groupsFiltersConfig, mapGroupsFiltersToParams } from '@/modules/group/filters';
-import { getGroupsQueryOptions } from '@/modules/group/options';
+import {
+  getGroupsQueryOptions,
+  GroupFormDialog,
+  groupsFiltersConfig,
+  mapGroupsFiltersToParams,
+  useGroupColumns
+} from '@/modules/group';
 import { Button } from '@/shared/ui/button';
 import { PageContent } from '@/shared/ui/page';
 
@@ -55,11 +58,7 @@ export const GroupsPage = () => {
         pagination={pagination}
         total={total}
       />
-      <GroupFormDialog
-        editValues={null}
-        onOpenChange={setIsFormOpen}
-        open={isFormOpen}
-      />
+      <GroupFormDialog editValues={null} onOpenChange={setIsFormOpen} open={isFormOpen} />
     </PageContent>
   );
 };
