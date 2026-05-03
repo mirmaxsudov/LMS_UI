@@ -13,6 +13,8 @@ import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/r
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
+import { Route as AuthenticatedLessonsIndexRouteImport } from './pages/_authenticated/lessons/index'
+import { Route as AuthenticatedLessonSessionsIndexRouteImport } from './pages/_authenticated/lesson-sessions/index'
 import { Route as AuthenticatedGroupsIndexRouteImport } from './pages/_authenticated/groups/index'
 import { Route as AuthenticatedCoursesIndexRouteImport } from './pages/_authenticated/courses/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
@@ -38,6 +40,18 @@ const AuthenticatedSettingsIndexRoute =
   AuthenticatedSettingsIndexRouteImport.update({
     id: '/settings/',
     path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedLessonsIndexRoute =
+  AuthenticatedLessonsIndexRouteImport.update({
+    id: '/lessons/',
+    path: '/lessons/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedLessonSessionsIndexRoute =
+  AuthenticatedLessonSessionsIndexRouteImport.update({
+    id: '/lesson-sessions/',
+    path: '/lesson-sessions/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedGroupsIndexRoute =
@@ -87,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/login': typeof AuthLoginIndexRoute
   '/courses': typeof AuthenticatedCoursesIndexRoute
   '/groups': typeof AuthenticatedGroupsIndexRoute
+  '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
+  '/lessons': typeof AuthenticatedLessonsIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -98,6 +114,8 @@ export interface FileRoutesByTo {
   '/login': typeof AuthLoginIndexRoute
   '/courses': typeof AuthenticatedCoursesIndexRoute
   '/groups': typeof AuthenticatedGroupsIndexRoute
+  '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
+  '/lessons': typeof AuthenticatedLessonsIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -112,6 +130,8 @@ export interface FileRoutesById {
   '/_auth/login/': typeof AuthLoginIndexRoute
   '/_authenticated/courses/': typeof AuthenticatedCoursesIndexRoute
   '/_authenticated/groups/': typeof AuthenticatedGroupsIndexRoute
+  '/_authenticated/lesson-sessions/': typeof AuthenticatedLessonSessionsIndexRoute
+  '/_authenticated/lessons/': typeof AuthenticatedLessonsIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/user/all/': typeof AuthenticatedUserAllIndexRoute
   '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
@@ -125,6 +145,8 @@ export interface FileRouteTypes {
     | '/login'
     | '/courses'
     | '/groups'
+    | '/lesson-sessions'
+    | '/lessons'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -136,6 +158,8 @@ export interface FileRouteTypes {
     | '/login'
     | '/courses'
     | '/groups'
+    | '/lesson-sessions'
+    | '/lessons'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -149,6 +173,8 @@ export interface FileRouteTypes {
     | '/_auth/login/'
     | '/_authenticated/courses/'
     | '/_authenticated/groups/'
+    | '/_authenticated/lesson-sessions/'
+    | '/_authenticated/lessons/'
     | '/_authenticated/settings/'
     | '/_authenticated/user/all/'
     | '/_authenticated/user/parents/'
@@ -189,6 +215,20 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/lessons/': {
+      id: '/_authenticated/lessons/'
+      path: '/lessons'
+      fullPath: '/lessons'
+      preLoaderRoute: typeof AuthenticatedLessonsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/lesson-sessions/': {
+      id: '/_authenticated/lesson-sessions/'
+      path: '/lesson-sessions'
+      fullPath: '/lesson-sessions'
+      preLoaderRoute: typeof AuthenticatedLessonSessionsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/groups/': {
@@ -259,6 +299,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedCoursesIndexRoute: typeof AuthenticatedCoursesIndexRoute
   AuthenticatedGroupsIndexRoute: typeof AuthenticatedGroupsIndexRoute
+  AuthenticatedLessonSessionsIndexRoute: typeof AuthenticatedLessonSessionsIndexRoute
+  AuthenticatedLessonsIndexRoute: typeof AuthenticatedLessonsIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
   AuthenticatedUserAllIndexRoute: typeof AuthenticatedUserAllIndexRoute
   AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
@@ -270,6 +312,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedCoursesIndexRoute: AuthenticatedCoursesIndexRoute,
   AuthenticatedGroupsIndexRoute: AuthenticatedGroupsIndexRoute,
+  AuthenticatedLessonSessionsIndexRoute: AuthenticatedLessonSessionsIndexRoute,
+  AuthenticatedLessonsIndexRoute: AuthenticatedLessonsIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
   AuthenticatedUserAllIndexRoute: AuthenticatedUserAllIndexRoute,
   AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,

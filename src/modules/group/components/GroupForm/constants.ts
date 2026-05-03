@@ -14,6 +14,16 @@ export const groupFormSchema = () =>
       value: z.string().min(1, t`This field is required.`)
     }),
     name: z.string().min(1, t`This field is required.`),
+    scheduleDays: z.array(z.enum([
+      'FRIDAY',
+      'MONDAY',
+      'SATURDAY',
+      'SUNDAY',
+      'THURSDAY',
+      'TUESDAY',
+      'WEDNESDAY'
+    ])),
+    scheduleType: z.enum(['EVEN_DAYS', 'EXACT_DAYS', 'ODD_DAYS']),
     status: z.enum(['ACTIVE', 'CANCELLED', 'FINISHED', 'FORMING']),
     teacher: z.object({
       label: z.string().min(1, t`This field is required.`),

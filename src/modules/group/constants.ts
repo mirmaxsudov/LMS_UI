@@ -5,6 +5,32 @@ import { msg } from '@lingui/core/macro';
 export type GroupActivity = 'active' | 'inactive';
 export type GroupStudentsCountStatus = 'available' | 'empty' | 'full' | 'nearlyFull';
 
+export const scheduleTypeLabelMap: Record<ScheduleType, MessageDescriptor> = {
+  EVEN_DAYS: msg`Even days`,
+  EXACT_DAYS: msg`Exact days`,
+  ODD_DAYS: msg`Odd days`
+};
+
+export const scheduleTypeOptions = Object.entries(scheduleTypeLabelMap).map(([key, value]) => ({
+  label: value,
+  value: key as ScheduleType
+}));
+
+export const dayOfWeekLabelMap: Record<DayOfWeek, MessageDescriptor> = {
+  FRIDAY: msg`Friday`,
+  MONDAY: msg`Monday`,
+  SATURDAY: msg`Saturday`,
+  SUNDAY: msg`Sunday`,
+  THURSDAY: msg`Thursday`,
+  TUESDAY: msg`Tuesday`,
+  WEDNESDAY: msg`Wednesday`
+};
+
+export const dayOfWeekOptions = Object.entries(dayOfWeekLabelMap).map(([key, value]) => ({
+  label: value,
+  value: key as DayOfWeek
+}));
+
 export const groupStatusLabelMap: Record<GroupStatus, MessageDescriptor> = {
   ACTIVE: msg`Active`,
   CANCELLED: msg`Cancelled`,

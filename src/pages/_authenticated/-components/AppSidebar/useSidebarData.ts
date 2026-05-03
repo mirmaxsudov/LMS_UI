@@ -1,5 +1,13 @@
 import { msg } from '@lingui/core/macro';
-import { BookOpenTextIcon, BoxesIcon, User2Icon, UsersIcon, UsersRoundIcon } from 'lucide-react';
+import {
+  BookOpenTextIcon,
+  BoxesIcon,
+  CalendarClockIcon,
+  ListVideoIcon,
+  User2Icon,
+  UsersIcon,
+  UsersRoundIcon
+} from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
 
@@ -18,6 +26,16 @@ export const useSidebarData = () => {
             title: msg`Groups`,
             url: '/groups',
             icon: BoxesIcon
+          },
+          {
+            title: msg`Lessons`,
+            url: '/lessons',
+            icon: ListVideoIcon
+          },
+          {
+            title: msg`Lesson sessions`,
+            url: '/lesson-sessions',
+            icon: CalendarClockIcon
           }
         ]
       },
