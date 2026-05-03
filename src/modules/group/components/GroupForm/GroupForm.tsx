@@ -1,16 +1,17 @@
 import { useLingui } from '@lingui/react/macro';
 
-import type { GroupFormSchema } from '@/modules/group/components/GroupForm/constants';
-
 import { CourseCombobox } from '@/modules/course';
-import { groupFormSchema } from '@/modules/group/components/GroupForm/constants';
-import { dayOfWeekOptions, groupStatusOptions, scheduleTypeOptions } from '@/modules/group/constants';
-import { TeacherCombobox } from '@/modules/users/teacher';
+import { dayOfWeekOptions, groupStatusOptions, scheduleTypeOptions } from '@/modules/group';
+import { TeacherCombobox } from '@/modules/users';
 import { Button } from '@/shared/ui/button';
 import { Checkbox } from '@/shared/ui/checkbox';
 import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
 import { SelectItem } from '@/shared/ui/select';
+
+import type { GroupFormSchema } from './constants';
+
+import { groupFormSchema } from './constants';
 
 interface Props {
   defaultValues?: Group;
@@ -109,38 +110,51 @@ export const GroupForm = ({
             </field.Select>
           )}
         </form.AppField>
-        <form.AppField name='scheduleDays'>
-          {(field) => (
-            <FormBase isRequired label={t`Schedule days`}>
-              <div className='grid grid-cols-2 gap-2'>
-                {dayOfWeekOptions.map((option) => {
-                  const checked = field.state.value.includes(option.value);
+        <form.Subscribe selector={(state) => state.values.scheduleType}>
+          {(scheduleType) => {
+            if (scheduleType !== 'EXACT_DAYS') {
+              if (form.getFieldValue('scheduleDays').length > 0) {
+                form.setFieldValue('scheduleDays', []);
+              }
+              return null;
+            }
 
-                  return (
-                    <label
-                      key={option.value}
-                      className='flex items-center gap-2 rounded-md border p-2 text-sm'
-                    >
-                      <Checkbox
-                        checked={checked}
-                        onCheckedChange={(nextChecked) => {
-                          if (nextChecked) {
-                            field.handleChange([...field.state.value, option.value]);
-                            return;
-                          }
-                          field.handleChange(
-                            field.state.value.filter((value) => value !== option.value)
-                          );
-                        }}
-                      />
-                      {t(option.label)}
-                    </label>
-                  );
-                })}
-              </div>
-            </FormBase>
-          )}
-        </form.AppField>
+            return (
+              <form.AppField name='scheduleDays'>
+                {(field) => (
+                  <FormBase isRequired label={t`Schedule days`}>
+                    <div className='grid grid-cols-2 gap-2'>
+                      {dayOfWeekOptions.map((option) => {
+                        const checked = field.state.value.includes(option.value);
+
+                        return (
+                          <label
+                            key={option.value}
+                            className='flex items-center gap-2 rounded-md border p-2 text-sm'
+                          >
+                            <Checkbox
+                              checked={checked}
+                              onCheckedChange={(nextChecked) => {
+                                if (nextChecked) {
+                                  field.handleChange([...field.state.value, option.value]);
+                                  return;
+                                }
+                                field.handleChange(
+                                  field.state.value.filter((value) => value !== option.value)
+                                );
+                              }}
+                            />
+                            {t(option.label)}
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </FormBase>
+                )}
+              </form.AppField>
+            );
+          }}
+        </form.Subscribe>
         <form.AppField name='status'>
           {(field) => (
             <field.Select isRequired label={t`Status`} placeholder={t`Select status`}>

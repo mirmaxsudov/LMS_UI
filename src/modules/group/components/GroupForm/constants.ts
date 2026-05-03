@@ -33,9 +33,22 @@ export const groupFormSchema = () =>
         value: z.string().min(1, t`This field is required.`)
       })
     })
-    .refine((value) => value.scheduleType !== 'EXACT_DAYS' || value.scheduleDays.length > 0, {
-      message: t`Select at least one schedule day.`,
-      path: ['scheduleDays']
+    .superRefine((value, ctx) => {
+      if (value.scheduleType === 'EXACT_DAYS' && value.scheduleDays.length === 0) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: t`Select at least one schedule day.`,
+          path: ['scheduleDays']
+        });
+      }
+
+      if (value.scheduleType !== 'EXACT_DAYS' && value.scheduleDays.length > 0) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: t`Schedule days must be empty for this schedule type.`,
+          path: ['scheduleDays']
+        });
+      }
     });
 
 export type GroupFormSchema = z.infer<ReturnType<typeof groupFormSchema>>;
