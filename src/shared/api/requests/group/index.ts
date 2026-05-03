@@ -42,3 +42,11 @@ interface DeleteGroupRequest {
 }
 
 export const deleteGroup = ({ id }: DeleteGroupRequest) => api.delete(`groups/${id}`);
+
+interface PostGroupStartRequest {
+  data: PostGroupStartDto;
+  id: string;
+}
+
+export const postGroupStart = ({ id, data }: PostGroupStartRequest) =>
+  api.post(`groups/${id}/start`, data);
