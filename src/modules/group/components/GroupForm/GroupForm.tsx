@@ -40,7 +40,7 @@ export const GroupForm = ({
         value: defaultValues?.courseId ?? ''
       },
       name: defaultValues?.name ?? '',
-      scheduleDays: defaultValues?.scheduleDays ?? [],
+      scheduleDays: defaultValues?.scheduleDays ?? ['MONDAY', 'WEDNESDAY', 'FRIDAY'],
       scheduleType: defaultValues?.scheduleType ?? 'EXACT_DAYS',
       status: defaultValues?.status ?? 'FORMING',
       teacher: {
@@ -111,7 +111,7 @@ export const GroupForm = ({
         </form.AppField>
         <form.AppField name='scheduleDays'>
           {(field) => (
-            <FormBase label={t`Schedule days`}>
+            <FormBase isRequired label={t`Schedule days`}>
               <div className='grid grid-cols-2 gap-2'>
                 {dayOfWeekOptions.map((option) => {
                   const checked = field.state.value.includes(option.value);

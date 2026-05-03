@@ -6,6 +6,7 @@ import { PencilIcon, TrashIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import {
+  dayOfWeekLabelMap,
   getGroupStudentsCountStatus,
   GROUP_QUERY_KEYS,
   groupActivityColorMap,
@@ -14,7 +15,8 @@ import {
   groupStatusColorMap,
   groupStatusLabelMap,
   groupStudentsCountStatusColorMap,
-  groupStudentsCountStatusLabelMap
+  groupStudentsCountStatusLabelMap,
+  scheduleTypeLabelMap
 } from '@/modules/group';
 import { deleteGroup } from '@/shared/api';
 import { Badge } from '@/shared/ui/badge';
@@ -123,6 +125,19 @@ export const useGroupColumns = (): ColumnDef<Group>[] => {
             </div>
           );
         }
+      },
+      {
+        id: 'scheduleType',
+        header: t`Schedule type`,
+        accessorFn: (row) => t(scheduleTypeLabelMap[row.scheduleType])
+      },
+      {
+        id: 'scheduleDays',
+        header: t`Schedule days`,
+        accessorFn: (row) =>
+          row.scheduleDays.length
+            ? row.scheduleDays.map((day) => t(dayOfWeekLabelMap[day])).join(', ')
+            : '-'
       },
       {
         id: 'status',

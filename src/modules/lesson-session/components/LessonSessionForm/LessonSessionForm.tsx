@@ -1,15 +1,17 @@
 import { useLingui } from '@lingui/react/macro';
 
-import type { LessonSessionFormSchema } from '@/modules/lesson-session/components/LessonSessionForm/constants';
-
-import { GroupCombobox } from '@/modules/lesson-session/components/GroupCombobox';
-import { LessonCombobox } from '@/modules/lesson-session/components/LessonCombobox';
-import { lessonSessionFormSchema } from '@/modules/lesson-session/components/LessonSessionForm/constants';
-import { lessonSessionStatusOptions } from '@/modules/lesson-session/constants';
+import {
+  GroupCombobox,
+  LessonCombobox,
+  lessonSessionFormSchema,
+  lessonSessionStatusOptions
+} from '@/modules/lesson-session';
 import { Button } from '@/shared/ui/button';
 import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
 import { SelectItem } from '@/shared/ui/select';
+
+import type { LessonSessionFormSchema } from './constants';
 
 interface Props {
   defaultValues?: LessonSession;
@@ -88,10 +90,10 @@ export const LessonSessionForm = ({
           )}
         </form.AppField>
         <form.AppField name='startTime'>
-          {(field) => <field.Input isRequired label={t`Start time`} type='datetime-local' />}
+          {(field) => <field.DatePicker isRequired label={t`Start time`} />}
         </form.AppField>
         <form.AppField name='endTime'>
-          {(field) => <field.Input isRequired label={t`End time`} type='datetime-local' />}
+          {(field) => <field.DatePicker isRequired label={t`End time`} />}
         </form.AppField>
         <form.AppField name='status'>
           {(field) => (
