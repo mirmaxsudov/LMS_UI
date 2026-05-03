@@ -1,7 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
 
+import { GroupCombobox } from '@/modules/group';
 import {
-  GroupCombobox,
   LessonCombobox,
   lessonSessionFormSchema,
   lessonSessionStatusOptions

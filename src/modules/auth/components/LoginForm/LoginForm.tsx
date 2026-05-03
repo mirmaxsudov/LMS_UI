@@ -2,6 +2,7 @@ import { useLingui } from '@lingui/react/macro';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
+import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
 
 import type { LoginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
 
@@ -40,12 +41,19 @@ export const LoginForm = () => {
   });
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{t`Login to your account`}</CardTitle>
-        <CardDescription>{t`Enter your phone number below to login to your account`}</CardDescription>
+    <Card className='w-full gap-7 rounded-lg border-border/70 bg-card/95 px-1 py-7 shadow-xl shadow-primary/5 backdrop-blur'>
+      <CardHeader className='gap-4 px-7'>
+        <div className='bg-primary/10 text-primary flex size-12 items-center justify-center rounded-md'>
+          <ShieldCheckIcon className='size-6' />
+        </div>
+        <div className='space-y-2'>
+          <CardTitle className='text-2xl leading-tight'>{t`Welcome back`}</CardTitle>
+          <CardDescription className='text-base leading-6'>
+            {t`Sign in to continue managing courses, lessons, and learner progress.`}
+          </CardDescription>
+        </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className='px-7'>
         <form.AppForm>
           <form
             onSubmit={(e) => {
@@ -63,8 +71,9 @@ export const LoginForm = () => {
                   <field.PasswordInput isRequired label={t`Password`} placeholder='********' />
                 )}
               </form.AppField>
-              <Button className='mt-2' type='submit' loading={postLoginMutation.isPending}>
+              <Button className='mt-3 h-11 w-full text-base' type='submit' loading={postLoginMutation.isPending}>
                 {t`Login`}
+                {!postLoginMutation.isPending && <ArrowRightIcon className='size-5' />}
               </Button>
             </div>
           </form>

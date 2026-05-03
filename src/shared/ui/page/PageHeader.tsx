@@ -4,6 +4,7 @@ import React from 'react';
 import { cn } from '@/shared/lib/utils.ts';
 import { Button } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input.tsx';
+import { ThemeSwitch } from '@/shared/ui/theme-switch.tsx';
 
 interface AppHeaderProps extends React.ComponentProps<'header'> {
   children?: React.ReactNode;
@@ -28,6 +29,7 @@ export const PageHeader = ({ ref, className, children, ...props }: AppHeaderProp
         />
       </div>
       <div className='ml-auto flex items-center gap-2'>
+        <ThemeSwitch />
         <Button
           className='bg-muted hover:bg-muted/80 relative rounded-full'
           size='icon'

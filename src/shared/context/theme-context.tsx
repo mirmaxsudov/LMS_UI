@@ -20,25 +20,29 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+const isTheme = (theme: string | null): theme is Theme => theme === 'dark' || theme === 'light';
+
 export const ThemeProvider = ({
   children,
   defaultTheme = 'light',
-  storageKey = 'vite-ui-theme',
+  storageKey = 'lms-ui-theme',
   ...props
 }: ThemeProviderProps) => {
-  const [theme, _setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, _setTheme] = useState<Theme>(() => {
+    const storedTheme = window.localStorage.getItem(storageKey);
+    return isTheme(storedTheme) ? storedTheme : defaultTheme;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
 
     const applyTheme = (theme: Theme) => {
-      root.classList.remove('light', 'dark'); // Remove existing theme classes
-      root.classList.add(theme); // Add the new theme class
+      root.classList.remove('light', 'dark');
+      root.classList.add(theme);
+      root.style.colorScheme = theme;
     };
 
-    applyTheme('light'); // theme
+    applyTheme(theme);
   }, [theme]);
 
   const setTheme = (theme: Theme) => {

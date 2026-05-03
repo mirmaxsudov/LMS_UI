@@ -3,10 +3,10 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import type { ComboboxOption } from '@/shared/ui/combobox';
+import type { ComboboxOption } from '@/shared/ui/combobox.tsx';
 
 import { getGroups } from '@/shared/api';
-import { useDebouncedValue } from '@/shared/hooks/useDeboucedValue';
+import { useDebouncedValue } from '@/shared/hooks/useDeboucedValue.ts';
 import {
   Combobox,
   ComboboxContent,
@@ -15,8 +15,8 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxTrigger
-} from '@/shared/ui/combobox';
-import { Spinner } from '@/shared/ui/spinner';
+} from '@/shared/ui/combobox.tsx';
+import { Spinner } from '@/shared/ui/spinner.tsx';
 
 interface GroupComboboxProps {
   disabled?: boolean;

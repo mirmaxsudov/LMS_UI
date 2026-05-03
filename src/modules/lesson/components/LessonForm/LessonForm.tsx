@@ -1,12 +1,13 @@
 import { useLingui } from '@lingui/react/macro';
 
-import type { LessonFormSchema } from '@/modules/lesson/components/LessonForm/constants';
-
-import { CourseSectionCombobox } from '@/modules/lesson/components/CourseSectionCombobox';
-import { lessonFormSchema } from '@/modules/lesson/components/LessonForm/constants';
+import { CourseSectionCombobox } from '@/modules/lesson';
 import { Button } from '@/shared/ui/button';
 import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
+
+import type { LessonFormSchema } from './constants';
+
+import { lessonFormSchema } from './constants';
 
 interface Props {
   defaultValues?: Lesson;
@@ -69,17 +70,17 @@ export const LessonForm = ({
         </form.AppField>
         <form.AppField name='durationInMinutes'>
           {(field) => (
-            <field.Input
-              isRequired
-              label={t`Duration (minutes)`}
-              type='number'
-              placeholder='45'
-            />
+            <field.Input isRequired label={t`Duration (minutes)`} type='number' placeholder='45' />
           )}
         </form.AppField>
         <form.AppField name='content'>
           {(field) => (
-            <field.Textarea isRequired label={t`Content`} placeholder={t`Lesson content`} rows={5} />
+            <field.Textarea
+              isRequired
+              label={t`Content`}
+              placeholder={t`Lesson content`}
+              rows={5}
+            />
           )}
         </form.AppField>
         <Button type='submit' loading={isSubmitting}>
