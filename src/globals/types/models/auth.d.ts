@@ -25,7 +25,7 @@ interface Role {
   deletedAt: Nullable<string>;
   description: string;
   id: string;
-  name: string;
+  name: UserRole;
   permissions: Permission[];
   updatedAt: string;
 }

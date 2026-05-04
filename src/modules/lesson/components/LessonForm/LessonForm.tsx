@@ -30,7 +30,7 @@ export const LessonForm = ({
       content: defaultValues?.content ?? '',
       durationInMinutes: defaultValues?.durationInMinutes?.toString() ?? '',
       section: {
-        label: defaultValues?.sectionId ?? '',
+        label: defaultValues?.sectionTitle ?? '',
         value: defaultValues?.sectionId ?? ''
       },
       title: defaultValues?.title ?? ''

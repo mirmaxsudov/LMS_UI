@@ -6,4 +6,5 @@ dist
 .vite
 tsconfig.tsbuildinfo
 *~
-.DS_Store
+.DS_Store!/.junie/
+.junie

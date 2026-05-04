@@ -1,5 +1,6 @@
 interface CourseSection {
   courseId: string;
+  courseTitle: string;
   id: string;
   lessons: Lesson[];
   orderIndex: number;

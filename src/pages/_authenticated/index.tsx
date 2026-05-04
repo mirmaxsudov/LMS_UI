@@ -2,7 +2,7 @@ import type { AxiosResponse } from 'axios';
 
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
-import { AUTH_QUERY_KEYS } from '@/modules/auth';
+import { AUTH_QUERY_KEYS, getDefaultRouteByUserRole } from '@/modules/auth';
 
 export const Route = createFileRoute('/_authenticated/')({
   loader: async ({ context: { queryClient } }) => {
@@ -11,6 +11,6 @@ export const Route = createFileRoute('/_authenticated/')({
     const user = res?.data;
 
     if (!user) throw redirect({ to: '/login' });
-    throw redirect({ to: '/settings' });
+    throw redirect({ to: getDefaultRouteByUserRole(user) });
   }
 });

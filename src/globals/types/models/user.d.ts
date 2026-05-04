@@ -11,7 +11,7 @@ interface UserPreview {
   status: UserStatus;
 }
 
-// Apis
+// APIs
 
 type UserPreviewsResponse = Pagination<UserPreview>;
 

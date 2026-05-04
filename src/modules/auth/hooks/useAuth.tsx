@@ -2,7 +2,7 @@ import { useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useRouter } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
 
-import { getAuthMeQueryOptions } from '@/modules/auth';
+import { getAuthMeQueryOptions, getPrimaryUserRole } from '@/modules/auth';
 import { COOKIES } from '@/shared/constants';
 
 export const useAuth = () => {
@@ -18,7 +18,7 @@ export const useAuth = () => {
   return {
     user: {
       ...getUsersMeSuspenseQuery.data.data,
-      role: 'superadmin' as UserRole
+      role: getPrimaryUserRole(getUsersMeSuspenseQuery.data.data)
     },
     onLogout
   };

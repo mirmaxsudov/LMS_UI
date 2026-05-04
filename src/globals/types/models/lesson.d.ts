@@ -3,6 +3,7 @@ interface Lesson {
   durationInMinutes: number;
   id: string;
   sectionId: string;
+  sectionTitle: string;
   title: string;
 }
 

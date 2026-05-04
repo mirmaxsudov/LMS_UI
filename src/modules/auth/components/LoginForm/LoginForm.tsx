@@ -1,5 +1,5 @@
 import { useLingui } from '@lingui/react/macro';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
 import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
@@ -7,6 +7,7 @@ import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
 import type { LoginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
 
 import { loginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
+import { getAuthMeQueryOptions, getDefaultRouteByUserRole } from '@/modules/auth';
 import { postLogin } from '@/shared/api';
 import { COOKIES } from '@/shared/constants';
 import { Button } from '@/shared/ui/button.tsx';
@@ -15,6 +16,9 @@ import { useAppForm } from '@/shared/ui/form/hooks.ts';
 
 export const LoginForm = () => {
   const { t } = useLingui();
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
   const form = useAppForm({
     validators: { onChange: loginFormSchema() },
     defaultValues: {
@@ -26,17 +30,16 @@ export const LoginForm = () => {
     }
   });
 
-  const router = useRouter();
-
   const postLoginMutation = useMutation({
     mutationFn: postLogin,
-    onSuccess: ({
+    onSuccess: async ({
       data: {
         data: { accessToken }
       }
     }) => {
       Cookies.set(COOKIES.ACCESS_TOKEN, accessToken, { expires: 7 });
-      router.navigate({ to: '/settings' });
+      const authMeResponse = await queryClient.fetchQuery(getAuthMeQueryOptions());
+      await router.navigate({ to: getDefaultRouteByUserRole(authMeResponse.data) });
     }
   });
 

@@ -3,6 +3,7 @@ import {
   BookOpenTextIcon,
   BoxesIcon,
   CalendarClockIcon,
+  ListTreeIcon,
   ListVideoIcon,
   User2Icon,
   UsersIcon,
@@ -21,6 +22,11 @@ export const useSidebarData = () => {
             title: msg`Courses`,
             url: '/courses',
             icon: BookOpenTextIcon
+          },
+          {
+            title: msg`Course sections`,
+            url: '/course-sections',
+            icon: ListTreeIcon
           },
           {
             title: msg`Groups`,

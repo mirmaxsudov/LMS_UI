@@ -17,6 +17,7 @@ import { Route as AuthenticatedLessonsIndexRouteImport } from './pages/_authenti
 import { Route as AuthenticatedLessonSessionsIndexRouteImport } from './pages/_authenticated/lesson-sessions/index'
 import { Route as AuthenticatedGroupsIndexRouteImport } from './pages/_authenticated/groups/index'
 import { Route as AuthenticatedCoursesIndexRouteImport } from './pages/_authenticated/courses/index'
+import { Route as AuthenticatedCourseSectionsIndexRouteImport } from './pages/_authenticated/course-sections/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
 import { Route as AuthenticatedUserTeachersIndexRouteImport } from './pages/_authenticated/user/teachers/index'
 import { Route as AuthenticatedUserStudentsIndexRouteImport } from './pages/_authenticated/user/students/index'
@@ -66,6 +67,12 @@ const AuthenticatedCoursesIndexRoute =
     path: '/courses/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedCourseSectionsIndexRoute =
+  AuthenticatedCourseSectionsIndexRouteImport.update({
+    id: '/course-sections/',
+    path: '/course-sections/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   id: '/login/',
   path: '/login/',
@@ -99,6 +106,7 @@ const AuthenticatedUserAllIndexRoute =
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/course-sections': typeof AuthenticatedCourseSectionsIndexRoute
   '/courses': typeof AuthenticatedCoursesIndexRoute
   '/groups': typeof AuthenticatedGroupsIndexRoute
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
@@ -112,6 +120,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/course-sections': typeof AuthenticatedCourseSectionsIndexRoute
   '/courses': typeof AuthenticatedCoursesIndexRoute
   '/groups': typeof AuthenticatedGroupsIndexRoute
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
@@ -128,6 +137,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
+  '/_authenticated/course-sections/': typeof AuthenticatedCourseSectionsIndexRoute
   '/_authenticated/courses/': typeof AuthenticatedCoursesIndexRoute
   '/_authenticated/groups/': typeof AuthenticatedGroupsIndexRoute
   '/_authenticated/lesson-sessions/': typeof AuthenticatedLessonSessionsIndexRoute
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login'
+    | '/course-sections'
     | '/courses'
     | '/groups'
     | '/lesson-sessions'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login'
+    | '/course-sections'
     | '/courses'
     | '/groups'
     | '/lesson-sessions'
@@ -171,6 +183,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/_authenticated/'
     | '/_auth/login/'
+    | '/_authenticated/course-sections/'
     | '/_authenticated/courses/'
     | '/_authenticated/groups/'
     | '/_authenticated/lesson-sessions/'
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCoursesIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/course-sections/': {
+      id: '/_authenticated/course-sections/'
+      path: '/course-sections'
+      fullPath: '/course-sections'
+      preLoaderRoute: typeof AuthenticatedCourseSectionsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_auth/login/': {
       id: '/_auth/login/'
       path: '/login'
@@ -297,6 +317,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedCourseSectionsIndexRoute: typeof AuthenticatedCourseSectionsIndexRoute
   AuthenticatedCoursesIndexRoute: typeof AuthenticatedCoursesIndexRoute
   AuthenticatedGroupsIndexRoute: typeof AuthenticatedGroupsIndexRoute
   AuthenticatedLessonSessionsIndexRoute: typeof AuthenticatedLessonSessionsIndexRoute
@@ -310,6 +331,7 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedCourseSectionsIndexRoute: AuthenticatedCourseSectionsIndexRoute,
   AuthenticatedCoursesIndexRoute: AuthenticatedCoursesIndexRoute,
   AuthenticatedGroupsIndexRoute: AuthenticatedGroupsIndexRoute,
   AuthenticatedLessonSessionsIndexRoute: AuthenticatedLessonSessionsIndexRoute,

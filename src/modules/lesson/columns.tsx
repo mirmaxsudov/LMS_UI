@@ -65,9 +65,9 @@ export const useLessonColumns = (): ColumnDef<Lesson>[] => {
         accessorKey: 'title'
       },
       {
-        id: 'sectionId',
+        id: 'section',
         header: t`Section`,
-        accessorFn: (row) => row.sectionId || '-'
+        accessorFn: (row) => row.sectionTitle || '-'
       },
       {
         id: 'durationInMinutes',
