@@ -1,4 +1,4 @@
-﻿import type { FilterMap } from '@/shared/ui/filter/FilterToolbar';
+import type { FilterMap } from '@/shared/ui/filter/FilterToolbar';
 
 export type UserEntityType = 'all' | 'parents' | 'students' | 'teachers';
 
@@ -30,8 +30,8 @@ export interface ParentFiltersParams {
 }
 
 export interface UserPreviewFiltersParams {
-  search?: string;
-  role?: UserRole;
-  status?: UserStatus;
   permission?: string;
+  role?: UserRole;
+  search?: string;
+  status?: UserStatus;
 }

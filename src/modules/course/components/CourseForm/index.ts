@@ -1,2 +1,2 @@
-export { CourseForm } from './CourseForm';
 export * from './constants';
+export { CourseForm } from './CourseForm';

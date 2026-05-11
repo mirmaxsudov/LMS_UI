@@ -8,3 +8,6 @@ tsconfig.tsbuildinfo
 *~
 .DS_Store!/.junie/
 .junie
+.ai
+AGENTS.md
+tasks

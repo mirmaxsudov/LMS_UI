@@ -1,9 +1,9 @@
 import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { CourseSectionForm } from '@/modules/course-section/components/CourseSectionForm';
-import { COURSE_SECTION_QUERY_KEYS } from '@/modules/course-section/options';
-import { postCourseSection, putCourseSection } from '@/shared/api';
+import { OnlineCourseForm } from '@/modules/online-course/components/OnlineCourseForm';
+import { ONLINE_COURSE_QUERY_KEYS } from '@/modules/online-course/options';
+import { postOnlineCourse, putOnlineCourse } from '@/shared/api';
 import {
   Dialog,
   DialogContent,
@@ -12,33 +12,33 @@ import {
   DialogTitle
 } from '@/shared/ui/dialog';
 
-interface CourseSectionFormDialogProps {
-  editValues: CourseSection | null;
+interface OnlineCourseFormDialogProps {
+  editValues: OnlineCourse | OnlineCoursePreview | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export const CourseSectionFormDialog = ({
+export const OnlineCourseFormDialog = ({
+  editValues,
   open,
-  onOpenChange,
-  editValues
-}: CourseSectionFormDialogProps) => {
+  onOpenChange
+}: OnlineCourseFormDialogProps) => {
   const { t } = useLingui();
   const queryClient = useQueryClient();
   const isEditMode = Boolean(editValues);
 
   const createMutation = useMutation({
-    mutationFn: postCourseSection,
+    mutationFn: postOnlineCourse,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: COURSE_SECTION_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: ONLINE_COURSE_QUERY_KEYS.all() });
       onOpenChange(false);
     }
   });
 
   const updateMutation = useMutation({
-    mutationFn: putCourseSection,
+    mutationFn: putOnlineCourse,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: COURSE_SECTION_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: ONLINE_COURSE_QUERY_KEYS.all() });
       onOpenChange(false);
     }
   });
@@ -47,31 +47,22 @@ export const CourseSectionFormDialog = ({
 
   return (
     <Dialog onOpenChange={onOpenChange} open={open}>
-      <DialogContent>
+      <DialogContent className='max-h-[92svh] overflow-y-auto sm:max-w-3xl'>
         <DialogHeader>
-          <DialogTitle>
-            {isEditMode ? t`Edit course section` : t`Create course section`}
-          </DialogTitle>
+          <DialogTitle>{isEditMode ? t`Edit online course` : t`Create online course`}</DialogTitle>
           <DialogDescription>
             {isEditMode
-              ? t`Update the selected course section details.`
-              : t`Fill out the form to create a new course section.`}
+              ? t`Update the course landing details, publishing status, and thumbnail.`
+              : t`Create a polished online course shell before adding modules and materials.`}
           </DialogDescription>
         </DialogHeader>
-        <CourseSectionForm
+        <OnlineCourseForm
           defaultValues={editValues ?? undefined}
           isSubmitting={isSubmitting}
           submitLabel={isEditMode ? t`Update` : t`Create`}
-          isCourseReadonly={isEditMode}
           onSubmit={(data) => {
             if (editValues) {
-              updateMutation.mutate({
-                id: editValues.id,
-                data: {
-                  orderIndex: data.orderIndex,
-                  title: data.title
-                }
-              });
+              updateMutation.mutate({ courseId: editValues.id, data });
               return;
             }
 

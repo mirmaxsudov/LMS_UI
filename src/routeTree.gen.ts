@@ -13,6 +13,7 @@ import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/r
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
+import { Route as AuthenticatedOnlineCoursesIndexRouteImport } from './pages/_authenticated/online-courses/index'
 import { Route as AuthenticatedLessonsIndexRouteImport } from './pages/_authenticated/lessons/index'
 import { Route as AuthenticatedLessonSessionsIndexRouteImport } from './pages/_authenticated/lesson-sessions/index'
 import { Route as AuthenticatedGroupsIndexRouteImport } from './pages/_authenticated/groups/index'
@@ -41,6 +42,12 @@ const AuthenticatedSettingsIndexRoute =
   AuthenticatedSettingsIndexRouteImport.update({
     id: '/settings/',
     path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOnlineCoursesIndexRoute =
+  AuthenticatedOnlineCoursesIndexRouteImport.update({
+    id: '/online-courses/',
+    path: '/online-courses/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedLessonsIndexRoute =
@@ -111,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/groups': typeof AuthenticatedGroupsIndexRoute
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
   '/lessons': typeof AuthenticatedLessonsIndexRoute
+  '/online-courses': typeof AuthenticatedOnlineCoursesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -125,6 +133,7 @@ export interface FileRoutesByTo {
   '/groups': typeof AuthenticatedGroupsIndexRoute
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
   '/lessons': typeof AuthenticatedLessonsIndexRoute
+  '/online-courses': typeof AuthenticatedOnlineCoursesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -142,6 +151,7 @@ export interface FileRoutesById {
   '/_authenticated/groups/': typeof AuthenticatedGroupsIndexRoute
   '/_authenticated/lesson-sessions/': typeof AuthenticatedLessonSessionsIndexRoute
   '/_authenticated/lessons/': typeof AuthenticatedLessonsIndexRoute
+  '/_authenticated/online-courses/': typeof AuthenticatedOnlineCoursesIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/user/all/': typeof AuthenticatedUserAllIndexRoute
   '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/groups'
     | '/lesson-sessions'
     | '/lessons'
+    | '/online-courses'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/groups'
     | '/lesson-sessions'
     | '/lessons'
+    | '/online-courses'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -188,6 +200,7 @@ export interface FileRouteTypes {
     | '/_authenticated/groups/'
     | '/_authenticated/lesson-sessions/'
     | '/_authenticated/lessons/'
+    | '/_authenticated/online-courses/'
     | '/_authenticated/settings/'
     | '/_authenticated/user/all/'
     | '/_authenticated/user/parents/'
@@ -228,6 +241,13 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/online-courses/': {
+      id: '/_authenticated/online-courses/'
+      path: '/online-courses'
+      fullPath: '/online-courses'
+      preLoaderRoute: typeof AuthenticatedOnlineCoursesIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/lessons/': {
@@ -322,6 +342,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedGroupsIndexRoute: typeof AuthenticatedGroupsIndexRoute
   AuthenticatedLessonSessionsIndexRoute: typeof AuthenticatedLessonSessionsIndexRoute
   AuthenticatedLessonsIndexRoute: typeof AuthenticatedLessonsIndexRoute
+  AuthenticatedOnlineCoursesIndexRoute: typeof AuthenticatedOnlineCoursesIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
   AuthenticatedUserAllIndexRoute: typeof AuthenticatedUserAllIndexRoute
   AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
@@ -336,6 +357,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedGroupsIndexRoute: AuthenticatedGroupsIndexRoute,
   AuthenticatedLessonSessionsIndexRoute: AuthenticatedLessonSessionsIndexRoute,
   AuthenticatedLessonsIndexRoute: AuthenticatedLessonsIndexRoute,
+  AuthenticatedOnlineCoursesIndexRoute: AuthenticatedOnlineCoursesIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
   AuthenticatedUserAllIndexRoute: AuthenticatedUserAllIndexRoute,
   AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,

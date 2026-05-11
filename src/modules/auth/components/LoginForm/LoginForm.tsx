@@ -6,8 +6,8 @@ import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
 
 import type { LoginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
 
-import { loginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
 import { getAuthMeQueryOptions, getDefaultRouteByUserRole } from '@/modules/auth';
+import { loginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
 import { postLogin } from '@/shared/api';
 import { COOKIES } from '@/shared/constants';
 import { Button } from '@/shared/ui/button.tsx';

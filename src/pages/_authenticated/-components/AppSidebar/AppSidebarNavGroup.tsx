@@ -71,7 +71,7 @@ const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
   if (item.disabled) {
     return (
       <SidebarMenuItem>
-        <SidebarMenuButton className='cursor-default opacity-70' disabled tooltip={t(item.title)}>
+        <SidebarMenuButton disabled className='cursor-default opacity-70' tooltip={t(item.title)}>
           {item.icon && <item.icon />}
           <span>{t(item.title)}</span>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}

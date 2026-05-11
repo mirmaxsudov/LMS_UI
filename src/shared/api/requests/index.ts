@@ -1,3 +1,4 @@
+export * from './attachment';
 export * from './attendance';
 export * from './attendance-note';
 export * from './auth';
@@ -6,4 +7,5 @@ export * from './course-section';
 export * from './group';
 export * from './lesson';
 export * from './lesson-session';
+export * from './online-course';
 export * from './schedule';
