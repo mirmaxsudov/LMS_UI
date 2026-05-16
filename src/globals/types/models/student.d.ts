@@ -9,3 +9,4 @@ interface Student {
 // Apis
 
 type StudentsResponse = Pagination<Student>;
+type StudentResponse = ApiResponse<Student>;

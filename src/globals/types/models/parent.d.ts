@@ -6,3 +6,4 @@ interface Parent {
 // apis
 
 type ParentsResponse = Pagination<Parent>;
+type ParentResponse = ApiResponse<Parent>;

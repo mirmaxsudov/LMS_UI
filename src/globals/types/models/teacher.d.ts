@@ -7,3 +7,4 @@ interface Teacher {
 }
 
 type TeachersResponse = Pagination<Teacher>;
+type TeacherResponse = ApiResponse<Teacher>;

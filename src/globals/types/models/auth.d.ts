@@ -8,7 +8,7 @@ type UserRole =
   | 'SUPPORT_TEACHER'
   | 'TEACHER';
 type Gender = 'FEMALE' | 'MALE';
-type UserStatus = 'ACTIVE' | 'INACTIVE';
+type UserStatus = 'ACTIVE' | 'BLOCKED' | 'INACTIVE';
 
 interface PostLoginDto {
   password: string;

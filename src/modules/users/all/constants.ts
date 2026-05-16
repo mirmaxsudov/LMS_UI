@@ -15,5 +15,6 @@ export const roleLabelMap: Record<UserRole, MessageDescriptor> = {
 
 export const statusLabelMap: Record<UserStatus, MessageDescriptor> = {
   ACTIVE: msg`Active`,
+  BLOCKED: msg`Blocked`,
   INACTIVE: msg`Inactive`
 };
