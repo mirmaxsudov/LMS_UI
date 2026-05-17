@@ -59,10 +59,10 @@ const parentsQueryFactory = createQueryOptionsFactory<ParentFiltersParams, Paren
   getParents
 );
 
-const allUsersQueryFactory = createQueryOptionsFactory<UserPreviewFiltersParams, UserPreviewsResponse>(
-  'all',
-  getAllUserPreviews
-);
+const allUsersQueryFactory = createQueryOptionsFactory<
+  UserPreviewFiltersParams,
+  UserPreviewsResponse
+>('all', getAllUserPreviews);
 
 export const getTeachersQueryOptions = (params?: QueryFactoryParams<TeacherFiltersParams>) =>
   teachersQueryFactory(params);

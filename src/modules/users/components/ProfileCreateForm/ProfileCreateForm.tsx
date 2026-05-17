@@ -1,7 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
 
 import { Button } from '@/shared/ui/button';
-import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
 import { SelectItem } from '@/shared/ui/select';
 
@@ -125,7 +124,6 @@ export const ProfileCreateForm = ({
         const studentValue = value as StudentProfileFormSchema;
         onSubmit({
           ...sharedDto,
-          studentId: studentValue.studentId || undefined,
           studentStatus: studentValue.studentStatus
         });
         return;
@@ -255,26 +253,22 @@ export const ProfileCreateForm = ({
         <div className='grid gap-3 sm:grid-cols-2'>
           <form.AppField name='profileImage'>
             {(field) => (
-              <FormBase label={t`Profile image`}>
-                <ProfileFileField
-                  disabled={isSubmitting}
-                  file={field.state.value}
-                  label={t`Profile image`}
-                  onFileChange={field.handleChange}
-                />
-              </FormBase>
+              <ProfileFileField
+                disabled={isSubmitting}
+                file={field.state.value}
+                label={t`Profile image`}
+                onFileChange={field.handleChange}
+              />
             )}
           </form.AppField>
           <form.AppField name='profileBackgroundAttachment'>
             {(field) => (
-              <FormBase label={t`Profile background`}>
-                <ProfileFileField
-                  disabled={isSubmitting}
-                  file={field.state.value}
-                  label={t`Profile background`}
-                  onFileChange={field.handleChange}
-                />
-              </FormBase>
+              <ProfileFileField
+                disabled={isSubmitting}
+                file={field.state.value}
+                label={t`Profile background`}
+                onFileChange={field.handleChange}
+              />
             )}
           </form.AppField>
         </div>
