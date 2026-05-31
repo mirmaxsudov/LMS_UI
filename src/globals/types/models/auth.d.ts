@@ -10,6 +10,15 @@ type UserRole =
 type Gender = 'FEMALE' | 'MALE';
 type UserStatus = 'ACTIVE' | 'BLOCKED' | 'INACTIVE';
 
+type PermissionCategory =
+  | 'ATTENDANCE'
+  | 'COURSE'
+  | 'ENROLLMENT'
+  | 'GROUP'
+  | 'LESSON'
+  | 'SYSTEM'
+  | 'USER';
+
 interface PostLoginDto {
   password: string;
   username: string;
@@ -21,22 +30,21 @@ interface TokenResponse {
 
 interface Role {
   createdAt: string;
-  deleted: boolean;
-  deletedAt: Nullable<string>;
-  description: string;
+  description: Nullable<string>;
   id: string;
-  name: UserRole;
+  name: string;
   permissions: Permission[];
   updatedAt: string;
 }
 
 interface Permission {
-  category: string;
+  action: Nullable<string>;
+  category: PermissionCategory;
   code: string;
   createdAt: string;
-  deleted: boolean;
-  deletedAt: string;
-  description: string;
+  description: Nullable<string>;
   id: string;
+  isSystem: true;
+  module: Nullable<string>;
   updatedAt: string;
 }

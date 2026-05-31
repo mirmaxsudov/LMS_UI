@@ -139,7 +139,7 @@ export const ProfileCreateForm = ({
   return (
     <form.AppForm>
       <form
-        className='grid max-h-[72vh] gap-4 overflow-y-auto pr-1'
+        className='grid p-1 max-h-[72vh] gap-4 overflow-y-auto pr-1'
         onSubmit={(event) => {
           event.preventDefault();
           event.stopPropagation();

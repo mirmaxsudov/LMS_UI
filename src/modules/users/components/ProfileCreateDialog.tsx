@@ -47,11 +47,7 @@ const useDialogCopy = (role: ProfileCreateFormRole) => {
   };
 };
 
-export const ProfileCreateDialog = ({
-  open,
-  role,
-  onOpenChange
-}: ProfileCreateDialogProps) => {
+export const ProfileCreateDialog = ({ open, role, onOpenChange }: ProfileCreateDialogProps) => {
   const { t } = useLingui();
   const queryClient = useQueryClient();
   const copy = useDialogCopy(role);
