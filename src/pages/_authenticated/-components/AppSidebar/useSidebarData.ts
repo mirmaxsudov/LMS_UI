@@ -4,8 +4,10 @@ import {
   BoxesIcon,
   CalendarClockIcon,
   ClapperboardIcon,
+  KeyRoundIcon,
   ListTreeIcon,
   ListVideoIcon,
+  ShieldCheckIcon,
   User2Icon,
   UsersIcon,
   UsersRoundIcon
@@ -80,6 +82,23 @@ export const useSidebarData = () => {
                 allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
                 icon: UsersRoundIcon,
                 url: '/user/parents'
+              }
+            ]
+          },
+          {
+            title: msg`Access control`,
+            items: [
+              {
+                title: msg`Roles`,
+                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                url: '/roles',
+                icon: ShieldCheckIcon
+              },
+              {
+                title: msg`Permissions`,
+                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
+                url: '/permissions',
+                icon: KeyRoundIcon
               }
             ]
           }

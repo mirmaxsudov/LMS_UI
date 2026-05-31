@@ -8,4 +8,6 @@ export * from './group';
 export * from './lesson';
 export * from './lesson-session';
 export * from './online-course';
+export * from './permission';
+export * from './role';
 export * from './schedule';

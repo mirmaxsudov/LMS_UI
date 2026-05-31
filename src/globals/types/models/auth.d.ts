@@ -44,7 +44,16 @@ interface Permission {
   createdAt: string;
   description: Nullable<string>;
   id: string;
-  isSystem: true;
+  isSystem: boolean;
   module: Nullable<string>;
   updatedAt: string;
 }
+
+type AuthMeRole = Role;
+type AuthMePermission = Permission;
+
+type RoleResponse = ApiResponse<AuthMeRole>;
+type RolesResponse = Pagination<AuthMeRole>;
+
+type PermissionResponse = ApiResponse<AuthMePermission>;
+type PermissionsResponse = Pagination<AuthMePermission>;

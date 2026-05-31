@@ -13,6 +13,8 @@ import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/r
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
 import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
+import { Route as AuthenticatedRolesIndexRouteImport } from './pages/_authenticated/roles/index'
+import { Route as AuthenticatedPermissionsIndexRouteImport } from './pages/_authenticated/permissions/index'
 import { Route as AuthenticatedOnlineCoursesIndexRouteImport } from './pages/_authenticated/online-courses/index'
 import { Route as AuthenticatedLessonsIndexRouteImport } from './pages/_authenticated/lessons/index'
 import { Route as AuthenticatedLessonSessionsIndexRouteImport } from './pages/_authenticated/lesson-sessions/index'
@@ -42,6 +44,17 @@ const AuthenticatedSettingsIndexRoute =
   AuthenticatedSettingsIndexRouteImport.update({
     id: '/settings/',
     path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRolesIndexRoute = AuthenticatedRolesIndexRouteImport.update({
+  id: '/roles/',
+  path: '/roles/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPermissionsIndexRoute =
+  AuthenticatedPermissionsIndexRouteImport.update({
+    id: '/permissions/',
+    path: '/permissions/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedOnlineCoursesIndexRoute =
@@ -119,6 +132,8 @@ export interface FileRoutesByFullPath {
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
   '/lessons': typeof AuthenticatedLessonsIndexRoute
   '/online-courses': typeof AuthenticatedOnlineCoursesIndexRoute
+  '/permissions': typeof AuthenticatedPermissionsIndexRoute
+  '/roles': typeof AuthenticatedRolesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -134,6 +149,8 @@ export interface FileRoutesByTo {
   '/lesson-sessions': typeof AuthenticatedLessonSessionsIndexRoute
   '/lessons': typeof AuthenticatedLessonsIndexRoute
   '/online-courses': typeof AuthenticatedOnlineCoursesIndexRoute
+  '/permissions': typeof AuthenticatedPermissionsIndexRoute
+  '/roles': typeof AuthenticatedRolesIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/user/all': typeof AuthenticatedUserAllIndexRoute
   '/user/parents': typeof AuthenticatedUserParentsIndexRoute
@@ -152,6 +169,8 @@ export interface FileRoutesById {
   '/_authenticated/lesson-sessions/': typeof AuthenticatedLessonSessionsIndexRoute
   '/_authenticated/lessons/': typeof AuthenticatedLessonsIndexRoute
   '/_authenticated/online-courses/': typeof AuthenticatedOnlineCoursesIndexRoute
+  '/_authenticated/permissions/': typeof AuthenticatedPermissionsIndexRoute
+  '/_authenticated/roles/': typeof AuthenticatedRolesIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/user/all/': typeof AuthenticatedUserAllIndexRoute
   '/_authenticated/user/parents/': typeof AuthenticatedUserParentsIndexRoute
@@ -169,6 +188,8 @@ export interface FileRouteTypes {
     | '/lesson-sessions'
     | '/lessons'
     | '/online-courses'
+    | '/permissions'
+    | '/roles'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -184,6 +205,8 @@ export interface FileRouteTypes {
     | '/lesson-sessions'
     | '/lessons'
     | '/online-courses'
+    | '/permissions'
+    | '/roles'
     | '/settings'
     | '/user/all'
     | '/user/parents'
@@ -201,6 +224,8 @@ export interface FileRouteTypes {
     | '/_authenticated/lesson-sessions/'
     | '/_authenticated/lessons/'
     | '/_authenticated/online-courses/'
+    | '/_authenticated/permissions/'
+    | '/_authenticated/roles/'
     | '/_authenticated/settings/'
     | '/_authenticated/user/all/'
     | '/_authenticated/user/parents/'
@@ -241,6 +266,20 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/roles/': {
+      id: '/_authenticated/roles/'
+      path: '/roles'
+      fullPath: '/roles'
+      preLoaderRoute: typeof AuthenticatedRolesIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/permissions/': {
+      id: '/_authenticated/permissions/'
+      path: '/permissions'
+      fullPath: '/permissions'
+      preLoaderRoute: typeof AuthenticatedPermissionsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/online-courses/': {
@@ -343,6 +382,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedLessonSessionsIndexRoute: typeof AuthenticatedLessonSessionsIndexRoute
   AuthenticatedLessonsIndexRoute: typeof AuthenticatedLessonsIndexRoute
   AuthenticatedOnlineCoursesIndexRoute: typeof AuthenticatedOnlineCoursesIndexRoute
+  AuthenticatedPermissionsIndexRoute: typeof AuthenticatedPermissionsIndexRoute
+  AuthenticatedRolesIndexRoute: typeof AuthenticatedRolesIndexRoute
   AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
   AuthenticatedUserAllIndexRoute: typeof AuthenticatedUserAllIndexRoute
   AuthenticatedUserParentsIndexRoute: typeof AuthenticatedUserParentsIndexRoute
@@ -358,6 +399,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLessonSessionsIndexRoute: AuthenticatedLessonSessionsIndexRoute,
   AuthenticatedLessonsIndexRoute: AuthenticatedLessonsIndexRoute,
   AuthenticatedOnlineCoursesIndexRoute: AuthenticatedOnlineCoursesIndexRoute,
+  AuthenticatedPermissionsIndexRoute: AuthenticatedPermissionsIndexRoute,
+  AuthenticatedRolesIndexRoute: AuthenticatedRolesIndexRoute,
   AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
   AuthenticatedUserAllIndexRoute: AuthenticatedUserAllIndexRoute,
   AuthenticatedUserParentsIndexRoute: AuthenticatedUserParentsIndexRoute,
