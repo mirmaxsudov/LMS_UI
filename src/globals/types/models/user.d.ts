@@ -30,3 +30,5 @@ interface User {
   roles: Role[];
   status: UserStatus;
 }
+
+type UserResponse = ApiResponse<User>;

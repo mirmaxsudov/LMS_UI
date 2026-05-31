@@ -1,10 +1,12 @@
 import { BellIcon, SearchIcon } from 'lucide-react';
 import React from 'react';
 
+import { useAuth } from '@/modules/auth';
 import { cn } from '@/shared/lib/utils.ts';
+import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar.tsx';
 import { Button } from '@/shared/ui/button';
-import { Input } from '@/shared/ui/input.tsx';
-import { ThemeSwitch } from '@/shared/ui/theme-switch.tsx';
+import { Input } from '@/shared/ui/input';
+import { ThemeSwitch } from '@/shared/ui/theme-switch';
 
 interface AppHeaderProps extends React.ComponentProps<'header'> {
   children?: React.ReactNode;
@@ -12,6 +14,10 @@ interface AppHeaderProps extends React.ComponentProps<'header'> {
 }
 
 export const PageHeader = ({ ref, className, children, ...props }: AppHeaderProps) => {
+  const { user } = useAuth();
+
+  const fullName = `${user?.firstName} ${user?.lastName}`.trim();
+
   return (
     <header
       ref={ref}
@@ -41,10 +47,14 @@ export const PageHeader = ({ ref, className, children, ...props }: AppHeaderProp
           </span>
         </Button>
         <div className='bg-muted flex items-center gap-3 rounded-full px-2 py-1'>
-          <div className='bg-primary text-primary-foreground grid size-10 place-items-center rounded-full text-sm font-semibold'>
-            FN
-          </div>
-          <p className='pr-2 text-base font-medium'>Full name</p>
+          <Avatar>
+            <AvatarImage src={user?.profileImageUrl as string} role='img' />
+            <AvatarFallback>
+              {user?.firstName?.charAt(0)}
+              {user?.lastName?.charAt(0)}
+            </AvatarFallback>
+          </Avatar>
+          <p className='pr-2 text-base font-medium'>{fullName}</p>
         </div>
       </div>
     </header>

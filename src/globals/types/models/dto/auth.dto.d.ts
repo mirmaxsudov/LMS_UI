@@ -1,5 +1,5 @@
 interface AuthMeDto {
-  brithDate: string;
+  birthDate: string;
   firstName: string;
   gender: Gender;
   lastName: string;

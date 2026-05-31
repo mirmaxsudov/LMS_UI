@@ -1,19 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { useAuth } from '@/modules/auth';
+import { SettingsPage } from '@/modules/settings';
 import { GeneralError, NotFoundError } from '@/shared/ui/errors';
-import { PageContent, PageHeader, PageLoading } from '@/shared/ui/page';
-
-const SettingsPage = () => {
-  const { user } = useAuth();
-
-  return (
-    <>
-      <PageHeader />
-      <PageContent></PageContent>
-    </>
-  );
-};
+import { PageLoading } from '@/shared/ui/page';
 
 export const Route = createFileRoute('/_authenticated/settings/')({
   component: SettingsPage,

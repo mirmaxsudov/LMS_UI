@@ -17,8 +17,8 @@ export const useAuth = () => {
 
   return {
     user: {
-      ...getUsersMeSuspenseQuery.data.data,
-      role: getPrimaryUserRole(getUsersMeSuspenseQuery.data.data)
+      ...getUsersMeSuspenseQuery.data.data.data,
+      role: getPrimaryUserRole(getUsersMeSuspenseQuery.data.data.data)
     },
     onLogout
   };

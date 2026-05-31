@@ -13,56 +13,107 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-msgid "{activeCount} active, {queuedCount} queued, {completedCount} done"
-msgstr "{activeCount} active, {queuedCount} queued, {completedCount} done"
-
 msgid "{selectedCount} of {pageCount} row(s) selected."
 msgstr "{selectedCount} of {pageCount} row(s) selected."
-
-msgid "{selectedItemsLength} selected"
-msgstr "{selectedItemsLength} selected"
 
 msgid "{selectedSize} selected"
 msgstr "{selectedSize} selected"
 
-msgid "Actions"
-msgstr "Actions"
+msgid "A concise promise for learners"
+msgstr "A concise promise for learners"
 
-msgid "All files"
-msgstr "All files"
+msgid "Active"
+msgstr "Active"
 
-msgid "Appearance"
-msgstr "Appearance"
+msgid "Activity"
+msgstr "Activity"
+
+msgid "Add a structured module to this online course."
+msgstr "Add a structured module to this online course."
+
+msgid "Add a video lesson to this module."
+msgstr "Add a video lesson to this module."
+
+msgid "Add material"
+msgstr "Add material"
+
+msgid "Add module"
+msgstr "Add module"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Advanced"
+msgstr "Advanced"
+
+msgid "All at once"
+msgstr "All at once"
+
+msgid "All users"
+msgstr "All users"
 
 msgid "April"
 msgstr "April"
 
+msgid "Archived"
+msgstr "Archived"
+
 msgid "Are you sure to logout?"
 msgstr "Are you sure to logout?"
-
-msgid "Are you sure you want to delete {selectedItemsLength} items? This action cannot be undone."
-msgstr "Are you sure you want to delete {selectedItemsLength} items? This action cannot be undone."
-
-msgid "Are you sure you want to delete {selectedItemsLength} selected items? This action cannot be undone."
-msgstr "Are you sure you want to delete {selectedItemsLength} selected items? This action cannot be undone."
 
 msgid "Are you sure you want to delete this {itemName}? This action cannot be undone."
 msgstr "Are you sure you want to delete this {itemName}? This action cannot be undone."
 
+msgid "Assistant"
+msgstr "Assistant"
+
+msgid "Attach a learner resource to this online lesson."
+msgstr "Attach a learner resource to this online lesson."
+
 msgid "August"
 msgstr "August"
 
-msgid "Back"
-msgstr "Back"
+msgid "Available"
+msgstr "Available"
+
+msgid "Available from"
+msgstr "Available from"
+
+msgid "Beginner"
+msgstr "Beginner"
+
+msgid "Birth date"
+msgstr "Birth date"
+
+msgid "Blocked"
+msgstr "Blocked"
 
 msgid "Cancel"
 msgstr "Cancel"
 
-msgid "Change Password"
-msgstr "Change Password"
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "Capacity"
+msgstr "Capacity"
+
+msgid "Capacity must be a number"
+msgstr "Capacity must be a number"
+
+msgid "Capacity must be greater than 0"
+msgstr "Capacity must be greater than 0"
+
+msgid "Choose a file"
+msgstr "Choose a file"
+
+msgid "Choose image"
+msgstr "Choose image"
 
 msgid "Clear"
 msgstr "Clear"
+
+msgid "Clear file"
+msgstr "Clear file"
 
 msgid "Clear filter"
 msgstr "Clear filter"
@@ -70,53 +121,77 @@ msgstr "Clear filter"
 msgid "Clear filters"
 msgstr "Clear filters"
 
-msgid "Click to upload a new photo"
-msgstr "Click to upload a new photo"
-
-msgid "Code resent successfully"
-msgstr "Code resent successfully"
-
-msgid "Code sent to"
-msgstr "Code sent to"
-
 msgid "Completed"
 msgstr "Completed"
 
-msgid "Confirm password"
-msgstr "Confirm password"
+msgid "Content"
+msgstr "Content"
 
-msgid "Confirm Password"
-msgstr "Confirm Password"
+msgid "course"
+msgstr "course"
 
-msgid "Confirm password is required"
-msgstr "Confirm password is required"
+msgid "Course"
+msgstr "Course"
 
-msgid "Continue"
-msgstr "Continue"
+msgid "Course description"
+msgstr "Course description"
 
-msgid "Copy link"
-msgstr "Copy link"
+msgid "course section"
+msgstr "course section"
 
-msgid "Create folder"
-msgstr "Create folder"
+msgid "Course section"
+msgstr "Course section"
 
-msgid "Create new folder"
-msgstr "Create new folder"
+msgid "Course section title"
+msgstr "Course section title"
 
-msgid "Create or upload files"
-msgstr "Create or upload files"
+msgid "Course sections"
+msgstr "Course sections"
 
-msgid "Create your account"
-msgstr "Create your account"
+msgid "Course structure"
+msgstr "Course structure"
 
-msgid "Created at"
-msgstr "Created at"
+msgid "Course title"
+msgstr "Course title"
 
-msgid "Created At"
-msgstr "Created At"
+msgid "Courses"
+msgstr "Courses"
 
-msgid "Customize how MyCloude looks and feels."
-msgstr "Customize how MyCloude looks and feels."
+msgid "Create"
+msgstr "Create"
+
+msgid "Create a polished online course shell before adding modules and materials."
+msgstr "Create a polished online course shell before adding modules and materials."
+
+msgid "Create course"
+msgstr "Create course"
+
+msgid "Create course section"
+msgstr "Create course section"
+
+msgid "Create group"
+msgstr "Create group"
+
+msgid "Create lesson"
+msgstr "Create lesson"
+
+msgid "Create lesson session"
+msgstr "Create lesson session"
+
+msgid "Create module"
+msgstr "Create module"
+
+msgid "Create online course"
+msgstr "Create online course"
+
+msgid "Create parent"
+msgstr "Create parent"
+
+msgid "Create student"
+msgstr "Create student"
+
+msgid "Create teacher"
+msgstr "Create teacher"
 
 msgid "Dark"
 msgstr "Dark"
@@ -130,108 +205,173 @@ msgstr "Delete"
 msgid "Delete {itemName}"
 msgstr "Delete {itemName}"
 
-msgid "Delete {selectedItemsLength} items"
-msgstr "Delete {selectedItemsLength} items"
+msgid "Describe what learners will build and understand."
+msgstr "Describe what learners will build and understand."
 
-msgid "Details"
-msgstr "Details"
+msgid "Description"
+msgstr "Description"
 
-msgid "Download"
-msgstr "Download"
+msgid "Design, publish, and maintain self-paced learning content."
+msgstr "Design, publish, and maintain self-paced learning content."
 
-msgid "Edit folder"
-msgstr "Edit folder"
+msgid "Draft"
+msgstr "Draft"
 
-msgid "Enter the 6-digit verification code"
-msgstr "Enter the 6-digit verification code"
+msgid "Duration"
+msgstr "Duration"
 
-#. placeholder {0}: verificationPhoneNumber || t`your phone number`
-msgid "Enter the code sent to {0}"
-msgstr "Enter the code sent to {0}"
+msgid "Duration (minutes)"
+msgstr "Duration (minutes)"
 
-msgid "Enter your phone number below to login to your account"
-msgstr "Enter your phone number below to login to your account"
+msgid "Duration must be a number"
+msgstr "Duration must be a number"
 
-msgid "Error"
-msgstr "Error"
+msgid "Duration must be greater than 0"
+msgstr "Duration must be greater than 0"
 
-msgid "Error updating profile"
-msgstr "Error updating profile"
+msgid "Edit course"
+msgstr "Edit course"
 
-msgid "Failed to create folder."
-msgstr "Failed to create folder."
+msgid "Edit course section"
+msgstr "Edit course section"
 
-msgid "Failed to register. Please try again."
-msgstr "Failed to register. Please try again."
+msgid "Edit group"
+msgstr "Edit group"
 
-msgid "Failed to resend code"
-msgstr "Failed to resend code"
+msgid "Edit lesson"
+msgstr "Edit lesson"
 
-msgid "Failed to resolve upload ID from tus upload URL"
-msgstr "Failed to resolve upload ID from tus upload URL"
+msgid "Edit lesson session"
+msgstr "Edit lesson session"
 
-msgid "Favourite files"
-msgstr "Favourite files"
+msgid "Edit material"
+msgstr "Edit material"
+
+msgid "Edit module"
+msgstr "Edit module"
+
+msgid "Edit online course"
+msgstr "Edit online course"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Empty"
+msgstr "Empty"
+
+msgid "End time"
+msgstr "End time"
+
+msgid "End time must be after start time."
+msgstr "End time must be after start time."
+
+msgid "Enroll"
+msgstr "Enroll"
+
+msgid "Enrollments"
+msgstr "Enrollments"
+
+msgid "Enter a valid email."
+msgstr "Enter a valid email."
+
+msgid "Enter a valid phone number."
+msgstr "Enter a valid phone number."
+
+msgid "Even days"
+msgstr "Even days"
+
+msgid "Exact days"
+msgstr "Exact days"
 
 msgid "February"
 msgstr "February"
 
-msgid "File"
-msgstr "File"
+msgid "Female"
+msgstr "Female"
 
-msgid "File size must be less than 5MB"
-msgstr "File size must be less than 5MB"
+msgid "File is required."
+msgstr "File is required."
 
-msgid "Fill in your details to create a new account"
-msgstr "Fill in your details to create a new account"
+msgid "Fill out the form to create a lesson session."
+msgstr "Fill out the form to create a lesson session."
+
+msgid "Fill out the form to create a lesson."
+msgstr "Fill out the form to create a lesson."
+
+msgid "Fill out the form to create a new course section."
+msgstr "Fill out the form to create a new course section."
+
+msgid "Fill out the form to create a new course."
+msgstr "Fill out the form to create a new course."
+
+msgid "Fill out the form to create a new group."
+msgstr "Fill out the form to create a new group."
+
+msgid "Fill out the parent profile details."
+msgstr "Fill out the parent profile details."
+
+msgid "Fill out the student profile details."
+msgstr "Fill out the student profile details."
+
+msgid "Fill out the teacher profile details."
+msgstr "Fill out the teacher profile details."
 
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Finalizing"
-msgstr "Finalizing"
+msgid "Finished"
+msgstr "Finished"
 
-msgid "Folder"
-msgstr "Folder"
+msgid "First name"
+msgstr "First name"
 
-msgid "Folder Information"
-msgstr "Folder Information"
+msgid "Forming"
+msgstr "Forming"
 
-msgid "Folder name"
-msgstr "Folder name"
+msgid "Free preview"
+msgstr "Free preview"
 
-msgid "Full name"
-msgstr "Full name"
+msgid "Friday"
+msgstr "Friday"
 
-msgid "Full Name"
-msgstr "Full Name"
+msgid "Full"
+msgstr "Full"
 
-msgid "Full name is required"
-msgstr "Full name is required"
+msgid "Gender"
+msgstr "Gender"
 
-msgid "Glad to have you back! Let's get started."
-msgstr "Glad to have you back! Let's get started."
+msgid "Graduated"
+msgstr "Graduated"
 
-msgid "Grid view"
-msgstr "Grid view"
+msgid "group"
+msgstr "group"
 
-msgid "Home"
-msgstr "Home"
+msgid "Group"
+msgstr "Group"
 
-msgid "Incorrect old password"
-msgstr "Incorrect old password"
+msgid "Group name"
+msgstr "Group name"
 
-msgid "Invalid verification code"
-msgstr "Invalid verification code"
+msgid "Groups"
+msgstr "Groups"
 
-msgid "Invite members"
-msgstr "Invite members"
+msgid "Guardian"
+msgstr "Guardian"
+
+msgid "Hidden"
+msgstr "Hidden"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Intermediate"
+msgstr "Intermediate"
+
+msgid "Invalid UUID."
+msgstr "Invalid UUID."
 
 msgid "January"
 msgstr "January"
-
-msgid "John Doe"
-msgstr "John Doe"
 
 msgid "July"
 msgstr "July"
@@ -242,56 +382,149 @@ msgstr "June"
 msgid "Language"
 msgstr "Language"
 
+msgid "Last name"
+msgstr "Last name"
+
+msgid "Lecturer"
+msgstr "Lecturer"
+
+msgid "lesson"
+msgstr "lesson"
+
+msgid "Lesson"
+msgstr "Lesson"
+
+msgid "Lesson by lesson"
+msgstr "Lesson by lesson"
+
+msgid "Lesson content"
+msgstr "Lesson content"
+
+msgid "Lesson description"
+msgstr "Lesson description"
+
+msgid "Lesson notes"
+msgstr "Lesson notes"
+
+msgid "lesson session"
+msgstr "lesson session"
+
+msgid "Lesson sessions"
+msgstr "Lesson sessions"
+
+msgid "Lesson title"
+msgstr "Lesson title"
+
+msgid "Lesson video"
+msgstr "Lesson video"
+
+msgid "Lessons"
+msgstr "Lessons"
+
+msgid "lessons completed"
+msgstr "lessons completed"
+
+msgid "Level"
+msgstr "Level"
+
 msgid "Light"
 msgstr "Light"
 
-msgid "Loading more..."
-msgstr "Loading more..."
+msgid "Literature"
+msgstr "Literature"
 
-msgid "Loading..."
-msgstr "Loading..."
+msgid "LMS"
+msgstr "LMS"
 
 msgid "Login"
 msgstr "Login"
 
-msgid "Login to your account"
-msgstr "Login to your account"
-
 msgid "Logout"
 msgstr "Logout"
 
-msgid "Make a favorite"
-msgstr "Make a favorite"
+msgid "Maintainer"
+msgstr "Maintainer"
+
+msgid "Male"
+msgstr "Male"
+
+msgid "Manage"
+msgstr "Manage"
+
+msgid "Manage online course content."
+msgstr "Manage online course content."
 
 msgid "Manage your personal information and account settings."
 msgstr "Manage your personal information and account settings."
 
+msgid "Management"
+msgstr "Management"
+
 msgid "March"
 msgstr "March"
+
+msgid "material"
+msgstr "material"
+
+msgid "Material"
+msgstr "Material"
+
+msgid "Material file"
+msgstr "Material file"
+
+msgid "Material title"
+msgstr "Material title"
+
+msgid "Mathematics"
+msgstr "Mathematics"
 
 msgid "May"
 msgstr "May"
 
-msgid "Monitor your storage usage and manage your plan."
-msgstr "Monitor your storage usage and manage your plan."
+msgid "Middle name"
+msgstr "Middle name"
 
-msgid "My Storage"
-msgstr "My Storage"
+msgid "module"
+msgstr "module"
+
+msgid "Module by module"
+msgstr "Module by module"
+
+msgid "Module description"
+msgstr "Module description"
+
+msgid "Module title"
+msgstr "Module title"
+
+msgid "Modules"
+msgstr "Modules"
+
+msgid "Modules, lessons, and learner resources."
+msgstr "Modules, lessons, and learner resources."
+
+msgid "Monday"
+msgstr "Monday"
 
 msgid "Name"
 msgstr "Name"
 
-msgid "New Password"
-msgstr "New Password"
+msgid "Nearly full"
+msgstr "Nearly full"
 
-msgid "New password is required"
-msgstr "New password is required"
+msgid "Next"
+msgstr "Next"
 
-msgid "No files or folders"
-msgstr "No files or folders"
+msgid "No course sections found."
+msgstr "No course sections found."
 
-msgid "No preview available"
-msgstr "No preview available"
+msgid "No courses found."
+msgstr "No courses found."
+
+msgid "No groups found."
+msgstr "No groups found."
+
+msgid "No lessons found."
+msgstr "No lessons found."
 
 msgid "No results found."
 msgstr "No results found."
@@ -299,8 +532,8 @@ msgstr "No results found."
 msgid "No results."
 msgstr "No results."
 
-msgid "No uploads yet."
-msgstr "No uploads yet."
+msgid "No teachers found."
+msgstr "No teachers found."
 
 msgid "November"
 msgstr "November"
@@ -308,26 +541,47 @@ msgstr "November"
 msgid "October"
 msgstr "October"
 
-msgid "Old Password"
-msgstr "Old Password"
+msgid "Odd days"
+msgstr "Odd days"
 
-msgid "Old password is required"
-msgstr "Old password is required"
+msgid "online course"
+msgstr "online course"
 
-msgid "Open actions"
-msgstr "Open actions"
+msgid "Online course builder"
+msgstr "Online course builder"
 
-msgid "Open folder"
-msgstr "Open folder"
+msgid "Online course enrollments"
+msgstr "Online course enrollments"
+
+msgid "Online course title"
+msgstr "Online course title"
+
+msgid "Online courses"
+msgstr "Online courses"
 
 msgid "Open panel"
 msgstr "Open panel"
 
-msgid "Organize"
-msgstr "Organize"
+msgid "Optional UUID"
+msgstr "Optional UUID"
 
-msgid "Owner"
-msgstr "Owner"
+msgid "Order index"
+msgstr "Order index"
+
+msgid "Order index must be 0 or greater"
+msgstr "Order index must be 0 or greater"
+
+msgid "Order index must be a number"
+msgstr "Order index must be a number"
+
+msgid "Parent"
+msgstr "Parent"
+
+msgid "Parent profile created successfully."
+msgstr "Parent profile created successfully."
+
+msgid "Parents"
+msgstr "Parents"
 
 msgid "Password"
 msgstr "Password"
@@ -335,95 +589,140 @@ msgstr "Password"
 msgid "Password must be at least 4 characters long"
 msgstr "Password must be at least 4 characters long"
 
-msgid "Password Save Changes"
-msgstr "Password Save Changes"
+msgid "Password must be at least 8 characters."
+msgstr "Password must be at least 8 characters."
 
-msgid "Password successfully updated"
-msgstr "Password successfully updated"
+msgid "Paste student profile UUIDs, separated by commas or new lines"
+msgstr "Paste student profile UUIDs, separated by commas or new lines"
 
-msgid "Password updated successfully."
-msgstr "Password updated successfully."
-
-msgid "Passwords do not match"
-msgstr "Passwords do not match"
+msgid "Phone"
+msgstr "Phone"
 
 msgid "Phone number"
 msgstr "Phone number"
 
-msgid "Phone number already registered"
-msgstr "Phone number already registered"
+msgid "Physics"
+msgstr "Physics"
 
-msgid "Phone number verified successfully. Welcome!"
-msgstr "Phone number verified successfully. Welcome!"
+msgid "Planned"
+msgstr "Planned"
 
-msgid "Preview"
-msgstr "Preview"
+msgid "PNG, JPG or WEBP image"
+msgstr "PNG, JPG or WEBP image"
 
-msgid "Profile & Account"
-msgstr "Profile & Account"
+msgid "Position"
+msgstr "Position"
 
-msgid "Profile Info Save Changes"
-msgstr "Profile Info Save Changes"
+msgid "Previous"
+msgstr "Previous"
 
-msgid "Profile Picture"
-msgstr "Profile Picture"
+msgid "Primary role"
+msgstr "Primary role"
 
-msgid "Profile updated successfully"
-msgstr "Profile updated successfully"
+msgid "Professor"
+msgstr "Professor"
 
-msgid "Queued"
-msgstr "Queued"
+msgid "Profile background"
+msgstr "Profile background"
 
-msgid "Quick actions"
-msgstr "Quick actions"
+msgid "Profile image"
+msgstr "Profile image"
 
-msgid "Recent files"
-msgstr "Recent files"
+msgid "Profile settings"
+msgstr "Profile settings"
 
-msgid "Register"
-msgstr "Register"
+msgid "Profile updated successfully."
+msgstr "Profile updated successfully."
 
-msgid "Rename"
-msgstr "Rename"
+msgid "Public"
+msgstr "Public"
 
-msgid "Resend code"
-msgstr "Resend code"
+msgid "Published"
+msgstr "Published"
 
-msgid "Resending..."
-msgstr "Resending..."
+msgid "Replace image"
+msgstr "Replace image"
+
+msgid "Role"
+msgstr "Role"
 
 msgid "Rows per page"
 msgstr "Rows per page"
 
+msgid "Saturday"
+msgstr "Saturday"
+
 msgid "Save"
 msgstr "Save"
+
+msgid "Save changes"
+msgstr "Save changes"
+
+msgid "Schedule days"
+msgstr "Schedule days"
+
+msgid "Schedule days must be empty for this schedule type."
+msgstr "Schedule days must be empty for this schedule type."
+
+msgid "Schedule type"
+msgstr "Schedule type"
+
+msgid "Search"
+msgstr "Search"
 
 msgid "Search columns..."
 msgstr "Search columns..."
 
-msgid "Search files"
-msgstr "Search files"
-
-msgid "Search files and folders..."
-msgstr "Search files and folders..."
-
 msgid "Search..."
 msgstr "Search..."
 
-msgid "Security"
-msgstr "Security"
+msgid "Section"
+msgstr "Section"
 
 msgid "Select"
 msgstr "Select"
 
-msgid "Select all"
-msgstr "Select all"
+msgid "Select at least one schedule day."
+msgstr "Select at least one schedule day."
+
+msgid "Select course"
+msgstr "Select course"
+
+msgid "Select course section"
+msgstr "Select course section"
 
 msgid "Select date"
 msgstr "Select date"
 
-msgid "Select row"
-msgstr "Select row"
+msgid "Select gender"
+msgstr "Select gender"
+
+msgid "Select group"
+msgstr "Select group"
+
+msgid "Select lesson"
+msgstr "Select lesson"
+
+msgid "Select level"
+msgstr "Select level"
+
+msgid "Select position"
+msgstr "Select position"
+
+msgid "Select schedule type"
+msgstr "Select schedule type"
+
+msgid "Select status"
+msgstr "Select status"
+
+msgid "Select student status"
+msgstr "Select student status"
+
+msgid "Select teacher"
+msgstr "Select teacher"
+
+msgid "Select unlock strategy"
+msgstr "Select unlock strategy"
 
 msgid "September"
 msgstr "September"
@@ -431,32 +730,68 @@ msgstr "September"
 msgid "Settings"
 msgstr "Settings"
 
-msgid "Share"
-msgstr "Share"
+msgid "Short description"
+msgstr "Short description"
 
-msgid "Share with people"
-msgstr "Share with people"
+msgid "Sign in to continue managing courses, lessons, and learner progress."
+msgstr "Sign in to continue managing courses, lessons, and learner progress."
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Small files use attachment upload. Large files use resumable TUS upload."
+msgstr "Small files use attachment upload. Large files use resumable TUS upload."
 
 msgid "Something went wrong!"
 msgstr "Something went wrong!"
 
-msgid "Starting"
-msgstr "Starting"
+msgid "Start time"
+msgstr "Start time"
 
-msgid "Storage"
-msgstr "Storage"
+msgid "Status"
+msgstr "Status"
 
-msgid "Storage used"
-msgstr "Storage used"
+msgid "Student"
+msgstr "Student"
 
-msgid "Successfully created."
-msgstr "Successfully created."
+msgid "Student ID"
+msgstr "Student ID"
 
-msgid "Successfully updated."
-msgstr "Successfully updated."
+msgid "Student profile created successfully."
+msgstr "Student profile created successfully."
 
-msgid "Table view"
-msgstr "Table view"
+msgid "Student profile ID"
+msgstr "Student profile ID"
+
+msgid "Student profile IDs"
+msgstr "Student profile IDs"
+
+msgid "Student status"
+msgstr "Student status"
+
+msgid "Students"
+msgstr "Students"
+
+msgid "Sunday"
+msgstr "Sunday"
+
+msgid "Super Admin"
+msgstr "Super Admin"
+
+msgid "Support Teacher"
+msgstr "Support Teacher"
+
+msgid "Suspended"
+msgstr "Suspended"
+
+msgid "Teacher"
+msgstr "Teacher"
+
+msgid "Teacher profile created successfully."
+msgstr "Teacher profile created successfully."
+
+msgid "Teachers"
+msgstr "Teachers"
 
 msgid "Theme"
 msgstr "Theme"
@@ -464,77 +799,80 @@ msgstr "Theme"
 msgid "This field is required."
 msgstr "This field is required."
 
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+msgid "Thumbnail is required."
+msgstr "Thumbnail is required."
+
+msgid "Thursday"
+msgstr "Thursday"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Total: {total}"
+msgstr "Total: {total}"
+
 msgid "Tozalash"
 msgstr "Tozalash"
 
-msgid "Transfers"
-msgstr "Transfers"
+msgid "Tuesday"
+msgstr "Tuesday"
 
-msgid "Try again in {resendCooldown}s"
-msgstr "Try again in {resendCooldown}s"
+msgid "Unlock strategy"
+msgstr "Unlock strategy"
 
-msgid "Tus uploads are not supported in this browser."
-msgstr "Tus uploads are not supported in this browser."
+msgid "Update"
+msgstr "Update"
 
-msgid "Type"
-msgstr "Type"
+msgid "Update lesson video, content, order, and publishing status."
+msgstr "Update lesson video, content, order, and publishing status."
 
-msgid "Updated at"
-msgstr "Updated at"
+msgid "Update module order, visibility, and release date."
+msgstr "Update module order, visibility, and release date."
 
-msgid "Updated At"
-msgstr "Updated At"
+msgid "Update the course landing details, publishing status, and thumbnail."
+msgstr "Update the course landing details, publishing status, and thumbnail."
 
-msgid "Upgrade Plan"
-msgstr "Upgrade Plan"
+msgid "Update the material title, order, or file."
+msgstr "Update the material title, order, or file."
 
-msgid "Upload failed"
-msgstr "Upload failed"
+msgid "Update the selected course details."
+msgstr "Update the selected course details."
+
+msgid "Update the selected course section details."
+msgstr "Update the selected course section details."
+
+msgid "Update the selected group details."
+msgstr "Update the selected group details."
+
+msgid "Update the selected lesson details."
+msgstr "Update the selected lesson details."
+
+msgid "Update the selected lesson session details."
+msgstr "Update the selected lesson session details."
 
 msgid "Upload failed."
 msgstr "Upload failed."
 
-msgid "Upload files"
-msgstr "Upload files"
+msgid "User profile"
+msgstr "User profile"
 
-msgid "Uploading"
-msgstr "Uploading"
+msgid "Username"
+msgstr "Username"
 
-msgid "Uploads completed successfully."
-msgstr "Uploads completed successfully."
+msgid "Users"
+msgstr "Users"
 
-msgid "used of"
-msgstr "used of"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Verification code"
-msgstr "Verification code"
-
-msgid "Verification code sent"
-msgstr "Verification code sent"
-
-msgid "Verify and finish"
-msgstr "Verify and finish"
-
-msgid "Verify your phone number"
-msgstr "Verify your phone number"
+msgid "Video is required."
+msgstr "Video is required."
 
 msgid "View"
 msgstr "View"
 
-msgid "View details"
-msgstr "View details"
+msgid "Wednesday"
+msgstr "Wednesday"
 
-msgid "Welcome back, {displayName}"
-msgstr "Welcome back, {displayName}"
-
-msgid "You can resend now"
-msgstr "You can resend now"
-
-msgid "You have reached the maximum number of OTP requests. Please try again later."
-msgstr "You have reached the maximum number of OTP requests. Please try again later."
-
-msgid "your phone number"
-msgstr "your phone number"
+msgid "Welcome back"
+msgstr "Welcome back"

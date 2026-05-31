@@ -7,12 +7,17 @@ export interface LoginRequest {
 export const postLogin = ({ data }: LoginRequest) =>
   apiWithoutAuth.post<ApiResponse<TokenResponse>>('auth/login', data);
 
-export const getAuthMe = () => api.get<User>('auth/me');
+export const getAuthMe = () => api.get<UserResponse>('auth/me');
 
 export interface PatchAuthMeRequest {
-  data: PatchAuthMeDto;
+  data: FormData | PatchAuthMeDto;
 }
 
-export const patchAuthMe = ({ data }: PatchAuthMeRequest) => api.patch('auth/me', data);
+export const patchAuthMe = ({ data }: PatchAuthMeRequest) =>
+  api.patch<UserResponse>('auth/me', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 
 export * from './users';

@@ -39,12 +39,12 @@ export const LoginForm = () => {
     }) => {
       Cookies.set(COOKIES.ACCESS_TOKEN, accessToken, { expires: 7 });
       const authMeResponse = await queryClient.fetchQuery(getAuthMeQueryOptions());
-      await router.navigate({ to: getDefaultRouteByUserRole(authMeResponse.data) });
+      await router.navigate({ to: getDefaultRouteByUserRole(authMeResponse.data.data) });
     }
   });
 
   return (
-    <Card className='w-full gap-7 rounded-lg border-border/70 bg-card/95 px-1 py-7 shadow-xl shadow-primary/5 backdrop-blur'>
+    <Card className='border-border/70 bg-card/95 shadow-primary/5 w-full gap-7 rounded-lg px-1 py-7 shadow-xl backdrop-blur'>
       <CardHeader className='gap-4 px-7'>
         <div className='bg-primary/10 text-primary flex size-12 items-center justify-center rounded-md'>
           <ShieldCheckIcon className='size-6' />
@@ -74,7 +74,11 @@ export const LoginForm = () => {
                   <field.PasswordInput isRequired label={t`Password`} placeholder='********' />
                 )}
               </form.AppField>
-              <Button className='mt-3 h-11 w-full text-base' type='submit' loading={postLoginMutation.isPending}>
+              <Button
+                className='mt-3 h-11 w-full text-base'
+                type='submit'
+                loading={postLoginMutation.isPending}
+              >
                 {t`Login`}
                 {!postLoginMutation.isPending && <ArrowRightIcon className='size-5' />}
               </Button>
