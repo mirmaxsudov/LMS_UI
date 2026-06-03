@@ -1,12 +1,13 @@
-import { BellIcon, SearchIcon } from 'lucide-react';
+import { BellIcon } from 'lucide-react';
 import React from 'react';
 
 import { useAuth } from '@/modules/auth';
 import { cn } from '@/shared/lib/utils.ts';
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar.tsx';
 import { Button } from '@/shared/ui/button';
-import { Input } from '@/shared/ui/input';
 import { ThemeSwitch } from '@/shared/ui/theme-switch';
+
+import { GlobalSearch } from './GlobalSearch';
 
 interface AppHeaderProps extends React.ComponentProps<'header'> {
   children?: React.ReactNode;
@@ -22,18 +23,12 @@ export const PageHeader = ({ ref, className, children, ...props }: AppHeaderProp
     <header
       ref={ref}
       className={cn(
-        'rounded-t-x bg-background sticky top-0 z-50 flex items-center gap-2 p-2 px-4',
+        'rounded-t-x bg-background sticky top-0 z-50 flex items-center gap-2 p-4',
         className
       )}
       {...props}
     >
-      <div className='relative w-full max-w-lg flex-1 min-[1020px]:w-auto'>
-        <SearchIcon className='text-muted-foreground absolute top-1/2 left-4 size-5 -translate-y-1/2' />
-        <Input
-          className='bg-muted h-10 rounded-2xl border-0 pl-12 shadow-none focus-visible:ring-2'
-          placeholder='Search courses, lessons...'
-        />
-      </div>
+      <GlobalSearch />
       <div className='ml-auto flex items-center gap-2'>
         <ThemeSwitch />
         <Button

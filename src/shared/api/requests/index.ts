@@ -11,3 +11,4 @@ export * from './online-course';
 export * from './permission';
 export * from './role';
 export * from './schedule';
+export * from './search';

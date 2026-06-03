@@ -1,0 +1,2 @@
+export const GLOBAL_SEARCH_MIN_LENGTH = 2;
+export const GLOBAL_SEARCH_PAGE_SIZE = 8;

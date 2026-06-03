@@ -4,7 +4,7 @@ import { ArrowRightIcon, MoonIcon, SunIcon } from 'lucide-react';
 import React from 'react';
 
 import { usePermission } from '@/modules/auth/permissoin';
-import { useSidebarData } from '@/pages/_authenticated/-components/AppSidebar/useSidebarData.ts';
+import { useSidebarData } from '@/pages/_authenticated/admin/-components/AppSidebar/useSidebarData.ts';
 import { useSearch } from '@/shared/context/search-context.tsx';
 import { useTheme } from '@/shared/context/theme-context.tsx';
 import {
