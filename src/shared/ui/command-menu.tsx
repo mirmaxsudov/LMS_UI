@@ -4,9 +4,9 @@ import { ArrowRightIcon, MoonIcon, SunIcon } from 'lucide-react';
 import React from 'react';
 
 import { usePermission } from '@/modules/auth/permissoin';
-import { useSidebarData } from '@/pages/_authenticated/admin/-components/AppSidebar/useSidebarData.ts';
-import { useSearch } from '@/shared/context/search-context.tsx';
-import { useTheme } from '@/shared/context/theme-context.tsx';
+import { useAdminSidebarData } from '@/pages/_authenticated/admin/-components/AppSidebar/useAdminSidebarData';
+import { useSearch } from '@/shared/context/search-context';
+import { useTheme } from '@/shared/context/theme-context';
 import {
   CommandDialog,
   CommandEmpty,
@@ -15,16 +15,16 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from '@/shared/ui/command.tsx';
+} from '@/shared/ui/command';
 
-import { ScrollArea } from './scroll-area.tsx';
+import { ScrollArea } from './scroll-area';
 
 export const CommandMenu = () => {
   const { t } = useLingui();
   const navigate = useNavigate();
   const { setTheme } = useTheme();
   const { open, setOpen } = useSearch();
-  const sidebarData = useSidebarData();
+  const sidebarData = useAdminSidebarData();
 
   const runCommand = React.useCallback(
     (command: () => unknown) => {

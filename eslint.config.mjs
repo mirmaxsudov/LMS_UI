@@ -20,7 +20,18 @@ export default eslint(
       'react-dom/no-missing-button-type': 'off',
       'react-refresh/only-export-components': 'off',
       'react/no-nested-components': 'off',
-      'react/no-nested-component-definitions': 'off'
+      'react/no-nested-component-definitions': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['*.ts', '*.tsx', '**/*.ts', '**/*.tsx'],
+              message: 'Omit .ts and .tsx extensions from import paths.'
+            }
+          ]
+        }
+      ]
     }
   },
   {

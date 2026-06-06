@@ -17,13 +17,13 @@ import {
 } from '@/shared/ui/sidebar.tsx';
 
 import { AppSidebarNavGroup } from './AppSidebarNavGroup.tsx';
-import { useAdminSidebarData } from './useAdminSidebarData.ts';
+import { useTeacherSidebarData } from './useTeacherSidebarData.ts';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();
   const { open, setOpen, setOpenMobile } = useSidebar();
   const pathname = useLocation().pathname;
-  const sidebarData = useAdminSidebarData();
+  const sidebarData = useTeacherSidebarData();
 
   return (
     <Sidebar className='group border-sidebar-border/90 border-r' collapsible='icon' {...props}>

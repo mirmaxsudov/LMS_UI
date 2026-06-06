@@ -16,7 +16,7 @@ import {
 
 import type { SidebarData } from '@/shared/ui/page/types.ts';
 
-export const useSidebarData = () => {
+export const useAdminSidebarData = () => {
   const sidebarData: SidebarData = {
     navGroups: [
       {
