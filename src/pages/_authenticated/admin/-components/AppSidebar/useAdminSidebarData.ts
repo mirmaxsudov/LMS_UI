@@ -8,6 +8,7 @@ import {
   BoxesIcon,
   CalendarCheckIcon,
   CalendarClockIcon,
+  CalendarDaysIcon,
   ClapperboardIcon,
   FileQuestionIcon,
   FileTextIcon,
@@ -21,7 +22,7 @@ import {
   UsersRoundIcon
 } from 'lucide-react';
 
-import type { SidebarData } from '@/shared/ui/page/types.ts';
+import type { SidebarData } from '@/shared/ui/page/types';
 
 export const useAdminSidebarData = () => {
   const sidebarData: SidebarData = {
@@ -58,6 +59,11 @@ export const useAdminSidebarData = () => {
             title: msg`Lesson sessions`,
             url: '/admin/lesson-sessions',
             icon: CalendarClockIcon
+          },
+          {
+            title: msg`Schedule`,
+            url: '/admin/schedule',
+            icon: CalendarDaysIcon
           },
           {
             title: msg`Assignments`,

@@ -1,5 +1,3 @@
-import type { DayOfWeek } from 'react-day-picker';
-
 import { api } from '@/shared/api';
 
 export interface GetScheduleByIdRequest {

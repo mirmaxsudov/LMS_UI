@@ -3,7 +3,6 @@ import { useLingui } from '@lingui/react/macro';
 import { CourseCombobox } from '@/modules/course';
 import { dayOfWeekOptions, groupStatusOptions, scheduleTypeOptions } from '@/modules/group';
 import { TeacherCombobox } from '@/modules/users';
-import { Button } from '@/shared/ui/button';
 import { Checkbox } from '@/shared/ui/checkbox';
 import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
@@ -15,20 +14,14 @@ import { groupFormSchema } from './constants';
 
 interface Props {
   defaultValues?: Group;
-  isSubmitting?: boolean;
-  submitLabel?: string;
+  formId: string;
   onSubmit: (value: PostGroupDto | PutGroupDto) => void;
 }
 
 const getTeacherName = (teacher?: GroupTeacher) =>
   [teacher?.firstName, teacher?.middleName, teacher?.lastName].filter(Boolean).join(' ');
 
-export const GroupForm = ({
-  defaultValues,
-  onSubmit,
-  isSubmitting = false,
-  submitLabel
-}: Props) => {
+export const GroupForm = ({ defaultValues, onSubmit, formId }: Props) => {
   const { t } = useLingui();
 
   const form = useAppForm({
@@ -67,6 +60,7 @@ export const GroupForm = ({
     <form.AppForm>
       <form
         className='grid gap-3'
+        id={formId}
         onSubmit={(event) => {
           event.preventDefault();
           event.stopPropagation();
@@ -169,9 +163,6 @@ export const GroupForm = ({
         <form.AppField name='active'>
           {(field) => <field.Checkbox label={t`Active`} />}
         </form.AppField>
-        <Button type='submit' loading={isSubmitting}>
-          {submitLabel ?? t`Save`}
-        </Button>
       </form>
     </form.AppForm>
   );

@@ -1,9 +1,11 @@
 import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useId } from 'react';
 
 import { GroupForm } from '@/modules/group/components/GroupForm';
 import { GROUP_QUERY_KEYS } from '@/modules/group/options';
 import { postGroup, putGroup } from '@/shared/api';
+import { Button } from '@/shared/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -41,6 +43,8 @@ export const GroupFormDialog = ({ open, onOpenChange, editValues }: GroupFormDia
 
   const isSubmitting = createMutation.isPending || updateMutation.isPending;
 
+  const formId = useId();
+
   return (
     <Dialog onOpenChange={onOpenChange} open={open}>
       <DialogContent>
@@ -52,18 +56,22 @@ export const GroupFormDialog = ({ open, onOpenChange, editValues }: GroupFormDia
               : t`Fill out the form to create a new group.`}
           </DialogDescription>
         </DialogHeader>
-        <GroupForm
-          defaultValues={editValues ?? undefined}
-          isSubmitting={isSubmitting}
-          submitLabel={isEditMode ? t`Update` : t`Create`}
-          onSubmit={(data) => {
-            if (editValues) {
-              updateMutation.mutate({ id: editValues.id, data });
-              return;
-            }
-            createMutation.mutate({ data });
-          }}
-        />
+        <div className='scrollbar-hide h-full max-h-[calc(100vh-200px)] overflow-y-auto'>
+          <GroupForm
+            defaultValues={editValues ?? undefined}
+            formId={formId}
+            onSubmit={(data) => {
+              if (editValues) {
+                updateMutation.mutate({ id: editValues.id, data });
+                return;
+              }
+              createMutation.mutate({ data });
+            }}
+          />
+        </div>
+        <Button type='submit' form={formId} loading={isSubmitting}>
+          {isEditMode ? t`Update` : t`Create`}
+        </Button>
       </DialogContent>
     </Dialog>
   );

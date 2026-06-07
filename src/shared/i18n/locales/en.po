@@ -22,6 +22,15 @@ msgstr "{selectedSize} selected"
 msgid "A concise promise for learners"
 msgstr "A concise promise for learners"
 
+msgid "Access control"
+msgstr "Access control"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Action"
+msgstr "Action"
+
 msgid "Active"
 msgstr "Active"
 
@@ -52,6 +61,9 @@ msgstr "All at once"
 msgid "All users"
 msgstr "All users"
 
+msgid "Announcements"
+msgstr "Announcements"
+
 msgid "April"
 msgstr "April"
 
@@ -64,11 +76,23 @@ msgstr "Are you sure to logout?"
 msgid "Are you sure you want to delete this {itemName}? This action cannot be undone."
 msgstr "Are you sure you want to delete this {itemName}? This action cannot be undone."
 
+msgid "Assign a group to a weekday and time range."
+msgstr "Assign a group to a weekday and time range."
+
+msgid "Assigned permissions"
+msgstr "Assigned permissions"
+
+msgid "Assignments"
+msgstr "Assignments"
+
 msgid "Assistant"
 msgstr "Assistant"
 
 msgid "Attach a learner resource to this online lesson."
 msgstr "Attach a learner resource to this online lesson."
+
+msgid "Attendance"
+msgstr "Attendance"
 
 msgid "August"
 msgstr "August"
@@ -88,6 +112,9 @@ msgstr "Birth date"
 msgid "Blocked"
 msgstr "Blocked"
 
+msgid "Calendar"
+msgstr "Calendar"
+
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -102,6 +129,12 @@ msgstr "Capacity must be a number"
 
 msgid "Capacity must be greater than 0"
 msgstr "Capacity must be greater than 0"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Children"
+msgstr "Children"
 
 msgid "Choose a file"
 msgstr "Choose a file"
@@ -121,6 +154,12 @@ msgstr "Clear filter"
 msgid "Clear filters"
 msgstr "Clear filters"
 
+msgid "Code"
+msgstr "Code"
+
+msgid "Communication"
+msgstr "Communication"
+
 msgid "Completed"
 msgstr "Completed"
 
@@ -132,6 +171,9 @@ msgstr "course"
 
 msgid "Course"
 msgstr "Course"
+
+msgid "Course catalog"
+msgstr "Course catalog"
 
 msgid "Course description"
 msgstr "Course description"
@@ -163,6 +205,15 @@ msgstr "Create"
 msgid "Create a polished online course shell before adding modules and materials."
 msgstr "Create a polished online course shell before adding modules and materials."
 
+msgid "Create a role and assign permissions to it."
+msgstr "Create a role and assign permissions to it."
+
+msgid "Create an authority that can be assigned to roles."
+msgstr "Create an authority that can be assigned to roles."
+
+msgid "Create and maintain authorities used by application roles."
+msgstr "Create and maintain authorities used by application roles."
+
 msgid "Create course"
 msgstr "Create course"
 
@@ -187,14 +238,38 @@ msgstr "Create online course"
 msgid "Create parent"
 msgstr "Create parent"
 
+msgid "Create permission"
+msgstr "Create permission"
+
+msgid "Create role"
+msgstr "Create role"
+
+msgid "Create roles and control which permissions belong to each role."
+msgstr "Create roles and control which permissions belong to each role."
+
+msgid "Create schedule"
+msgstr "Create schedule"
+
 msgid "Create student"
 msgstr "Create student"
 
 msgid "Create teacher"
 msgstr "Create teacher"
 
+msgid "Created"
+msgstr "Created"
+
+msgid "Custom"
+msgstr "Custom"
+
 msgid "Dark"
 msgstr "Dark"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Day of week"
+msgstr "Day of week"
 
 msgid "December"
 msgstr "December"
@@ -204,6 +279,9 @@ msgstr "Delete"
 
 msgid "Delete {itemName}"
 msgstr "Delete {itemName}"
+
+msgid "Delete schedule"
+msgstr "Delete schedule"
 
 msgid "Describe what learners will build and understand."
 msgstr "Describe what learners will build and understand."
@@ -253,6 +331,15 @@ msgstr "Edit module"
 msgid "Edit online course"
 msgstr "Edit online course"
 
+msgid "Edit permission"
+msgstr "Edit permission"
+
+msgid "Edit role"
+msgstr "Edit role"
+
+msgid "Edit schedule"
+msgstr "Edit schedule"
+
 msgid "Email"
 msgstr "Email"
 
@@ -265,8 +352,14 @@ msgstr "End time"
 msgid "End time must be after start time."
 msgstr "End time must be after start time."
 
+msgid "End time must be later than start time."
+msgstr "End time must be later than start time."
+
 msgid "Enroll"
 msgstr "Enroll"
+
+msgid "Enrollment"
+msgstr "Enrollment"
 
 msgid "Enrollments"
 msgstr "Enrollments"
@@ -274,8 +367,14 @@ msgstr "Enrollments"
 msgid "Enter a valid email."
 msgstr "Enter a valid email."
 
+msgid "Enter a valid end time."
+msgstr "Enter a valid end time."
+
 msgid "Enter a valid phone number."
 msgstr "Enter a valid phone number."
+
+msgid "Enter a valid start time."
+msgstr "Enter a valid start time."
 
 msgid "Even days"
 msgstr "Even days"
@@ -340,6 +439,9 @@ msgstr "Full"
 msgid "Gender"
 msgstr "Gender"
 
+msgid "Gradebook"
+msgstr "Gradebook"
+
 msgid "Graduated"
 msgstr "Graduated"
 
@@ -384,6 +486,9 @@ msgstr "Language"
 
 msgid "Last name"
 msgstr "Last name"
+
+msgid "Learning"
+msgstr "Learning"
 
 msgid "Lecturer"
 msgstr "Lecturer"
@@ -454,6 +559,9 @@ msgstr "Manage"
 msgid "Manage online course content."
 msgstr "Manage online course content."
 
+msgid "Manage recurring group lesson times."
+msgstr "Manage recurring group lesson times."
+
 msgid "Manage your personal information and account settings."
 msgstr "Manage your personal information and account settings."
 
@@ -475,17 +583,38 @@ msgstr "Material file"
 msgid "Material title"
 msgstr "Material title"
 
+msgid "Materials"
+msgstr "Materials"
+
 msgid "Mathematics"
 msgstr "Mathematics"
 
+msgid "Maximum 100 characters."
+msgstr "Maximum 100 characters."
+
+msgid "Maximum 1000 characters."
+msgstr "Maximum 1000 characters."
+
+msgid "Maximum 150 characters."
+msgstr "Maximum 150 characters."
+
 msgid "May"
 msgstr "May"
+
+msgid "Meetings"
+msgstr "Meetings"
+
+msgid "Messages"
+msgstr "Messages"
 
 msgid "Middle name"
 msgstr "Middle name"
 
 msgid "module"
 msgstr "module"
+
+msgid "Module"
+msgstr "Module"
 
 msgid "Module by module"
 msgstr "Module by module"
@@ -505,6 +634,18 @@ msgstr "Modules, lessons, and learner resources."
 msgid "Monday"
 msgstr "Monday"
 
+msgid "My children"
+msgstr "My children"
+
+msgid "My courses"
+msgstr "My courses"
+
+msgid "My groups"
+msgstr "My groups"
+
+msgid "My progress"
+msgstr "My progress"
+
 msgid "Name"
 msgstr "Name"
 
@@ -520,11 +661,17 @@ msgstr "No course sections found."
 msgid "No courses found."
 msgstr "No courses found."
 
+msgid "No description"
+msgstr "No description"
+
 msgid "No groups found."
 msgstr "No groups found."
 
 msgid "No lessons found."
 msgstr "No lessons found."
+
+msgid "No permissions found."
+msgstr "No permissions found."
 
 msgid "No results found."
 msgstr "No results found."
@@ -534,6 +681,9 @@ msgstr "No results."
 
 msgid "No teachers found."
 msgstr "No teachers found."
+
+msgid "Notifications"
+msgstr "Notifications"
 
 msgid "November"
 msgstr "November"
@@ -574,6 +724,9 @@ msgstr "Order index must be 0 or greater"
 msgid "Order index must be a number"
 msgstr "Order index must be a number"
 
+msgid "Overview"
+msgstr "Overview"
+
 msgid "Parent"
 msgstr "Parent"
 
@@ -594,6 +747,15 @@ msgstr "Password must be at least 8 characters."
 
 msgid "Paste student profile UUIDs, separated by commas or new lines"
 msgstr "Paste student profile UUIDs, separated by commas or new lines"
+
+msgid "Payments"
+msgstr "Payments"
+
+msgid "permission"
+msgstr "permission"
+
+msgid "Permissions"
+msgstr "Permissions"
 
 msgid "Phone"
 msgstr "Phone"
@@ -634,17 +796,32 @@ msgstr "Profile settings"
 msgid "Profile updated successfully."
 msgstr "Profile updated successfully."
 
+msgid "Progress"
+msgstr "Progress"
+
 msgid "Public"
 msgstr "Public"
 
 msgid "Published"
 msgstr "Published"
 
+msgid "Quizzes"
+msgstr "Quizzes"
+
 msgid "Replace image"
 msgstr "Replace image"
 
+msgid "Reports"
+msgstr "Reports"
+
+msgid "role"
+msgstr "role"
+
 msgid "Role"
 msgstr "Role"
+
+msgid "Roles"
+msgstr "Roles"
 
 msgid "Rows per page"
 msgstr "Rows per page"
@@ -657,6 +834,12 @@ msgstr "Save"
 
 msgid "Save changes"
 msgstr "Save changes"
+
+msgid "schedule"
+msgstr "schedule"
+
+msgid "Schedule"
+msgstr "Schedule"
 
 msgid "Schedule days"
 msgstr "Schedule days"
@@ -673,6 +856,9 @@ msgstr "Search"
 msgid "Search columns..."
 msgstr "Search columns..."
 
+msgid "Search permissions"
+msgstr "Search permissions"
+
 msgid "Search..."
 msgstr "Search..."
 
@@ -685,6 +871,9 @@ msgstr "Select"
 msgid "Select at least one schedule day."
 msgstr "Select at least one schedule day."
 
+msgid "Select category"
+msgstr "Select category"
+
 msgid "Select course"
 msgstr "Select course"
 
@@ -693,6 +882,9 @@ msgstr "Select course section"
 
 msgid "Select date"
 msgstr "Select date"
+
+msgid "Select day"
+msgstr "Select day"
 
 msgid "Select gender"
 msgstr "Select gender"
@@ -705,6 +897,9 @@ msgstr "Select lesson"
 
 msgid "Select level"
 msgstr "Select level"
+
+msgid "Select permissions"
+msgstr "Select permissions"
 
 msgid "Select position"
 msgstr "Select position"
@@ -772,6 +967,9 @@ msgstr "Student status"
 msgid "Students"
 msgstr "Students"
 
+msgid "Study groups"
+msgstr "Study groups"
+
 msgid "Sunday"
 msgstr "Sunday"
 
@@ -784,6 +982,15 @@ msgstr "Support Teacher"
 msgid "Suspended"
 msgstr "Suspended"
 
+msgid "System"
+msgstr "System"
+
+msgid "System permission"
+msgstr "System permission"
+
+msgid "System permissions are protected from deletion."
+msgstr "System permissions are protected from deletion."
+
 msgid "Teacher"
 msgstr "Teacher"
 
@@ -792,6 +999,15 @@ msgstr "Teacher profile created successfully."
 
 msgid "Teachers"
 msgstr "Teachers"
+
+msgid "Teaching"
+msgstr "Teaching"
+
+msgid "Teaching progress"
+msgstr "Teaching progress"
+
+msgid "The submitted permission list replaces the role's existing permissions."
+msgstr "The submitted permission list replaces the role's existing permissions."
 
 msgid "Theme"
 msgstr "Theme"
@@ -819,6 +1035,9 @@ msgstr "Tozalash"
 
 msgid "Tuesday"
 msgstr "Tuesday"
+
+msgid "Type"
+msgstr "Type"
 
 msgid "Unlock strategy"
 msgstr "Unlock strategy"
@@ -853,8 +1072,20 @@ msgstr "Update the selected lesson details."
 msgid "Update the selected lesson session details."
 msgstr "Update the selected lesson session details."
 
+msgid "Update the selected permission details."
+msgstr "Update the selected permission details."
+
+msgid "Update the selected role and replace its assigned permissions."
+msgstr "Update the selected role and replace its assigned permissions."
+
+msgid "Update the selected schedule details."
+msgstr "Update the selected schedule details."
+
 msgid "Upload failed."
 msgstr "Upload failed."
+
+msgid "User"
+msgstr "User"
 
 msgid "User profile"
 msgstr "User profile"
@@ -876,3 +1107,9 @@ msgstr "Wednesday"
 
 msgid "Welcome back"
 msgstr "Welcome back"
+
+msgid "What this permission allows"
+msgstr "What this permission allows"
+
+msgid "What this role can do"
+msgstr "What this role can do"

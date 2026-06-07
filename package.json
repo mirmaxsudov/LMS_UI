@@ -9,6 +9,12 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "pretty": "pnpm format && pnpm lint",
+    "seed:course": "node --env-file=.env seed/course/index.mjs",
+    "seed:course-section": "node --env-file=.env seed/course-section/index.mjs",
+    "seed:group": "node --env-file=.env seed/group/index.mjs",
+    "seed:schedule": "node --env-file=.env seed/schedule/index.mjs",
+    "seed:student": "node --env-file=.env seed/student/index.mjs",
+    "seed:teacher": "node --env-file=.env seed/teacher/index.mjs",
     "sync": "lingui extract --overwrite",
     "sync_and_purge": "lingui extract --overwrite --clean",
     "type-check": "tsc --noEmit"
