@@ -1,13 +1,20 @@
 import { msg } from '@lingui/core/macro';
 import {
+  AwardIcon,
   BadgeInfoIcon,
+  BarChart3Icon,
+  BellIcon,
   BookOpenTextIcon,
   BoxesIcon,
+  CalendarCheckIcon,
   CalendarClockIcon,
   ClapperboardIcon,
+  FileQuestionIcon,
+  FileTextIcon,
   KeyRoundIcon,
   ListTreeIcon,
   ListVideoIcon,
+  MegaphoneIcon,
   ShieldCheckIcon,
   User2Icon,
   UsersIcon,
@@ -51,6 +58,26 @@ export const useAdminSidebarData = () => {
             title: msg`Lesson sessions`,
             url: '/admin/lesson-sessions',
             icon: CalendarClockIcon
+          },
+          {
+            title: msg`Assignments`,
+            url: '/admin/assignments',
+            icon: FileTextIcon
+          },
+          {
+            title: msg`Quizzes`,
+            url: '/admin/quizzes',
+            icon: FileQuestionIcon
+          },
+          {
+            title: msg`Attendance`,
+            url: '/admin/attendance',
+            icon: CalendarCheckIcon
+          },
+          {
+            title: msg`Gradebook`,
+            url: '/admin/gradebook',
+            icon: AwardIcon
           }
         ]
       },
@@ -104,6 +131,21 @@ export const useAdminSidebarData = () => {
                 icon: KeyRoundIcon
               }
             ]
+          },
+          {
+            title: msg`Reports`,
+            url: '/admin/reports',
+            icon: BarChart3Icon
+          },
+          {
+            title: msg`Notifications`,
+            url: '/admin/notifications',
+            icon: BellIcon
+          },
+          {
+            title: msg`Announcements`,
+            url: '/admin/announcements',
+            icon: MegaphoneIcon
           }
         ]
       }

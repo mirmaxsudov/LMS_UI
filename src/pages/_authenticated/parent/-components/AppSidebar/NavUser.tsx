@@ -2,9 +2,9 @@ import { useLingui } from '@lingui/react/macro';
 import { CheckIcon, ChevronsUpDown, LanguagesIcon, LogOutIcon } from 'lucide-react';
 
 import { useAuth } from '@/modules/auth';
-import { formatPhoneNumber } from '@/shared/lib/format.ts';
-import { cn } from '@/shared/lib/utils.ts';
-import { Avatar, AvatarFallback } from '@/shared/ui/avatar.tsx';
+import { formatPhoneNumber } from '@/shared/lib/format';
+import { cn } from '@/shared/lib/utils';
+import { Avatar, AvatarFallback } from '@/shared/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,8 +16,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@/shared/ui/dropdown-menu.tsx';
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/dropdown-menu';
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/ui/sidebar';
 
 const localeOptions = [
   { value: 'ru', label: 'Русский' },

@@ -19,40 +19,70 @@ import { Route as AuthenticatedTeacherIndexRouteImport } from './pages/_authenti
 import { Route as AuthenticatedStudentIndexRouteImport } from './pages/_authenticated/student/index'
 import { Route as AuthenticatedParentIndexRouteImport } from './pages/_authenticated/parent/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
+import { Route as AuthenticatedTeacherStudentsIndexRouteImport } from './pages/_authenticated/teacher/students/index'
 import { Route as AuthenticatedTeacherSettingsIndexRouteImport } from './pages/_authenticated/teacher/settings/index'
+import { Route as AuthenticatedTeacherQuizzesIndexRouteImport } from './pages/_authenticated/teacher/quizzes/index'
 import { Route as AuthenticatedTeacherProgressIndexRouteImport } from './pages/_authenticated/teacher/progress/index'
 import { Route as AuthenticatedTeacherOnlineCoursesIndexRouteImport } from './pages/_authenticated/teacher/online-courses/index'
+import { Route as AuthenticatedTeacherMessagesIndexRouteImport } from './pages/_authenticated/teacher/messages/index'
+import { Route as AuthenticatedTeacherMaterialsIndexRouteImport } from './pages/_authenticated/teacher/materials/index'
 import { Route as AuthenticatedTeacherLessonsIndexRouteImport } from './pages/_authenticated/teacher/lessons/index'
 import { Route as AuthenticatedTeacherLessonSessionsIndexRouteImport } from './pages/_authenticated/teacher/lesson-sessions/index'
 import { Route as AuthenticatedTeacherGroupsIndexRouteImport } from './pages/_authenticated/teacher/groups/index'
+import { Route as AuthenticatedTeacherGradebookIndexRouteImport } from './pages/_authenticated/teacher/gradebook/index'
 import { Route as AuthenticatedTeacherDashboardIndexRouteImport } from './pages/_authenticated/teacher/dashboard/index'
 import { Route as AuthenticatedTeacherCoursesIndexRouteImport } from './pages/_authenticated/teacher/courses/index'
+import { Route as AuthenticatedTeacherCalendarIndexRouteImport } from './pages/_authenticated/teacher/calendar/index'
 import { Route as AuthenticatedTeacherAttendanceIndexRouteImport } from './pages/_authenticated/teacher/attendance/index'
+import { Route as AuthenticatedTeacherAssignmentsIndexRouteImport } from './pages/_authenticated/teacher/assignments/index'
+import { Route as AuthenticatedStudentStudyGroupsIndexRouteImport } from './pages/_authenticated/student/study-groups/index'
 import { Route as AuthenticatedStudentSettingsIndexRouteImport } from './pages/_authenticated/student/settings/index'
 import { Route as AuthenticatedStudentScheduleIndexRouteImport } from './pages/_authenticated/student/schedule/index'
+import { Route as AuthenticatedStudentQuizzesIndexRouteImport } from './pages/_authenticated/student/quizzes/index'
 import { Route as AuthenticatedStudentProgressIndexRouteImport } from './pages/_authenticated/student/progress/index'
 import { Route as AuthenticatedStudentOnlineCoursesIndexRouteImport } from './pages/_authenticated/student/online-courses/index'
+import { Route as AuthenticatedStudentMessagesIndexRouteImport } from './pages/_authenticated/student/messages/index'
+import { Route as AuthenticatedStudentMaterialsIndexRouteImport } from './pages/_authenticated/student/materials/index'
 import { Route as AuthenticatedStudentLessonsIndexRouteImport } from './pages/_authenticated/student/lessons/index'
+import { Route as AuthenticatedStudentGradebookIndexRouteImport } from './pages/_authenticated/student/gradebook/index'
 import { Route as AuthenticatedStudentDashboardIndexRouteImport } from './pages/_authenticated/student/dashboard/index'
 import { Route as AuthenticatedStudentCoursesIndexRouteImport } from './pages/_authenticated/student/courses/index'
 import { Route as AuthenticatedStudentCourseCatalogIndexRouteImport } from './pages/_authenticated/student/course-catalog/index'
+import { Route as AuthenticatedStudentCalendarIndexRouteImport } from './pages/_authenticated/student/calendar/index'
 import { Route as AuthenticatedStudentAttendanceIndexRouteImport } from './pages/_authenticated/student/attendance/index'
+import { Route as AuthenticatedStudentAssignmentsIndexRouteImport } from './pages/_authenticated/student/assignments/index'
 import { Route as AuthenticatedParentSettingsIndexRouteImport } from './pages/_authenticated/parent/settings/index'
 import { Route as AuthenticatedParentScheduleIndexRouteImport } from './pages/_authenticated/parent/schedule/index'
+import { Route as AuthenticatedParentPaymentsIndexRouteImport } from './pages/_authenticated/parent/payments/index'
+import { Route as AuthenticatedParentNotificationsIndexRouteImport } from './pages/_authenticated/parent/notifications/index'
+import { Route as AuthenticatedParentMessagesIndexRouteImport } from './pages/_authenticated/parent/messages/index'
+import { Route as AuthenticatedParentMeetingsIndexRouteImport } from './pages/_authenticated/parent/meetings/index'
 import { Route as AuthenticatedParentDashboardIndexRouteImport } from './pages/_authenticated/parent/dashboard/index'
 import { Route as AuthenticatedParentChildrenIndexRouteImport } from './pages/_authenticated/parent/children/index'
+import { Route as AuthenticatedParentChildrenQuizzesIndexRouteImport } from './pages/_authenticated/parent/children-quizzes/index'
 import { Route as AuthenticatedParentChildrenProgressIndexRouteImport } from './pages/_authenticated/parent/children-progress/index'
+import { Route as AuthenticatedParentChildrenMaterialsIndexRouteImport } from './pages/_authenticated/parent/children-materials/index'
+import { Route as AuthenticatedParentChildrenGradebookIndexRouteImport } from './pages/_authenticated/parent/children-gradebook/index'
 import { Route as AuthenticatedParentChildrenCoursesIndexRouteImport } from './pages/_authenticated/parent/children-courses/index'
 import { Route as AuthenticatedParentChildrenAttendanceIndexRouteImport } from './pages/_authenticated/parent/children-attendance/index'
+import { Route as AuthenticatedParentChildrenAssignmentsIndexRouteImport } from './pages/_authenticated/parent/children-assignments/index'
+import { Route as AuthenticatedParentCalendarIndexRouteImport } from './pages/_authenticated/parent/calendar/index'
 import { Route as AuthenticatedAdminSettingsIndexRouteImport } from './pages/_authenticated/admin/settings/index'
 import { Route as AuthenticatedAdminRolesIndexRouteImport } from './pages/_authenticated/admin/roles/index'
+import { Route as AuthenticatedAdminReportsIndexRouteImport } from './pages/_authenticated/admin/reports/index'
+import { Route as AuthenticatedAdminQuizzesIndexRouteImport } from './pages/_authenticated/admin/quizzes/index'
 import { Route as AuthenticatedAdminPermissionsIndexRouteImport } from './pages/_authenticated/admin/permissions/index'
 import { Route as AuthenticatedAdminOnlineCoursesIndexRouteImport } from './pages/_authenticated/admin/online-courses/index'
+import { Route as AuthenticatedAdminNotificationsIndexRouteImport } from './pages/_authenticated/admin/notifications/index'
 import { Route as AuthenticatedAdminLessonsIndexRouteImport } from './pages/_authenticated/admin/lessons/index'
 import { Route as AuthenticatedAdminLessonSessionsIndexRouteImport } from './pages/_authenticated/admin/lesson-sessions/index'
 import { Route as AuthenticatedAdminGroupsIndexRouteImport } from './pages/_authenticated/admin/groups/index'
+import { Route as AuthenticatedAdminGradebookIndexRouteImport } from './pages/_authenticated/admin/gradebook/index'
 import { Route as AuthenticatedAdminCoursesIndexRouteImport } from './pages/_authenticated/admin/courses/index'
 import { Route as AuthenticatedAdminCourseSectionsIndexRouteImport } from './pages/_authenticated/admin/course-sections/index'
+import { Route as AuthenticatedAdminAttendanceIndexRouteImport } from './pages/_authenticated/admin/attendance/index'
+import { Route as AuthenticatedAdminAssignmentsIndexRouteImport } from './pages/_authenticated/admin/assignments/index'
+import { Route as AuthenticatedAdminAnnouncementsIndexRouteImport } from './pages/_authenticated/admin/announcements/index'
 import { Route as AuthenticatedAdminUserTeachersIndexRouteImport } from './pages/_authenticated/admin/user/teachers/index'
 import { Route as AuthenticatedAdminUserStudentsIndexRouteImport } from './pages/_authenticated/admin/user/students/index'
 import { Route as AuthenticatedAdminUserParentsIndexRouteImport } from './pages/_authenticated/admin/user/parents/index'
@@ -113,10 +143,22 @@ const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   path: '/login/',
   getParentRoute: () => AuthRouteRoute,
 } as any)
+const AuthenticatedTeacherStudentsIndexRoute =
+  AuthenticatedTeacherStudentsIndexRouteImport.update({
+    id: '/students/',
+    path: '/students/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
 const AuthenticatedTeacherSettingsIndexRoute =
   AuthenticatedTeacherSettingsIndexRouteImport.update({
     id: '/settings/',
     path: '/settings/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
+const AuthenticatedTeacherQuizzesIndexRoute =
+  AuthenticatedTeacherQuizzesIndexRouteImport.update({
+    id: '/quizzes/',
+    path: '/quizzes/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
   } as any)
 const AuthenticatedTeacherProgressIndexRoute =
@@ -129,6 +171,18 @@ const AuthenticatedTeacherOnlineCoursesIndexRoute =
   AuthenticatedTeacherOnlineCoursesIndexRouteImport.update({
     id: '/online-courses/',
     path: '/online-courses/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
+const AuthenticatedTeacherMessagesIndexRoute =
+  AuthenticatedTeacherMessagesIndexRouteImport.update({
+    id: '/messages/',
+    path: '/messages/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
+const AuthenticatedTeacherMaterialsIndexRoute =
+  AuthenticatedTeacherMaterialsIndexRouteImport.update({
+    id: '/materials/',
+    path: '/materials/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
   } as any)
 const AuthenticatedTeacherLessonsIndexRoute =
@@ -149,6 +203,12 @@ const AuthenticatedTeacherGroupsIndexRoute =
     path: '/groups/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
   } as any)
+const AuthenticatedTeacherGradebookIndexRoute =
+  AuthenticatedTeacherGradebookIndexRouteImport.update({
+    id: '/gradebook/',
+    path: '/gradebook/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
 const AuthenticatedTeacherDashboardIndexRoute =
   AuthenticatedTeacherDashboardIndexRouteImport.update({
     id: '/dashboard/',
@@ -161,11 +221,29 @@ const AuthenticatedTeacherCoursesIndexRoute =
     path: '/courses/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
   } as any)
+const AuthenticatedTeacherCalendarIndexRoute =
+  AuthenticatedTeacherCalendarIndexRouteImport.update({
+    id: '/calendar/',
+    path: '/calendar/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
 const AuthenticatedTeacherAttendanceIndexRoute =
   AuthenticatedTeacherAttendanceIndexRouteImport.update({
     id: '/attendance/',
     path: '/attendance/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
+const AuthenticatedTeacherAssignmentsIndexRoute =
+  AuthenticatedTeacherAssignmentsIndexRouteImport.update({
+    id: '/assignments/',
+    path: '/assignments/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
+const AuthenticatedStudentStudyGroupsIndexRoute =
+  AuthenticatedStudentStudyGroupsIndexRouteImport.update({
+    id: '/study-groups/',
+    path: '/study-groups/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
 const AuthenticatedStudentSettingsIndexRoute =
   AuthenticatedStudentSettingsIndexRouteImport.update({
@@ -177,6 +255,12 @@ const AuthenticatedStudentScheduleIndexRoute =
   AuthenticatedStudentScheduleIndexRouteImport.update({
     id: '/schedule/',
     path: '/schedule/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
+const AuthenticatedStudentQuizzesIndexRoute =
+  AuthenticatedStudentQuizzesIndexRouteImport.update({
+    id: '/quizzes/',
+    path: '/quizzes/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
 const AuthenticatedStudentProgressIndexRoute =
@@ -191,10 +275,28 @@ const AuthenticatedStudentOnlineCoursesIndexRoute =
     path: '/online-courses/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
+const AuthenticatedStudentMessagesIndexRoute =
+  AuthenticatedStudentMessagesIndexRouteImport.update({
+    id: '/messages/',
+    path: '/messages/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
+const AuthenticatedStudentMaterialsIndexRoute =
+  AuthenticatedStudentMaterialsIndexRouteImport.update({
+    id: '/materials/',
+    path: '/materials/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
 const AuthenticatedStudentLessonsIndexRoute =
   AuthenticatedStudentLessonsIndexRouteImport.update({
     id: '/lessons/',
     path: '/lessons/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
+const AuthenticatedStudentGradebookIndexRoute =
+  AuthenticatedStudentGradebookIndexRouteImport.update({
+    id: '/gradebook/',
+    path: '/gradebook/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
 const AuthenticatedStudentDashboardIndexRoute =
@@ -215,10 +317,22 @@ const AuthenticatedStudentCourseCatalogIndexRoute =
     path: '/course-catalog/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
+const AuthenticatedStudentCalendarIndexRoute =
+  AuthenticatedStudentCalendarIndexRouteImport.update({
+    id: '/calendar/',
+    path: '/calendar/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
 const AuthenticatedStudentAttendanceIndexRoute =
   AuthenticatedStudentAttendanceIndexRouteImport.update({
     id: '/attendance/',
     path: '/attendance/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
+const AuthenticatedStudentAssignmentsIndexRoute =
+  AuthenticatedStudentAssignmentsIndexRouteImport.update({
+    id: '/assignments/',
+    path: '/assignments/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
 const AuthenticatedParentSettingsIndexRoute =
@@ -233,6 +347,30 @@ const AuthenticatedParentScheduleIndexRoute =
     path: '/schedule/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
+const AuthenticatedParentPaymentsIndexRoute =
+  AuthenticatedParentPaymentsIndexRouteImport.update({
+    id: '/payments/',
+    path: '/payments/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentNotificationsIndexRoute =
+  AuthenticatedParentNotificationsIndexRouteImport.update({
+    id: '/notifications/',
+    path: '/notifications/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentMessagesIndexRoute =
+  AuthenticatedParentMessagesIndexRouteImport.update({
+    id: '/messages/',
+    path: '/messages/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentMeetingsIndexRoute =
+  AuthenticatedParentMeetingsIndexRouteImport.update({
+    id: '/meetings/',
+    path: '/meetings/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
 const AuthenticatedParentDashboardIndexRoute =
   AuthenticatedParentDashboardIndexRouteImport.update({
     id: '/dashboard/',
@@ -245,10 +383,28 @@ const AuthenticatedParentChildrenIndexRoute =
     path: '/children/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
+const AuthenticatedParentChildrenQuizzesIndexRoute =
+  AuthenticatedParentChildrenQuizzesIndexRouteImport.update({
+    id: '/children-quizzes/',
+    path: '/children-quizzes/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
 const AuthenticatedParentChildrenProgressIndexRoute =
   AuthenticatedParentChildrenProgressIndexRouteImport.update({
     id: '/children-progress/',
     path: '/children-progress/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentChildrenMaterialsIndexRoute =
+  AuthenticatedParentChildrenMaterialsIndexRouteImport.update({
+    id: '/children-materials/',
+    path: '/children-materials/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentChildrenGradebookIndexRoute =
+  AuthenticatedParentChildrenGradebookIndexRouteImport.update({
+    id: '/children-gradebook/',
+    path: '/children-gradebook/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
 const AuthenticatedParentChildrenCoursesIndexRoute =
@@ -263,6 +419,18 @@ const AuthenticatedParentChildrenAttendanceIndexRoute =
     path: '/children-attendance/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
+const AuthenticatedParentChildrenAssignmentsIndexRoute =
+  AuthenticatedParentChildrenAssignmentsIndexRouteImport.update({
+    id: '/children-assignments/',
+    path: '/children-assignments/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentCalendarIndexRoute =
+  AuthenticatedParentCalendarIndexRouteImport.update({
+    id: '/calendar/',
+    path: '/calendar/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
 const AuthenticatedAdminSettingsIndexRoute =
   AuthenticatedAdminSettingsIndexRouteImport.update({
     id: '/settings/',
@@ -275,6 +443,18 @@ const AuthenticatedAdminRolesIndexRoute =
     path: '/roles/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminReportsIndexRoute =
+  AuthenticatedAdminReportsIndexRouteImport.update({
+    id: '/reports/',
+    path: '/reports/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminQuizzesIndexRoute =
+  AuthenticatedAdminQuizzesIndexRouteImport.update({
+    id: '/quizzes/',
+    path: '/quizzes/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminPermissionsIndexRoute =
   AuthenticatedAdminPermissionsIndexRouteImport.update({
     id: '/permissions/',
@@ -285,6 +465,12 @@ const AuthenticatedAdminOnlineCoursesIndexRoute =
   AuthenticatedAdminOnlineCoursesIndexRouteImport.update({
     id: '/online-courses/',
     path: '/online-courses/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminNotificationsIndexRoute =
+  AuthenticatedAdminNotificationsIndexRouteImport.update({
+    id: '/notifications/',
+    path: '/notifications/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
 const AuthenticatedAdminLessonsIndexRoute =
@@ -305,6 +491,12 @@ const AuthenticatedAdminGroupsIndexRoute =
     path: '/groups/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminGradebookIndexRoute =
+  AuthenticatedAdminGradebookIndexRouteImport.update({
+    id: '/gradebook/',
+    path: '/gradebook/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminCoursesIndexRoute =
   AuthenticatedAdminCoursesIndexRouteImport.update({
     id: '/courses/',
@@ -315,6 +507,24 @@ const AuthenticatedAdminCourseSectionsIndexRoute =
   AuthenticatedAdminCourseSectionsIndexRouteImport.update({
     id: '/course-sections/',
     path: '/course-sections/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAttendanceIndexRoute =
+  AuthenticatedAdminAttendanceIndexRouteImport.update({
+    id: '/attendance/',
+    path: '/attendance/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAssignmentsIndexRoute =
+  AuthenticatedAdminAssignmentsIndexRouteImport.update({
+    id: '/assignments/',
+    path: '/assignments/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAnnouncementsIndexRoute =
+  AuthenticatedAdminAnnouncementsIndexRouteImport.update({
+    id: '/announcements/',
+    path: '/announcements/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
 const AuthenticatedAdminUserTeachersIndexRoute =
@@ -352,40 +562,70 @@ export interface FileRoutesByFullPath {
   '/parent/': typeof AuthenticatedParentIndexRoute
   '/student/': typeof AuthenticatedStudentIndexRoute
   '/teacher/': typeof AuthenticatedTeacherIndexRoute
+  '/admin/announcements': typeof AuthenticatedAdminAnnouncementsIndexRoute
+  '/admin/assignments': typeof AuthenticatedAdminAssignmentsIndexRoute
+  '/admin/attendance': typeof AuthenticatedAdminAttendanceIndexRoute
   '/admin/course-sections': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/admin/courses': typeof AuthenticatedAdminCoursesIndexRoute
+  '/admin/gradebook': typeof AuthenticatedAdminGradebookIndexRoute
   '/admin/groups': typeof AuthenticatedAdminGroupsIndexRoute
   '/admin/lesson-sessions': typeof AuthenticatedAdminLessonSessionsIndexRoute
   '/admin/lessons': typeof AuthenticatedAdminLessonsIndexRoute
+  '/admin/notifications': typeof AuthenticatedAdminNotificationsIndexRoute
   '/admin/online-courses': typeof AuthenticatedAdminOnlineCoursesIndexRoute
   '/admin/permissions': typeof AuthenticatedAdminPermissionsIndexRoute
+  '/admin/quizzes': typeof AuthenticatedAdminQuizzesIndexRoute
+  '/admin/reports': typeof AuthenticatedAdminReportsIndexRoute
   '/admin/roles': typeof AuthenticatedAdminRolesIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
+  '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
+  '/parent/children-assignments': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/parent/children-attendance': typeof AuthenticatedParentChildrenAttendanceIndexRoute
   '/parent/children-courses': typeof AuthenticatedParentChildrenCoursesIndexRoute
+  '/parent/children-gradebook': typeof AuthenticatedParentChildrenGradebookIndexRoute
+  '/parent/children-materials': typeof AuthenticatedParentChildrenMaterialsIndexRoute
   '/parent/children-progress': typeof AuthenticatedParentChildrenProgressIndexRoute
+  '/parent/children-quizzes': typeof AuthenticatedParentChildrenQuizzesIndexRoute
   '/parent/children': typeof AuthenticatedParentChildrenIndexRoute
   '/parent/dashboard': typeof AuthenticatedParentDashboardIndexRoute
+  '/parent/meetings': typeof AuthenticatedParentMeetingsIndexRoute
+  '/parent/messages': typeof AuthenticatedParentMessagesIndexRoute
+  '/parent/notifications': typeof AuthenticatedParentNotificationsIndexRoute
+  '/parent/payments': typeof AuthenticatedParentPaymentsIndexRoute
   '/parent/schedule': typeof AuthenticatedParentScheduleIndexRoute
   '/parent/settings': typeof AuthenticatedParentSettingsIndexRoute
+  '/student/assignments': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/student/attendance': typeof AuthenticatedStudentAttendanceIndexRoute
+  '/student/calendar': typeof AuthenticatedStudentCalendarIndexRoute
   '/student/course-catalog': typeof AuthenticatedStudentCourseCatalogIndexRoute
   '/student/courses': typeof AuthenticatedStudentCoursesIndexRoute
   '/student/dashboard': typeof AuthenticatedStudentDashboardIndexRoute
+  '/student/gradebook': typeof AuthenticatedStudentGradebookIndexRoute
   '/student/lessons': typeof AuthenticatedStudentLessonsIndexRoute
+  '/student/materials': typeof AuthenticatedStudentMaterialsIndexRoute
+  '/student/messages': typeof AuthenticatedStudentMessagesIndexRoute
   '/student/online-courses': typeof AuthenticatedStudentOnlineCoursesIndexRoute
   '/student/progress': typeof AuthenticatedStudentProgressIndexRoute
+  '/student/quizzes': typeof AuthenticatedStudentQuizzesIndexRoute
   '/student/schedule': typeof AuthenticatedStudentScheduleIndexRoute
   '/student/settings': typeof AuthenticatedStudentSettingsIndexRoute
+  '/student/study-groups': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/teacher/assignments': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/teacher/attendance': typeof AuthenticatedTeacherAttendanceIndexRoute
+  '/teacher/calendar': typeof AuthenticatedTeacherCalendarIndexRoute
   '/teacher/courses': typeof AuthenticatedTeacherCoursesIndexRoute
   '/teacher/dashboard': typeof AuthenticatedTeacherDashboardIndexRoute
+  '/teacher/gradebook': typeof AuthenticatedTeacherGradebookIndexRoute
   '/teacher/groups': typeof AuthenticatedTeacherGroupsIndexRoute
   '/teacher/lesson-sessions': typeof AuthenticatedTeacherLessonSessionsIndexRoute
   '/teacher/lessons': typeof AuthenticatedTeacherLessonsIndexRoute
+  '/teacher/materials': typeof AuthenticatedTeacherMaterialsIndexRoute
+  '/teacher/messages': typeof AuthenticatedTeacherMessagesIndexRoute
   '/teacher/online-courses': typeof AuthenticatedTeacherOnlineCoursesIndexRoute
   '/teacher/progress': typeof AuthenticatedTeacherProgressIndexRoute
+  '/teacher/quizzes': typeof AuthenticatedTeacherQuizzesIndexRoute
   '/teacher/settings': typeof AuthenticatedTeacherSettingsIndexRoute
+  '/teacher/students': typeof AuthenticatedTeacherStudentsIndexRoute
   '/admin/user/all': typeof AuthenticatedAdminUserAllIndexRoute
   '/admin/user/parents': typeof AuthenticatedAdminUserParentsIndexRoute
   '/admin/user/students': typeof AuthenticatedAdminUserStudentsIndexRoute
@@ -398,40 +638,70 @@ export interface FileRoutesByTo {
   '/parent': typeof AuthenticatedParentIndexRoute
   '/student': typeof AuthenticatedStudentIndexRoute
   '/teacher': typeof AuthenticatedTeacherIndexRoute
+  '/admin/announcements': typeof AuthenticatedAdminAnnouncementsIndexRoute
+  '/admin/assignments': typeof AuthenticatedAdminAssignmentsIndexRoute
+  '/admin/attendance': typeof AuthenticatedAdminAttendanceIndexRoute
   '/admin/course-sections': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/admin/courses': typeof AuthenticatedAdminCoursesIndexRoute
+  '/admin/gradebook': typeof AuthenticatedAdminGradebookIndexRoute
   '/admin/groups': typeof AuthenticatedAdminGroupsIndexRoute
   '/admin/lesson-sessions': typeof AuthenticatedAdminLessonSessionsIndexRoute
   '/admin/lessons': typeof AuthenticatedAdminLessonsIndexRoute
+  '/admin/notifications': typeof AuthenticatedAdminNotificationsIndexRoute
   '/admin/online-courses': typeof AuthenticatedAdminOnlineCoursesIndexRoute
   '/admin/permissions': typeof AuthenticatedAdminPermissionsIndexRoute
+  '/admin/quizzes': typeof AuthenticatedAdminQuizzesIndexRoute
+  '/admin/reports': typeof AuthenticatedAdminReportsIndexRoute
   '/admin/roles': typeof AuthenticatedAdminRolesIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
+  '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
+  '/parent/children-assignments': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/parent/children-attendance': typeof AuthenticatedParentChildrenAttendanceIndexRoute
   '/parent/children-courses': typeof AuthenticatedParentChildrenCoursesIndexRoute
+  '/parent/children-gradebook': typeof AuthenticatedParentChildrenGradebookIndexRoute
+  '/parent/children-materials': typeof AuthenticatedParentChildrenMaterialsIndexRoute
   '/parent/children-progress': typeof AuthenticatedParentChildrenProgressIndexRoute
+  '/parent/children-quizzes': typeof AuthenticatedParentChildrenQuizzesIndexRoute
   '/parent/children': typeof AuthenticatedParentChildrenIndexRoute
   '/parent/dashboard': typeof AuthenticatedParentDashboardIndexRoute
+  '/parent/meetings': typeof AuthenticatedParentMeetingsIndexRoute
+  '/parent/messages': typeof AuthenticatedParentMessagesIndexRoute
+  '/parent/notifications': typeof AuthenticatedParentNotificationsIndexRoute
+  '/parent/payments': typeof AuthenticatedParentPaymentsIndexRoute
   '/parent/schedule': typeof AuthenticatedParentScheduleIndexRoute
   '/parent/settings': typeof AuthenticatedParentSettingsIndexRoute
+  '/student/assignments': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/student/attendance': typeof AuthenticatedStudentAttendanceIndexRoute
+  '/student/calendar': typeof AuthenticatedStudentCalendarIndexRoute
   '/student/course-catalog': typeof AuthenticatedStudentCourseCatalogIndexRoute
   '/student/courses': typeof AuthenticatedStudentCoursesIndexRoute
   '/student/dashboard': typeof AuthenticatedStudentDashboardIndexRoute
+  '/student/gradebook': typeof AuthenticatedStudentGradebookIndexRoute
   '/student/lessons': typeof AuthenticatedStudentLessonsIndexRoute
+  '/student/materials': typeof AuthenticatedStudentMaterialsIndexRoute
+  '/student/messages': typeof AuthenticatedStudentMessagesIndexRoute
   '/student/online-courses': typeof AuthenticatedStudentOnlineCoursesIndexRoute
   '/student/progress': typeof AuthenticatedStudentProgressIndexRoute
+  '/student/quizzes': typeof AuthenticatedStudentQuizzesIndexRoute
   '/student/schedule': typeof AuthenticatedStudentScheduleIndexRoute
   '/student/settings': typeof AuthenticatedStudentSettingsIndexRoute
+  '/student/study-groups': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/teacher/assignments': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/teacher/attendance': typeof AuthenticatedTeacherAttendanceIndexRoute
+  '/teacher/calendar': typeof AuthenticatedTeacherCalendarIndexRoute
   '/teacher/courses': typeof AuthenticatedTeacherCoursesIndexRoute
   '/teacher/dashboard': typeof AuthenticatedTeacherDashboardIndexRoute
+  '/teacher/gradebook': typeof AuthenticatedTeacherGradebookIndexRoute
   '/teacher/groups': typeof AuthenticatedTeacherGroupsIndexRoute
   '/teacher/lesson-sessions': typeof AuthenticatedTeacherLessonSessionsIndexRoute
   '/teacher/lessons': typeof AuthenticatedTeacherLessonsIndexRoute
+  '/teacher/materials': typeof AuthenticatedTeacherMaterialsIndexRoute
+  '/teacher/messages': typeof AuthenticatedTeacherMessagesIndexRoute
   '/teacher/online-courses': typeof AuthenticatedTeacherOnlineCoursesIndexRoute
   '/teacher/progress': typeof AuthenticatedTeacherProgressIndexRoute
+  '/teacher/quizzes': typeof AuthenticatedTeacherQuizzesIndexRoute
   '/teacher/settings': typeof AuthenticatedTeacherSettingsIndexRoute
+  '/teacher/students': typeof AuthenticatedTeacherStudentsIndexRoute
   '/admin/user/all': typeof AuthenticatedAdminUserAllIndexRoute
   '/admin/user/parents': typeof AuthenticatedAdminUserParentsIndexRoute
   '/admin/user/students': typeof AuthenticatedAdminUserStudentsIndexRoute
@@ -449,40 +719,70 @@ export interface FileRoutesById {
   '/_authenticated/parent/': typeof AuthenticatedParentIndexRoute
   '/_authenticated/student/': typeof AuthenticatedStudentIndexRoute
   '/_authenticated/teacher/': typeof AuthenticatedTeacherIndexRoute
+  '/_authenticated/admin/announcements/': typeof AuthenticatedAdminAnnouncementsIndexRoute
+  '/_authenticated/admin/assignments/': typeof AuthenticatedAdminAssignmentsIndexRoute
+  '/_authenticated/admin/attendance/': typeof AuthenticatedAdminAttendanceIndexRoute
   '/_authenticated/admin/course-sections/': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/_authenticated/admin/courses/': typeof AuthenticatedAdminCoursesIndexRoute
+  '/_authenticated/admin/gradebook/': typeof AuthenticatedAdminGradebookIndexRoute
   '/_authenticated/admin/groups/': typeof AuthenticatedAdminGroupsIndexRoute
   '/_authenticated/admin/lesson-sessions/': typeof AuthenticatedAdminLessonSessionsIndexRoute
   '/_authenticated/admin/lessons/': typeof AuthenticatedAdminLessonsIndexRoute
+  '/_authenticated/admin/notifications/': typeof AuthenticatedAdminNotificationsIndexRoute
   '/_authenticated/admin/online-courses/': typeof AuthenticatedAdminOnlineCoursesIndexRoute
   '/_authenticated/admin/permissions/': typeof AuthenticatedAdminPermissionsIndexRoute
+  '/_authenticated/admin/quizzes/': typeof AuthenticatedAdminQuizzesIndexRoute
+  '/_authenticated/admin/reports/': typeof AuthenticatedAdminReportsIndexRoute
   '/_authenticated/admin/roles/': typeof AuthenticatedAdminRolesIndexRoute
   '/_authenticated/admin/settings/': typeof AuthenticatedAdminSettingsIndexRoute
+  '/_authenticated/parent/calendar/': typeof AuthenticatedParentCalendarIndexRoute
+  '/_authenticated/parent/children-assignments/': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/_authenticated/parent/children-attendance/': typeof AuthenticatedParentChildrenAttendanceIndexRoute
   '/_authenticated/parent/children-courses/': typeof AuthenticatedParentChildrenCoursesIndexRoute
+  '/_authenticated/parent/children-gradebook/': typeof AuthenticatedParentChildrenGradebookIndexRoute
+  '/_authenticated/parent/children-materials/': typeof AuthenticatedParentChildrenMaterialsIndexRoute
   '/_authenticated/parent/children-progress/': typeof AuthenticatedParentChildrenProgressIndexRoute
+  '/_authenticated/parent/children-quizzes/': typeof AuthenticatedParentChildrenQuizzesIndexRoute
   '/_authenticated/parent/children/': typeof AuthenticatedParentChildrenIndexRoute
   '/_authenticated/parent/dashboard/': typeof AuthenticatedParentDashboardIndexRoute
+  '/_authenticated/parent/meetings/': typeof AuthenticatedParentMeetingsIndexRoute
+  '/_authenticated/parent/messages/': typeof AuthenticatedParentMessagesIndexRoute
+  '/_authenticated/parent/notifications/': typeof AuthenticatedParentNotificationsIndexRoute
+  '/_authenticated/parent/payments/': typeof AuthenticatedParentPaymentsIndexRoute
   '/_authenticated/parent/schedule/': typeof AuthenticatedParentScheduleIndexRoute
   '/_authenticated/parent/settings/': typeof AuthenticatedParentSettingsIndexRoute
+  '/_authenticated/student/assignments/': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/_authenticated/student/attendance/': typeof AuthenticatedStudentAttendanceIndexRoute
+  '/_authenticated/student/calendar/': typeof AuthenticatedStudentCalendarIndexRoute
   '/_authenticated/student/course-catalog/': typeof AuthenticatedStudentCourseCatalogIndexRoute
   '/_authenticated/student/courses/': typeof AuthenticatedStudentCoursesIndexRoute
   '/_authenticated/student/dashboard/': typeof AuthenticatedStudentDashboardIndexRoute
+  '/_authenticated/student/gradebook/': typeof AuthenticatedStudentGradebookIndexRoute
   '/_authenticated/student/lessons/': typeof AuthenticatedStudentLessonsIndexRoute
+  '/_authenticated/student/materials/': typeof AuthenticatedStudentMaterialsIndexRoute
+  '/_authenticated/student/messages/': typeof AuthenticatedStudentMessagesIndexRoute
   '/_authenticated/student/online-courses/': typeof AuthenticatedStudentOnlineCoursesIndexRoute
   '/_authenticated/student/progress/': typeof AuthenticatedStudentProgressIndexRoute
+  '/_authenticated/student/quizzes/': typeof AuthenticatedStudentQuizzesIndexRoute
   '/_authenticated/student/schedule/': typeof AuthenticatedStudentScheduleIndexRoute
   '/_authenticated/student/settings/': typeof AuthenticatedStudentSettingsIndexRoute
+  '/_authenticated/student/study-groups/': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/_authenticated/teacher/assignments/': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/_authenticated/teacher/attendance/': typeof AuthenticatedTeacherAttendanceIndexRoute
+  '/_authenticated/teacher/calendar/': typeof AuthenticatedTeacherCalendarIndexRoute
   '/_authenticated/teacher/courses/': typeof AuthenticatedTeacherCoursesIndexRoute
   '/_authenticated/teacher/dashboard/': typeof AuthenticatedTeacherDashboardIndexRoute
+  '/_authenticated/teacher/gradebook/': typeof AuthenticatedTeacherGradebookIndexRoute
   '/_authenticated/teacher/groups/': typeof AuthenticatedTeacherGroupsIndexRoute
   '/_authenticated/teacher/lesson-sessions/': typeof AuthenticatedTeacherLessonSessionsIndexRoute
   '/_authenticated/teacher/lessons/': typeof AuthenticatedTeacherLessonsIndexRoute
+  '/_authenticated/teacher/materials/': typeof AuthenticatedTeacherMaterialsIndexRoute
+  '/_authenticated/teacher/messages/': typeof AuthenticatedTeacherMessagesIndexRoute
   '/_authenticated/teacher/online-courses/': typeof AuthenticatedTeacherOnlineCoursesIndexRoute
   '/_authenticated/teacher/progress/': typeof AuthenticatedTeacherProgressIndexRoute
+  '/_authenticated/teacher/quizzes/': typeof AuthenticatedTeacherQuizzesIndexRoute
   '/_authenticated/teacher/settings/': typeof AuthenticatedTeacherSettingsIndexRoute
+  '/_authenticated/teacher/students/': typeof AuthenticatedTeacherStudentsIndexRoute
   '/_authenticated/admin/user/all/': typeof AuthenticatedAdminUserAllIndexRoute
   '/_authenticated/admin/user/parents/': typeof AuthenticatedAdminUserParentsIndexRoute
   '/_authenticated/admin/user/students/': typeof AuthenticatedAdminUserStudentsIndexRoute
@@ -500,40 +800,70 @@ export interface FileRouteTypes {
     | '/parent/'
     | '/student/'
     | '/teacher/'
+    | '/admin/announcements'
+    | '/admin/assignments'
+    | '/admin/attendance'
     | '/admin/course-sections'
     | '/admin/courses'
+    | '/admin/gradebook'
     | '/admin/groups'
     | '/admin/lesson-sessions'
     | '/admin/lessons'
+    | '/admin/notifications'
     | '/admin/online-courses'
     | '/admin/permissions'
+    | '/admin/quizzes'
+    | '/admin/reports'
     | '/admin/roles'
     | '/admin/settings'
+    | '/parent/calendar'
+    | '/parent/children-assignments'
     | '/parent/children-attendance'
     | '/parent/children-courses'
+    | '/parent/children-gradebook'
+    | '/parent/children-materials'
     | '/parent/children-progress'
+    | '/parent/children-quizzes'
     | '/parent/children'
     | '/parent/dashboard'
+    | '/parent/meetings'
+    | '/parent/messages'
+    | '/parent/notifications'
+    | '/parent/payments'
     | '/parent/schedule'
     | '/parent/settings'
+    | '/student/assignments'
     | '/student/attendance'
+    | '/student/calendar'
     | '/student/course-catalog'
     | '/student/courses'
     | '/student/dashboard'
+    | '/student/gradebook'
     | '/student/lessons'
+    | '/student/materials'
+    | '/student/messages'
     | '/student/online-courses'
     | '/student/progress'
+    | '/student/quizzes'
     | '/student/schedule'
     | '/student/settings'
+    | '/student/study-groups'
+    | '/teacher/assignments'
     | '/teacher/attendance'
+    | '/teacher/calendar'
     | '/teacher/courses'
     | '/teacher/dashboard'
+    | '/teacher/gradebook'
     | '/teacher/groups'
     | '/teacher/lesson-sessions'
     | '/teacher/lessons'
+    | '/teacher/materials'
+    | '/teacher/messages'
     | '/teacher/online-courses'
     | '/teacher/progress'
+    | '/teacher/quizzes'
     | '/teacher/settings'
+    | '/teacher/students'
     | '/admin/user/all'
     | '/admin/user/parents'
     | '/admin/user/students'
@@ -546,40 +876,70 @@ export interface FileRouteTypes {
     | '/parent'
     | '/student'
     | '/teacher'
+    | '/admin/announcements'
+    | '/admin/assignments'
+    | '/admin/attendance'
     | '/admin/course-sections'
     | '/admin/courses'
+    | '/admin/gradebook'
     | '/admin/groups'
     | '/admin/lesson-sessions'
     | '/admin/lessons'
+    | '/admin/notifications'
     | '/admin/online-courses'
     | '/admin/permissions'
+    | '/admin/quizzes'
+    | '/admin/reports'
     | '/admin/roles'
     | '/admin/settings'
+    | '/parent/calendar'
+    | '/parent/children-assignments'
     | '/parent/children-attendance'
     | '/parent/children-courses'
+    | '/parent/children-gradebook'
+    | '/parent/children-materials'
     | '/parent/children-progress'
+    | '/parent/children-quizzes'
     | '/parent/children'
     | '/parent/dashboard'
+    | '/parent/meetings'
+    | '/parent/messages'
+    | '/parent/notifications'
+    | '/parent/payments'
     | '/parent/schedule'
     | '/parent/settings'
+    | '/student/assignments'
     | '/student/attendance'
+    | '/student/calendar'
     | '/student/course-catalog'
     | '/student/courses'
     | '/student/dashboard'
+    | '/student/gradebook'
     | '/student/lessons'
+    | '/student/materials'
+    | '/student/messages'
     | '/student/online-courses'
     | '/student/progress'
+    | '/student/quizzes'
     | '/student/schedule'
     | '/student/settings'
+    | '/student/study-groups'
+    | '/teacher/assignments'
     | '/teacher/attendance'
+    | '/teacher/calendar'
     | '/teacher/courses'
     | '/teacher/dashboard'
+    | '/teacher/gradebook'
     | '/teacher/groups'
     | '/teacher/lesson-sessions'
     | '/teacher/lessons'
+    | '/teacher/materials'
+    | '/teacher/messages'
     | '/teacher/online-courses'
     | '/teacher/progress'
+    | '/teacher/quizzes'
     | '/teacher/settings'
+    | '/teacher/students'
     | '/admin/user/all'
     | '/admin/user/parents'
     | '/admin/user/students'
@@ -596,40 +956,70 @@ export interface FileRouteTypes {
     | '/_authenticated/parent/'
     | '/_authenticated/student/'
     | '/_authenticated/teacher/'
+    | '/_authenticated/admin/announcements/'
+    | '/_authenticated/admin/assignments/'
+    | '/_authenticated/admin/attendance/'
     | '/_authenticated/admin/course-sections/'
     | '/_authenticated/admin/courses/'
+    | '/_authenticated/admin/gradebook/'
     | '/_authenticated/admin/groups/'
     | '/_authenticated/admin/lesson-sessions/'
     | '/_authenticated/admin/lessons/'
+    | '/_authenticated/admin/notifications/'
     | '/_authenticated/admin/online-courses/'
     | '/_authenticated/admin/permissions/'
+    | '/_authenticated/admin/quizzes/'
+    | '/_authenticated/admin/reports/'
     | '/_authenticated/admin/roles/'
     | '/_authenticated/admin/settings/'
+    | '/_authenticated/parent/calendar/'
+    | '/_authenticated/parent/children-assignments/'
     | '/_authenticated/parent/children-attendance/'
     | '/_authenticated/parent/children-courses/'
+    | '/_authenticated/parent/children-gradebook/'
+    | '/_authenticated/parent/children-materials/'
     | '/_authenticated/parent/children-progress/'
+    | '/_authenticated/parent/children-quizzes/'
     | '/_authenticated/parent/children/'
     | '/_authenticated/parent/dashboard/'
+    | '/_authenticated/parent/meetings/'
+    | '/_authenticated/parent/messages/'
+    | '/_authenticated/parent/notifications/'
+    | '/_authenticated/parent/payments/'
     | '/_authenticated/parent/schedule/'
     | '/_authenticated/parent/settings/'
+    | '/_authenticated/student/assignments/'
     | '/_authenticated/student/attendance/'
+    | '/_authenticated/student/calendar/'
     | '/_authenticated/student/course-catalog/'
     | '/_authenticated/student/courses/'
     | '/_authenticated/student/dashboard/'
+    | '/_authenticated/student/gradebook/'
     | '/_authenticated/student/lessons/'
+    | '/_authenticated/student/materials/'
+    | '/_authenticated/student/messages/'
     | '/_authenticated/student/online-courses/'
     | '/_authenticated/student/progress/'
+    | '/_authenticated/student/quizzes/'
     | '/_authenticated/student/schedule/'
     | '/_authenticated/student/settings/'
+    | '/_authenticated/student/study-groups/'
+    | '/_authenticated/teacher/assignments/'
     | '/_authenticated/teacher/attendance/'
+    | '/_authenticated/teacher/calendar/'
     | '/_authenticated/teacher/courses/'
     | '/_authenticated/teacher/dashboard/'
+    | '/_authenticated/teacher/gradebook/'
     | '/_authenticated/teacher/groups/'
     | '/_authenticated/teacher/lesson-sessions/'
     | '/_authenticated/teacher/lessons/'
+    | '/_authenticated/teacher/materials/'
+    | '/_authenticated/teacher/messages/'
     | '/_authenticated/teacher/online-courses/'
     | '/_authenticated/teacher/progress/'
+    | '/_authenticated/teacher/quizzes/'
     | '/_authenticated/teacher/settings/'
+    | '/_authenticated/teacher/students/'
     | '/_authenticated/admin/user/all/'
     | '/_authenticated/admin/user/parents/'
     | '/_authenticated/admin/user/students/'
@@ -717,11 +1107,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginIndexRouteImport
       parentRoute: typeof AuthRouteRoute
     }
+    '/_authenticated/teacher/students/': {
+      id: '/_authenticated/teacher/students/'
+      path: '/students'
+      fullPath: '/teacher/students'
+      preLoaderRoute: typeof AuthenticatedTeacherStudentsIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
     '/_authenticated/teacher/settings/': {
       id: '/_authenticated/teacher/settings/'
       path: '/settings'
       fullPath: '/teacher/settings'
       preLoaderRoute: typeof AuthenticatedTeacherSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
+    '/_authenticated/teacher/quizzes/': {
+      id: '/_authenticated/teacher/quizzes/'
+      path: '/quizzes'
+      fullPath: '/teacher/quizzes'
+      preLoaderRoute: typeof AuthenticatedTeacherQuizzesIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
     }
     '/_authenticated/teacher/progress/': {
@@ -736,6 +1140,20 @@ declare module '@tanstack/react-router' {
       path: '/online-courses'
       fullPath: '/teacher/online-courses'
       preLoaderRoute: typeof AuthenticatedTeacherOnlineCoursesIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
+    '/_authenticated/teacher/messages/': {
+      id: '/_authenticated/teacher/messages/'
+      path: '/messages'
+      fullPath: '/teacher/messages'
+      preLoaderRoute: typeof AuthenticatedTeacherMessagesIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
+    '/_authenticated/teacher/materials/': {
+      id: '/_authenticated/teacher/materials/'
+      path: '/materials'
+      fullPath: '/teacher/materials'
+      preLoaderRoute: typeof AuthenticatedTeacherMaterialsIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
     }
     '/_authenticated/teacher/lessons/': {
@@ -759,6 +1177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTeacherGroupsIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
     }
+    '/_authenticated/teacher/gradebook/': {
+      id: '/_authenticated/teacher/gradebook/'
+      path: '/gradebook'
+      fullPath: '/teacher/gradebook'
+      preLoaderRoute: typeof AuthenticatedTeacherGradebookIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
     '/_authenticated/teacher/dashboard/': {
       id: '/_authenticated/teacher/dashboard/'
       path: '/dashboard'
@@ -773,12 +1198,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTeacherCoursesIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
     }
+    '/_authenticated/teacher/calendar/': {
+      id: '/_authenticated/teacher/calendar/'
+      path: '/calendar'
+      fullPath: '/teacher/calendar'
+      preLoaderRoute: typeof AuthenticatedTeacherCalendarIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
     '/_authenticated/teacher/attendance/': {
       id: '/_authenticated/teacher/attendance/'
       path: '/attendance'
       fullPath: '/teacher/attendance'
       preLoaderRoute: typeof AuthenticatedTeacherAttendanceIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
+    '/_authenticated/teacher/assignments/': {
+      id: '/_authenticated/teacher/assignments/'
+      path: '/assignments'
+      fullPath: '/teacher/assignments'
+      preLoaderRoute: typeof AuthenticatedTeacherAssignmentsIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
+    '/_authenticated/student/study-groups/': {
+      id: '/_authenticated/student/study-groups/'
+      path: '/study-groups'
+      fullPath: '/student/study-groups'
+      preLoaderRoute: typeof AuthenticatedStudentStudyGroupsIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
     }
     '/_authenticated/student/settings/': {
       id: '/_authenticated/student/settings/'
@@ -792,6 +1238,13 @@ declare module '@tanstack/react-router' {
       path: '/schedule'
       fullPath: '/student/schedule'
       preLoaderRoute: typeof AuthenticatedStudentScheduleIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
+    '/_authenticated/student/quizzes/': {
+      id: '/_authenticated/student/quizzes/'
+      path: '/quizzes'
+      fullPath: '/student/quizzes'
+      preLoaderRoute: typeof AuthenticatedStudentQuizzesIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
     '/_authenticated/student/progress/': {
@@ -808,11 +1261,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedStudentOnlineCoursesIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
+    '/_authenticated/student/messages/': {
+      id: '/_authenticated/student/messages/'
+      path: '/messages'
+      fullPath: '/student/messages'
+      preLoaderRoute: typeof AuthenticatedStudentMessagesIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
+    '/_authenticated/student/materials/': {
+      id: '/_authenticated/student/materials/'
+      path: '/materials'
+      fullPath: '/student/materials'
+      preLoaderRoute: typeof AuthenticatedStudentMaterialsIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
     '/_authenticated/student/lessons/': {
       id: '/_authenticated/student/lessons/'
       path: '/lessons'
       fullPath: '/student/lessons'
       preLoaderRoute: typeof AuthenticatedStudentLessonsIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
+    '/_authenticated/student/gradebook/': {
+      id: '/_authenticated/student/gradebook/'
+      path: '/gradebook'
+      fullPath: '/student/gradebook'
+      preLoaderRoute: typeof AuthenticatedStudentGradebookIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
     '/_authenticated/student/dashboard/': {
@@ -836,11 +1310,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedStudentCourseCatalogIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
+    '/_authenticated/student/calendar/': {
+      id: '/_authenticated/student/calendar/'
+      path: '/calendar'
+      fullPath: '/student/calendar'
+      preLoaderRoute: typeof AuthenticatedStudentCalendarIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
     '/_authenticated/student/attendance/': {
       id: '/_authenticated/student/attendance/'
       path: '/attendance'
       fullPath: '/student/attendance'
       preLoaderRoute: typeof AuthenticatedStudentAttendanceIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
+    '/_authenticated/student/assignments/': {
+      id: '/_authenticated/student/assignments/'
+      path: '/assignments'
+      fullPath: '/student/assignments'
+      preLoaderRoute: typeof AuthenticatedStudentAssignmentsIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
     '/_authenticated/parent/settings/': {
@@ -857,6 +1345,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedParentScheduleIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
     }
+    '/_authenticated/parent/payments/': {
+      id: '/_authenticated/parent/payments/'
+      path: '/payments'
+      fullPath: '/parent/payments'
+      preLoaderRoute: typeof AuthenticatedParentPaymentsIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/notifications/': {
+      id: '/_authenticated/parent/notifications/'
+      path: '/notifications'
+      fullPath: '/parent/notifications'
+      preLoaderRoute: typeof AuthenticatedParentNotificationsIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/messages/': {
+      id: '/_authenticated/parent/messages/'
+      path: '/messages'
+      fullPath: '/parent/messages'
+      preLoaderRoute: typeof AuthenticatedParentMessagesIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/meetings/': {
+      id: '/_authenticated/parent/meetings/'
+      path: '/meetings'
+      fullPath: '/parent/meetings'
+      preLoaderRoute: typeof AuthenticatedParentMeetingsIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
     '/_authenticated/parent/dashboard/': {
       id: '/_authenticated/parent/dashboard/'
       path: '/dashboard'
@@ -871,11 +1387,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedParentChildrenIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
     }
+    '/_authenticated/parent/children-quizzes/': {
+      id: '/_authenticated/parent/children-quizzes/'
+      path: '/children-quizzes'
+      fullPath: '/parent/children-quizzes'
+      preLoaderRoute: typeof AuthenticatedParentChildrenQuizzesIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
     '/_authenticated/parent/children-progress/': {
       id: '/_authenticated/parent/children-progress/'
       path: '/children-progress'
       fullPath: '/parent/children-progress'
       preLoaderRoute: typeof AuthenticatedParentChildrenProgressIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/children-materials/': {
+      id: '/_authenticated/parent/children-materials/'
+      path: '/children-materials'
+      fullPath: '/parent/children-materials'
+      preLoaderRoute: typeof AuthenticatedParentChildrenMaterialsIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/children-gradebook/': {
+      id: '/_authenticated/parent/children-gradebook/'
+      path: '/children-gradebook'
+      fullPath: '/parent/children-gradebook'
+      preLoaderRoute: typeof AuthenticatedParentChildrenGradebookIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
     }
     '/_authenticated/parent/children-courses/': {
@@ -892,6 +1429,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedParentChildrenAttendanceIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
     }
+    '/_authenticated/parent/children-assignments/': {
+      id: '/_authenticated/parent/children-assignments/'
+      path: '/children-assignments'
+      fullPath: '/parent/children-assignments'
+      preLoaderRoute: typeof AuthenticatedParentChildrenAssignmentsIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/calendar/': {
+      id: '/_authenticated/parent/calendar/'
+      path: '/calendar'
+      fullPath: '/parent/calendar'
+      preLoaderRoute: typeof AuthenticatedParentCalendarIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
     '/_authenticated/admin/settings/': {
       id: '/_authenticated/admin/settings/'
       path: '/settings'
@@ -906,6 +1457,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRolesIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/reports/': {
+      id: '/_authenticated/admin/reports/'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AuthenticatedAdminReportsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/quizzes/': {
+      id: '/_authenticated/admin/quizzes/'
+      path: '/quizzes'
+      fullPath: '/admin/quizzes'
+      preLoaderRoute: typeof AuthenticatedAdminQuizzesIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/permissions/': {
       id: '/_authenticated/admin/permissions/'
       path: '/permissions'
@@ -918,6 +1483,13 @@ declare module '@tanstack/react-router' {
       path: '/online-courses'
       fullPath: '/admin/online-courses'
       preLoaderRoute: typeof AuthenticatedAdminOnlineCoursesIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/notifications/': {
+      id: '/_authenticated/admin/notifications/'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AuthenticatedAdminNotificationsIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
     '/_authenticated/admin/lessons/': {
@@ -941,6 +1513,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminGroupsIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/gradebook/': {
+      id: '/_authenticated/admin/gradebook/'
+      path: '/gradebook'
+      fullPath: '/admin/gradebook'
+      preLoaderRoute: typeof AuthenticatedAdminGradebookIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/courses/': {
       id: '/_authenticated/admin/courses/'
       path: '/courses'
@@ -953,6 +1532,27 @@ declare module '@tanstack/react-router' {
       path: '/course-sections'
       fullPath: '/admin/course-sections'
       preLoaderRoute: typeof AuthenticatedAdminCourseSectionsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/attendance/': {
+      id: '/_authenticated/admin/attendance/'
+      path: '/attendance'
+      fullPath: '/admin/attendance'
+      preLoaderRoute: typeof AuthenticatedAdminAttendanceIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/assignments/': {
+      id: '/_authenticated/admin/assignments/'
+      path: '/assignments'
+      fullPath: '/admin/assignments'
+      preLoaderRoute: typeof AuthenticatedAdminAssignmentsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/announcements/': {
+      id: '/_authenticated/admin/announcements/'
+      path: '/announcements'
+      fullPath: '/admin/announcements'
+      preLoaderRoute: typeof AuthenticatedAdminAnnouncementsIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
     '/_authenticated/admin/user/teachers/': {
@@ -999,13 +1599,20 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 )
 
 interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminAnnouncementsIndexRoute: typeof AuthenticatedAdminAnnouncementsIndexRoute
+  AuthenticatedAdminAssignmentsIndexRoute: typeof AuthenticatedAdminAssignmentsIndexRoute
+  AuthenticatedAdminAttendanceIndexRoute: typeof AuthenticatedAdminAttendanceIndexRoute
   AuthenticatedAdminCourseSectionsIndexRoute: typeof AuthenticatedAdminCourseSectionsIndexRoute
   AuthenticatedAdminCoursesIndexRoute: typeof AuthenticatedAdminCoursesIndexRoute
+  AuthenticatedAdminGradebookIndexRoute: typeof AuthenticatedAdminGradebookIndexRoute
   AuthenticatedAdminGroupsIndexRoute: typeof AuthenticatedAdminGroupsIndexRoute
   AuthenticatedAdminLessonSessionsIndexRoute: typeof AuthenticatedAdminLessonSessionsIndexRoute
   AuthenticatedAdminLessonsIndexRoute: typeof AuthenticatedAdminLessonsIndexRoute
+  AuthenticatedAdminNotificationsIndexRoute: typeof AuthenticatedAdminNotificationsIndexRoute
   AuthenticatedAdminOnlineCoursesIndexRoute: typeof AuthenticatedAdminOnlineCoursesIndexRoute
   AuthenticatedAdminPermissionsIndexRoute: typeof AuthenticatedAdminPermissionsIndexRoute
+  AuthenticatedAdminQuizzesIndexRoute: typeof AuthenticatedAdminQuizzesIndexRoute
+  AuthenticatedAdminReportsIndexRoute: typeof AuthenticatedAdminReportsIndexRoute
   AuthenticatedAdminRolesIndexRoute: typeof AuthenticatedAdminRolesIndexRoute
   AuthenticatedAdminSettingsIndexRoute: typeof AuthenticatedAdminSettingsIndexRoute
   AuthenticatedAdminUserAllIndexRoute: typeof AuthenticatedAdminUserAllIndexRoute
@@ -1016,17 +1623,29 @@ interface AuthenticatedAdminRouteRouteChildren {
 
 const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
   {
+    AuthenticatedAdminAnnouncementsIndexRoute:
+      AuthenticatedAdminAnnouncementsIndexRoute,
+    AuthenticatedAdminAssignmentsIndexRoute:
+      AuthenticatedAdminAssignmentsIndexRoute,
+    AuthenticatedAdminAttendanceIndexRoute:
+      AuthenticatedAdminAttendanceIndexRoute,
     AuthenticatedAdminCourseSectionsIndexRoute:
       AuthenticatedAdminCourseSectionsIndexRoute,
     AuthenticatedAdminCoursesIndexRoute: AuthenticatedAdminCoursesIndexRoute,
+    AuthenticatedAdminGradebookIndexRoute:
+      AuthenticatedAdminGradebookIndexRoute,
     AuthenticatedAdminGroupsIndexRoute: AuthenticatedAdminGroupsIndexRoute,
     AuthenticatedAdminLessonSessionsIndexRoute:
       AuthenticatedAdminLessonSessionsIndexRoute,
     AuthenticatedAdminLessonsIndexRoute: AuthenticatedAdminLessonsIndexRoute,
+    AuthenticatedAdminNotificationsIndexRoute:
+      AuthenticatedAdminNotificationsIndexRoute,
     AuthenticatedAdminOnlineCoursesIndexRoute:
       AuthenticatedAdminOnlineCoursesIndexRoute,
     AuthenticatedAdminPermissionsIndexRoute:
       AuthenticatedAdminPermissionsIndexRoute,
+    AuthenticatedAdminQuizzesIndexRoute: AuthenticatedAdminQuizzesIndexRoute,
+    AuthenticatedAdminReportsIndexRoute: AuthenticatedAdminReportsIndexRoute,
     AuthenticatedAdminRolesIndexRoute: AuthenticatedAdminRolesIndexRoute,
     AuthenticatedAdminSettingsIndexRoute: AuthenticatedAdminSettingsIndexRoute,
     AuthenticatedAdminUserAllIndexRoute: AuthenticatedAdminUserAllIndexRoute,
@@ -1045,11 +1664,20 @@ const AuthenticatedAdminRouteRouteWithChildren =
 
 interface AuthenticatedParentRouteRouteChildren {
   AuthenticatedParentIndexRoute: typeof AuthenticatedParentIndexRoute
+  AuthenticatedParentCalendarIndexRoute: typeof AuthenticatedParentCalendarIndexRoute
+  AuthenticatedParentChildrenAssignmentsIndexRoute: typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   AuthenticatedParentChildrenAttendanceIndexRoute: typeof AuthenticatedParentChildrenAttendanceIndexRoute
   AuthenticatedParentChildrenCoursesIndexRoute: typeof AuthenticatedParentChildrenCoursesIndexRoute
+  AuthenticatedParentChildrenGradebookIndexRoute: typeof AuthenticatedParentChildrenGradebookIndexRoute
+  AuthenticatedParentChildrenMaterialsIndexRoute: typeof AuthenticatedParentChildrenMaterialsIndexRoute
   AuthenticatedParentChildrenProgressIndexRoute: typeof AuthenticatedParentChildrenProgressIndexRoute
+  AuthenticatedParentChildrenQuizzesIndexRoute: typeof AuthenticatedParentChildrenQuizzesIndexRoute
   AuthenticatedParentChildrenIndexRoute: typeof AuthenticatedParentChildrenIndexRoute
   AuthenticatedParentDashboardIndexRoute: typeof AuthenticatedParentDashboardIndexRoute
+  AuthenticatedParentMeetingsIndexRoute: typeof AuthenticatedParentMeetingsIndexRoute
+  AuthenticatedParentMessagesIndexRoute: typeof AuthenticatedParentMessagesIndexRoute
+  AuthenticatedParentNotificationsIndexRoute: typeof AuthenticatedParentNotificationsIndexRoute
+  AuthenticatedParentPaymentsIndexRoute: typeof AuthenticatedParentPaymentsIndexRoute
   AuthenticatedParentScheduleIndexRoute: typeof AuthenticatedParentScheduleIndexRoute
   AuthenticatedParentSettingsIndexRoute: typeof AuthenticatedParentSettingsIndexRoute
 }
@@ -1057,16 +1685,34 @@ interface AuthenticatedParentRouteRouteChildren {
 const AuthenticatedParentRouteRouteChildren: AuthenticatedParentRouteRouteChildren =
   {
     AuthenticatedParentIndexRoute: AuthenticatedParentIndexRoute,
+    AuthenticatedParentCalendarIndexRoute:
+      AuthenticatedParentCalendarIndexRoute,
+    AuthenticatedParentChildrenAssignmentsIndexRoute:
+      AuthenticatedParentChildrenAssignmentsIndexRoute,
     AuthenticatedParentChildrenAttendanceIndexRoute:
       AuthenticatedParentChildrenAttendanceIndexRoute,
     AuthenticatedParentChildrenCoursesIndexRoute:
       AuthenticatedParentChildrenCoursesIndexRoute,
+    AuthenticatedParentChildrenGradebookIndexRoute:
+      AuthenticatedParentChildrenGradebookIndexRoute,
+    AuthenticatedParentChildrenMaterialsIndexRoute:
+      AuthenticatedParentChildrenMaterialsIndexRoute,
     AuthenticatedParentChildrenProgressIndexRoute:
       AuthenticatedParentChildrenProgressIndexRoute,
+    AuthenticatedParentChildrenQuizzesIndexRoute:
+      AuthenticatedParentChildrenQuizzesIndexRoute,
     AuthenticatedParentChildrenIndexRoute:
       AuthenticatedParentChildrenIndexRoute,
     AuthenticatedParentDashboardIndexRoute:
       AuthenticatedParentDashboardIndexRoute,
+    AuthenticatedParentMeetingsIndexRoute:
+      AuthenticatedParentMeetingsIndexRoute,
+    AuthenticatedParentMessagesIndexRoute:
+      AuthenticatedParentMessagesIndexRoute,
+    AuthenticatedParentNotificationsIndexRoute:
+      AuthenticatedParentNotificationsIndexRoute,
+    AuthenticatedParentPaymentsIndexRoute:
+      AuthenticatedParentPaymentsIndexRoute,
     AuthenticatedParentScheduleIndexRoute:
       AuthenticatedParentScheduleIndexRoute,
     AuthenticatedParentSettingsIndexRoute:
@@ -1080,38 +1726,59 @@ const AuthenticatedParentRouteRouteWithChildren =
 
 interface AuthenticatedStudentRouteRouteChildren {
   AuthenticatedStudentIndexRoute: typeof AuthenticatedStudentIndexRoute
+  AuthenticatedStudentAssignmentsIndexRoute: typeof AuthenticatedStudentAssignmentsIndexRoute
   AuthenticatedStudentAttendanceIndexRoute: typeof AuthenticatedStudentAttendanceIndexRoute
+  AuthenticatedStudentCalendarIndexRoute: typeof AuthenticatedStudentCalendarIndexRoute
   AuthenticatedStudentCourseCatalogIndexRoute: typeof AuthenticatedStudentCourseCatalogIndexRoute
   AuthenticatedStudentCoursesIndexRoute: typeof AuthenticatedStudentCoursesIndexRoute
   AuthenticatedStudentDashboardIndexRoute: typeof AuthenticatedStudentDashboardIndexRoute
+  AuthenticatedStudentGradebookIndexRoute: typeof AuthenticatedStudentGradebookIndexRoute
   AuthenticatedStudentLessonsIndexRoute: typeof AuthenticatedStudentLessonsIndexRoute
+  AuthenticatedStudentMaterialsIndexRoute: typeof AuthenticatedStudentMaterialsIndexRoute
+  AuthenticatedStudentMessagesIndexRoute: typeof AuthenticatedStudentMessagesIndexRoute
   AuthenticatedStudentOnlineCoursesIndexRoute: typeof AuthenticatedStudentOnlineCoursesIndexRoute
   AuthenticatedStudentProgressIndexRoute: typeof AuthenticatedStudentProgressIndexRoute
+  AuthenticatedStudentQuizzesIndexRoute: typeof AuthenticatedStudentQuizzesIndexRoute
   AuthenticatedStudentScheduleIndexRoute: typeof AuthenticatedStudentScheduleIndexRoute
   AuthenticatedStudentSettingsIndexRoute: typeof AuthenticatedStudentSettingsIndexRoute
+  AuthenticatedStudentStudyGroupsIndexRoute: typeof AuthenticatedStudentStudyGroupsIndexRoute
 }
 
 const AuthenticatedStudentRouteRouteChildren: AuthenticatedStudentRouteRouteChildren =
   {
     AuthenticatedStudentIndexRoute: AuthenticatedStudentIndexRoute,
+    AuthenticatedStudentAssignmentsIndexRoute:
+      AuthenticatedStudentAssignmentsIndexRoute,
     AuthenticatedStudentAttendanceIndexRoute:
       AuthenticatedStudentAttendanceIndexRoute,
+    AuthenticatedStudentCalendarIndexRoute:
+      AuthenticatedStudentCalendarIndexRoute,
     AuthenticatedStudentCourseCatalogIndexRoute:
       AuthenticatedStudentCourseCatalogIndexRoute,
     AuthenticatedStudentCoursesIndexRoute:
       AuthenticatedStudentCoursesIndexRoute,
     AuthenticatedStudentDashboardIndexRoute:
       AuthenticatedStudentDashboardIndexRoute,
+    AuthenticatedStudentGradebookIndexRoute:
+      AuthenticatedStudentGradebookIndexRoute,
     AuthenticatedStudentLessonsIndexRoute:
       AuthenticatedStudentLessonsIndexRoute,
+    AuthenticatedStudentMaterialsIndexRoute:
+      AuthenticatedStudentMaterialsIndexRoute,
+    AuthenticatedStudentMessagesIndexRoute:
+      AuthenticatedStudentMessagesIndexRoute,
     AuthenticatedStudentOnlineCoursesIndexRoute:
       AuthenticatedStudentOnlineCoursesIndexRoute,
     AuthenticatedStudentProgressIndexRoute:
       AuthenticatedStudentProgressIndexRoute,
+    AuthenticatedStudentQuizzesIndexRoute:
+      AuthenticatedStudentQuizzesIndexRoute,
     AuthenticatedStudentScheduleIndexRoute:
       AuthenticatedStudentScheduleIndexRoute,
     AuthenticatedStudentSettingsIndexRoute:
       AuthenticatedStudentSettingsIndexRoute,
+    AuthenticatedStudentStudyGroupsIndexRoute:
+      AuthenticatedStudentStudyGroupsIndexRoute,
   }
 
 const AuthenticatedStudentRouteRouteWithChildren =
@@ -1121,37 +1788,58 @@ const AuthenticatedStudentRouteRouteWithChildren =
 
 interface AuthenticatedTeacherRouteRouteChildren {
   AuthenticatedTeacherIndexRoute: typeof AuthenticatedTeacherIndexRoute
+  AuthenticatedTeacherAssignmentsIndexRoute: typeof AuthenticatedTeacherAssignmentsIndexRoute
   AuthenticatedTeacherAttendanceIndexRoute: typeof AuthenticatedTeacherAttendanceIndexRoute
+  AuthenticatedTeacherCalendarIndexRoute: typeof AuthenticatedTeacherCalendarIndexRoute
   AuthenticatedTeacherCoursesIndexRoute: typeof AuthenticatedTeacherCoursesIndexRoute
   AuthenticatedTeacherDashboardIndexRoute: typeof AuthenticatedTeacherDashboardIndexRoute
+  AuthenticatedTeacherGradebookIndexRoute: typeof AuthenticatedTeacherGradebookIndexRoute
   AuthenticatedTeacherGroupsIndexRoute: typeof AuthenticatedTeacherGroupsIndexRoute
   AuthenticatedTeacherLessonSessionsIndexRoute: typeof AuthenticatedTeacherLessonSessionsIndexRoute
   AuthenticatedTeacherLessonsIndexRoute: typeof AuthenticatedTeacherLessonsIndexRoute
+  AuthenticatedTeacherMaterialsIndexRoute: typeof AuthenticatedTeacherMaterialsIndexRoute
+  AuthenticatedTeacherMessagesIndexRoute: typeof AuthenticatedTeacherMessagesIndexRoute
   AuthenticatedTeacherOnlineCoursesIndexRoute: typeof AuthenticatedTeacherOnlineCoursesIndexRoute
   AuthenticatedTeacherProgressIndexRoute: typeof AuthenticatedTeacherProgressIndexRoute
+  AuthenticatedTeacherQuizzesIndexRoute: typeof AuthenticatedTeacherQuizzesIndexRoute
   AuthenticatedTeacherSettingsIndexRoute: typeof AuthenticatedTeacherSettingsIndexRoute
+  AuthenticatedTeacherStudentsIndexRoute: typeof AuthenticatedTeacherStudentsIndexRoute
 }
 
 const AuthenticatedTeacherRouteRouteChildren: AuthenticatedTeacherRouteRouteChildren =
   {
     AuthenticatedTeacherIndexRoute: AuthenticatedTeacherIndexRoute,
+    AuthenticatedTeacherAssignmentsIndexRoute:
+      AuthenticatedTeacherAssignmentsIndexRoute,
     AuthenticatedTeacherAttendanceIndexRoute:
       AuthenticatedTeacherAttendanceIndexRoute,
+    AuthenticatedTeacherCalendarIndexRoute:
+      AuthenticatedTeacherCalendarIndexRoute,
     AuthenticatedTeacherCoursesIndexRoute:
       AuthenticatedTeacherCoursesIndexRoute,
     AuthenticatedTeacherDashboardIndexRoute:
       AuthenticatedTeacherDashboardIndexRoute,
+    AuthenticatedTeacherGradebookIndexRoute:
+      AuthenticatedTeacherGradebookIndexRoute,
     AuthenticatedTeacherGroupsIndexRoute: AuthenticatedTeacherGroupsIndexRoute,
     AuthenticatedTeacherLessonSessionsIndexRoute:
       AuthenticatedTeacherLessonSessionsIndexRoute,
     AuthenticatedTeacherLessonsIndexRoute:
       AuthenticatedTeacherLessonsIndexRoute,
+    AuthenticatedTeacherMaterialsIndexRoute:
+      AuthenticatedTeacherMaterialsIndexRoute,
+    AuthenticatedTeacherMessagesIndexRoute:
+      AuthenticatedTeacherMessagesIndexRoute,
     AuthenticatedTeacherOnlineCoursesIndexRoute:
       AuthenticatedTeacherOnlineCoursesIndexRoute,
     AuthenticatedTeacherProgressIndexRoute:
       AuthenticatedTeacherProgressIndexRoute,
+    AuthenticatedTeacherQuizzesIndexRoute:
+      AuthenticatedTeacherQuizzesIndexRoute,
     AuthenticatedTeacherSettingsIndexRoute:
       AuthenticatedTeacherSettingsIndexRoute,
+    AuthenticatedTeacherStudentsIndexRoute:
+      AuthenticatedTeacherStudentsIndexRoute,
   }
 
 const AuthenticatedTeacherRouteRouteWithChildren =

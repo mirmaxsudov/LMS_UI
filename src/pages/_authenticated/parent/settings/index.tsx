@@ -1,11 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-const ParentSettingsRoutePage = () => (
-  <div className='p-6'>
-    <h1 className='text-2xl font-semibold'>Parent settings</h1>
-  </div>
-);
+import { SettingsPage } from '@/modules/settings';
+import { GeneralError, NotFoundError } from '@/shared/ui/errors';
+import { PageLoading } from '@/shared/ui/page';
 
 export const Route = createFileRoute('/_authenticated/parent/settings/')({
-  component: ParentSettingsRoutePage
+  component: SettingsPage,
+  pendingComponent: PageLoading,
+  notFoundComponent: NotFoundError,
+  errorComponent: GeneralError
 });

@@ -14,10 +14,10 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar
-} from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/sidebar';
 
-import { AppSidebarNavGroup } from './AppSidebarNavGroup.tsx';
-import { useTeacherSidebarData } from './useTeacherSidebarData.ts';
+import { AppSidebarNavGroup } from './AppSidebarNavGroup';
+import { useTeacherSidebarData } from './useTeacherSidebarData';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();

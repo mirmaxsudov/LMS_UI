@@ -367,7 +367,7 @@ const SidebarContent = ({ className, ...props }: React.ComponentProps<'div'>) =>
 const SidebarGroup = ({ className, ...props }: React.ComponentProps<'div'>) => {
   return (
     <div
-      className={cn('relative flex w-full min-w-0 flex-col py-4', className)}
+      className={cn('relative flex w-full min-w-0 flex-col py-1', className)}
       data-sidebar='group'
       data-slot='sidebar-group'
       {...props}
@@ -692,4 +692,3 @@ export {
   SidebarTrigger,
   useSidebar
 };
-

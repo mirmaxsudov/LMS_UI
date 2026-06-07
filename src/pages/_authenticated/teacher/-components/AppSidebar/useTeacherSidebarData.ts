@@ -1,14 +1,21 @@
 import { msg } from '@lingui/core/macro';
 import {
+  BookOpenCheckIcon,
   BookOpenTextIcon,
   BoxesIcon,
   CalendarClockIcon,
+  CalendarDaysIcon,
   ChartNoAxesColumnIncreasingIcon,
   ClapperboardIcon,
   ClipboardCheckIcon,
+  FileQuestionIcon,
+  FolderOpenIcon,
   LayoutDashboardIcon,
   ListVideoIcon,
-  SettingsIcon
+  MessageSquareTextIcon,
+  NotebookTextIcon,
+  SettingsIcon,
+  UsersIcon
 } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
@@ -53,6 +60,21 @@ export const useTeacherSidebarData = () => {
             title: msg`Attendance`,
             url: '/teacher/attendance',
             icon: ClipboardCheckIcon
+          },
+          {
+            title: msg`Assignments`,
+            url: '/teacher/assignments',
+            icon: NotebookTextIcon
+          },
+          {
+            title: msg`Quizzes`,
+            url: '/teacher/quizzes',
+            icon: FileQuestionIcon
+          },
+          {
+            title: msg`Gradebook`,
+            url: '/teacher/gradebook',
+            icon: BookOpenCheckIcon
           }
         ]
       },
@@ -68,12 +90,37 @@ export const useTeacherSidebarData = () => {
             title: msg`Online courses`,
             url: '/teacher/online-courses',
             icon: ClapperboardIcon
+          },
+          {
+            title: msg`Materials`,
+            url: '/teacher/materials',
+            icon: FolderOpenIcon
+          }
+        ]
+      },
+      {
+        title: msg`Communication`,
+        items: [
+          {
+            title: msg`Messages`,
+            url: '/teacher/messages',
+            icon: MessageSquareTextIcon
+          },
+          {
+            title: msg`Calendar`,
+            url: '/teacher/calendar',
+            icon: CalendarDaysIcon
           }
         ]
       },
       {
         title: msg`Account`,
         items: [
+          {
+            title: msg`Students`,
+            url: '/teacher/students',
+            icon: UsersIcon
+          },
           {
             title: msg`Settings`,
             url: '/teacher/settings',

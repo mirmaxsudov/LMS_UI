@@ -14,10 +14,10 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar
-} from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/sidebar';
 
-import { AppSidebarNavGroup } from './AppSidebarNavGroup.tsx';
-import { useStudentSidebarData } from './useStudentSidebarData.ts';
+import { AppSidebarNavGroup } from './AppSidebarNavGroup';
+import { useStudentSidebarData } from './useStudentSidebarData';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();
@@ -33,7 +33,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
             asChild
             className='w-fit justify-start rounded-xl px-2.5 py-2 group-data-[collapsible=icon]:p-1.5!'
           >
-            <Link to='/admin/settings'>
+            <Link to='/student/settings'>
               <span className='bg-primary text-primary-foreground inline-flex size-11 items-center justify-center rounded-2xl'>
                 <GraduationCapIcon className='size-5' />
               </span>
@@ -65,11 +65,11 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              isActive={pathname === '/settings'}
+              isActive={pathname === '/student/settings'}
               onClick={() => setOpenMobile(false)}
               tooltip={t`Settings`}
             >
-              <Link to='/admin/settings'>
+              <Link to='/student/settings'>
                 <SettingsIcon />
                 {t`Settings`}
               </Link>

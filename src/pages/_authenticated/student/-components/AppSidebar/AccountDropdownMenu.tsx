@@ -15,8 +15,8 @@ import type { Locale } from '@/shared/i18n';
 import { useAuth } from '@/modules/auth';
 import { useTheme } from '@/shared/context';
 import { dynamicActivate, getLocale } from '@/shared/i18n';
-import { localeOptions } from '@/shared/i18n/constants.ts';
-import { cn } from '@/shared/lib/utils.ts';
+import { localeOptions } from '@/shared/i18n/constants';
+import { cn } from '@/shared/lib/utils';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,8 +28,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@/shared/ui/dropdown-menu.tsx';
-import { SidebarMenuButton } from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/dropdown-menu';
+import { SidebarMenuButton } from '@/shared/ui/sidebar';
 
 export const AccountDropdownMenu = () => {
   const { t } = useLingui();

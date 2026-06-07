@@ -1,14 +1,21 @@
 import { msg } from '@lingui/core/macro';
 import {
+  BookOpenCheckIcon,
   BookOpenTextIcon,
   CalendarClockIcon,
+  CalendarDaysIcon,
   ChartNoAxesColumnIncreasingIcon,
   ClapperboardIcon,
   ClipboardCheckIcon,
+  FileQuestionIcon,
+  FolderOpenIcon,
   GraduationCapIcon,
   LayoutDashboardIcon,
   ListVideoIcon,
-  SettingsIcon
+  MessageSquareTextIcon,
+  NotebookTextIcon,
+  SettingsIcon,
+  UsersIcon
 } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
@@ -63,6 +70,46 @@ export const useStudentSidebarData = () => {
             title: msg`Course catalog`,
             url: '/student/course-catalog',
             icon: BookOpenTextIcon
+          },
+          {
+            title: msg`Assignments`,
+            url: '/student/assignments',
+            icon: NotebookTextIcon
+          },
+          {
+            title: msg`Quizzes`,
+            url: '/student/quizzes',
+            icon: FileQuestionIcon
+          },
+          {
+            title: msg`Gradebook`,
+            url: '/student/gradebook',
+            icon: BookOpenCheckIcon
+          },
+          {
+            title: msg`Materials`,
+            url: '/student/materials',
+            icon: FolderOpenIcon
+          }
+        ]
+      },
+      {
+        title: msg`Communication`,
+        items: [
+          {
+            title: msg`Messages`,
+            url: '/student/messages',
+            icon: MessageSquareTextIcon
+          },
+          {
+            title: msg`Calendar`,
+            url: '/student/calendar',
+            icon: CalendarDaysIcon
+          },
+          {
+            title: msg`Study groups`,
+            url: '/student/study-groups',
+            icon: UsersIcon
           }
         ]
       },
