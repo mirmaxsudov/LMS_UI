@@ -50,3 +50,10 @@ interface PostGroupStartRequest {
 
 export const postGroupStart = ({ id, data }: PostGroupStartRequest) =>
   api.post(`groups/${id}/start`, data);
+
+interface PostGenerateLessonSessionsRequest {
+  id: string;
+}
+
+export const postGenerateLessonSessions = ({ id }: PostGenerateLessonSessionsRequest) =>
+  api.post<ApiResponse<LessonSession[]>>(`groups/${id}/lesson-sessions/generate`);
