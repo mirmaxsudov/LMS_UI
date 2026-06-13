@@ -58,3 +58,18 @@ interface PostGenerateLessonSessionsRequest {
 
 export const postGenerateLessonSessions = ({ id, data }: PostGenerateLessonSessionsRequest) =>
   api.post<ApiResponse<LessonSession[]>>(`groups/${id}/lesson-sessions/generate`, data);
+
+interface PatchAddStudentToGroupRequest {
+  data: PatchAddStudentToGroupDto;
+  id: string;
+}
+
+export const patchAddStudentToGroup = ({ id, data }: PatchAddStudentToGroupRequest) =>
+  api.patch(`groups/${id}/students`, data);
+
+export interface GetGroupStudentsRequest {
+  id: string;
+}
+
+export const getGroupStudents = ({ id }: GetGroupStudentsRequest) =>
+  api.get<GroupStudents>(`groups/${id}/students`);

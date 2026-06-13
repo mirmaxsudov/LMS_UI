@@ -4,8 +4,8 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from 'lucide-react';
 import { createContext, use, useEffect, useRef, useState } from 'react';
 
-import { cn } from '@/shared/lib/utils.ts';
-import { Button } from '@/shared/ui/button.tsx';
+import { cn } from '@/shared/lib/utils';
+import { Button } from '@/shared/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -13,16 +13,16 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from '@/shared/ui/command.tsx';
-import { Input } from '@/shared/ui/input.tsx';
-import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover.tsx';
+} from '@/shared/ui/command';
+import { Input } from '@/shared/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
 
 interface MultiComboboxData {
   label: string;
   value: string;
 }
 
-interface Option {
+export interface Option {
   label: string;
   value: string;
 }
@@ -140,7 +140,7 @@ export const MultiComboboxTrigger = ({
       >
         {children ?? (
           <span className='flex w-full items-center justify-between gap-2'>
-            <span className='text-foreground min-w-0 flex-1 text-left'>
+            <span className='text-foreground flex min-w-0 flex-1 flex-wrap gap-1 gap-2 text-left'>
               {value.map(({ label }) => label).join(', ') || placeholder || 'Select...'}
             </span>
             <ChevronsUpDownIcon className='text-muted-foreground shrink-0' size={16} />

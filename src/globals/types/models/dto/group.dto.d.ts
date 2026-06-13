@@ -24,3 +24,7 @@ interface PostGenerateLessonSessionsDto {
   fromDate: string;
   toDate: string;
 }
+
+interface PatchAddStudentToGroupDto {
+  studentIds: string[];
+}

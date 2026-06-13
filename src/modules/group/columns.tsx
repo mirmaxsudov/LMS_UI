@@ -2,7 +2,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 
 import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { CalendarSyncIcon, PencilIcon, TrashIcon } from 'lucide-react';
+import { CalendarSyncIcon, PencilIcon, TrashIcon, UsersIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import {
@@ -17,9 +17,11 @@ import {
   groupStatusLabelMap,
   groupStudentsCountStatusColorMap,
   groupStudentsCountStatusLabelMap,
+  ManageGroupStudentsDialog,
   scheduleTypeLabelMap
 } from '@/modules/group';
 import { deleteGroup } from '@/shared/api';
+import { useHashDialog } from '@/shared/hooks/use-hash-dialog';
 import { Badge } from '@/shared/ui/badge';
 import { Button } from '@/shared/ui/button';
 import { DeleteAlertDialog } from '@/shared/ui/delete-alert-dialog';
@@ -54,6 +56,9 @@ const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
   const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [isGenerateLessonDialogOpen, setGenerateLessonDialogOpen] = useState<boolean>(false);
+  const [isManageStudentsOpen, setManageStudentsOpen] = useHashDialog(
+    `manage-students-${group.id}`
+  );
 
   const deleteMutation = useMutation({
     mutationFn: deleteGroup,
@@ -79,6 +84,14 @@ const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
       <Button
         size='icon-sm'
         type='button'
+        variant='outline'
+        onClick={() => setManageStudentsOpen(true)}
+      >
+        <UsersIcon className='size-4' />
+      </Button>
+      <Button
+        size='icon-sm'
+        type='button'
         variant='destructive'
         onClick={() => setIsDeleteOpen(true)}
       >
@@ -88,6 +101,11 @@ const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
         groupId={group.id}
         onOpenChange={setGenerateLessonDialogOpen}
         open={isGenerateLessonDialogOpen}
+      />
+      <ManageGroupStudentsDialog
+        groupId={group.id}
+        onOpenChange={setManageStudentsOpen}
+        open={isManageStudentsOpen}
       />
       <DeleteAlertDialog
         itemName={t`group`}

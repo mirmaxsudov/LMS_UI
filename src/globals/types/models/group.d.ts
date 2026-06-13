@@ -34,3 +34,4 @@ interface GroupTeacher {
 
 type GroupsResponse = Pagination<Group>;
 type GroupResponse = ApiResponse<Group>;
+type GroupStudents = ApiResponse<Student[]>;
