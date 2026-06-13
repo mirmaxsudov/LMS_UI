@@ -1,11 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { GeneralError, NotFoundError } from '@/shared/ui/errors';
+import { PageHeader, PageLoading } from '@/shared/ui/page';
+
+import { ChildrenProgressDashboard } from './-components/ChildrenProgressDashboard';
+
 const ParentChildrenProgressRoutePage = () => (
-  <div className='p-6'>
-    <h1 className='text-2xl font-semibold'>Children progress</h1>
-  </div>
+  <>
+    <PageHeader />
+    <ChildrenProgressDashboard />
+  </>
 );
 
 export const Route = createFileRoute('/_authenticated/parent/children-progress/')({
-  component: ParentChildrenProgressRoutePage
+  component: ParentChildrenProgressRoutePage,
+  pendingComponent: PageLoading,
+  notFoundComponent: NotFoundError,
+  errorComponent: GeneralError
 });

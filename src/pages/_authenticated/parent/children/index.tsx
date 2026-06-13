@@ -1,11 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { GeneralError, NotFoundError } from '@/shared/ui/errors';
+import { PageHeader, PageLoading } from '@/shared/ui/page';
+
+import { ParentChildrenPage } from './-components/ParentChildrenPage';
+
 const ParentChildrenRoutePage = () => (
-  <div className='p-6'>
-    <h1 className='text-2xl font-semibold'>My children</h1>
-  </div>
+  <>
+    <PageHeader />
+    <ParentChildrenPage />
+  </>
 );
 
 export const Route = createFileRoute('/_authenticated/parent/children/')({
-  component: ParentChildrenRoutePage
+  component: ParentChildrenRoutePage,
+  pendingComponent: PageLoading,
+  notFoundComponent: NotFoundError,
+  errorComponent: GeneralError
 });
