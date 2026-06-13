@@ -54,7 +54,7 @@ const LessonSessionActionsCell = ({ lessonSession }: LessonSessionActionsCellPro
   const deleteMutation = useMutation({
     mutationFn: deleteLessonSession,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.base() });
       setIsDeleteOpen(false);
     }
   });

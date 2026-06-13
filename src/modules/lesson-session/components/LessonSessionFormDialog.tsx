@@ -30,14 +30,14 @@ export const LessonSessionFormDialog = ({
   const createMutation = useMutation({
     mutationFn: postLessonSession,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.base() });
       onOpenChange(false);
     }
   });
   const updateMutation = useMutation({
     mutationFn: putLessonSession,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: LESSON_SESSION_QUERY_KEYS.base() });
       onOpenChange(false);
     }
   });

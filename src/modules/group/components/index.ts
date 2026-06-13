@@ -1,3 +1,4 @@
+export { GenerateLessonSessionsDialog } from './GenerateLessonSessionsDialog';
 export * from './GroupCombobox';
 export * from './GroupForm';
 export { GroupFormDialog } from './GroupFormDialog';

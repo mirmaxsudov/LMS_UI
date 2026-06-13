@@ -24,9 +24,9 @@ export interface GroupsQueryParams {
 }
 
 export const GROUP_QUERY_KEYS = {
-  all: () => ['groups'] as const,
-  allList: (request?: GetGroupRequest) => [...GROUP_QUERY_KEYS.all(), 'list', request] as const,
-  byId: (id?: string) => [...GROUP_QUERY_KEYS.all(), 'by-id', id] as const
+  base: () => ['groups'] as const,
+  allList: (request?: GetGroupRequest) => [...GROUP_QUERY_KEYS.base(), 'list', request] as const,
+  byId: (id?: string) => [...GROUP_QUERY_KEYS.base(), 'by-id', id] as const
 };
 
 export const getGroupsQueryOptions = (params?: GroupsQueryParams) => {

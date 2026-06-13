@@ -2,11 +2,12 @@ import type { ColumnDef } from '@tanstack/react-table';
 
 import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { PencilIcon, TrashIcon } from 'lucide-react';
+import { CalendarSyncIcon, PencilIcon, TrashIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import {
   dayOfWeekLabelMap,
+  GenerateLessonSessionsDialog,
   getGroupStudentsCountStatus,
   GROUP_QUERY_KEYS,
   groupActivityColorMap,
@@ -50,13 +51,14 @@ const GroupBadge = ({ color, label }: GroupBadgeProps) => (
 const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
   const { t } = useLingui();
   const queryClient = useQueryClient();
-  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const [isGenerateLessonDialogOpen, setGenerateLessonDialogOpen] = useState<boolean>(false);
 
   const deleteMutation = useMutation({
     mutationFn: deleteGroup,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.base() });
       setIsDeleteOpen(false);
     }
   });
@@ -69,11 +71,24 @@ const GroupActionsCell = ({ group }: GroupActionsCellProps) => {
       <Button
         size='icon-sm'
         type='button'
+        variant='default-light'
+        onClick={() => setGenerateLessonDialogOpen(true)}
+      >
+        <CalendarSyncIcon className='size-4' />
+      </Button>
+      <Button
+        size='icon-sm'
+        type='button'
         variant='destructive'
         onClick={() => setIsDeleteOpen(true)}
       >
         <TrashIcon className='size-4' />
       </Button>
+      <GenerateLessonSessionsDialog
+        groupId={group.id}
+        onOpenChange={setGenerateLessonDialogOpen}
+        open={isGenerateLessonDialogOpen}
+      />
       <DeleteAlertDialog
         itemName={t`group`}
         isLoading={deleteMutation.isPending}
@@ -146,7 +161,10 @@ export const useGroupColumns = (): ColumnDef<Group>[] => {
           const status = row.original.status;
 
           return status ? (
-            <GroupBadge label={t(groupStatusLabelMap[status])} color={groupStatusColorMap[status]} />
+            <GroupBadge
+              label={t(groupStatusLabelMap[status])}
+              color={groupStatusColorMap[status]}
+            />
           ) : (
             '-'
           );

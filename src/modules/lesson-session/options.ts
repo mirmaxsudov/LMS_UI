@@ -22,12 +22,12 @@ export interface LessonSessionsQueryParams {
 }
 
 export const LESSON_SESSION_QUERY_KEYS = {
-  all: () => ['lesson-sessions'] as const,
+  base: () => ['lesson-sessions'] as const,
   allList: (request?: GetLessonSessionsRequest) =>
-    [...LESSON_SESSION_QUERY_KEYS.all(), 'list', request] as const,
+    [...LESSON_SESSION_QUERY_KEYS.base(), 'list', request] as const,
   infiniteList: (params?: Omit<LessonSessionsQueryParams, 'page'>) =>
-    [...LESSON_SESSION_QUERY_KEYS.all(), 'infinite-list', params] as const,
-  byId: (id?: string) => [...LESSON_SESSION_QUERY_KEYS.all(), 'by-id', id] as const
+    [...LESSON_SESSION_QUERY_KEYS.base(), 'infinite-list', params] as const,
+  byId: (id?: string) => [...LESSON_SESSION_QUERY_KEYS.base(), 'by-id', id] as const
 };
 
 export const getLessonSessionsQueryOptions = (params?: LessonSessionsQueryParams) => {

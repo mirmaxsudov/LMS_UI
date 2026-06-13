@@ -12,3 +12,4 @@ export * from './permission';
 export * from './role';
 export * from './schedule';
 export * from './search';
+export * from './statistics';

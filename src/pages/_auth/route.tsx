@@ -1,11 +1,19 @@
+import { useLingui } from '@lingui/react/macro';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
 import { BookOpenCheckIcon, GalleryVerticalEndIcon, GraduationCapIcon } from 'lucide-react';
 
+import { getLoginStatisticQueryOptions } from '@/modules/statistics';
 import { ThemeSwitch } from '@/shared/ui/theme-switch';
 
 import LoginHereImage from '../../../public/images/login/lms-login-hero.png';
 
 const AuthenticatedLayout = () => {
+  const { t } = useLingui();
+
+  const getLoginStatisticSuspenseQuery = useSuspenseQuery(getLoginStatisticQueryOptions());
+  const statistic = getLoginStatisticSuspenseQuery.data.data.data;
+
   return (
     <div className='bg-background grid min-h-svh lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)]'>
       <div className='relative hidden overflow-hidden bg-slate-950 lg:block'>
@@ -21,27 +29,29 @@ const AuthenticatedLayout = () => {
               <GraduationCapIcon className='size-6' />
             </div>
             <div>
-              <p className='text-sm font-medium text-white/70'>Learning workspace</p>
-              <p className='text-xl font-semibold'>Courses, analytics, and assignments in one place</p>
+              <p className='text-sm font-medium text-white/70'>{t`Learning workspace`}</p>
+              <p className='text-xl font-semibold'>
+                {t`Courses, analytics, and assignments in one place`}
+              </p>
             </div>
           </div>
           <div className='grid grid-cols-3 gap-3 text-sm'>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>24</p>
-              <p className='text-white/65'>Active courses</p>
+              <p className='text-2xl font-semibold'>{statistic.activeCourses}</p>
+              <p className='text-white/65'>{t`Active courses`}</p>
             </div>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>91%</p>
-              <p className='text-white/65'>Completion</p>
+              <p className='text-2xl font-semibold'>{statistic.averageCompletionRate}%</p>
+              <p className='text-white/65'>{t`Completion`}</p>
             </div>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>8k</p>
-              <p className='text-white/65'>Learners</p>
+              <p className='text-2xl font-semibold'>{statistic.totalLearners}</p>
+              <p className='text-white/65'>{t`Learners`}</p>
             </div>
           </div>
         </div>
       </div>
-      <div className='bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.12),transparent_32rem)] flex min-h-svh flex-col gap-8 p-5 sm:p-8 md:p-10'>
+      <div className='flex min-h-svh flex-col gap-8 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.12),transparent_32rem)] p-5 sm:p-8 md:p-10'>
         <div className='flex items-center justify-between gap-3'>
           <Link className='flex items-center gap-3 font-semibold tracking-tight' to='/'>
             <div className='bg-primary text-primary-foreground flex size-9 items-center justify-center rounded-md shadow-sm'>
@@ -56,7 +66,7 @@ const AuthenticatedLayout = () => {
         </div>
         <div className='text-muted-foreground flex items-center justify-center gap-2 text-sm'>
           <BookOpenCheckIcon className='size-4' />
-          <span>Secure access for instructors, students, and administrators</span>
+          <span>{t`Secure access for instructors, students, and administrators`}</span>
         </div>
       </div>
     </div>
@@ -64,5 +74,7 @@ const AuthenticatedLayout = () => {
 };
 
 export const Route = createFileRoute('/_auth')({
-  component: AuthenticatedLayout
+  component: AuthenticatedLayout,
+  loader: async ({ context: { queryClient } }) =>
+    queryClient.prefetchQuery(getLoginStatisticQueryOptions())
 });

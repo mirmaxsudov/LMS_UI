@@ -28,7 +28,7 @@ export const GroupFormDialog = ({ open, onOpenChange, editValues }: GroupFormDia
   const createMutation = useMutation({
     mutationFn: postGroup,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.base() });
       onOpenChange(false);
     }
   });
@@ -36,7 +36,7 @@ export const GroupFormDialog = ({ open, onOpenChange, editValues }: GroupFormDia
   const updateMutation = useMutation({
     mutationFn: putGroup,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.all() });
+      await queryClient.invalidateQueries({ queryKey: GROUP_QUERY_KEYS.base() });
       onOpenChange(false);
     }
   });

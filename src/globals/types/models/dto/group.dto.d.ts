@@ -19,3 +19,8 @@ interface PostGroupStartDto {
     endTime: string;
   }[];
 }
+
+interface PostGenerateLessonSessionsDto {
+  fromDate: string;
+  toDate: string;
+}
