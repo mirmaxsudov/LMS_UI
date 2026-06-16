@@ -16,6 +16,7 @@ import {
   ListTreeIcon,
   ListVideoIcon,
   MegaphoneIcon,
+  SchoolIcon,
   ShieldCheckIcon,
   User2Icon,
   UsersIcon,
@@ -88,7 +89,7 @@ export const useAdminSidebarData = () => {
         ]
       },
       {
-        title: msg`Management`,
+        title: msg`ManaManagement`,
         items: [
           {
             icon: UsersIcon,
@@ -142,6 +143,11 @@ export const useAdminSidebarData = () => {
             title: msg`Reports`,
             url: '/admin/reports',
             icon: BarChart3Icon
+          },
+          {
+            title: msg`Rooms`,
+            url: '/admin/rooms',
+            icon: SchoolIcon
           },
           {
             title: msg`Notifications`,

@@ -4,8 +4,6 @@ import { CalendarDaysIcon, LayersIcon, TrendingUpIcon, UsersIcon } from 'lucide-
 
 import { Card, CardContent } from '@/shared/ui/card';
 
-import { studyGroupsOverview } from './mock-data';
-
 interface OverviewStatProps {
   description: string;
   icon: LucideIcon;
@@ -28,30 +26,43 @@ const OverviewStat = ({ title, value, description, icon: Icon }: OverviewStatPro
   </Card>
 );
 
-export const StudyGroupsOverview = () => {
+interface StudyGroupsOverviewProps {
+  groups: StudyGroup[];
+}
+
+export const StudyGroupsOverview = ({ groups }: StudyGroupsOverviewProps) => {
+  const totalGroups = groups.length;
+  const totalClassmates = groups.reduce((sum, group) => sum + group.classmatesCount, 0);
+  const sessionsThisWeek = groups.reduce((sum, group) => sum + group.scheduleDays.length, 0);
+  const averageProgress = totalGroups
+    ? Math.round(
+        groups.reduce((sum, group) => sum + group.syllabusProgress.percentage, 0) / totalGroups
+      )
+    : 0;
+
   return (
     <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
       <OverviewStat
         title='My groups'
-        value={`${studyGroupsOverview.totalGroups}`}
+        value={`${totalGroups}`}
         description='Active this term'
         icon={LayersIcon}
       />
       <OverviewStat
         title='Classmates'
-        value={`${studyGroupsOverview.totalClassmates}`}
+        value={`${totalClassmates}`}
         description='Across all your groups'
         icon={UsersIcon}
       />
       <OverviewStat
         title='Weekly sessions'
-        value={`${studyGroupsOverview.sessionsThisWeek}`}
+        value={`${sessionsThisWeek}`}
         description='Group sessions this week'
         icon={CalendarDaysIcon}
       />
       <OverviewStat
         title='Average progress'
-        value={`${studyGroupsOverview.averageProgress}%`}
+        value={`${averageProgress}%`}
         description='Syllabus completed on average'
         icon={TrendingUpIcon}
       />

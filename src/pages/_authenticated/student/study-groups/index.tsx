@@ -1,41 +1,49 @@
+import { useLingui } from '@lingui/react/macro';
+import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 import { SearchIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
+import {
+  getStudyGroupsQueryOptions,
+  StudyGroupCard,
+  StudyGroupsOverview
+} from '@/modules/study-group';
 import { GeneralError, NotFoundError } from '@/shared/ui/errors';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/shared/ui/input-group';
 import { PageHeader, PageLoading } from '@/shared/ui/page';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/shared/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select';
 
-import { studyGroups } from './-components/mock-data';
-import { StudyGroupCard } from './-components/StudyGroupCard';
-import { StudyGroupsOverview } from './-components/StudyGroupsOverview';
-
-const subjects = [...new Set(studyGroups.map((group) => group.subject))];
+const getTeacherName = (teacher: StudyGroupTeacher) =>
+  [teacher.firstName, teacher.middleName, teacher.lastName].filter(Boolean).join(' ');
 
 const StudentStudyGroupsRoutePage = () => {
-  const [search, setSearch] = useState('');
-  const [subject, setSubject] = useState('all');
+  const [search, setSearch] = useState<string>('');
+  const [subject, setSubject] = useState<string>('all');
+
+  const { t } = useLingui();
+
+  const studyGroupsQuery = useQuery(getStudyGroupsQueryOptions({ size: 100 }));
+  const studyGroups = studyGroupsQuery.data?.data.results ?? [];
+
+  const subjects = useMemo(
+    () => [...new Set(studyGroups.map((group) => group.course.title))],
+    [studyGroups]
+  );
 
   const filteredGroups = useMemo(() => {
     const query = search.trim().toLowerCase();
 
     return studyGroups.filter((group) => {
-      const matchesSubject = subject === 'all' || group.subject === subject;
+      const matchesSubject = subject === 'all' || group.course.title === subject;
       const matchesSearch =
         query === '' ||
-        group.name.toLowerCase().includes(query) ||
-        group.teacher.toLowerCase().includes(query);
+        group.groupName.toLowerCase().includes(query) ||
+        getTeacherName(group.teacher).toLowerCase().includes(query);
 
       return matchesSubject && matchesSearch;
     });
-  }, [search, subject]);
+  }, [studyGroups, search, subject]);
 
   return (
     <>
@@ -48,7 +56,7 @@ const StudentStudyGroupsRoutePage = () => {
           </p>
         </div>
 
-        <StudyGroupsOverview />
+        <StudyGroupsOverview groups={studyGroups} />
 
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
           <InputGroup className='sm:max-w-xs'>
@@ -63,10 +71,10 @@ const StudentStudyGroupsRoutePage = () => {
           </InputGroup>
           <Select value={subject} onValueChange={setSubject}>
             <SelectTrigger className='w-full sm:w-48'>
-              <SelectValue placeholder='All subjects' />
+              <SelectValue placeholder={t`All subjects`} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value='all'>All subjects</SelectItem>
+              <SelectItem value='all'>{t`All subjects`}</SelectItem>
               {subjects.map((item) => (
                 <SelectItem key={item} value={item}>
                   {item}
@@ -94,6 +102,8 @@ const StudentStudyGroupsRoutePage = () => {
 
 export const Route = createFileRoute('/_authenticated/student/study-groups/')({
   component: StudentStudyGroupsRoutePage,
+  // loader: ({ context: { queryClient } }) =>
+  //   queryClient.ensureQueryData(getStudyGroupOverviewQueryOptions()),
   pendingComponent: PageLoading,
   notFoundComponent: NotFoundError,
   errorComponent: GeneralError

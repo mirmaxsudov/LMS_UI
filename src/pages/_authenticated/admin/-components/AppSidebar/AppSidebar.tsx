@@ -14,10 +14,10 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar
-} from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/sidebar';
 
-import { AppSidebarNavGroup } from './AppSidebarNavGroup.tsx';
-import { useAdminSidebarData } from './useAdminSidebarData.ts';
+import { AppSidebarNavGroup } from './AppSidebarNavGroup';
+import { useAdminSidebarData } from './useAdminSidebarData';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();
@@ -48,7 +48,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
           )}
         </SidebarMenuItem>
       </SidebarHeader>
-      <SidebarContent className='py-2'>
+      <SidebarContent className='px-1'>
         {sidebarData.navGroups.map((item, index) => (
           <AppSidebarNavGroup key={`${item.title}-${index}`} {...item} />
         ))}

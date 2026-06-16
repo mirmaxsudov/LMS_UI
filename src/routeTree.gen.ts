@@ -69,6 +69,7 @@ import { Route as AuthenticatedParentChildrenAssignmentsIndexRouteImport } from 
 import { Route as AuthenticatedParentCalendarIndexRouteImport } from './pages/_authenticated/parent/calendar/index'
 import { Route as AuthenticatedAdminSettingsIndexRouteImport } from './pages/_authenticated/admin/settings/index'
 import { Route as AuthenticatedAdminScheduleIndexRouteImport } from './pages/_authenticated/admin/schedule/index'
+import { Route as AuthenticatedAdminRoomsIndexRouteImport } from './pages/_authenticated/admin/rooms/index'
 import { Route as AuthenticatedAdminRolesIndexRouteImport } from './pages/_authenticated/admin/roles/index'
 import { Route as AuthenticatedAdminReportsIndexRouteImport } from './pages/_authenticated/admin/reports/index'
 import { Route as AuthenticatedAdminQuizzesIndexRouteImport } from './pages/_authenticated/admin/quizzes/index'
@@ -444,6 +445,12 @@ const AuthenticatedAdminScheduleIndexRoute =
     path: '/schedule/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminRoomsIndexRoute =
+  AuthenticatedAdminRoomsIndexRouteImport.update({
+    id: '/rooms/',
+    path: '/rooms/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminRolesIndexRoute =
   AuthenticatedAdminRolesIndexRouteImport.update({
     id: '/roles/',
@@ -584,6 +591,7 @@ export interface FileRoutesByFullPath {
   '/admin/quizzes': typeof AuthenticatedAdminQuizzesIndexRoute
   '/admin/reports': typeof AuthenticatedAdminReportsIndexRoute
   '/admin/roles': typeof AuthenticatedAdminRolesIndexRoute
+  '/admin/rooms': typeof AuthenticatedAdminRoomsIndexRoute
   '/admin/schedule': typeof AuthenticatedAdminScheduleIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
   '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
@@ -661,6 +669,7 @@ export interface FileRoutesByTo {
   '/admin/quizzes': typeof AuthenticatedAdminQuizzesIndexRoute
   '/admin/reports': typeof AuthenticatedAdminReportsIndexRoute
   '/admin/roles': typeof AuthenticatedAdminRolesIndexRoute
+  '/admin/rooms': typeof AuthenticatedAdminRoomsIndexRoute
   '/admin/schedule': typeof AuthenticatedAdminScheduleIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
   '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
@@ -743,6 +752,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/quizzes/': typeof AuthenticatedAdminQuizzesIndexRoute
   '/_authenticated/admin/reports/': typeof AuthenticatedAdminReportsIndexRoute
   '/_authenticated/admin/roles/': typeof AuthenticatedAdminRolesIndexRoute
+  '/_authenticated/admin/rooms/': typeof AuthenticatedAdminRoomsIndexRoute
   '/_authenticated/admin/schedule/': typeof AuthenticatedAdminScheduleIndexRoute
   '/_authenticated/admin/settings/': typeof AuthenticatedAdminSettingsIndexRoute
   '/_authenticated/parent/calendar/': typeof AuthenticatedParentCalendarIndexRoute
@@ -825,6 +835,7 @@ export interface FileRouteTypes {
     | '/admin/quizzes'
     | '/admin/reports'
     | '/admin/roles'
+    | '/admin/rooms'
     | '/admin/schedule'
     | '/admin/settings'
     | '/parent/calendar'
@@ -902,6 +913,7 @@ export interface FileRouteTypes {
     | '/admin/quizzes'
     | '/admin/reports'
     | '/admin/roles'
+    | '/admin/rooms'
     | '/admin/schedule'
     | '/admin/settings'
     | '/parent/calendar'
@@ -983,6 +995,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/quizzes/'
     | '/_authenticated/admin/reports/'
     | '/_authenticated/admin/roles/'
+    | '/_authenticated/admin/rooms/'
     | '/_authenticated/admin/schedule/'
     | '/_authenticated/admin/settings/'
     | '/_authenticated/parent/calendar/'
@@ -1470,6 +1483,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminScheduleIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/rooms/': {
+      id: '/_authenticated/admin/rooms/'
+      path: '/rooms'
+      fullPath: '/admin/rooms'
+      preLoaderRoute: typeof AuthenticatedAdminRoomsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/roles/': {
       id: '/_authenticated/admin/roles/'
       path: '/roles'
@@ -1634,6 +1654,7 @@ interface AuthenticatedAdminRouteRouteChildren {
   AuthenticatedAdminQuizzesIndexRoute: typeof AuthenticatedAdminQuizzesIndexRoute
   AuthenticatedAdminReportsIndexRoute: typeof AuthenticatedAdminReportsIndexRoute
   AuthenticatedAdminRolesIndexRoute: typeof AuthenticatedAdminRolesIndexRoute
+  AuthenticatedAdminRoomsIndexRoute: typeof AuthenticatedAdminRoomsIndexRoute
   AuthenticatedAdminScheduleIndexRoute: typeof AuthenticatedAdminScheduleIndexRoute
   AuthenticatedAdminSettingsIndexRoute: typeof AuthenticatedAdminSettingsIndexRoute
   AuthenticatedAdminUserAllIndexRoute: typeof AuthenticatedAdminUserAllIndexRoute
@@ -1668,6 +1689,7 @@ const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren
     AuthenticatedAdminQuizzesIndexRoute: AuthenticatedAdminQuizzesIndexRoute,
     AuthenticatedAdminReportsIndexRoute: AuthenticatedAdminReportsIndexRoute,
     AuthenticatedAdminRolesIndexRoute: AuthenticatedAdminRolesIndexRoute,
+    AuthenticatedAdminRoomsIndexRoute: AuthenticatedAdminRoomsIndexRoute,
     AuthenticatedAdminScheduleIndexRoute: AuthenticatedAdminScheduleIndexRoute,
     AuthenticatedAdminSettingsIndexRoute: AuthenticatedAdminSettingsIndexRoute,
     AuthenticatedAdminUserAllIndexRoute: AuthenticatedAdminUserAllIndexRoute,

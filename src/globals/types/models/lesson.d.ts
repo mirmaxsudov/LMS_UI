@@ -7,5 +7,13 @@ interface Lesson {
   title: string;
 }
 
+interface NextLesson {
+  endTime: string;
+  lessonId: string;
+  lessonSessionId: string;
+  startTime: string;
+  title: string;
+}
+
 type LessonsResponse = Pagination<Lesson>;
 type LessonResponse = ApiResponse<Lesson>;

@@ -16,7 +16,7 @@ interface ApiResponse<T> {
 
 type Nullable<T> = T | null;
 
-// Apis
+// APIs
 
 type PaginationRequest = Partial<{
   page: number;

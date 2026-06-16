@@ -10,6 +10,8 @@ export * from './lesson-session';
 export * from './online-course';
 export * from './permission';
 export * from './role';
+export * from './room';
 export * from './schedule';
 export * from './search';
 export * from './statistics';
+export * from './study-group';
