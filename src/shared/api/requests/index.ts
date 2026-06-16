@@ -14,4 +14,5 @@ export * from './room';
 export * from './schedule';
 export * from './search';
 export * from './statistics';
+export * from './student-schedule';
 export * from './study-group';

@@ -1,14 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { AnnouncementsPage } from '@/modules/announcement';
 import { GeneralError, NotFoundError } from '@/shared/ui/errors';
 import { PageHeader, PageLoading } from '@/shared/ui/page';
 
 const AnnouncementsRoutePage = () => (
   <>
     <PageHeader />
-    <div className='p-6'>
-      <h1 className='text-2xl font-semibold'>Announcements</h1>
-    </div>
+    <AnnouncementsPage />
   </>
 );
 
