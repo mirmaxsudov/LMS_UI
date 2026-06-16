@@ -20,6 +20,10 @@ export const scheduleFormSchema = () =>
         label: z.string().min(1, t`This field is required.`),
         value: z.string().min(1, t`This field is required.`)
       }),
+      room: z.object({
+        label: z.string(),
+        value: z.string()
+      }),
       startTime: z.string().regex(timePattern, t`Enter a valid start time.`)
     })
     .refine((value) => value.startTime < value.endTime, {

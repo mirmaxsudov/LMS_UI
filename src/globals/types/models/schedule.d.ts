@@ -6,6 +6,8 @@ interface Schedule {
   groupId: string;
   groupName: string;
   id: string;
+  roomId: string | null;
+  roomName: string | null;
   startTime: string;
 }
 

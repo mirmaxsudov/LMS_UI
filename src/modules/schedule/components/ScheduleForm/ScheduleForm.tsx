@@ -1,6 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
 
 import { dayOfWeekOptions, GroupCombobox } from '@/modules/group';
+import { RoomCombobox } from '@/modules/room';
 import { Button } from '@/shared/ui/button';
 import { FormBase } from '@/shared/ui/form/FormBase';
 import { useAppForm } from '@/shared/ui/form/hooks';
@@ -36,6 +37,10 @@ export const ScheduleForm = ({
         label: defaultValues?.groupName ?? '',
         value: defaultValues?.groupId ?? ''
       },
+      room: {
+        label: defaultValues?.roomName ?? '',
+        value: defaultValues?.roomId ?? ''
+      },
       startTime: toTimeInputValue(defaultValues?.startTime)
     } satisfies ScheduleFormSchema as ScheduleFormSchema,
     onSubmit: ({ value }) => {
@@ -43,6 +48,7 @@ export const ScheduleForm = ({
         dayOfWeek: value.dayOfWeek,
         endTime: value.endTime,
         groupId: value.group.value,
+        roomId: value.room.value || null,
         startTime: value.startTime
       });
     }
@@ -63,6 +69,16 @@ export const ScheduleForm = ({
             <FormBase isRequired label={t`Group`}>
               <GroupCombobox
                 value={field.state.value}
+                onValueChange={(option) => field.handleChange(option ?? { label: '', value: '' })}
+              />
+            </FormBase>
+          )}
+        </form.AppField>
+        <form.AppField name='room'>
+          {(field) => (
+            <FormBase label={t`Room`}>
+              <RoomCombobox
+                value={field.state.value.value ? field.state.value : null}
                 onValueChange={(option) => field.handleChange(option ?? { label: '', value: '' })}
               />
             </FormBase>

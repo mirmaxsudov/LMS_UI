@@ -76,6 +76,11 @@ export const useScheduleColumns = ({
         accessorFn: (row) => row.groupName || '-'
       },
       {
+        id: 'roomName',
+        header: t`Room`,
+        accessorFn: (row) => row.roomName || '-'
+      },
+      {
         id: 'dayOfWeek',
         header: t`Day of week`,
         cell: ({ row }) => (
