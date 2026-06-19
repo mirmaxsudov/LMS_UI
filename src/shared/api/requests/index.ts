@@ -1,3 +1,4 @@
+export * from './announcement';
 export * from './attachment';
 export * from './attendance';
 export * from './attendance-note';
@@ -16,3 +17,4 @@ export * from './search';
 export * from './statistics';
 export * from './student-schedule';
 export * from './study-group';
+export * from './teacher-group';

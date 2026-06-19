@@ -12,6 +12,7 @@ import {
   GraduationCapIcon,
   LayoutDashboardIcon,
   ListVideoIcon,
+  MegaphoneIcon,
   MessageSquareTextIcon,
   NotebookTextIcon,
   SettingsIcon,
@@ -96,6 +97,11 @@ export const useStudentSidebarData = () => {
       {
         title: msg`Communication`,
         items: [
+          {
+            title: msg`Announcements`,
+            url: '/student/announcements',
+            icon: MegaphoneIcon
+          },
           {
             title: msg`Messages`,
             url: '/student/messages',

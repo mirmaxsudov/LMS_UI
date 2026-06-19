@@ -12,6 +12,7 @@ import {
   FolderOpenIcon,
   GraduationCapIcon,
   LayoutDashboardIcon,
+  MegaphoneIcon,
   MessageSquareTextIcon,
   NotebookTextIcon,
   SettingsIcon,
@@ -91,6 +92,11 @@ export const useParentSidebarData = () => {
       {
         title: msg`Communication`,
         items: [
+          {
+            title: msg`Announcements`,
+            url: '/parent/announcements',
+            icon: MegaphoneIcon
+          },
           {
             title: msg`Messages`,
             url: '/parent/messages',

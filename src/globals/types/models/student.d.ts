@@ -1,4 +1,5 @@
 type StudentStatus = 'ACTIVE' | 'GRADUATED' | 'SUSPENDED';
+type StudentEngagementStatus = 'AT_RISK' | 'ACTIVE';
 
 interface Student {
   baseData: User;

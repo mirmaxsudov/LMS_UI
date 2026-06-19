@@ -1,28 +1,24 @@
-type AnnouncementPriority = 'high' | 'low' | 'normal' | 'urgent';
+type AnnouncementPriority = 'IMPORTANT' | 'NORMAL' | 'URGENT';
 
-type AnnouncementAudience = 'admins' | 'all' | 'parents' | 'students' | 'teachers';
+type AnnouncementAudience = 'ADMINS' | 'ALL' | 'PARENTS' | 'STUDENTS' | 'TEACHERS';
 
-type AnnouncementStatus = 'draft' | 'published' | 'scheduled';
-
-interface AnnouncementAuthor {
-  avatarUrl: string | null;
-  id: string;
-  name: string;
-  role: string;
-}
+type AnnouncementStatus = 'ARCHIVED' | 'DRAFT' | 'PUBLISHED' | 'SCHEDULED';
 
 interface Announcement {
   audiences: AnnouncementAudience[];
-  author: AnnouncementAuthor;
+  authorId: string;
+  authorName: string;
+  authorRole: UserRole;
   content: string;
+  createdAt: string;
   id: string;
   pinned: boolean;
   priority: AnnouncementPriority;
-  publishedAt: string;
-  scheduledAt: string | null;
+  publishedAt: string | null;
   status: AnnouncementStatus;
   title: string;
-  viewsCount: number;
+  updatedAt: string;
+  viewCount: number;
 }
 
 interface AnnouncementDraft {
@@ -31,4 +27,14 @@ interface AnnouncementDraft {
   pinned: boolean;
   priority: AnnouncementPriority;
   title: string;
+}
+
+type AnnouncementResponse = ApiResponse<Announcement>;
+type AnnouncementsResponse = Pagination<Announcement>;
+
+interface AnnouncementOverviewResponse {
+  pinned: number;
+  published: number;
+  scheduled: number;
+  totalReach: number;
 }

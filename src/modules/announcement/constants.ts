@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 
 import {
+  ArchiveIcon,
   GraduationCapIcon,
   MegaphoneIcon,
   ShieldCheckIcon,
@@ -17,22 +18,17 @@ interface PriorityConfig {
 }
 
 export const ANNOUNCEMENT_PRIORITY_CONFIG: Record<AnnouncementPriority, PriorityConfig> = {
-  low: {
-    label: 'Low',
-    badgeClassName: 'bg-muted text-muted-foreground border-transparent',
-    indicatorClassName: 'bg-muted-foreground/40'
-  },
-  normal: {
+  NORMAL: {
     label: 'Normal',
     badgeClassName: 'bg-sky-500/10 text-sky-600 border-transparent dark:text-sky-400',
     indicatorClassName: 'bg-sky-500'
   },
-  high: {
-    label: 'High',
+  IMPORTANT: {
+    label: 'Important',
     badgeClassName: 'bg-amber-500/10 text-amber-600 border-transparent dark:text-amber-400',
     indicatorClassName: 'bg-amber-500'
   },
-  urgent: {
+  URGENT: {
     label: 'Urgent',
     badgeClassName: 'bg-destructive/10 text-destructive border-transparent',
     indicatorClassName: 'bg-destructive'
@@ -40,10 +36,9 @@ export const ANNOUNCEMENT_PRIORITY_CONFIG: Record<AnnouncementPriority, Priority
 };
 
 export const ANNOUNCEMENT_PRIORITY_ORDER: AnnouncementPriority[] = [
-  'urgent',
-  'high',
-  'normal',
-  'low'
+  'URGENT',
+  'IMPORTANT',
+  'NORMAL'
 ];
 
 interface AudienceConfig {
@@ -52,28 +47,37 @@ interface AudienceConfig {
 }
 
 export const ANNOUNCEMENT_AUDIENCE_CONFIG: Record<AnnouncementAudience, AudienceConfig> = {
-  all: { label: 'Everyone', icon: MegaphoneIcon },
-  students: { label: 'Students', icon: GraduationCapIcon },
-  teachers: { label: 'Teachers', icon: UsersIcon },
-  parents: { label: 'Parents', icon: UsersRoundIcon },
-  admins: { label: 'Admins', icon: ShieldCheckIcon }
+  ALL: { label: 'Everyone', icon: MegaphoneIcon },
+  STUDENTS: { label: 'Students', icon: GraduationCapIcon },
+  TEACHERS: { label: 'Teachers', icon: UsersIcon },
+  PARENTS: { label: 'Parents', icon: UsersRoundIcon },
+  ADMINS: { label: 'Admins', icon: ShieldCheckIcon }
 };
 
 export const ANNOUNCEMENT_AUDIENCE_ORDER: AnnouncementAudience[] = [
-  'all',
-  'students',
-  'teachers',
-  'parents',
-  'admins'
+  'ALL',
+  'STUDENTS',
+  'TEACHERS',
+  'PARENTS',
+  'ADMINS'
 ];
 
 interface StatusConfig {
   badgeVariant: 'default' | 'outline' | 'secondary';
+  icon: LucideIcon;
   label: string;
 }
 
 export const ANNOUNCEMENT_STATUS_CONFIG: Record<AnnouncementStatus, StatusConfig> = {
-  published: { label: 'Published', badgeVariant: 'secondary' },
-  scheduled: { label: 'Scheduled', badgeVariant: 'outline' },
-  draft: { label: 'Draft', badgeVariant: 'outline' }
+  PUBLISHED: { label: 'Published', badgeVariant: 'secondary', icon: MegaphoneIcon },
+  SCHEDULED: { label: 'Scheduled', badgeVariant: 'outline', icon: MegaphoneIcon },
+  DRAFT: { label: 'Draft', badgeVariant: 'outline', icon: MegaphoneIcon },
+  ARCHIVED: { label: 'Archived', badgeVariant: 'outline', icon: ArchiveIcon }
 };
+
+export const ANNOUNCEMENT_STATUS_ORDER: AnnouncementStatus[] = [
+  'PUBLISHED',
+  'SCHEDULED',
+  'DRAFT',
+  'ARCHIVED'
+];

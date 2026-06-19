@@ -1,5 +1,8 @@
+import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { MegaphoneIcon, PlusIcon, SearchIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { toast } from 'sonner';
 
 import { AnnouncementCard } from '@/modules/announcement/components/AnnouncementCard';
 import { AnnouncementFormDialog } from '@/modules/announcement/components/AnnouncementFormDialog';
@@ -10,7 +13,17 @@ import {
   ANNOUNCEMENT_PRIORITY_CONFIG,
   ANNOUNCEMENT_PRIORITY_ORDER
 } from '@/modules/announcement/constants';
-import { MOCK_ANNOUNCEMENTS } from '@/modules/announcement/data';
+import {
+  ANNOUNCEMENT_QUERY_KEYS,
+  getAnnouncementsInfiniteQueryOptions
+} from '@/modules/announcement/options';
+import {
+  deleteAnnouncement,
+  patchAnnouncementPinned,
+  postAnnouncement,
+  putAnnouncement
+} from '@/shared/api';
+import { useDebouncedValue } from '@/shared/hooks/useDeboucedValue';
 import { Button } from '@/shared/ui/button';
 import {
   Empty,
@@ -27,23 +40,25 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/shared/ui/select';
+import { Spinner } from '@/shared/ui/spinner';
 import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 
 const STATUS_TABS: { label: string; value: 'all' | AnnouncementStatus }[] = [
   { value: 'all', label: 'All' },
-  { value: 'published', label: 'Published' },
-  { value: 'scheduled', label: 'Scheduled' },
-  { value: 'draft', label: 'Drafts' }
+  { value: 'PUBLISHED', label: 'Published' },
+  { value: 'SCHEDULED', label: 'Scheduled' },
+  { value: 'DRAFT', label: 'Drafts' }
 ];
 
 const sortAnnouncements = (announcements: Announcement[]) =>
   [...announcements].sort((a, b) => {
     if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    return new Date(b.publishedAt ?? 0).getTime() - new Date(a.publishedAt ?? 0).getTime();
   });
 
 export const AnnouncementsPage = () => {
-  const [announcements, setAnnouncements] = useState<Announcement[]>(MOCK_ANNOUNCEMENTS);
+  const queryClient = useQueryClient();
+
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState<'all' | AnnouncementStatus>('all');
   const [priority, setPriority] = useState<'all' | AnnouncementPriority>('all');
@@ -52,24 +67,79 @@ export const AnnouncementsPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editValues, setEditValues] = useState<Announcement | null>(null);
 
-  const filtered = useMemo(() => {
-    const query = search.trim().toLowerCase();
+  const debouncedSearch = useDebouncedValue(search);
 
-    const result = announcements.filter((item) => {
-      const matchesStatus = status === 'all' || item.status === status;
-      const matchesPriority = priority === 'all' || item.priority === priority;
-      const matchesAudience = audience === 'all' || item.audiences.includes(audience);
-      const matchesSearch =
-        query === '' ||
-        item.title.toLowerCase().includes(query) ||
-        item.content.toLowerCase().includes(query) ||
-        item.author.name.toLowerCase().includes(query);
+  const filters = useMemo(
+    () => ({
+      search: debouncedSearch.trim() || undefined,
+      status: status === 'all' ? undefined : status,
+      priority: priority === 'all' ? undefined : priority,
+      audience: audience === 'all' ? undefined : audience
+    }),
+    [debouncedSearch, status, priority, audience]
+  );
 
-      return matchesStatus && matchesPriority && matchesAudience && matchesSearch;
-    });
+  const announcementsQuery = useInfiniteQuery(
+    getAnnouncementsInfiniteQueryOptions({ filters })
+  );
 
-    return sortAnnouncements(result);
-  }, [announcements, search, status, priority, audience]);
+  const announcements = useMemo(
+    () =>
+      sortAnnouncements(
+        announcementsQuery.data?.pages.flatMap((page) => page.data.results) ?? []
+      ),
+    [announcementsQuery.data]
+  );
+
+  const { ref } = useInView({
+    onChange: async (inView) => {
+      if (
+        inView &&
+        announcementsQuery.hasNextPage &&
+        !announcementsQuery.isFetchingNextPage
+      ) {
+        await announcementsQuery.fetchNextPage();
+      }
+    }
+  });
+
+  const invalidate = () =>
+    queryClient.invalidateQueries({ queryKey: ANNOUNCEMENT_QUERY_KEYS.base() });
+
+  const createMutation = useMutation({
+    mutationFn: postAnnouncement,
+    onSuccess: async () => {
+      toast.success('Announcement created');
+      await invalidate();
+    },
+    onError: () => toast.error('Failed to create announcement')
+  });
+
+  const updateMutation = useMutation({
+    mutationFn: putAnnouncement,
+    onSuccess: async () => {
+      toast.success('Announcement updated');
+      await invalidate();
+    },
+    onError: () => toast.error('Failed to update announcement')
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: deleteAnnouncement,
+    onSuccess: async () => {
+      toast.success('Announcement deleted');
+      await invalidate();
+    },
+    onError: () => toast.error('Failed to delete announcement')
+  });
+
+  const pinMutation = useMutation({
+    mutationFn: patchAnnouncementPinned,
+    onSuccess: async () => {
+      await invalidate();
+    },
+    onError: () => toast.error('Failed to update announcement')
+  });
 
   const openCreate = () => {
     setEditValues(null);
@@ -81,34 +151,26 @@ export const AnnouncementsPage = () => {
     setIsFormOpen(true);
   };
 
-  const handleSubmit = (draft: AnnouncementDraft) => {
+  const handleSubmit = (draft: AnnouncementDto) => {
     if (editValues) {
-      setAnnouncements((prev) =>
-        prev.map((item) => (item.id === editValues.id ? { ...item, ...draft } : item))
-      );
+      updateMutation.mutate({ id: editValues.id, data: draft });
       return;
     }
 
-    const newAnnouncement: Announcement = {
-      ...draft,
-      id: crypto.randomUUID(),
-      status: 'published',
-      author: { id: 'me', name: 'You', role: 'Administrator', avatarUrl: null },
-      publishedAt: new Date().toISOString(),
-      scheduledAt: null,
-      viewsCount: 0
-    };
-
-    setAnnouncements((prev) => [newAnnouncement, ...prev]);
+    createMutation.mutate({ data: draft });
   };
 
-  const handleDelete = (id: string) =>
-    setAnnouncements((prev) => prev.filter((item) => item.id !== id));
+  const handleDelete = (id: string) => deleteMutation.mutate({ id });
 
-  const handleTogglePin = (id: string) =>
-    setAnnouncements((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, pinned: !item.pinned } : item))
-    );
+  const handleTogglePin = (id: string) => {
+    const target = announcements.find((item) => item.id === id);
+    if (!target) return;
+
+    pinMutation.mutate({ id, data: { pinned: !target.pinned } });
+  };
+
+  const isInitialLoading = announcementsQuery.isLoading;
+  const isEmpty = !isInitialLoading && announcements.length === 0;
 
   return (
     <div className='flex flex-col gap-6 p-6'>
@@ -125,7 +187,7 @@ export const AnnouncementsPage = () => {
         </Button>
       </div>
 
-      <AnnouncementsOverview announcements={announcements} />
+      <AnnouncementsOverview />
 
       <div className='flex flex-col gap-4'>
         <Tabs value={status} onValueChange={(value) => setStatus(value as typeof status)}>
@@ -188,19 +250,11 @@ export const AnnouncementsPage = () => {
         </div>
       </div>
 
-      {filtered.length > 0 ? (
-        <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
-          {filtered.map((announcement) => (
-            <AnnouncementCard
-              key={announcement.id}
-              announcement={announcement}
-              onDelete={handleDelete}
-              onEdit={openEdit}
-              onTogglePin={handleTogglePin}
-            />
-          ))}
+      {isInitialLoading ? (
+        <div className='flex items-center justify-center py-16'>
+          <Spinner />
         </div>
-      ) : (
+      ) : isEmpty ? (
         <Empty className='border'>
           <EmptyHeader>
             <EmptyMedia variant='icon'>
@@ -216,6 +270,24 @@ export const AnnouncementsPage = () => {
             New announcement
           </Button>
         </Empty>
+      ) : (
+        <>
+          <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
+            {announcements.map((announcement) => (
+              <AnnouncementCard
+                key={announcement.id}
+                announcement={announcement}
+                onDelete={handleDelete}
+                onEdit={openEdit}
+                onTogglePin={handleTogglePin}
+              />
+            ))}
+          </div>
+
+          <div ref={ref} className='flex items-center justify-center py-2'>
+            {announcementsQuery.isFetchingNextPage && <Spinner />}
+          </div>
+        </>
       )}
 
       <AnnouncementFormDialog

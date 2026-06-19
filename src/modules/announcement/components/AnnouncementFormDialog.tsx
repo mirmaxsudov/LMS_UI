@@ -4,7 +4,9 @@ import {
   ANNOUNCEMENT_AUDIENCE_CONFIG,
   ANNOUNCEMENT_AUDIENCE_ORDER,
   ANNOUNCEMENT_PRIORITY_CONFIG,
-  ANNOUNCEMENT_PRIORITY_ORDER
+  ANNOUNCEMENT_PRIORITY_ORDER,
+  ANNOUNCEMENT_STATUS_CONFIG,
+  ANNOUNCEMENT_STATUS_ORDER
 } from '@/modules/announcement/constants';
 import { Button } from '@/shared/ui/button';
 import {
@@ -28,32 +30,49 @@ import { Switch } from '@/shared/ui/switch';
 import { Textarea } from '@/shared/ui/textarea';
 import { ToggleGroup, ToggleGroupItem } from '@/shared/ui/toggle-group';
 
-const EMPTY_DRAFT: AnnouncementDraft = {
+const EMPTY_DRAFT: AnnouncementDto = {
   title: '',
   content: '',
-  priority: 'normal',
-  audiences: ['all'],
-  pinned: false
+  priority: 'NORMAL',
+  audiences: ['ALL'],
+  pinned: false,
+  status: 'PUBLISHED',
+  publishedAt: ''
 };
 
-const toDraft = (announcement: Announcement): AnnouncementDraft => ({
+const toDraft = (announcement: Announcement): AnnouncementDto => ({
   title: announcement.title,
   content: announcement.content,
   priority: announcement.priority,
   audiences: announcement.audiences,
-  pinned: announcement.pinned
+  pinned: announcement.pinned,
+  status: announcement.status,
+  publishedAt: announcement.publishedAt ?? ''
 });
+
+// `datetime-local` inputs expect `YYYY-MM-DDTHH:mm` in local time, while the
+// draft stores an ISO string. These helpers convert between the two.
+const toDateTimeLocal = (value: string) => {
+  if (!value) return '';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '';
+  const offset = date.getTimezoneOffset() * 60000;
+  return new Date(date.getTime() - offset).toISOString().slice(0, 16);
+};
+
+const fromDateTimeLocal = (value: string) =>
+  value ? new Date(value).toISOString() : '';
 
 interface AnnouncementFormProps {
   editValues: Announcement | null;
   onCancel: () => void;
-  onSubmit: (draft: AnnouncementDraft) => void;
+  onSubmit: (draft: AnnouncementDto) => void;
 }
 
 const AnnouncementForm = ({ editValues, onCancel, onSubmit }: AnnouncementFormProps) => {
   const isEditMode = Boolean(editValues);
   const fieldId = useId();
-  const [draft, setDraft] = useState<AnnouncementDraft>(() =>
+  const [draft, setDraft] = useState<AnnouncementDto>(() =>
     editValues ? toDraft(editValues) : EMPTY_DRAFT
   );
 
@@ -125,6 +144,42 @@ const AnnouncementForm = ({ editValues, onCancel, onSubmit }: AnnouncementFormPr
           </div>
 
           <div className='space-y-2'>
+            <Label htmlFor={`${fieldId}-status`}>Status</Label>
+            <Select
+              value={draft.status}
+              onValueChange={(value) =>
+                setDraft((prev) => ({ ...prev, status: value as AnnouncementStatus }))
+              }
+            >
+              <SelectTrigger className='w-full' id={`${fieldId}-status`}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {ANNOUNCEMENT_STATUS_ORDER.map((status) => (
+                  <SelectItem key={status} value={status}>
+                    {ANNOUNCEMENT_STATUS_CONFIG[status].label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className='space-y-2'>
+            <Label htmlFor={`${fieldId}-publishedAt`}>Publish date</Label>
+            <Input
+              id={`${fieldId}-publishedAt`}
+              type='datetime-local'
+              value={toDateTimeLocal(draft.publishedAt)}
+              onChange={(event) =>
+                setDraft((prev) => ({
+                  ...prev,
+                  publishedAt: fromDateTimeLocal(event.target.value)
+                }))
+              }
+            />
+          </div>
+
+          <div className='space-y-2'>
             <Label>Audience</Label>
             <ToggleGroup
               className='flex flex-wrap'
@@ -184,7 +239,7 @@ interface AnnouncementFormDialogProps {
   editValues: Announcement | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSubmit: (draft: AnnouncementDraft) => void;
+  onSubmit: (draft: AnnouncementDto) => void;
 }
 
 export const AnnouncementFormDialog = ({

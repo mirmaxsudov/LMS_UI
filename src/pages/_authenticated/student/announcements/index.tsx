@@ -1,18 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { TeacherGroupsPage } from '@/modules/teacher-group';
+import { AnnouncementsView } from '@/modules/announcement';
 import { GeneralError, NotFoundError } from '@/shared/ui/errors';
 import { PageHeader, PageLoading } from '@/shared/ui/page';
 
-const TeacherGroupsRoutePage = () => (
+const StudentAnnouncementsRoutePage = () => (
   <>
     <PageHeader />
-    <TeacherGroupsPage />
+    <AnnouncementsView />
   </>
 );
 
-export const Route = createFileRoute('/_authenticated/teacher/groups/')({
-  component: TeacherGroupsRoutePage,
+export const Route = createFileRoute('/_authenticated/student/announcements/')({
+  component: StudentAnnouncementsRoutePage,
   pendingComponent: PageLoading,
   notFoundComponent: NotFoundError,
   errorComponent: GeneralError

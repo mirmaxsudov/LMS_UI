@@ -35,6 +35,7 @@ import { Route as AuthenticatedTeacherCoursesIndexRouteImport } from './pages/_a
 import { Route as AuthenticatedTeacherCalendarIndexRouteImport } from './pages/_authenticated/teacher/calendar/index'
 import { Route as AuthenticatedTeacherAttendanceIndexRouteImport } from './pages/_authenticated/teacher/attendance/index'
 import { Route as AuthenticatedTeacherAssignmentsIndexRouteImport } from './pages/_authenticated/teacher/assignments/index'
+import { Route as AuthenticatedTeacherAnnouncementsIndexRouteImport } from './pages/_authenticated/teacher/announcements/index'
 import { Route as AuthenticatedStudentStudyGroupsIndexRouteImport } from './pages/_authenticated/student/study-groups/index'
 import { Route as AuthenticatedStudentSettingsIndexRouteImport } from './pages/_authenticated/student/settings/index'
 import { Route as AuthenticatedStudentScheduleIndexRouteImport } from './pages/_authenticated/student/schedule/index'
@@ -51,6 +52,7 @@ import { Route as AuthenticatedStudentCourseCatalogIndexRouteImport } from './pa
 import { Route as AuthenticatedStudentCalendarIndexRouteImport } from './pages/_authenticated/student/calendar/index'
 import { Route as AuthenticatedStudentAttendanceIndexRouteImport } from './pages/_authenticated/student/attendance/index'
 import { Route as AuthenticatedStudentAssignmentsIndexRouteImport } from './pages/_authenticated/student/assignments/index'
+import { Route as AuthenticatedStudentAnnouncementsIndexRouteImport } from './pages/_authenticated/student/announcements/index'
 import { Route as AuthenticatedParentSettingsIndexRouteImport } from './pages/_authenticated/parent/settings/index'
 import { Route as AuthenticatedParentScheduleIndexRouteImport } from './pages/_authenticated/parent/schedule/index'
 import { Route as AuthenticatedParentPaymentsIndexRouteImport } from './pages/_authenticated/parent/payments/index'
@@ -67,6 +69,7 @@ import { Route as AuthenticatedParentChildrenCoursesIndexRouteImport } from './p
 import { Route as AuthenticatedParentChildrenAttendanceIndexRouteImport } from './pages/_authenticated/parent/children-attendance/index'
 import { Route as AuthenticatedParentChildrenAssignmentsIndexRouteImport } from './pages/_authenticated/parent/children-assignments/index'
 import { Route as AuthenticatedParentCalendarIndexRouteImport } from './pages/_authenticated/parent/calendar/index'
+import { Route as AuthenticatedParentAnnouncementsIndexRouteImport } from './pages/_authenticated/parent/announcements/index'
 import { Route as AuthenticatedAdminSettingsIndexRouteImport } from './pages/_authenticated/admin/settings/index'
 import { Route as AuthenticatedAdminScheduleIndexRouteImport } from './pages/_authenticated/admin/schedule/index'
 import { Route as AuthenticatedAdminRoomsIndexRouteImport } from './pages/_authenticated/admin/rooms/index'
@@ -241,6 +244,12 @@ const AuthenticatedTeacherAssignmentsIndexRoute =
     path: '/assignments/',
     getParentRoute: () => AuthenticatedTeacherRouteRoute,
   } as any)
+const AuthenticatedTeacherAnnouncementsIndexRoute =
+  AuthenticatedTeacherAnnouncementsIndexRouteImport.update({
+    id: '/announcements/',
+    path: '/announcements/',
+    getParentRoute: () => AuthenticatedTeacherRouteRoute,
+  } as any)
 const AuthenticatedStudentStudyGroupsIndexRoute =
   AuthenticatedStudentStudyGroupsIndexRouteImport.update({
     id: '/study-groups/',
@@ -337,6 +346,12 @@ const AuthenticatedStudentAssignmentsIndexRoute =
     path: '/assignments/',
     getParentRoute: () => AuthenticatedStudentRouteRoute,
   } as any)
+const AuthenticatedStudentAnnouncementsIndexRoute =
+  AuthenticatedStudentAnnouncementsIndexRouteImport.update({
+    id: '/announcements/',
+    path: '/announcements/',
+    getParentRoute: () => AuthenticatedStudentRouteRoute,
+  } as any)
 const AuthenticatedParentSettingsIndexRoute =
   AuthenticatedParentSettingsIndexRouteImport.update({
     id: '/settings/',
@@ -431,6 +446,12 @@ const AuthenticatedParentCalendarIndexRoute =
   AuthenticatedParentCalendarIndexRouteImport.update({
     id: '/calendar/',
     path: '/calendar/',
+    getParentRoute: () => AuthenticatedParentRouteRoute,
+  } as any)
+const AuthenticatedParentAnnouncementsIndexRoute =
+  AuthenticatedParentAnnouncementsIndexRouteImport.update({
+    id: '/announcements/',
+    path: '/announcements/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
 const AuthenticatedAdminSettingsIndexRoute =
@@ -594,6 +615,7 @@ export interface FileRoutesByFullPath {
   '/admin/rooms': typeof AuthenticatedAdminRoomsIndexRoute
   '/admin/schedule': typeof AuthenticatedAdminScheduleIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
+  '/parent/announcements': typeof AuthenticatedParentAnnouncementsIndexRoute
   '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
   '/parent/children-assignments': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/parent/children-attendance': typeof AuthenticatedParentChildrenAttendanceIndexRoute
@@ -610,6 +632,7 @@ export interface FileRoutesByFullPath {
   '/parent/payments': typeof AuthenticatedParentPaymentsIndexRoute
   '/parent/schedule': typeof AuthenticatedParentScheduleIndexRoute
   '/parent/settings': typeof AuthenticatedParentSettingsIndexRoute
+  '/student/announcements': typeof AuthenticatedStudentAnnouncementsIndexRoute
   '/student/assignments': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/student/attendance': typeof AuthenticatedStudentAttendanceIndexRoute
   '/student/calendar': typeof AuthenticatedStudentCalendarIndexRoute
@@ -626,6 +649,7 @@ export interface FileRoutesByFullPath {
   '/student/schedule': typeof AuthenticatedStudentScheduleIndexRoute
   '/student/settings': typeof AuthenticatedStudentSettingsIndexRoute
   '/student/study-groups': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/teacher/announcements': typeof AuthenticatedTeacherAnnouncementsIndexRoute
   '/teacher/assignments': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/teacher/attendance': typeof AuthenticatedTeacherAttendanceIndexRoute
   '/teacher/calendar': typeof AuthenticatedTeacherCalendarIndexRoute
@@ -672,6 +696,7 @@ export interface FileRoutesByTo {
   '/admin/rooms': typeof AuthenticatedAdminRoomsIndexRoute
   '/admin/schedule': typeof AuthenticatedAdminScheduleIndexRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsIndexRoute
+  '/parent/announcements': typeof AuthenticatedParentAnnouncementsIndexRoute
   '/parent/calendar': typeof AuthenticatedParentCalendarIndexRoute
   '/parent/children-assignments': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/parent/children-attendance': typeof AuthenticatedParentChildrenAttendanceIndexRoute
@@ -688,6 +713,7 @@ export interface FileRoutesByTo {
   '/parent/payments': typeof AuthenticatedParentPaymentsIndexRoute
   '/parent/schedule': typeof AuthenticatedParentScheduleIndexRoute
   '/parent/settings': typeof AuthenticatedParentSettingsIndexRoute
+  '/student/announcements': typeof AuthenticatedStudentAnnouncementsIndexRoute
   '/student/assignments': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/student/attendance': typeof AuthenticatedStudentAttendanceIndexRoute
   '/student/calendar': typeof AuthenticatedStudentCalendarIndexRoute
@@ -704,6 +730,7 @@ export interface FileRoutesByTo {
   '/student/schedule': typeof AuthenticatedStudentScheduleIndexRoute
   '/student/settings': typeof AuthenticatedStudentSettingsIndexRoute
   '/student/study-groups': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/teacher/announcements': typeof AuthenticatedTeacherAnnouncementsIndexRoute
   '/teacher/assignments': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/teacher/attendance': typeof AuthenticatedTeacherAttendanceIndexRoute
   '/teacher/calendar': typeof AuthenticatedTeacherCalendarIndexRoute
@@ -755,6 +782,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/rooms/': typeof AuthenticatedAdminRoomsIndexRoute
   '/_authenticated/admin/schedule/': typeof AuthenticatedAdminScheduleIndexRoute
   '/_authenticated/admin/settings/': typeof AuthenticatedAdminSettingsIndexRoute
+  '/_authenticated/parent/announcements/': typeof AuthenticatedParentAnnouncementsIndexRoute
   '/_authenticated/parent/calendar/': typeof AuthenticatedParentCalendarIndexRoute
   '/_authenticated/parent/children-assignments/': typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   '/_authenticated/parent/children-attendance/': typeof AuthenticatedParentChildrenAttendanceIndexRoute
@@ -771,6 +799,7 @@ export interface FileRoutesById {
   '/_authenticated/parent/payments/': typeof AuthenticatedParentPaymentsIndexRoute
   '/_authenticated/parent/schedule/': typeof AuthenticatedParentScheduleIndexRoute
   '/_authenticated/parent/settings/': typeof AuthenticatedParentSettingsIndexRoute
+  '/_authenticated/student/announcements/': typeof AuthenticatedStudentAnnouncementsIndexRoute
   '/_authenticated/student/assignments/': typeof AuthenticatedStudentAssignmentsIndexRoute
   '/_authenticated/student/attendance/': typeof AuthenticatedStudentAttendanceIndexRoute
   '/_authenticated/student/calendar/': typeof AuthenticatedStudentCalendarIndexRoute
@@ -787,6 +816,7 @@ export interface FileRoutesById {
   '/_authenticated/student/schedule/': typeof AuthenticatedStudentScheduleIndexRoute
   '/_authenticated/student/settings/': typeof AuthenticatedStudentSettingsIndexRoute
   '/_authenticated/student/study-groups/': typeof AuthenticatedStudentStudyGroupsIndexRoute
+  '/_authenticated/teacher/announcements/': typeof AuthenticatedTeacherAnnouncementsIndexRoute
   '/_authenticated/teacher/assignments/': typeof AuthenticatedTeacherAssignmentsIndexRoute
   '/_authenticated/teacher/attendance/': typeof AuthenticatedTeacherAttendanceIndexRoute
   '/_authenticated/teacher/calendar/': typeof AuthenticatedTeacherCalendarIndexRoute
@@ -838,6 +868,7 @@ export interface FileRouteTypes {
     | '/admin/rooms'
     | '/admin/schedule'
     | '/admin/settings'
+    | '/parent/announcements'
     | '/parent/calendar'
     | '/parent/children-assignments'
     | '/parent/children-attendance'
@@ -854,6 +885,7 @@ export interface FileRouteTypes {
     | '/parent/payments'
     | '/parent/schedule'
     | '/parent/settings'
+    | '/student/announcements'
     | '/student/assignments'
     | '/student/attendance'
     | '/student/calendar'
@@ -870,6 +902,7 @@ export interface FileRouteTypes {
     | '/student/schedule'
     | '/student/settings'
     | '/student/study-groups'
+    | '/teacher/announcements'
     | '/teacher/assignments'
     | '/teacher/attendance'
     | '/teacher/calendar'
@@ -916,6 +949,7 @@ export interface FileRouteTypes {
     | '/admin/rooms'
     | '/admin/schedule'
     | '/admin/settings'
+    | '/parent/announcements'
     | '/parent/calendar'
     | '/parent/children-assignments'
     | '/parent/children-attendance'
@@ -932,6 +966,7 @@ export interface FileRouteTypes {
     | '/parent/payments'
     | '/parent/schedule'
     | '/parent/settings'
+    | '/student/announcements'
     | '/student/assignments'
     | '/student/attendance'
     | '/student/calendar'
@@ -948,6 +983,7 @@ export interface FileRouteTypes {
     | '/student/schedule'
     | '/student/settings'
     | '/student/study-groups'
+    | '/teacher/announcements'
     | '/teacher/assignments'
     | '/teacher/attendance'
     | '/teacher/calendar'
@@ -998,6 +1034,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/rooms/'
     | '/_authenticated/admin/schedule/'
     | '/_authenticated/admin/settings/'
+    | '/_authenticated/parent/announcements/'
     | '/_authenticated/parent/calendar/'
     | '/_authenticated/parent/children-assignments/'
     | '/_authenticated/parent/children-attendance/'
@@ -1014,6 +1051,7 @@ export interface FileRouteTypes {
     | '/_authenticated/parent/payments/'
     | '/_authenticated/parent/schedule/'
     | '/_authenticated/parent/settings/'
+    | '/_authenticated/student/announcements/'
     | '/_authenticated/student/assignments/'
     | '/_authenticated/student/attendance/'
     | '/_authenticated/student/calendar/'
@@ -1030,6 +1068,7 @@ export interface FileRouteTypes {
     | '/_authenticated/student/schedule/'
     | '/_authenticated/student/settings/'
     | '/_authenticated/student/study-groups/'
+    | '/_authenticated/teacher/announcements/'
     | '/_authenticated/teacher/assignments/'
     | '/_authenticated/teacher/attendance/'
     | '/_authenticated/teacher/calendar/'
@@ -1245,6 +1284,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTeacherAssignmentsIndexRouteImport
       parentRoute: typeof AuthenticatedTeacherRouteRoute
     }
+    '/_authenticated/teacher/announcements/': {
+      id: '/_authenticated/teacher/announcements/'
+      path: '/announcements'
+      fullPath: '/teacher/announcements'
+      preLoaderRoute: typeof AuthenticatedTeacherAnnouncementsIndexRouteImport
+      parentRoute: typeof AuthenticatedTeacherRouteRoute
+    }
     '/_authenticated/student/study-groups/': {
       id: '/_authenticated/student/study-groups/'
       path: '/study-groups'
@@ -1357,6 +1403,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedStudentAssignmentsIndexRouteImport
       parentRoute: typeof AuthenticatedStudentRouteRoute
     }
+    '/_authenticated/student/announcements/': {
+      id: '/_authenticated/student/announcements/'
+      path: '/announcements'
+      fullPath: '/student/announcements'
+      preLoaderRoute: typeof AuthenticatedStudentAnnouncementsIndexRouteImport
+      parentRoute: typeof AuthenticatedStudentRouteRoute
+    }
     '/_authenticated/parent/settings/': {
       id: '/_authenticated/parent/settings/'
       path: '/settings'
@@ -1467,6 +1520,13 @@ declare module '@tanstack/react-router' {
       path: '/calendar'
       fullPath: '/parent/calendar'
       preLoaderRoute: typeof AuthenticatedParentCalendarIndexRouteImport
+      parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/parent/announcements/': {
+      id: '/_authenticated/parent/announcements/'
+      path: '/announcements'
+      fullPath: '/parent/announcements'
+      preLoaderRoute: typeof AuthenticatedParentAnnouncementsIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
     }
     '/_authenticated/admin/settings/': {
@@ -1708,6 +1768,7 @@ const AuthenticatedAdminRouteRouteWithChildren =
 
 interface AuthenticatedParentRouteRouteChildren {
   AuthenticatedParentIndexRoute: typeof AuthenticatedParentIndexRoute
+  AuthenticatedParentAnnouncementsIndexRoute: typeof AuthenticatedParentAnnouncementsIndexRoute
   AuthenticatedParentCalendarIndexRoute: typeof AuthenticatedParentCalendarIndexRoute
   AuthenticatedParentChildrenAssignmentsIndexRoute: typeof AuthenticatedParentChildrenAssignmentsIndexRoute
   AuthenticatedParentChildrenAttendanceIndexRoute: typeof AuthenticatedParentChildrenAttendanceIndexRoute
@@ -1729,6 +1790,8 @@ interface AuthenticatedParentRouteRouteChildren {
 const AuthenticatedParentRouteRouteChildren: AuthenticatedParentRouteRouteChildren =
   {
     AuthenticatedParentIndexRoute: AuthenticatedParentIndexRoute,
+    AuthenticatedParentAnnouncementsIndexRoute:
+      AuthenticatedParentAnnouncementsIndexRoute,
     AuthenticatedParentCalendarIndexRoute:
       AuthenticatedParentCalendarIndexRoute,
     AuthenticatedParentChildrenAssignmentsIndexRoute:
@@ -1770,6 +1833,7 @@ const AuthenticatedParentRouteRouteWithChildren =
 
 interface AuthenticatedStudentRouteRouteChildren {
   AuthenticatedStudentIndexRoute: typeof AuthenticatedStudentIndexRoute
+  AuthenticatedStudentAnnouncementsIndexRoute: typeof AuthenticatedStudentAnnouncementsIndexRoute
   AuthenticatedStudentAssignmentsIndexRoute: typeof AuthenticatedStudentAssignmentsIndexRoute
   AuthenticatedStudentAttendanceIndexRoute: typeof AuthenticatedStudentAttendanceIndexRoute
   AuthenticatedStudentCalendarIndexRoute: typeof AuthenticatedStudentCalendarIndexRoute
@@ -1791,6 +1855,8 @@ interface AuthenticatedStudentRouteRouteChildren {
 const AuthenticatedStudentRouteRouteChildren: AuthenticatedStudentRouteRouteChildren =
   {
     AuthenticatedStudentIndexRoute: AuthenticatedStudentIndexRoute,
+    AuthenticatedStudentAnnouncementsIndexRoute:
+      AuthenticatedStudentAnnouncementsIndexRoute,
     AuthenticatedStudentAssignmentsIndexRoute:
       AuthenticatedStudentAssignmentsIndexRoute,
     AuthenticatedStudentAttendanceIndexRoute:
@@ -1832,6 +1898,7 @@ const AuthenticatedStudentRouteRouteWithChildren =
 
 interface AuthenticatedTeacherRouteRouteChildren {
   AuthenticatedTeacherIndexRoute: typeof AuthenticatedTeacherIndexRoute
+  AuthenticatedTeacherAnnouncementsIndexRoute: typeof AuthenticatedTeacherAnnouncementsIndexRoute
   AuthenticatedTeacherAssignmentsIndexRoute: typeof AuthenticatedTeacherAssignmentsIndexRoute
   AuthenticatedTeacherAttendanceIndexRoute: typeof AuthenticatedTeacherAttendanceIndexRoute
   AuthenticatedTeacherCalendarIndexRoute: typeof AuthenticatedTeacherCalendarIndexRoute
@@ -1853,6 +1920,8 @@ interface AuthenticatedTeacherRouteRouteChildren {
 const AuthenticatedTeacherRouteRouteChildren: AuthenticatedTeacherRouteRouteChildren =
   {
     AuthenticatedTeacherIndexRoute: AuthenticatedTeacherIndexRoute,
+    AuthenticatedTeacherAnnouncementsIndexRoute:
+      AuthenticatedTeacherAnnouncementsIndexRoute,
     AuthenticatedTeacherAssignmentsIndexRoute:
       AuthenticatedTeacherAssignmentsIndexRoute,
     AuthenticatedTeacherAttendanceIndexRoute:

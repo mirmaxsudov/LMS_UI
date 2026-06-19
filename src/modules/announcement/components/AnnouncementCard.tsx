@@ -1,3 +1,4 @@
+import { useLingui } from '@lingui/react/macro';
 import { EyeIcon, MoreVerticalIcon, PencilIcon, PinIcon, PinOffIcon, Trash2Icon } from 'lucide-react';
 
 import {
@@ -5,9 +6,10 @@ import {
   ANNOUNCEMENT_PRIORITY_CONFIG,
   ANNOUNCEMENT_STATUS_CONFIG
 } from '@/modules/announcement/constants';
+import { roleLabelMap } from '@/modules/users';
 import { formatDate } from '@/shared/lib/format';
 import { cn } from '@/shared/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar';
+import { Avatar, AvatarFallback } from '@/shared/ui/avatar';
 import { Badge } from '@/shared/ui/badge';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent } from '@/shared/ui/card';
@@ -29,9 +31,9 @@ const getInitials = (name: string) =>
 
 interface AnnouncementCardProps {
   announcement: Announcement;
-  onDelete: (id: string) => void;
-  onEdit: (announcement: Announcement) => void;
-  onTogglePin: (id: string) => void;
+  onDelete?: (id: string) => void;
+  onEdit?: (announcement: Announcement) => void;
+  onTogglePin?: (id: string) => void;
 }
 
 export const AnnouncementCard = ({
@@ -40,8 +42,11 @@ export const AnnouncementCard = ({
   onDelete,
   onTogglePin
 }: AnnouncementCardProps) => {
+  const { t } = useLingui();
   const priority = ANNOUNCEMENT_PRIORITY_CONFIG[announcement.priority];
   const status = ANNOUNCEMENT_STATUS_CONFIG[announcement.status];
+  const roleLabel = roleLabelMap[announcement.authorRole];
+  const hasActions = Boolean(onEdit || onTogglePin || onDelete);
 
   return (
     <Card className='relative overflow-hidden py-0'>
@@ -59,29 +64,42 @@ export const AnnouncementCard = ({
             <Badge variant={status.badgeVariant}>{status.label}</Badge>
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button className='-mt-1 -mr-1 size-8 shrink-0' size='icon' variant='ghost'>
-                <MoreVerticalIcon className='size-4' />
-                <span className='sr-only'>Open actions</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-              <DropdownMenuItem onClick={() => onEdit(announcement)}>
-                <PencilIcon />
-                Edit
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onTogglePin(announcement.id)}>
-                {announcement.pinned ? <PinOffIcon /> : <PinIcon />}
-                {announcement.pinned ? 'Unpin' : 'Pin'}
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem variant='destructive' onClick={() => onDelete(announcement.id)}>
-                <Trash2Icon />
-                Delete
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {hasActions && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className='-mt-1 -mr-1 size-8 shrink-0' size='icon' variant='ghost'>
+                  <MoreVerticalIcon className='size-4' />
+                  <span className='sr-only'>Open actions</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align='end'>
+                {onEdit && (
+                  <DropdownMenuItem onClick={() => onEdit(announcement)}>
+                    <PencilIcon />
+                    Edit
+                  </DropdownMenuItem>
+                )}
+                {onTogglePin && (
+                  <DropdownMenuItem onClick={() => onTogglePin(announcement.id)}>
+                    {announcement.pinned ? <PinOffIcon /> : <PinIcon />}
+                    {announcement.pinned ? 'Unpin' : 'Pin'}
+                  </DropdownMenuItem>
+                )}
+                {onDelete && (
+                  <>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      variant='destructive'
+                      onClick={() => onDelete(announcement.id)}
+                    >
+                      <Trash2Icon />
+                      Delete
+                    </DropdownMenuItem>
+                  </>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
 
         <div className='space-y-1.5'>
@@ -106,29 +124,27 @@ export const AnnouncementCard = ({
         <div className='flex items-center justify-between gap-3 border-t pt-4'>
           <div className='flex min-w-0 items-center gap-2'>
             <Avatar className='size-8'>
-              {announcement.author.avatarUrl && (
-                <AvatarImage src={announcement.author.avatarUrl} />
-              )}
               <AvatarFallback className='text-xs'>
-                {getInitials(announcement.author.name)}
+                {getInitials(announcement.authorName)}
               </AvatarFallback>
             </Avatar>
             <div className='min-w-0'>
-              <p className='truncate text-sm font-medium'>{announcement.author.name}</p>
-              <p className='text-muted-foreground truncate text-xs'>{announcement.author.role}</p>
+              <p className='truncate text-sm font-medium'>{announcement.authorName}</p>
+              <p className='text-muted-foreground truncate text-xs'>
+                {roleLabel ? t(roleLabel) : announcement.authorRole}
+              </p>
             </div>
           </div>
 
           <div className='text-muted-foreground flex shrink-0 flex-col items-end gap-0.5 text-xs'>
             <span>
-              {announcement.status === 'scheduled' && announcement.scheduledAt
-                ? `Scheduled ${formatDate(announcement.scheduledAt, { month: 'short' })}`
-                : formatDate(announcement.publishedAt, { month: 'short' })}
+              {announcement.status === 'SCHEDULED' ? 'Scheduled ' : ''}
+              {formatDate(announcement.publishedAt ?? undefined, { month: 'short' })}
             </span>
-            {announcement.status === 'published' && (
+            {announcement.status === 'PUBLISHED' && (
               <span className='flex items-center gap-1'>
                 <EyeIcon className='size-3' />
-                {announcement.viewsCount.toLocaleString()}
+                {announcement.viewCount.toLocaleString()}
               </span>
             )}
           </div>

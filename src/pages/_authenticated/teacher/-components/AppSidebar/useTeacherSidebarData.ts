@@ -12,6 +12,7 @@ import {
   FolderOpenIcon,
   LayoutDashboardIcon,
   ListVideoIcon,
+  MegaphoneIcon,
   MessageSquareTextIcon,
   NotebookTextIcon,
   SettingsIcon,
@@ -101,6 +102,11 @@ export const useTeacherSidebarData = () => {
       {
         title: msg`Communication`,
         items: [
+          {
+            title: msg`Announcements`,
+            url: '/teacher/announcements',
+            icon: MegaphoneIcon
+          },
           {
             title: msg`Messages`,
             url: '/teacher/messages',
