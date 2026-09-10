@@ -58,7 +58,7 @@ export const LandingPage = () => {
       <main>
         <section className='relative isolate border-b border-[#d9e4dd]'>
           <div className='public-grid absolute inset-0 -z-20 opacity-55' />
-          <div className='absolute top-[-18rem] left-[48%] -z-10 size-[46rem] rounded-full bg-[#dceee7]/80 blur-3xl' />
+          <div className='absolute -top-72 left-[48%] -z-10 size-184 rounded-full bg-[#dceee7]/80 blur-3xl' />
           <div className='absolute -right-32 bottom-0 -z-10 h-72 w-96 rotate-[-8deg] rounded-[50%] bg-[#dff1f6]/80 blur-2xl' />
 
           <div className='mx-auto grid min-h-[calc(100svh-4.75rem)] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:py-20'>

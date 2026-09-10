@@ -1,9 +1,10 @@
 import { useLingui } from '@lingui/react';
 import { Link } from '@tanstack/react-router';
-import { MenuIcon, SproutIcon, WavesIcon } from 'lucide-react';
+import { MenuIcon } from 'lucide-react';
 
 import type { Locale } from '@/shared/i18n/config';
 
+import Logo from '@/../public/images/logo.png';
 import { dynamicActivate } from '@/shared/i18n/dynamicActivate';
 import { Button } from '@/shared/ui/button';
 import {
@@ -60,18 +61,13 @@ export const PublicHeader = ({ isCompact = false }: PublicHeaderProps) => {
 
   return (
     <header className='sticky top-0 z-40 border-b border-[#d9e4dd]/80 bg-[#f6faf7]/90 backdrop-blur-xl'>
-      <div className='mx-auto flex h-[4.75rem] max-w-7xl items-center gap-6 px-5 sm:px-8 lg:px-10'>
+      <div className='mx-auto flex h-19 max-w-7xl items-center gap-6 px-5 sm:px-8 lg:px-10'>
         <Link className='group flex items-center gap-3' to='/'>
-          <span className='relative grid size-11 place-items-center overflow-hidden rounded-[1.15rem] bg-[#153f38] text-white shadow-[0_12px_32px_rgba(21,63,56,0.18)]'>
-            <WavesIcon
-              className='absolute -bottom-1 -left-1 size-8 text-[#65b9ce]/75'
-              strokeWidth={1.6}
-            />
-            <SproutIcon
-              className='relative size-5 translate-x-1 -translate-y-1 text-[#c9e16f]'
-              strokeWidth={2.1}
-            />
-          </span>
+          <img
+            alt='LOGO'
+            className='relative grid size-11 place-items-center overflow-hidden rounded-[1.15rem] shadow-[0_12px_32px_rgba(21,63,56,0.18)]'
+            src={Logo}
+          />
           <span className='min-w-0'>
             <span className='block truncate font-[Georgia,serif] text-[1.05rem] leading-none font-semibold text-[#17211b]'>
               {copy.brand}

@@ -1,7 +1,8 @@
 import { useLingui } from '@lingui/react';
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRightIcon, SproutIcon, WavesIcon } from 'lucide-react';
+import { ArrowUpRightIcon } from 'lucide-react';
 
+import Logo from '../../../../public/images/logo.png';
 import { getPublicLocale, publicCopy } from '../copy';
 
 export const PublicFooter = () => {
@@ -14,16 +15,12 @@ export const PublicFooter = () => {
       <div className='mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.5fr_0.75fr_0.75fr] lg:px-10'>
         <div className='max-w-md'>
           <Link className='flex w-fit items-center gap-3' to='/'>
-            <span className='relative grid size-11 place-items-center overflow-hidden rounded-[1.15rem] bg-white text-[#153f38]'>
-              <WavesIcon
-                className='absolute -bottom-1 -left-1 size-8 text-[#65b9ce]'
-                strokeWidth={1.6}
-              />
-              <SproutIcon
-                className='relative size-5 translate-x-1 -translate-y-1 text-[#4f7c3a]'
-                strokeWidth={2.1}
-              />
-            </span>
+            <img
+              alt='LOGO'
+              className='relative grid size-11 place-items-center overflow-hidden rounded-[1.15rem] bg-white shadow-[0_12px_32px_rgba(21,63,56,0.18)]'
+              src={Logo}
+            />
+
             <span>
               <span className='block font-[Georgia,serif] text-lg font-semibold'>{copy.brand}</span>
               <span className='text-xs tracking-[0.12em] text-white/55 uppercase'>

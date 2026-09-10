@@ -6,9 +6,9 @@ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import { NuqsAdapter } from 'nuqs/adapters/tanstack-router';
 
 import { ThemeProvider } from '@/shared/context';
-import { NotFoundError } from '@/shared/ui/errors/404.tsx';
-import { GeneralError } from '@/shared/ui/errors/500.tsx';
-import { Toaster } from '@/shared/ui/sonner.tsx';
+import { NotFoundError } from '@/shared/ui/errors/404';
+import { GeneralError } from '@/shared/ui/errors/500';
+import { Toaster } from '@/shared/ui/sonner';
 import { TooltipProvider } from '@/shared/ui/tooltip';
 
 interface RouterContext {
