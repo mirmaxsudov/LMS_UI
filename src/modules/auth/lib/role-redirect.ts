@@ -1,8 +1,8 @@
 export type RoleRedirectPath =
-  | '/admin/courses'
-  | '/admin/lesson-sessions'
-  | '/admin/lessons'
-  | '/admin/settings';
+  | '/admin/dashboard'
+  | '/parent/dashboard'
+  | '/student/dashboard'
+  | '/teacher/dashboard';
 
 const ROLE_PRIORITY: UserRole[] = [
   'SUPER_ADMIN',
@@ -16,14 +16,14 @@ const ROLE_PRIORITY: UserRole[] = [
 ];
 
 export const ROLE_DEFAULT_ROUTE: Record<UserRole, RoleRedirectPath> = {
-  SUPER_ADMIN: '/admin/settings',
-  ADMIN: '/admin/courses',
-  MAINTAINER: '/admin/courses',
-  TEACHER: '/admin/lesson-sessions',
-  SUPPORT_TEACHER: '/admin/lesson-sessions',
-  STUDENT: '/admin/lessons',
-  PARENT: '/admin/settings',
-  GUARDIAN: '/admin/settings'
+  SUPER_ADMIN: '/admin/dashboard',
+  ADMIN: '/admin/dashboard',
+  MAINTAINER: '/admin/dashboard',
+  TEACHER: '/teacher/dashboard',
+  SUPPORT_TEACHER: '/teacher/dashboard',
+  STUDENT: '/student/dashboard',
+  PARENT: '/parent/dashboard',
+  GUARDIAN: '/parent/dashboard'
 };
 
 export const getPrimaryUserRole = (user?: Pick<User, 'roles'> | null): UserRole => {

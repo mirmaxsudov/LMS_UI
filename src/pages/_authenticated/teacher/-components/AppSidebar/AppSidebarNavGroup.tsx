@@ -7,7 +7,6 @@ import { ChevronRight } from 'lucide-react';
 
 import type { NavCollapsible, NavGroup, NavItem, NavLink } from '@/shared/ui/page/types';
 
-import { usePermission } from '@/modules/auth/permissoin';
 import { Badge } from '@/shared/ui/badge';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/shared/ui/collapsible';
 import {
@@ -30,16 +29,14 @@ import {
   useSidebar
 } from '@/shared/ui/sidebar';
 
-export const AppSidebarNavGroup = ({ title, items, allowedRoles }: NavGroup) => {
+export const AppSidebarNavGroup = ({ title, items }: NavGroup) => {
   const { t } = useLingui();
   const { state } = useSidebar();
-  const { hasRole } = usePermission();
-
   const href = useLocation({ select: (location) => location.href });
 
-  const filteredItems = items.filter((item) => !item.allowedRoles || hasRole(item.allowedRoles));
+  const filteredItems = items;
 
-  if ((allowedRoles && !hasRole(allowedRoles)) || !filteredItems.length) return;
+  if (!filteredItems.length) return;
 
   return (
     <SidebarGroup>

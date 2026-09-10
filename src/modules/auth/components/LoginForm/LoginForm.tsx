@@ -1,21 +1,19 @@
-import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link, useRouter } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
-import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
+import { ArrowRightIcon, FlaskConicalIcon, ShieldCheckIcon } from 'lucide-react';
 
-import type { LoginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
+import type { LoginFormSchema } from '@/modules/auth/components/LoginForm/constants';
 
 import { getAuthMeQueryOptions, getDefaultRouteByUserRole } from '@/modules/auth';
-import { loginFormSchema } from '@/modules/auth/components/LoginForm/constants.ts';
+import { loginFormSchema } from '@/modules/auth/components/LoginForm/constants';
 import { postLogin } from '@/shared/api';
 import { COOKIES } from '@/shared/constants';
-import { Button } from '@/shared/ui/button.tsx';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card.tsx';
-import { useAppForm } from '@/shared/ui/form/hooks.ts';
+import { Button } from '@/shared/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
+import { useAppForm } from '@/shared/ui/form/hooks';
 
 export const LoginForm = () => {
-  const { t } = useLingui();
   const queryClient = useQueryClient();
   const router = useRouter();
 
@@ -43,6 +41,10 @@ export const LoginForm = () => {
     }
   });
 
+  const openDemo = async (to: '/admin/dashboard' | '/student/dashboard' | '/teacher/dashboard') => {
+    await router.navigate({ to });
+  };
+
   return (
     <Card className='border-border/70 bg-card/95 shadow-primary/5 w-full gap-7 rounded-lg px-1 py-7 shadow-xl backdrop-blur'>
       <CardHeader className='gap-4 px-7'>
@@ -50,9 +52,11 @@ export const LoginForm = () => {
           <ShieldCheckIcon className='size-6' />
         </div>
         <div className='space-y-2'>
-          <CardTitle className='text-2xl leading-tight'>{t`Welcome back`}</CardTitle>
+          <CardTitle className='font-[Georgia,serif] text-2xl leading-tight'>
+            Tizimga kirish
+          </CardTitle>
           <CardDescription className='text-base leading-6'>
-            {t`Sign in to continue managing courses, lessons, and learner progress.`}
+            Kurslar, maslahatlar va o‘quv natijalarini boshqarish uchun ma’lumotlaringizni kiriting.
           </CardDescription>
         </div>
       </CardHeader>
@@ -67,37 +71,68 @@ export const LoginForm = () => {
           >
             <div className='grid gap-3'>
               <form.AppField name='username'>
-                {(field) => <field.Input isRequired label={t`Username`} />}
+                {(field) => <field.Input isRequired label='Telefon yoki login' />}
               </form.AppField>
               <form.AppField name='password'>
-                {(field) => (
-                  <field.PasswordInput isRequired label={t`Password`} placeholder='********' />
-                )}
+                {(field) => <field.PasswordInput isRequired label='Parol' placeholder='********' />}
               </form.AppField>
               <Button
                 className='mt-3 h-11 w-full text-base'
                 type='submit'
                 loading={postLoginMutation.isPending}
               >
-                {t`Login`}
+                Kirish
                 {!postLoginMutation.isPending && <ArrowRightIcon className='size-5' />}
               </Button>
+              <div className='relative my-2 flex items-center gap-3'>
+                <span className='bg-border h-px flex-1' />
+                <span className='text-muted-foreground flex items-center gap-1.5 text-[11px] font-bold tracking-[0.12em] uppercase'>
+                  <FlaskConicalIcon className='size-3.5' /> Demo kirish
+                </span>
+                <span className='bg-border h-px flex-1' />
+              </div>
+              <div className='grid grid-cols-3 gap-2'>
+                <Button
+                  className='h-auto rounded-xl py-2.5 text-xs'
+                  type='button'
+                  variant='outline'
+                  onClick={() => void openDemo('/student/dashboard')}
+                >
+                  Tinglovchi
+                </Button>
+                <Button
+                  className='h-auto rounded-xl py-2.5 text-xs'
+                  type='button'
+                  variant='outline'
+                  onClick={() => void openDemo('/teacher/dashboard')}
+                >
+                  Ekspert
+                </Button>
+                <Button
+                  className='h-auto rounded-xl py-2.5 text-xs'
+                  type='button'
+                  variant='outline'
+                  onClick={() => void openDemo('/admin/dashboard')}
+                >
+                  Admin
+                </Button>
+              </div>
               <p className='text-muted-foreground mt-2 text-center text-xs leading-5'>
-                {t`By continuing, you acknowledge the`}{' '}
+                Davom etish orqali{' '}
                 <Link
                   className='text-foreground font-medium underline underline-offset-4'
                   to='/terms'
                 >
-                  {t`Terms of Use`}
+                  Foydalanish shartlari
                 </Link>{' '}
-                {t`and`}{' '}
+                va{' '}
                 <Link
                   className='text-foreground font-medium underline underline-offset-4'
                   to='/privacy'
                 >
-                  {t`Privacy Policy`}
+                  Maxfiylik siyosati
                 </Link>
-                .
+                ga rozilik bildirasiz.
               </p>
             </div>
           </form>

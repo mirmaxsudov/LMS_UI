@@ -2,162 +2,90 @@ import { msg } from '@lingui/core/macro';
 import {
   AwardIcon,
   BadgeInfoIcon,
-  BarChart3Icon,
   BellIcon,
   BookOpenTextIcon,
-  BoxesIcon,
+  Building2Icon,
   CalendarCheckIcon,
-  CalendarClockIcon,
   CalendarDaysIcon,
-  ClapperboardIcon,
+  ClipboardCheckIcon,
   FileQuestionIcon,
-  FileTextIcon,
+  FileSearchIcon,
+  GraduationCapIcon,
   KeyRoundIcon,
-  ListTreeIcon,
+  LayoutDashboardIcon,
   ListVideoIcon,
   MegaphoneIcon,
-  SchoolIcon,
   ShieldCheckIcon,
-  User2Icon,
+  UserRoundCheckIcon,
   UsersIcon,
   UsersRoundIcon
 } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
 
-export const useAdminSidebarData = () => {
+export const getAdminSidebarData = () => {
   const sidebarData: SidebarData = {
     navGroups: [
       {
-        title: msg`LMS`,
+        title: msg`Nazorat markazi`,
         items: [
-          {
-            title: msg`Courses`,
-            url: '/admin/courses',
-            icon: BookOpenTextIcon
-          },
-          {
-            title: msg`Course sections`,
-            url: '/admin/course-sections',
-            icon: ListTreeIcon
-          },
-          {
-            title: msg`Online courses`,
-            url: '/admin/online-courses',
-            icon: ClapperboardIcon
-          },
-          {
-            title: msg`Groups`,
-            url: '/admin/groups',
-            icon: BoxesIcon
-          },
-          {
-            title: msg`Lessons`,
-            url: '/admin/lessons',
-            icon: ListVideoIcon
-          },
-          {
-            title: msg`Lesson sessions`,
-            url: '/admin/lesson-sessions',
-            icon: CalendarClockIcon
-          },
-          {
-            title: msg`Schedule`,
-            url: '/admin/schedule',
-            icon: CalendarDaysIcon
-          },
-          {
-            title: msg`Assignments`,
-            url: '/admin/assignments',
-            icon: FileTextIcon
-          },
-          {
-            title: msg`Quizzes`,
-            url: '/admin/quizzes',
-            icon: FileQuestionIcon
-          },
-          {
-            title: msg`Attendance`,
-            url: '/admin/attendance',
-            icon: CalendarCheckIcon
-          },
-          {
-            title: msg`Gradebook`,
-            url: '/admin/gradebook',
-            icon: AwardIcon
-          }
+          { title: msg`Boshqaruv paneli`, url: '/admin/dashboard', icon: LayoutDashboardIcon }
         ]
       },
       {
-        title: msg`ManaManagement`,
+        title: msg`O'quv jarayoni`,
+        items: [
+          {
+            title: msg`Kurs arizalari`,
+            url: '/admin/assignments',
+            icon: ClipboardCheckIcon,
+            badge: 24
+          },
+          {
+            title: msg`Hujjatlar tekshiruvi`,
+            url: '/admin/gradebook',
+            icon: FileSearchIcon,
+            badge: 11
+          },
+          { title: msg`Oflayn qatnashuv`, url: '/admin/attendance', icon: CalendarCheckIcon },
+          { title: msg`O'quv taqvimi`, url: '/admin/schedule', icon: CalendarDaysIcon },
+          { title: msg`Sertifikatlar`, url: '/admin/certificates', icon: AwardIcon, badge: 7 }
+        ]
+      },
+      {
+        title: msg`Kontent`,
+        items: [
+          { title: msg`Kurslar`, url: '/admin/courses', icon: BookOpenTextIcon },
+          { title: msg`Kurs dasturi`, url: '/admin/online-courses', icon: ListVideoIcon },
+          { title: msg`Testlar`, url: '/admin/quizzes', icon: FileQuestionIcon },
+          { title: msg`E'lonlar`, url: '/admin/announcements', icon: MegaphoneIcon }
+        ]
+      },
+      {
+        title: msg`Boshqaruv`,
         items: [
           {
             icon: UsersIcon,
-            title: msg`Users`,
+            title: msg`Foydalanuvchilar`,
             items: [
+              { title: msg`Barcha foydalanuvchilar`, url: '/admin/user/all', icon: UsersRoundIcon },
+              { title: msg`Tinglovchilar`, url: '/admin/user/students', icon: GraduationCapIcon },
               {
-                title: msg`All users`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                url: '/admin/user/all',
-                icon: UsersRoundIcon
-              },
-              {
-                title: msg`Teachers`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                icon: UsersIcon,
-                url: '/admin/user/teachers'
-              },
-              {
-                title: msg`Students`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                icon: User2Icon,
-                url: '/admin/user/students'
-              },
-              {
-                title: msg`Parents`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                icon: UsersRoundIcon,
-                url: '/admin/user/parents'
+                title: msg`Ekspert va o'qituvchilar`,
+                url: '/admin/user/teachers',
+                icon: UserRoundCheckIcon
               }
             ]
           },
+          { title: msg`Hududlar va markazlar`, url: '/admin/rooms', icon: Building2Icon },
+          { title: msg`Murojaatlar`, url: '/admin/notifications', icon: BellIcon, badge: 9 },
           {
             icon: BadgeInfoIcon,
-            title: msg`Access control`,
+            title: msg`Ruxsatlar`,
             items: [
-              {
-                title: msg`Roles`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                url: '/admin/roles',
-                icon: ShieldCheckIcon
-              },
-              {
-                title: msg`Permissions`,
-                allowedRoles: ['SUPER_ADMIN', 'ADMIN'],
-                url: '/admin/permissions',
-                icon: KeyRoundIcon
-              }
+              { title: msg`Rollar`, url: '/admin/roles', icon: ShieldCheckIcon },
+              { title: msg`Permissionlar`, url: '/admin/permissions', icon: KeyRoundIcon }
             ]
-          },
-          {
-            title: msg`Reports`,
-            url: '/admin/reports',
-            icon: BarChart3Icon
-          },
-          {
-            title: msg`Rooms`,
-            url: '/admin/rooms',
-            icon: SchoolIcon
-          },
-          {
-            title: msg`Notifications`,
-            url: '/admin/notifications',
-            icon: BellIcon
-          },
-          {
-            title: msg`Announcements`,
-            url: '/admin/announcements',
-            icon: MegaphoneIcon
           }
         ]
       }

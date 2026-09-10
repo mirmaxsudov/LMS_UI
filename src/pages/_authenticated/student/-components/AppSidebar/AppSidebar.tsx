@@ -1,8 +1,9 @@
 import { useLingui } from '@lingui/react/macro';
 import { Link, useLocation } from '@tanstack/react-router';
-import { GraduationCapIcon, LogOutIcon, PanelLeftOpenIcon, SettingsIcon } from 'lucide-react';
+import { LogOutIcon, PanelLeftOpenIcon, SettingsIcon } from 'lucide-react';
 import * as React from 'react';
 
+import Logo from '@/../public/images/logo.png';
 import { AlertLogoutDialog } from '@/modules/auth';
 import {
   Sidebar,
@@ -17,13 +18,13 @@ import {
 } from '@/shared/ui/sidebar';
 
 import { AppSidebarNavGroup } from './AppSidebarNavGroup';
-import { useStudentSidebarData } from './useStudentSidebarData';
+import { getStudentSidebarData } from './useStudentSidebarData';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();
   const { open, setOpen, setOpenMobile } = useSidebar();
   const pathname = useLocation().pathname;
-  const sidebarData = useStudentSidebarData();
+  const sidebarData = getStudentSidebarData();
 
   return (
     <Sidebar className='group border-sidebar-border/90 border-r' collapsible='icon' {...props}>
@@ -33,11 +34,16 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
             asChild
             className='w-fit justify-start rounded-xl px-2.5 py-2 group-data-[collapsible=icon]:p-1.5!'
           >
-            <Link to='/student/settings'>
-              <span className='bg-primary text-primary-foreground inline-flex size-11 items-center justify-center rounded-2xl'>
-                <GraduationCapIcon className='size-5' />
+            <Link to='/student/dashboard'>
+              <img alt='' className='size-11 rounded-2xl object-cover shadow-sm' src={Logo} />
+              <span className='min-w-0 leading-tight'>
+                <span className='block truncate font-[Georgia,serif] text-base font-semibold'>
+                  Suvchilar maktabi
+                </span>
+                <span className='text-muted-foreground block text-[10px] font-bold tracking-[0.12em] uppercase'>
+                  Tinglovchi
+                </span>
               </span>
-              <span className='text-xl font-semibold tracking-tight'>AGRO LMS</span>
             </Link>
           </SidebarMenuButton>
           {open && (

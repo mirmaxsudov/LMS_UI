@@ -1,131 +1,107 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { SearchIcon } from 'lucide-react';
-import { useMemo, useState } from 'react';
-
-import { GeneralError, NotFoundError } from '@/shared/ui/errors';
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@/shared/ui/input-group';
-import { PageHeader, PageLoading } from '@/shared/ui/page';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/shared/ui/select';
+  AwardIcon,
+  CalendarClockIcon,
+  CheckCircle2Icon,
+  MapPinIcon,
+  PlayCircleIcon,
+  UserRoundIcon
+} from 'lucide-react';
 
-import type { CourseStatus } from './-components/types';
+import { AgroPageIntro, DemoStatus, learnerCourses } from '@/modules/agro-demo';
+import { Button } from '@/shared/ui/button';
+import { Card, CardContent } from '@/shared/ui/card';
+import { PageHeader } from '@/shared/ui/page';
+import { Progress } from '@/shared/ui/progress';
 
-import { CourseCard } from './-components/CourseCard';
-import { CoursesOverview } from './-components/CoursesOverview';
-import { studentCourses } from './-components/mock-data';
+const StudentCoursesRoutePage = () => (
+  <>
+    <PageHeader />
+    <main className='space-y-7 px-4 pb-24 sm:px-6'>
+      <AgroPageIntro
+        title='Mening kurslarim'
+        actions={
+          <Button asChild className='rounded-full' variant='outline'>
+            <Link to='/student/course-catalog'>Yangi kurs topish</Link>
+          </Button>
+        }
+        description='Faol, rejalashtirilgan va tugallangan kurslaringiz. Keyingi dars faqat oldingi video va test bajarilganda ochiladi.'
+        eyebrow='Shaxsiy ta’lim yo‘li'
+      />
 
-const levels = [...new Set(studentCourses.map((course) => course.level))];
+      <section className='grid gap-5 xl:grid-cols-3'>
+        {learnerCourses.map((course) => (
+          <Card
+            key={course.id}
+            className='border-border/80 overflow-hidden py-0 shadow-[0_18px_50px_rgba(23,33,27,0.07)]'
+          >
+            <div className='public-water-lines relative min-h-40 bg-[#153f38] p-5 text-white'>
+              <div className='absolute -right-10 -bottom-14 size-40 rounded-full bg-[#65b9ce]/25 blur-xl' />
+              <div className='relative flex h-full flex-col justify-between gap-7'>
+                <div className='flex items-start justify-between gap-3'>
+                  <DemoStatus tone={course.progress === 100 ? 'green' : course.tone}>
+                    {course.progress === 100 ? 'Yakunlangan' : 'Jarayonda'}
+                  </DemoStatus>
+                  <span className='text-sm font-semibold text-white/75'>{course.format}</span>
+                </div>
+                <h2 className='font-[Georgia,serif] text-2xl leading-tight font-semibold'>
+                  {course.title}
+                </h2>
+              </div>
+            </div>
+            <CardContent className='space-y-5 p-5'>
+              <div>
+                <div className='flex justify-between text-sm'>
+                  <span className='text-muted-foreground'>Kurs progressi</span>
+                  <span className='font-semibold'>{course.progress}%</span>
+                </div>
+                <Progress className='mt-2' value={course.progress} />
+                <p className='text-muted-foreground mt-2 text-xs'>
+                  {course.completedLessons}/{course.totalLessons} dars yakunlangan
+                </p>
+              </div>
+              <div className='space-y-2.5 border-t pt-4 text-sm'>
+                <p className='text-muted-foreground flex items-center gap-2'>
+                  <UserRoundIcon className='text-primary size-4' /> {course.instructor}
+                </p>
+                <p className='text-muted-foreground flex items-center gap-2'>
+                  <CalendarClockIcon className='text-primary size-4' /> {course.nextDate}
+                </p>
+                {course.format === 'Oflayn' && (
+                  <p className='text-muted-foreground flex items-center gap-2'>
+                    <MapPinIcon className='text-primary size-4' /> Sirdaryo o‘quv markazi
+                  </p>
+                )}
+              </div>
+              {course.progress === 100 ? (
+                <Button asChild className='w-full rounded-full' variant='outline'>
+                  <Link to='/student/gradebook'>
+                    <AwardIcon /> Sertifikatni ko‘rish
+                  </Link>
+                </Button>
+              ) : (
+                <Button asChild className='w-full rounded-full'>
+                  <Link to='/student/online-courses'>
+                    <PlayCircleIcon /> Darsni davom ettirish
+                  </Link>
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+      </section>
 
-const statusOptions: { label: string; value: 'all' | CourseStatus }[] = [
-  { label: 'All statuses', value: 'all' },
-  { label: 'In progress', value: 'active' },
-  { label: 'Completed', value: 'completed' },
-  { label: 'Upcoming', value: 'upcoming' }
-];
-
-const levelLabel: Record<CourseLevel, string> = {
-  BEGINNER: 'Beginner',
-  INTERMEDIATE: 'Intermediate',
-  ADVANCED: 'Advanced'
-};
-
-const StudentCoursesRoutePage = () => {
-  const [search, setSearch] = useState('');
-  const [status, setStatus] = useState<'all' | CourseStatus>('all');
-  const [level, setLevel] = useState<'all' | CourseLevel>('all');
-
-  const filteredCourses = useMemo(() => {
-    const query = search.trim().toLowerCase();
-
-    return studentCourses.filter((course) => {
-      const matchesStatus = status === 'all' || course.status === status;
-      const matchesLevel = level === 'all' || course.level === level;
-      const matchesSearch =
-        query === '' ||
-        course.title.toLowerCase().includes(query) ||
-        course.teacher.name.toLowerCase().includes(query);
-
-      return matchesStatus && matchesLevel && matchesSearch;
-    });
-  }, [search, status, level]);
-
-  return (
-    <>
-      <PageHeader />
-      <div className='flex flex-col gap-6 p-6'>
-        <div>
-          <h1 className='text-2xl font-semibold'>My courses</h1>
-          <p className='text-muted-foreground text-sm'>
-            All the courses you&#39;re enrolled in, with schedules, teachers and progress
-          </p>
-        </div>
-
-        <CoursesOverview />
-
-        <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-          <InputGroup className='sm:max-w-xs'>
-            <InputGroupInput
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder='Search by course or teacher'
-            />
-            <InputGroupAddon>
-              <SearchIcon />
-            </InputGroupAddon>
-          </InputGroup>
-          <div className='flex gap-2'>
-            <Select value={status} onValueChange={(value: 'all' | CourseStatus) => setStatus(value)}>
-              <SelectTrigger className='w-full sm:w-44'>
-                <SelectValue placeholder='Status' />
-              </SelectTrigger>
-              <SelectContent>
-                {statusOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Select value={level} onValueChange={(value: 'all' | CourseLevel) => setLevel(value)}>
-              <SelectTrigger className='w-full sm:w-40'>
-                <SelectValue placeholder='Level' />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value='all'>All levels</SelectItem>
-                {levels.map((item) => (
-                  <SelectItem key={item} value={item}>
-                    {levelLabel[item]}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        {filteredCourses.length > 0 ? (
-          <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
-            {filteredCourses.map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
-          </div>
-        ) : (
-          <div className='text-muted-foreground rounded-lg border py-12 text-center text-sm'>
-            No courses match your search.
-          </div>
-        )}
+      <div className='flex items-start gap-3 rounded-2xl border bg-white p-4 text-sm'>
+        <CheckCircle2Icon className='text-success mt-0.5 size-5 shrink-0' />
+        <p className='text-muted-foreground leading-6'>
+          Video to‘liq ko‘rilgach dars testi ochiladi. Testdan muvaffaqiyatli o‘tilganda keyingi
+          dars avtomatik faollashadi.
+        </p>
       </div>
-    </>
-  );
-};
+    </main>
+  </>
+);
 
 export const Route = createFileRoute('/_authenticated/student/courses/')({
-  component: StudentCoursesRoutePage,
-  pendingComponent: PageLoading,
-  notFoundComponent: NotFoundError,
-  errorComponent: GeneralError
+  component: StudentCoursesRoutePage
 });

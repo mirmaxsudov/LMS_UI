@@ -86,8 +86,10 @@ import { Route as AuthenticatedAdminLessonsIndexRouteImport } from './pages/_aut
 import { Route as AuthenticatedAdminLessonSessionsIndexRouteImport } from './pages/_authenticated/admin/lesson-sessions/index'
 import { Route as AuthenticatedAdminGroupsIndexRouteImport } from './pages/_authenticated/admin/groups/index'
 import { Route as AuthenticatedAdminGradebookIndexRouteImport } from './pages/_authenticated/admin/gradebook/index'
+import { Route as AuthenticatedAdminDashboardIndexRouteImport } from './pages/_authenticated/admin/dashboard/index'
 import { Route as AuthenticatedAdminCoursesIndexRouteImport } from './pages/_authenticated/admin/courses/index'
 import { Route as AuthenticatedAdminCourseSectionsIndexRouteImport } from './pages/_authenticated/admin/course-sections/index'
+import { Route as AuthenticatedAdminCertificatesIndexRouteImport } from './pages/_authenticated/admin/certificates/index'
 import { Route as AuthenticatedAdminAttendanceIndexRouteImport } from './pages/_authenticated/admin/attendance/index'
 import { Route as AuthenticatedAdminAssignmentsIndexRouteImport } from './pages/_authenticated/admin/assignments/index'
 import { Route as AuthenticatedAdminAnnouncementsIndexRouteImport } from './pages/_authenticated/admin/announcements/index'
@@ -550,6 +552,12 @@ const AuthenticatedAdminGradebookIndexRoute =
     path: '/gradebook/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminDashboardIndexRoute =
+  AuthenticatedAdminDashboardIndexRouteImport.update({
+    id: '/dashboard/',
+    path: '/dashboard/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminCoursesIndexRoute =
   AuthenticatedAdminCoursesIndexRouteImport.update({
     id: '/courses/',
@@ -560,6 +568,12 @@ const AuthenticatedAdminCourseSectionsIndexRoute =
   AuthenticatedAdminCourseSectionsIndexRouteImport.update({
     id: '/course-sections/',
     path: '/course-sections/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminCertificatesIndexRoute =
+  AuthenticatedAdminCertificatesIndexRouteImport.update({
+    id: '/certificates/',
+    path: '/certificates/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
 const AuthenticatedAdminAttendanceIndexRoute =
@@ -621,8 +635,10 @@ export interface FileRoutesByFullPath {
   '/admin/announcements': typeof AuthenticatedAdminAnnouncementsIndexRoute
   '/admin/assignments': typeof AuthenticatedAdminAssignmentsIndexRoute
   '/admin/attendance': typeof AuthenticatedAdminAttendanceIndexRoute
+  '/admin/certificates': typeof AuthenticatedAdminCertificatesIndexRoute
   '/admin/course-sections': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/admin/courses': typeof AuthenticatedAdminCoursesIndexRoute
+  '/admin/dashboard': typeof AuthenticatedAdminDashboardIndexRoute
   '/admin/gradebook': typeof AuthenticatedAdminGradebookIndexRoute
   '/admin/groups': typeof AuthenticatedAdminGroupsIndexRoute
   '/admin/lesson-sessions': typeof AuthenticatedAdminLessonSessionsIndexRoute
@@ -705,8 +721,10 @@ export interface FileRoutesByTo {
   '/admin/announcements': typeof AuthenticatedAdminAnnouncementsIndexRoute
   '/admin/assignments': typeof AuthenticatedAdminAssignmentsIndexRoute
   '/admin/attendance': typeof AuthenticatedAdminAttendanceIndexRoute
+  '/admin/certificates': typeof AuthenticatedAdminCertificatesIndexRoute
   '/admin/course-sections': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/admin/courses': typeof AuthenticatedAdminCoursesIndexRoute
+  '/admin/dashboard': typeof AuthenticatedAdminDashboardIndexRoute
   '/admin/gradebook': typeof AuthenticatedAdminGradebookIndexRoute
   '/admin/groups': typeof AuthenticatedAdminGroupsIndexRoute
   '/admin/lesson-sessions': typeof AuthenticatedAdminLessonSessionsIndexRoute
@@ -794,8 +812,10 @@ export interface FileRoutesById {
   '/_authenticated/admin/announcements/': typeof AuthenticatedAdminAnnouncementsIndexRoute
   '/_authenticated/admin/assignments/': typeof AuthenticatedAdminAssignmentsIndexRoute
   '/_authenticated/admin/attendance/': typeof AuthenticatedAdminAttendanceIndexRoute
+  '/_authenticated/admin/certificates/': typeof AuthenticatedAdminCertificatesIndexRoute
   '/_authenticated/admin/course-sections/': typeof AuthenticatedAdminCourseSectionsIndexRoute
   '/_authenticated/admin/courses/': typeof AuthenticatedAdminCoursesIndexRoute
+  '/_authenticated/admin/dashboard/': typeof AuthenticatedAdminDashboardIndexRoute
   '/_authenticated/admin/gradebook/': typeof AuthenticatedAdminGradebookIndexRoute
   '/_authenticated/admin/groups/': typeof AuthenticatedAdminGroupsIndexRoute
   '/_authenticated/admin/lesson-sessions/': typeof AuthenticatedAdminLessonSessionsIndexRoute
@@ -883,8 +903,10 @@ export interface FileRouteTypes {
     | '/admin/announcements'
     | '/admin/assignments'
     | '/admin/attendance'
+    | '/admin/certificates'
     | '/admin/course-sections'
     | '/admin/courses'
+    | '/admin/dashboard'
     | '/admin/gradebook'
     | '/admin/groups'
     | '/admin/lesson-sessions'
@@ -967,8 +989,10 @@ export interface FileRouteTypes {
     | '/admin/announcements'
     | '/admin/assignments'
     | '/admin/attendance'
+    | '/admin/certificates'
     | '/admin/course-sections'
     | '/admin/courses'
+    | '/admin/dashboard'
     | '/admin/gradebook'
     | '/admin/groups'
     | '/admin/lesson-sessions'
@@ -1055,8 +1079,10 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/announcements/'
     | '/_authenticated/admin/assignments/'
     | '/_authenticated/admin/attendance/'
+    | '/_authenticated/admin/certificates/'
     | '/_authenticated/admin/course-sections/'
     | '/_authenticated/admin/courses/'
+    | '/_authenticated/admin/dashboard/'
     | '/_authenticated/admin/gradebook/'
     | '/_authenticated/admin/groups/'
     | '/_authenticated/admin/lesson-sessions/'
@@ -1680,6 +1706,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminGradebookIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/dashboard/': {
+      id: '/_authenticated/admin/dashboard/'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AuthenticatedAdminDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/courses/': {
       id: '/_authenticated/admin/courses/'
       path: '/courses'
@@ -1692,6 +1725,13 @@ declare module '@tanstack/react-router' {
       path: '/course-sections'
       fullPath: '/admin/course-sections'
       preLoaderRoute: typeof AuthenticatedAdminCourseSectionsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/certificates/': {
+      id: '/_authenticated/admin/certificates/'
+      path: '/certificates'
+      fullPath: '/admin/certificates'
+      preLoaderRoute: typeof AuthenticatedAdminCertificatesIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
     '/_authenticated/admin/attendance/': {
@@ -1762,8 +1802,10 @@ interface AuthenticatedAdminRouteRouteChildren {
   AuthenticatedAdminAnnouncementsIndexRoute: typeof AuthenticatedAdminAnnouncementsIndexRoute
   AuthenticatedAdminAssignmentsIndexRoute: typeof AuthenticatedAdminAssignmentsIndexRoute
   AuthenticatedAdminAttendanceIndexRoute: typeof AuthenticatedAdminAttendanceIndexRoute
+  AuthenticatedAdminCertificatesIndexRoute: typeof AuthenticatedAdminCertificatesIndexRoute
   AuthenticatedAdminCourseSectionsIndexRoute: typeof AuthenticatedAdminCourseSectionsIndexRoute
   AuthenticatedAdminCoursesIndexRoute: typeof AuthenticatedAdminCoursesIndexRoute
+  AuthenticatedAdminDashboardIndexRoute: typeof AuthenticatedAdminDashboardIndexRoute
   AuthenticatedAdminGradebookIndexRoute: typeof AuthenticatedAdminGradebookIndexRoute
   AuthenticatedAdminGroupsIndexRoute: typeof AuthenticatedAdminGroupsIndexRoute
   AuthenticatedAdminLessonSessionsIndexRoute: typeof AuthenticatedAdminLessonSessionsIndexRoute
@@ -1791,9 +1833,13 @@ const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren
       AuthenticatedAdminAssignmentsIndexRoute,
     AuthenticatedAdminAttendanceIndexRoute:
       AuthenticatedAdminAttendanceIndexRoute,
+    AuthenticatedAdminCertificatesIndexRoute:
+      AuthenticatedAdminCertificatesIndexRoute,
     AuthenticatedAdminCourseSectionsIndexRoute:
       AuthenticatedAdminCourseSectionsIndexRoute,
     AuthenticatedAdminCoursesIndexRoute: AuthenticatedAdminCoursesIndexRoute,
+    AuthenticatedAdminDashboardIndexRoute:
+      AuthenticatedAdminDashboardIndexRoute,
     AuthenticatedAdminGradebookIndexRoute:
       AuthenticatedAdminGradebookIndexRoute,
     AuthenticatedAdminGroupsIndexRoute: AuthenticatedAdminGroupsIndexRoute,

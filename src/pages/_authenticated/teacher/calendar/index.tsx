@@ -1,6 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
-import { endOfMonth, startOfMonth } from 'date-fns';
 import { useMemo } from 'react';
 
 import {
@@ -12,25 +10,13 @@ import {
   useCalendarContext,
   WeekCellsHeight
 } from '@/modules/event-calendar';
-import { getLessonSessionsQueryOptions } from '@/modules/lesson-session';
-import { formatDateToString } from '@/shared/lib/format';
 import { PageContent } from '@/shared/ui/page';
 
 const TeacherCalendarView = () => {
   const { currentDate, setCurrentDate } = useCalendarContext();
 
-  const from = formatDateToString(startOfMonth(currentDate));
-  const to = formatDateToString(endOfMonth(currentDate));
-
-  const lessonSessionsQuery = useQuery(
-    getLessonSessionsQueryOptions({
-      filters: { from, to },
-      size: 1000
-    })
-  );
-
   const events = useMemo<CalendarEvent[]>(() => {
-    const sessions = lessonSessionsQuery.data?.data.results ?? [];
+    const sessions = [] as LessonSession[];
 
     return sessions.map((session) => ({
       id: session.id,
@@ -40,7 +26,7 @@ const TeacherCalendarView = () => {
       start_time: session.startTime.slice(11, 16),
       end_time: session.endTime.slice(11, 16)
     }));
-  }, [lessonSessionsQuery.data]);
+  }, []);
 
   return (
     <div

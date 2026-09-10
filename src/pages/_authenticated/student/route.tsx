@@ -1,6 +1,7 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
 
+import { ExpertChatButton } from '@/modules/agro-demo';
 import { SearchProvider } from '@/shared/context';
 import { SidebarInset, SidebarProvider } from '@/shared/ui/sidebar';
 import { Spinner } from '@/shared/ui/spinner';
@@ -14,6 +15,7 @@ const StudentLayout = () => {
         <AppSidebar />
         <SidebarInset className='bg-background'>
           <Outlet />
+          <ExpertChatButton />
         </SidebarInset>
       </SidebarProvider>
     </SearchProvider>

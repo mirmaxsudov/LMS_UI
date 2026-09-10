@@ -1,133 +1,51 @@
 import { msg } from '@lingui/core/macro';
 import {
-  BookOpenCheckIcon,
+  AwardIcon,
   BookOpenTextIcon,
-  CalendarClockIcon,
   CalendarDaysIcon,
-  ChartNoAxesColumnIncreasingIcon,
-  ClapperboardIcon,
-  ClipboardCheckIcon,
+  ClipboardListIcon,
   FileQuestionIcon,
-  FolderOpenIcon,
   GraduationCapIcon,
   LayoutDashboardIcon,
-  ListVideoIcon,
-  MegaphoneIcon,
   MessageSquareTextIcon,
-  NotebookTextIcon,
-  SettingsIcon,
-  UsersIcon
+  SettingsIcon
 } from 'lucide-react';
 
 import type { SidebarData } from '@/shared/ui/page/types';
 
-export const useStudentSidebarData = () => {
+export const getStudentSidebarData = () => {
   const sidebarData: SidebarData = {
     navGroups: [
       {
-        title: msg`Overview`,
+        title: msg`Asosiy`,
         items: [
-          {
-            title: msg`Dashboard`,
-            url: '/student/dashboard',
-            icon: LayoutDashboardIcon
-          },
-          {
-            title: msg`My progress`,
-            url: '/student/progress',
-            icon: ChartNoAxesColumnIncreasingIcon
-          }
+          { title: msg`Bosh sahifa`, url: '/student/dashboard', icon: LayoutDashboardIcon },
+          { title: msg`Kurslar katalogi`, url: '/student/course-catalog', icon: BookOpenTextIcon }
         ]
       },
       {
-        title: msg`Learning`,
+        title: msg`Ta'lim jarayoni`,
+        items: [
+          { title: msg`Mening kurslarim`, url: '/student/courses', icon: GraduationCapIcon },
+          { title: msg`O'quv taqvimi`, url: '/student/schedule', icon: CalendarDaysIcon },
+          { title: msg`Testlar`, url: '/student/quizzes', icon: FileQuestionIcon }
+        ]
+      },
+      {
+        title: msg`Mening ma'lumotlarim`,
         items: [
           {
-            title: msg`My courses`,
-            url: '/student/courses',
-            icon: GraduationCapIcon
-          },
-          {
-            title: msg`Online courses`,
-            url: '/student/online-courses',
-            icon: ClapperboardIcon
-          },
-          {
-            title: msg`Lessons`,
-            url: '/student/lessons',
-            icon: ListVideoIcon
-          },
-          {
-            title: msg`Schedule`,
-            url: '/student/schedule',
-            icon: CalendarClockIcon
-          },
-          {
-            title: msg`Attendance`,
-            url: '/student/attendance',
-            icon: ClipboardCheckIcon
-          },
-          {
-            title: msg`Course catalog`,
-            url: '/student/course-catalog',
-            icon: BookOpenTextIcon
-          },
-          {
-            title: msg`Assignments`,
+            title: msg`Arizalar va hujjatlar`,
             url: '/student/assignments',
-            icon: NotebookTextIcon
+            icon: ClipboardListIcon
           },
-          {
-            title: msg`Quizzes`,
-            url: '/student/quizzes',
-            icon: FileQuestionIcon
-          },
-          {
-            title: msg`Gradebook`,
-            url: '/student/gradebook',
-            icon: BookOpenCheckIcon
-          },
-          {
-            title: msg`Materials`,
-            url: '/student/materials',
-            icon: FolderOpenIcon
-          }
+          { title: msg`Sertifikatlar`, url: '/student/gradebook', icon: AwardIcon },
+          { title: msg`Murojaatlar`, url: '/student/messages', icon: MessageSquareTextIcon }
         ]
       },
       {
-        title: msg`Communication`,
-        items: [
-          {
-            title: msg`Announcements`,
-            url: '/student/announcements',
-            icon: MegaphoneIcon
-          },
-          {
-            title: msg`Messages`,
-            url: '/student/messages',
-            icon: MessageSquareTextIcon
-          },
-          {
-            title: msg`Calendar`,
-            url: '/student/calendar',
-            icon: CalendarDaysIcon
-          },
-          {
-            title: msg`Study groups`,
-            url: '/student/study-groups',
-            icon: UsersIcon
-          }
-        ]
-      },
-      {
-        title: msg`Account`,
-        items: [
-          {
-            title: msg`Settings`,
-            url: '/student/settings',
-            icon: SettingsIcon
-          }
-        ]
+        title: msg`Akkaunt`,
+        items: [{ title: msg`Profil va sozlamalar`, url: '/student/settings', icon: SettingsIcon }]
       }
     ]
   };

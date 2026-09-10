@@ -5,11 +5,10 @@ import { useLingui } from '@lingui/react/macro';
 import { Link, useLocation } from '@tanstack/react-router';
 import { ChevronRight } from 'lucide-react';
 
-import type { NavCollapsible, NavGroup, NavItem, NavLink } from '@/shared/ui/page/types.ts';
+import type { NavCollapsible, NavGroup, NavItem, NavLink } from '@/shared/ui/page/types';
 
-import { usePermission } from '@/modules/auth/permissoin';
-import { Badge } from '@/shared/ui/badge.tsx';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/shared/ui/collapsible.tsx';
+import { Badge } from '@/shared/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/shared/ui/collapsible';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +16,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/shared/ui/dropdown-menu.tsx';
+} from '@/shared/ui/dropdown-menu';
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -28,18 +27,16 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   useSidebar
-} from '@/shared/ui/sidebar.tsx';
+} from '@/shared/ui/sidebar';
 
-export const AppSidebarNavGroup = ({ title, items, allowedRoles }: NavGroup) => {
+export const AppSidebarNavGroup = ({ title, items }: NavGroup) => {
   const { t } = useLingui();
   const { state } = useSidebar();
-  const { hasRole } = usePermission();
-
   const href = useLocation({ select: (location) => location.href });
 
-  const filteredItems = items.filter((item) => !item.allowedRoles || hasRole(item.allowedRoles));
+  const filteredItems = items;
 
-  if ((allowedRoles && !hasRole(allowedRoles)) || !filteredItems.length) return;
+  if (!filteredItems.length) return;
 
   return (
     <SidebarGroup>

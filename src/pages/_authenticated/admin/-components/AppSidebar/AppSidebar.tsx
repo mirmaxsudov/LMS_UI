@@ -18,13 +18,13 @@ import {
 } from '@/shared/ui/sidebar';
 
 import { AppSidebarNavGroup } from './AppSidebarNavGroup';
-import { useAdminSidebarData } from './useAdminSidebarData';
+import { getAdminSidebarData } from './useAdminSidebarData';
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const { t } = useLingui();
   const { open, setOpen, setOpenMobile } = useSidebar();
   const pathname = useLocation().pathname;
-  const sidebarData = useAdminSidebarData();
+  const sidebarData = getAdminSidebarData();
 
   return (
     <Sidebar className='group border-sidebar-border/90 border-r' collapsible='icon' {...props}>
@@ -34,11 +34,16 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
             asChild
             className='w-fit justify-start rounded-xl px-2.5 py-2 group-data-[collapsible=icon]:p-1.5!'
           >
-            <Link to='/admin/settings'>
-              <span className='inline-flex size-11 items-center justify-center rounded-2xl'>
-                <img alt='AGRO LMS' className='size-full' src={Logo} />
+            <Link to='/admin/dashboard'>
+              <img alt='' className='size-11 rounded-2xl object-cover shadow-sm' src={Logo} />
+              <span className='min-w-0 leading-tight'>
+                <span className='block truncate font-[Georgia,serif] text-base font-semibold'>
+                  Suvchilar maktabi
+                </span>
+                <span className='text-muted-foreground block text-[10px] font-bold tracking-[0.12em] uppercase'>
+                  Administrator
+                </span>
               </span>
-              <span className='text-xl font-semibold tracking-tight'>AGRO LMS</span>
             </Link>
           </SidebarMenuButton>
           {open && (

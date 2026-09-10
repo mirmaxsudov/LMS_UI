@@ -1,8 +1,10 @@
 import type React from 'react';
 
 import { useLingui } from '@lingui/react/macro';
+import { useRouter } from '@tanstack/react-router';
+import Cookies from 'js-cookie';
 
-import { useAuth } from '@/modules/auth';
+import { COOKIES } from '@/shared/constants';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,15 +15,20 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@/shared/ui/alert-dialog.tsx';
+} from '@/shared/ui/alert-dialog';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const AlertLogoutDialog = ({ children }: Props) => {
-  const { onLogout } = useAuth();
   const { t } = useLingui();
+  const router = useRouter();
+
+  const onLogout = () => {
+    Cookies.remove(COOKIES.ACCESS_TOKEN);
+    void router.navigate({ to: '/login' });
+  };
 
   return (
     <AlertDialog>
@@ -30,8 +37,7 @@ export const AlertLogoutDialog = ({ children }: Props) => {
         <AlertDialogHeader>
           <AlertDialogTitle>{t`Are you sure to logout?`}</AlertDialogTitle>
           <AlertDialogDescription>
-            {`This action cannot be undone. This will permanently delete your account and remove
-              your data from our servers.`}
+            Joriy seans yakunlanadi va siz kirish sahifasiga qaytasiz.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

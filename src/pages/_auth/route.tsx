@@ -1,25 +1,16 @@
-import { useLingui } from '@lingui/react/macro';
-import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
-import { BookOpenCheckIcon, GraduationCapIcon } from 'lucide-react';
+import { BookOpenCheckIcon, DropletsIcon } from 'lucide-react';
 
 import Logo from '@/../public/images/logo.png';
-import { getLoginStatisticQueryOptions } from '@/modules/statistics';
-import { ThemeSwitch } from '@/shared/ui/theme-switch';
 
 import LoginHereImage from '../../../public/images/login/lms-login-hero.png';
 
 const AuthenticatedLayout = () => {
-  const { t } = useLingui();
-
-  const getLoginStatisticSuspenseQuery = useSuspenseQuery(getLoginStatisticQueryOptions());
-  const statistic = getLoginStatisticSuspenseQuery.data.data.data;
-
   return (
     <div className='bg-background grid min-h-svh lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)]'>
       <div className='relative hidden overflow-hidden bg-slate-950 lg:block'>
         <img
-          alt='Learning management dashboard displayed in a modern classroom'
+          alt='Suvchilar maktabi o‘quv muhiti'
           className='absolute inset-0 h-full w-full object-cover object-right'
           src={LoginHereImage}
         />
@@ -27,27 +18,27 @@ const AuthenticatedLayout = () => {
         <div className='absolute inset-x-10 bottom-10 rounded-lg border border-white/15 bg-white/12 p-6 text-white shadow-2xl backdrop-blur-md'>
           <div className='mb-5 flex items-center gap-3'>
             <div className='flex size-11 items-center justify-center rounded-md bg-white/15'>
-              <GraduationCapIcon className='size-6' />
+              <DropletsIcon className='size-6' />
             </div>
             <div>
-              <p className='text-sm font-medium text-white/70'>{t`Learning workspace`}</p>
-              <p className='text-xl font-semibold'>
-                {t`Courses, analytics, and assignments in one place`}
+              <p className='text-sm font-medium text-white/70'>Suvchilar maktabi</p>
+              <p className='font-[Georgia,serif] text-xl font-semibold'>
+                Suv xo‘jaligi bilimlari — amaliy natijalar uchun
               </p>
             </div>
           </div>
           <div className='grid grid-cols-3 gap-3 text-sm'>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>{statistic.activeCourses}</p>
-              <p className='text-white/65'>{t`Active courses`}</p>
+              <p className='text-2xl font-semibold'>24</p>
+              <p className='text-white/65'>Faol kurslar</p>
             </div>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>{statistic.averageCompletionRate}%</p>
-              <p className='text-white/65'>{t`Completion`}</p>
+              <p className='text-2xl font-semibold'>87%</p>
+              <p className='text-white/65'>Yakunlash</p>
             </div>
             <div className='rounded-md bg-white/12 p-3'>
-              <p className='text-2xl font-semibold'>{statistic.totalLearners}</p>
-              <p className='text-white/65'>{t`Learners`}</p>
+              <p className='text-2xl font-semibold'>1 284</p>
+              <p className='text-white/65'>Tinglovchilar</p>
             </div>
           </div>
         </div>
@@ -58,16 +49,18 @@ const AuthenticatedLayout = () => {
             <div className='flex size-9 items-center justify-center rounded-md shadow-sm'>
               <img alt='AGRO LMS Logo' className='size-full' src={Logo} />
             </div>
-            <span>AGRO LMS</span>
+            <span className='font-[Georgia,serif]'>Suvchilar maktabi</span>
           </Link>
-          <ThemeSwitch />
+          <span className='bg-primary/10 text-primary rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase'>
+            Agro LMS
+          </span>
         </div>
         <div className='mx-auto flex w-full max-w-108 flex-1 items-center py-6'>
           <Outlet />
         </div>
         <div className='text-muted-foreground flex items-center justify-center gap-2 text-sm'>
           <BookOpenCheckIcon className='size-4' />
-          <span>{t`Secure access for instructors, students, and administrators`}</span>
+          <span>Tinglovchi, ekspert va administrator uchun himoyalangan kirish</span>
         </div>
       </div>
     </div>
@@ -75,7 +68,5 @@ const AuthenticatedLayout = () => {
 };
 
 export const Route = createFileRoute('/_auth')({
-  component: AuthenticatedLayout,
-  loader: async ({ context: { queryClient } }) =>
-    queryClient.prefetchQuery(getLoginStatisticQueryOptions())
+  component: AuthenticatedLayout
 });

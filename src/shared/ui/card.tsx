@@ -6,7 +6,7 @@ const Card = ({ className, ...props }: React.ComponentProps<'div'>) => {
   return (
     <div
       className={cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+        'bg-card text-card-foreground flex min-w-0 flex-col gap-6 rounded-xl border py-6 shadow-sm',
         className
       )}
       data-slot='card'
@@ -59,7 +59,7 @@ const CardAction = ({ className, ...props }: React.ComponentProps<'div'>) => {
 };
 
 const CardContent = ({ className, ...props }: React.ComponentProps<'div'>) => {
-  return <div className={cn('px-6', className)} data-slot='card-content' {...props} />;
+  return <div className={cn('min-w-0 px-6', className)} data-slot='card-content' {...props} />;
 };
 
 const CardFooter = ({ className, ...props }: React.ComponentProps<'div'>) => {

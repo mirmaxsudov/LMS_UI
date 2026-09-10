@@ -1,20 +1,17 @@
 import { useLingui } from '@lingui/react/macro';
 import { useNavigate } from '@tanstack/react-router';
-import { ArrowRightIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 import React from 'react';
 
-import { usePermission } from '@/modules/auth/permissoin';
-import { useAdminSidebarData } from '@/pages/_authenticated/admin/-components/AppSidebar/useAdminSidebarData';
+import { getAdminSidebarData } from '@/pages/_authenticated/admin/-components/AppSidebar/useAdminSidebarData';
 import { useSearch } from '@/shared/context/search-context';
-import { useTheme } from '@/shared/context/theme-context';
 import {
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
-  CommandSeparator
+  CommandList
 } from '@/shared/ui/command';
 
 import { ScrollArea } from './scroll-area';
@@ -22,9 +19,8 @@ import { ScrollArea } from './scroll-area';
 export const CommandMenu = () => {
   const { t } = useLingui();
   const navigate = useNavigate();
-  const { setTheme } = useTheme();
   const { open, setOpen } = useSearch();
-  const sidebarData = useAdminSidebarData();
+  const sidebarData = getAdminSidebarData();
 
   const runCommand = React.useCallback(
     (command: () => unknown) => {
@@ -34,8 +30,6 @@ export const CommandMenu = () => {
     [setOpen]
   );
 
-  const { hasRole } = usePermission();
-
   return (
     <CommandDialog modal onOpenChange={setOpen} open={open}>
       <CommandInput placeholder='Type a command or search...' />
@@ -43,12 +37,9 @@ export const CommandMenu = () => {
         <ScrollArea className='h-72 pr-1' type='hover'>
           <CommandEmpty>No results found.</CommandEmpty>
           {sidebarData.navGroups.map((group, index) => {
-            const filteredItems = group.items.filter(
-              (item) => !item.allowedRoles || hasRole(item.allowedRoles)
-            );
+            const filteredItems = group.items;
 
-            if ((group.allowedRoles && !hasRole(group.allowedRoles)) || !filteredItems.length)
-              return null;
+            if (!filteredItems.length) return null;
 
             return (
               <CommandGroup key={index} heading={group.title && t(group.title)}>
@@ -87,16 +78,6 @@ export const CommandMenu = () => {
               </CommandGroup>
             );
           })}
-          <CommandSeparator />
-          <CommandGroup heading='Theme'>
-            <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>
-              <SunIcon /> <span>{t`Light`}</span>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>
-              <MoonIcon className='scale-90' />
-              <span>{t`Dark`}</span>
-            </CommandItem>
-          </CommandGroup>
         </ScrollArea>
       </CommandList>
     </CommandDialog>
