@@ -1,6 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
 import Cookies from 'js-cookie';
 import { ArrowRightIcon, ShieldCheckIcon } from 'lucide-react';
 
@@ -82,6 +82,23 @@ export const LoginForm = () => {
                 {t`Login`}
                 {!postLoginMutation.isPending && <ArrowRightIcon className='size-5' />}
               </Button>
+              <p className='text-muted-foreground mt-2 text-center text-xs leading-5'>
+                {t`By continuing, you acknowledge the`}{' '}
+                <Link
+                  className='text-foreground font-medium underline underline-offset-4'
+                  to='/terms'
+                >
+                  {t`Terms of Use`}
+                </Link>{' '}
+                {t`and`}{' '}
+                <Link
+                  className='text-foreground font-medium underline underline-offset-4'
+                  to='/privacy'
+                >
+                  {t`Privacy Policy`}
+                </Link>
+                .
+              </p>
             </div>
           </form>
         </form.AppForm>

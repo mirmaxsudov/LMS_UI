@@ -1,9 +1,10 @@
 import { BellIcon } from 'lucide-react';
 import React from 'react';
 
+import { fileUrlParser } from '@/lib';
 import { useAuth } from '@/modules/auth';
-import { cn } from '@/shared/lib/utils.ts';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar.tsx';
+import { cn } from '@/shared/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar';
 import { Button } from '@/shared/ui/button';
 import { ThemeSwitch } from '@/shared/ui/theme-switch';
 
@@ -43,7 +44,10 @@ export const PageHeader = ({ ref, className, children, ...props }: AppHeaderProp
         </Button>
         <div className='bg-muted flex items-center gap-3 rounded-full px-2 py-1'>
           <Avatar>
-            <AvatarImage src={user?.profileImageUrl as string} role='img' />
+            <AvatarImage
+              src={user?.profileImageUrl ? fileUrlParser(user.profileImageUrl) : ''}
+              role='img'
+            />
             <AvatarFallback>
               {user?.firstName?.charAt(0)}
               {user?.lastName?.charAt(0)}

@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './pages/__root'
 import { Route as AuthRouteRouteImport } from './pages/_auth/route'
-import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
+import { Route as IndexRouteImport } from './pages/index'
+import { Route as TermsIndexRouteImport } from './pages/terms/index'
+import { Route as PrivacyIndexRouteImport } from './pages/privacy/index'
 import { Route as AuthenticatedTeacherRouteRouteImport } from './pages/_authenticated/teacher/route'
 import { Route as AuthenticatedStudentRouteRouteImport } from './pages/_authenticated/student/route'
 import { Route as AuthenticatedParentRouteRouteImport } from './pages/_authenticated/parent/route'
@@ -18,6 +20,7 @@ import { Route as AuthenticatedAdminRouteRouteImport } from './pages/_authentica
 import { Route as AuthenticatedTeacherIndexRouteImport } from './pages/_authenticated/teacher/index'
 import { Route as AuthenticatedStudentIndexRouteImport } from './pages/_authenticated/student/index'
 import { Route as AuthenticatedParentIndexRouteImport } from './pages/_authenticated/parent/index'
+import { Route as AuthenticatedAppIndexRouteImport } from './pages/_authenticated/app/index'
 import { Route as AuthLoginIndexRouteImport } from './pages/_auth/login/index'
 import { Route as AuthenticatedTeacherStudentsIndexRouteImport } from './pages/_authenticated/teacher/students/index'
 import { Route as AuthenticatedTeacherSettingsIndexRouteImport } from './pages/_authenticated/teacher/settings/index'
@@ -97,9 +100,19 @@ const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/_auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
-  id: '/_authenticated/',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsIndexRoute = TermsIndexRouteImport.update({
+  id: '/terms/',
+  path: '/terms/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyIndexRoute = PrivacyIndexRouteImport.update({
+  id: '/privacy/',
+  path: '/privacy/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedTeacherRouteRoute =
@@ -143,6 +156,11 @@ const AuthenticatedParentIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedParentRouteRoute,
   } as any)
+const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
+  id: '/_authenticated/app/',
+  path: '/app/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthLoginIndexRoute = AuthLoginIndexRouteImport.update({
   id: '/login/',
   path: '/login/',
@@ -588,12 +606,15 @@ const AuthenticatedAdminUserAllIndexRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/parent': typeof AuthenticatedParentRouteRouteWithChildren
   '/student': typeof AuthenticatedStudentRouteRouteWithChildren
   '/teacher': typeof AuthenticatedTeacherRouteRouteWithChildren
-  '/': typeof AuthenticatedIndexRoute
+  '/privacy': typeof PrivacyIndexRoute
+  '/terms': typeof TermsIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/app': typeof AuthenticatedAppIndexRoute
   '/parent/': typeof AuthenticatedParentIndexRoute
   '/student/': typeof AuthenticatedStudentIndexRoute
   '/teacher/': typeof AuthenticatedTeacherIndexRoute
@@ -672,9 +693,12 @@ export interface FileRoutesByFullPath {
   '/admin/user/teachers': typeof AuthenticatedAdminUserTeachersIndexRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
-  '/': typeof AuthenticatedIndexRoute
+  '/privacy': typeof PrivacyIndexRoute
+  '/terms': typeof TermsIndexRoute
   '/login': typeof AuthLoginIndexRoute
+  '/app': typeof AuthenticatedAppIndexRoute
   '/parent': typeof AuthenticatedParentIndexRoute
   '/student': typeof AuthenticatedStudentIndexRoute
   '/teacher': typeof AuthenticatedTeacherIndexRoute
@@ -754,13 +778,16 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/_auth': typeof AuthRouteRouteWithChildren
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/_authenticated/parent': typeof AuthenticatedParentRouteRouteWithChildren
   '/_authenticated/student': typeof AuthenticatedStudentRouteRouteWithChildren
   '/_authenticated/teacher': typeof AuthenticatedTeacherRouteRouteWithChildren
-  '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/privacy/': typeof PrivacyIndexRoute
+  '/terms/': typeof TermsIndexRoute
   '/_auth/login/': typeof AuthLoginIndexRoute
+  '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
   '/_authenticated/parent/': typeof AuthenticatedParentIndexRoute
   '/_authenticated/student/': typeof AuthenticatedStudentIndexRoute
   '/_authenticated/teacher/': typeof AuthenticatedTeacherIndexRoute
@@ -841,12 +868,15 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/admin'
     | '/parent'
     | '/student'
     | '/teacher'
-    | '/'
+    | '/privacy'
+    | '/terms'
     | '/login'
+    | '/app'
     | '/parent/'
     | '/student/'
     | '/teacher/'
@@ -925,9 +955,12 @@ export interface FileRouteTypes {
     | '/admin/user/teachers'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/admin'
     | '/'
+    | '/admin'
+    | '/privacy'
+    | '/terms'
     | '/login'
+    | '/app'
     | '/parent'
     | '/student'
     | '/teacher'
@@ -1006,13 +1039,16 @@ export interface FileRouteTypes {
     | '/admin/user/teachers'
   id:
     | '__root__'
+    | '/'
     | '/_auth'
     | '/_authenticated/admin'
     | '/_authenticated/parent'
     | '/_authenticated/student'
     | '/_authenticated/teacher'
-    | '/_authenticated/'
+    | '/privacy/'
+    | '/terms/'
     | '/_auth/login/'
+    | '/_authenticated/app/'
     | '/_authenticated/parent/'
     | '/_authenticated/student/'
     | '/_authenticated/teacher/'
@@ -1092,12 +1128,15 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
   AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren
   AuthenticatedParentRouteRoute: typeof AuthenticatedParentRouteRouteWithChildren
   AuthenticatedStudentRouteRoute: typeof AuthenticatedStudentRouteRouteWithChildren
   AuthenticatedTeacherRouteRoute: typeof AuthenticatedTeacherRouteRouteWithChildren
-  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  PrivacyIndexRoute: typeof PrivacyIndexRoute
+  TermsIndexRoute: typeof TermsIndexRoute
+  AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1109,11 +1148,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/': {
-      id: '/_authenticated/'
+    '/': {
+      id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms/': {
+      id: '/terms/'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy/': {
+      id: '/privacy/'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/teacher': {
@@ -1164,6 +1217,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/parent/'
       preLoaderRoute: typeof AuthenticatedParentIndexRouteImport
       parentRoute: typeof AuthenticatedParentRouteRoute
+    }
+    '/_authenticated/app/': {
+      id: '/_authenticated/app/'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AuthenticatedAppIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_auth/login/': {
       id: '/_auth/login/'
@@ -1961,12 +2021,15 @@ const AuthenticatedTeacherRouteRouteWithChildren =
   )
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AuthRouteRoute: AuthRouteRouteWithChildren,
   AuthenticatedAdminRouteRoute: AuthenticatedAdminRouteRouteWithChildren,
   AuthenticatedParentRouteRoute: AuthenticatedParentRouteRouteWithChildren,
   AuthenticatedStudentRouteRoute: AuthenticatedStudentRouteRouteWithChildren,
   AuthenticatedTeacherRouteRoute: AuthenticatedTeacherRouteRouteWithChildren,
-  AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  PrivacyIndexRoute: PrivacyIndexRoute,
+  TermsIndexRoute: TermsIndexRoute,
+  AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

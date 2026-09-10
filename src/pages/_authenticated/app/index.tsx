@@ -4,7 +4,7 @@ import { createFileRoute, redirect } from '@tanstack/react-router';
 
 import { AUTH_QUERY_KEYS, getDefaultRouteByUserRole } from '@/modules/auth';
 
-export const Route = createFileRoute('/_authenticated/')({
+export const Route = createFileRoute('/_authenticated/app/')({
   loader: async ({ context: { queryClient } }) => {
     const key = AUTH_QUERY_KEYS.me;
     const res = queryClient.getQueryData<AxiosResponse<User>>([key]);
