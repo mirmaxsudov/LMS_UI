@@ -1,6 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
 import { CalendarDaysIcon, MailIcon, PhoneIcon, ShieldCheckIcon } from 'lucide-react';
 
+import { fileUrlParser } from '@/lib';
 import { formatDate, formatPhoneNumber } from '@/shared/lib/format';
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
@@ -51,12 +52,18 @@ export const ProfileSummary = ({ user }: ProfileSummaryProps) => {
     <Card className='overflow-hidden rounded-lg'>
       <div className='bg-muted h-28 overflow-hidden'>
         {user.profileBackgroundUrl ? (
-          <img alt='' className='size-full object-cover' src={user.profileBackgroundUrl} />
+          <img
+            alt=''
+            className='size-full object-cover'
+            src={fileUrlParser(user.profileBackgroundUrl)}
+          />
         ) : null}
       </div>
       <CardHeader className='-mt-12 gap-3'>
         <Avatar className='border-background bg-background size-24 border-4 shadow-sm'>
-          {user.profileImageUrl ? <AvatarImage alt={fullName} src={user.profileImageUrl} /> : null}
+          {user.profileImageUrl ? (
+            <AvatarImage alt={fullName} src={fileUrlParser(user.profileImageUrl)} />
+          ) : null}
           <AvatarFallback className='text-xl font-semibold'>
             {getInitials(user) || 'U'}
           </AvatarFallback>

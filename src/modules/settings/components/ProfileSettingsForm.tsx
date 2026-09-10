@@ -1,6 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
 import { SaveIcon } from 'lucide-react';
 
+import { fileUrlParser } from '@/lib';
 import { useUpdateProfileSettings } from '@/modules/settings/hooks/useUpdateProfileSettings';
 import { Button } from '@/shared/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
@@ -140,7 +141,9 @@ export const ProfileSettingsForm = ({ user }: ProfileSettingsFormProps) => {
               <form.AppField name='profileImage'>
                 {(field) => (
                   <ProfileImageField
-                    currentImageUrl={user.profileImageUrl}
+                    currentImageUrl={
+                      user.profileImageUrl ? fileUrlParser(user.profileImageUrl) : null
+                    }
                     disabled={updateProfileMutation.isPending}
                     file={field.state.value}
                     label={t`Profile image`}
@@ -151,7 +154,9 @@ export const ProfileSettingsForm = ({ user }: ProfileSettingsFormProps) => {
               <form.AppField name='profileBackgroundImage'>
                 {(field) => (
                   <ProfileImageField
-                    currentImageUrl={user.profileBackgroundUrl}
+                    currentImageUrl={
+                      user.profileBackgroundUrl ? fileUrlParser(user.profileBackgroundUrl) : null
+                    }
                     disabled={updateProfileMutation.isPending}
                     file={field.state.value}
                     label={t`Profile background`}

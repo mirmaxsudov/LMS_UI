@@ -37,7 +37,7 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
               <span className='bg-primary text-primary-foreground inline-flex size-11 items-center justify-center rounded-2xl'>
                 <GraduationCapIcon className='size-5' />
               </span>
-              <span className='text-xl font-semibold tracking-tight'>LMS</span>
+              <span className='text-xl font-semibold tracking-tight'>AGRO LMS</span>
             </Link>
           </SidebarMenuButton>
           {open && (

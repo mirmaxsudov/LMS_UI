@@ -1,8 +1,9 @@
 import { useLingui } from '@lingui/react/macro';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
-import { BookOpenCheckIcon, GalleryVerticalEndIcon, GraduationCapIcon } from 'lucide-react';
+import { BookOpenCheckIcon, GraduationCapIcon } from 'lucide-react';
 
+import Logo from '@/../public/images/logo.png';
 import { getLoginStatisticQueryOptions } from '@/modules/statistics';
 import { ThemeSwitch } from '@/shared/ui/theme-switch';
 
@@ -19,7 +20,7 @@ const AuthenticatedLayout = () => {
       <div className='relative hidden overflow-hidden bg-slate-950 lg:block'>
         <img
           alt='Learning management dashboard displayed in a modern classroom'
-          className='absolute inset-0 h-full w-full object-cover'
+          className='absolute inset-0 h-full w-full object-cover object-right'
           src={LoginHereImage}
         />
         <div className='absolute inset-0 bg-linear-to-br from-slate-950/65 via-slate-950/25 to-teal-950/45' />
@@ -54,14 +55,14 @@ const AuthenticatedLayout = () => {
       <div className='flex min-h-svh flex-col gap-8 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.12),transparent_32rem)] p-5 sm:p-8 md:p-10'>
         <div className='flex items-center justify-between gap-3'>
           <Link className='flex items-center gap-3 font-semibold tracking-tight' to='/'>
-            <div className='bg-primary text-primary-foreground flex size-9 items-center justify-center rounded-md shadow-sm'>
-              <GalleryVerticalEndIcon className='size-4' />
+            <div className='flex size-9 items-center justify-center rounded-md shadow-sm'>
+              <img alt='AGRO LMS Logo' className='size-full' src={Logo} />
             </div>
-            <span>LMS</span>
+            <span>AGRO LMS</span>
           </Link>
           <ThemeSwitch />
         </div>
-        <div className='mx-auto flex w-full max-w-[27rem] flex-1 items-center py-6'>
+        <div className='mx-auto flex w-full max-w-108 flex-1 items-center py-6'>
           <Outlet />
         </div>
         <div className='text-muted-foreground flex items-center justify-center gap-2 text-sm'>

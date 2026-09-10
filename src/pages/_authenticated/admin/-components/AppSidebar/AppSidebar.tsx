@@ -1,8 +1,9 @@
 import { useLingui } from '@lingui/react/macro';
 import { Link, useLocation } from '@tanstack/react-router';
-import { GraduationCapIcon, LogOutIcon, PanelLeftOpenIcon, SettingsIcon } from 'lucide-react';
+import { LogOutIcon, PanelLeftOpenIcon, SettingsIcon } from 'lucide-react';
 import * as React from 'react';
 
+import Logo from '@/../public/images/logo.png';
 import { AlertLogoutDialog } from '@/modules/auth';
 import {
   Sidebar,
@@ -34,10 +35,10 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
             className='w-fit justify-start rounded-xl px-2.5 py-2 group-data-[collapsible=icon]:p-1.5!'
           >
             <Link to='/admin/settings'>
-              <span className='bg-primary text-primary-foreground inline-flex size-11 items-center justify-center rounded-2xl'>
-                <GraduationCapIcon className='size-5' />
+              <span className='inline-flex size-11 items-center justify-center rounded-2xl'>
+                <img alt='AGRO LMS' className='size-full' src={Logo} />
               </span>
-              <span className='text-xl font-semibold tracking-tight'>LMS</span>
+              <span className='text-xl font-semibold tracking-tight'>AGRO LMS</span>
             </Link>
           </SidebarMenuButton>
           {open && (
