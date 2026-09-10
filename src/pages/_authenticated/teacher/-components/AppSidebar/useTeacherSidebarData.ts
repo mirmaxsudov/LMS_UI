@@ -30,6 +30,7 @@ export const getTeacherSidebarData = () => {
         title: msg`O'qituvchi`,
         items: [
           { title: msg`Biriktirilgan kurslar`, url: '/teacher/courses', icon: BookOpenTextIcon },
+          { title: msg`Davomat`, url: '/teacher/attendance', icon: CalendarDaysIcon },
           { title: msg`Taqvim`, url: '/teacher/calendar', icon: CalendarDaysIcon }
         ]
       },
